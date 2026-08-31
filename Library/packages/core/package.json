@@ -1,0 +1,128 @@
+{
+  "name": "islamic-icons",
+  "version": "0.1.3",
+  "type": "module",
+  "license": "MIT",
+  "author": "Islamic Icons Community | Vyagra Nexus™",
+  "description": "Framework-agnostic Islamic SVG icon library for the modern web.",
+  "keywords": [
+    "islamic",
+    "icons",
+    "svg",
+    "islam",
+    "mosque",
+    "quran",
+    "ramadan",
+    "allahuakbar"
+  ],
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "types": "./index.d.ts"
+    },
+    "./charity": {
+      "import": "./charity.js",
+      "types": "./charity.d.ts"
+    },
+    "./flags": {
+      "import": "./flags.js",
+      "types": "./flags.d.ts"
+    },
+    "./food": {
+      "import": "./food.js",
+      "types": "./food.d.ts"
+    },
+    "./god": {
+      "import": "./god.js",
+      "types": "./god.d.ts"
+    },
+    "./lifestyle": {
+      "import": "./lifestyle.js",
+      "types": "./lifestyle.d.ts"
+    },
+    "./mosque": {
+      "import": "./mosque.js",
+      "types": "./mosque.d.ts"
+    },
+    "./patterns": {
+      "import": "./patterns.js",
+      "types": "./patterns.d.ts"
+    },
+    "./people": {
+      "import": "./people.js",
+      "types": "./people.d.ts"
+    },
+    "./prayer": {
+      "import": "./prayer.js",
+      "types": "./prayer.d.ts"
+    },
+    "./prophet": {
+      "import": "./prophet.js",
+      "types": "./prophet.d.ts"
+    },
+    "./quran": {
+      "import": "./quran.js",
+      "types": "./quran.d.ts"
+    },
+    "./ramadan": {
+      "import": "./ramadan.js",
+      "types": "./ramadan.d.ts"
+    },
+    "./react": {
+      "import": "./react/index.js",
+      "types": "./react/index.d.ts"
+    },
+    "./vue": {
+      "import": "./vue/index.js",
+      "types": "./vue/index.d.ts"
+    },
+    "./svelte": {
+      "import": "./svelte/index.js",
+      "types": "./svelte/index.d.ts"
+    },
+    "./astro": {
+      "import": "./astro/index.js",
+      "types": "./astro/index.d.ts"
+    },
+    "./angular": {
+      "import": "./angular/index.js",
+      "types": "./angular/index.d.ts"
+    },
+    "./solid": {
+      "import": "./solid/index.jsx",
+      "types": "./solid/index.d.ts"
+    },
+    "./preact": {
+      "import": "./preact/index.js",
+      "types": "./preact/index.d.ts"
+    },
+    "./react-native": {
+      "import": "./react-native/index.js",
+      "types": "./react-native/index.d.ts"
+    },
+    "./static": {
+      "import": "./static/index.js",
+      "types": "./static/index.d.ts"
+    }
+  },
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "icons",
+    "react",
+    "vue",
+    "svelte",
+    "astro",
+    "angular",
+    "solid",
+    "preact",
+    "react-native",
+    "static",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": false
+}

@@ -1,0 +1,10 @@
+---
+interface Props {
+  size?: number
+  alt?: string
+  class?: string
+}
+const { size = 24, alt = "Mosque Night Original", class: className = "" }: Props = Astro.props
+---
+
+<img src="../../icons/mosque/mosque-night/sources/community-upload/original.svg" {alt} width={size} height={size} class={className} />

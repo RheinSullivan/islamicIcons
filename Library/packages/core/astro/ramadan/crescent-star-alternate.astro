@@ -1,0 +1,10 @@
+---
+interface Props {
+  size?: number
+  alt?: string
+  class?: string
+}
+const { size = 24, alt = "Crescent Star Alternate", class: className = "" }: Props = Astro.props
+---
+
+<img src="../../icons/ramadan/crescent-star/alternate.svg" {alt} width={size} height={size} class={className} />

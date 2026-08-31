@@ -1,0 +1,10 @@
+---
+interface Props {
+  size?: number
+  alt?: string
+  class?: string
+}
+const { size = 24, alt = "Dua Sitting", class: className = "" }: Props = Astro.props
+---
+
+<img src="../../icons/prayer/dua-sitting/fill.svg" {alt} width={size} height={size} class={className} />

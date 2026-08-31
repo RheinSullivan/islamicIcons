@@ -1,0 +1,10 @@
+---
+interface Props {
+  size?: number
+  alt?: string
+  class?: string
+}
+const { size = 24, alt = "Geometric Flower Color", class: className = "" }: Props = Astro.props
+---
+
+<img src="../../icons/patterns/geometric-flower/color.svg" {alt} width={size} height={size} class={className} />

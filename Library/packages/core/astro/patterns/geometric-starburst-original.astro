@@ -1,0 +1,10 @@
+---
+interface Props {
+  size?: number
+  alt?: string
+  class?: string
+}
+const { size = 24, alt = "Geometric Starburst Original", class: className = "" }: Props = Astro.props
+---
+
+<img src="../../icons/patterns/geometric-starburst/sources/community-upload/original.svg" {alt} width={size} height={size} class={className} />

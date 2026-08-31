@@ -1,0 +1,10 @@
+---
+interface Props {
+  size?: number
+  alt?: string
+  class?: string
+}
+const { size = 24, alt = "Arabic Calligraphy Circle Original", class: className = "" }: Props = Astro.props
+---
+
+<img src="../../icons/god/arabic-calligraphy-circle/sources/community-upload/original.svg" {alt} width={size} height={size} class={className} />

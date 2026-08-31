@@ -1,0 +1,10 @@
+---
+interface Props {
+  size?: number
+  alt?: string
+  class?: string
+}
+const { size = 24, alt = "Ketupat Rounded Outline", class: className = "" }: Props = Astro.props
+---
+
+<img src="../../icons/ramadan/ketupat-rounded/outline.svg" {alt} width={size} height={size} class={className} />

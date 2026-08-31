@@ -1,0 +1,10 @@
+---
+interface Props {
+  size?: number
+  alt?: string
+  class?: string
+}
+const { size = 24, alt = "Palestine Flag Original", class: className = "" }: Props = Astro.props
+---
+
+<img src="../../icons/flags/palestine-flag/original.svg" {alt} width={size} height={size} class={className} />

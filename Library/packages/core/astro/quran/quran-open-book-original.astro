@@ -1,0 +1,10 @@
+---
+interface Props {
+  size?: number
+  alt?: string
+  class?: string
+}
+const { size = 24, alt = "Quran Open Book Original", class: className = "" }: Props = Astro.props
+---
+
+<img src="../../icons/quran/quran-open-book/sources/svg-repo/original.svg" {alt} width={size} height={size} class={className} />
