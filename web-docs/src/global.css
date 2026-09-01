@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-islamic-bg: #07110d;
+  --color-islamic-panel: #0a1711;
+  --color-islamic-panel-2: #0d1d16;
+  --color-islamic-line: rgba(137, 183, 159, 0.14);
+  --color-islamic-line-strong: rgba(137, 183, 159, 0.24);
+  --color-islamic-text: #f0f7f3;
+  --color-islamic-muted: #8ea99a;
+  --color-islamic-dim: #5e7669;
+  --color-islamic-green: #73e0ae;
+  --color-islamic-gold: #d7b66b;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; background: #07110d; }
+  body { margin: 0; min-width: 320px; background: #07110d; color: #f0f7f3; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+  button, a, input { font: inherit; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  ::selection { background: rgba(115,224,174,.24); color: #f0f7f3; }
+  :focus-visible { outline: 2px solid #73e0ae; outline-offset: 3px; }
+}
