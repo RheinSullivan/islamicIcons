@@ -1,1 +1,1 @@
-export * from "islamic-icons/astro"
+export const islamicIcon = (src) => src

@@ -17,7 +17,7 @@ Islamic Icons is a framework-agnostic Islamic SVG/WebP library for modern web ap
 - `#/sources` - upstream repository, SVG Repo candidates and Google discovery lane
 - `#/contributing` - contributor workflow
 - `#/donations` - public humanitarian donation and transparency page
-- `docs/en/donations.md` - donation allocation policy and transparency report index
+- `library/docs/en/donations.md` - donation allocation policy and transparency report index
 
 Clicking any icon opens a right-hand detail panel. The panel shows the source family, available variants, local asset path and a copyable import statement.
 
@@ -35,6 +35,6 @@ There are three explicit source lanes:
 
 ## Markdown references
 
-- `docs/en/installation.md` - Bun, npm, pnpm and Yarn installation and build commands
-- `docs/en/usage.md` - canonical framework and native HTML usage syntax
-- `docs/en/frameworks.md` - framework adapter usage
+- `library/docs/en/installation.md` - Bun, npm, pnpm and Yarn installation and build commands
+- `library/docs/en/usage.md` - canonical framework and native HTML usage syntax
+- `library/docs/en/frameworks.md` - framework adapter usage

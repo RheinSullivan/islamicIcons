@@ -1,1 +1,1 @@
-export * from "islamic-icons/vue"
+export const islamicIcon = (src) => src

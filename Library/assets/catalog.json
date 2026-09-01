@@ -47,16 +47,6 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
     ]
   },
@@ -133,16 +123,6 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
     ]
   },
@@ -160,17 +140,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "sheep"
     ]
   },
   {
@@ -221,17 +194,14 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "allah",
+      "allah99",
+      "allahText",
+      "islam",
+      "tawhid"
     ]
   },
   {
@@ -342,17 +312,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "hadji"
     ]
   },
   {
@@ -369,34 +332,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
-    ]
-  },
-  {
-    "name": "minaret",
-    "category": "mosque",
-    "title": "Minaret",
-    "sources": [
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
-      }
+    ],
+    "aliases": [
+      "locationMuslim"
     ]
   },
   {
@@ -414,17 +353,10 @@
           "original",
           "alternate"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "mosque-silhouette"
     ]
   },
   {
@@ -615,16 +547,6 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
     ]
   },
@@ -642,16 +564,6 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
     ]
   },
@@ -697,17 +609,11 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "muslim",
+      "muslim2"
     ]
   },
   {
@@ -738,17 +644,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "muslimah2"
     ]
   },
   {
@@ -875,17 +774,11 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "prayer",
+      "prayingPerson"
     ]
   },
   {
@@ -902,17 +795,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "sajadah"
     ]
   },
   {
@@ -946,17 +832,11 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "qibla",
+      "qibla2"
     ]
   },
   {
@@ -973,17 +853,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "kowtow"
     ]
   },
   {
@@ -1000,16 +873,6 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
     ]
   },
@@ -1029,23 +892,6 @@
     ]
   },
   {
-    "name": "tasbihHand",
-    "category": "prayer",
-    "title": "Tasbih Hand",
-    "sources": [
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
-      }
-    ]
-  },
-  {
     "name": "tasbih-large",
     "category": "prayer",
     "title": "Tasbih Large",
@@ -1059,17 +905,11 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "tasbih2",
+      "tasbih3"
     ]
   },
   {
@@ -1086,17 +926,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "tasbih"
     ]
   },
   {
@@ -1113,16 +946,6 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
     ]
   },
@@ -1140,17 +963,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "mohammad"
     ]
   },
   {
@@ -1167,16 +983,6 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
     ]
   },
@@ -1218,7 +1024,7 @@
     "sources": [
       {
         "id": "svg-repo",
-        "label": "Svg Repo",
+        "label": "SVG Repo",
         "variants": [
           "original"
         ]
@@ -1239,17 +1045,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "quran"
     ]
   },
   {
@@ -1266,17 +1065,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "quran2"
     ]
   },
   {
@@ -1308,17 +1100,10 @@
           "original",
           "alternate"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "crescentMoon"
     ]
   },
   {
@@ -1347,17 +1132,10 @@
           "original",
           "alternate"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
+    ],
+    "aliases": [
+      "drum2"
     ]
   },
   {
@@ -1374,16 +1152,6 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
     ]
   },
@@ -1452,34 +1220,10 @@
           "color",
           "original"
         ]
-      },
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
       }
-    ]
-  },
-  {
-    "name": "ramadan",
-    "category": "ramadan",
-    "title": "Ramadan",
-    "sources": [
-      {
-        "id": "erbasaran",
-        "label": "Ramazan Erbasaran",
-        "variants": [
-          "fill",
-          "outline",
-          "color"
-        ],
-        "solidVariants": []
-      }
+    ],
+    "aliases": [
+      "ornate-crescent"
     ]
   }
 ]

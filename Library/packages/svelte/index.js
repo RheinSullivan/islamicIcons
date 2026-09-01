@@ -1,1 +1,1 @@
-export * from "islamic-icons/svelte"
+export const islamicIcon = (src) => src

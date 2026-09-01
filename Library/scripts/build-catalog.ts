@@ -71,5 +71,5 @@ for (const cat of await readdir(iconRoot, { withFileTypes: true })) {
 
 catalog.sort((a, b) => a.category.localeCompare(b.category) || a.title.localeCompare(b.title))
 await writeFile(join(root, 'assets', 'catalog.json'), JSON.stringify(catalog, null, 2) + '\n')
-await writeFile(join(root, '..', 'Web Docs', 'src', 'docs-data.js'), `window.ISLAMIC_ICONS_DATA = ${JSON.stringify(catalog)};\nwindow.ISLAMIC_ICONS_SOURCES = ${JSON.stringify(external)};\n`)
+await writeFile(join(root, '..', 'web-docs', 'src', 'docs-data.js'), `window.ISLAMIC_ICONS_DATA = ${JSON.stringify(catalog)};\nwindow.ISLAMIC_ICONS_SOURCES = ${JSON.stringify(external)};\n`)
 console.log(`Cataloged ${catalog.length} logical icons with source-aware variants and duplicate protection.`)

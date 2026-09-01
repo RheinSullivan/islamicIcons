@@ -1,24 +1,15 @@
 {
   "name": "@islamic-icons/svelte",
-  "version": "0.1.3",
+  "version": "0.1.0",
   "type": "module",
-  "license": "MIT",
-  "author": "Islamic Icons Community | Vyagra Nexus™",
-  "description": "Svelte components for Islamic Icons",
   "peerDependencies": {
-    "islamic-icons": ">=0.1.0",
-    "svelte": "^3 || ^4 || ^5"
-  },
-  "exports": {
-    ".": {
-      "import": "./index.js",
-      "types": "./index.d.ts"
-    }
+    "islamic-icons": "^0.1.0"
   },
   "files": [
     "*.js",
-    "*.d.ts",
+    "*.ts",
     "*.svelte",
+    "*.vue",
     "README.md"
   ]
 }

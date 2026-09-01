@@ -1,24 +1,15 @@
 {
   "name": "@islamic-icons/astro",
-  "version": "0.1.3",
+  "version": "0.1.0",
   "type": "module",
-  "license": "MIT",
-  "author": "Islamic Icons Community | Vyagra Nexus™",
-  "description": "Astro components for Islamic Icons",
   "peerDependencies": {
-    "islamic-icons": ">=0.1.0",
-    "astro": "^4"
-  },
-  "exports": {
-    ".": {
-      "import": "./index.js",
-      "types": "./index.d.ts"
-    }
+    "islamic-icons": "^0.1.0"
   },
   "files": [
     "*.js",
-    "*.d.ts",
-    "*.astro",
+    "*.ts",
+    "*.svelte",
+    "*.vue",
     "README.md"
   ]
 }

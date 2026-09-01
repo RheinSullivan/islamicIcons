@@ -1,1 +1,1 @@
-export * from "islamic-icons/angular"
+export const islamicIcon = (src: string) => src;

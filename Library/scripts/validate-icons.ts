@@ -32,7 +32,7 @@ for (const cat of await readdir(iconRoot, { withFileTypes: true })) {
     await walk(dir)
     fileList.sort()
     const digest = createHash('sha256')
-    for (const p of fileList) digest.update(new Uint8Array(await Bun.file(p).arrayBuffer()))
+    for (const p of fileList) digest.update(await Bun.file(p).arrayBuffer())
     const fingerprint = digest.digest('hex')
     const key = `${cat.name}/${icon.name}`
     if (fingerprints.has(fingerprint)) throw new Error(`Duplicate logical icon asset tree: ${key} duplicates ${fingerprints.get(fingerprint)}`)
