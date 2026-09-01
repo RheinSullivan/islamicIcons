@@ -64,7 +64,7 @@ export function esc(value: string): string {
 		'>': '&gt;',
 		'"': '&quot;',
 		"'": '&#39;'
-		}[c] || c));
+	}[c] || c));
 }
 
 export function camel(value: string): string {
@@ -75,8 +75,8 @@ export function icon(name: string) {
 	return icons.find((i) => i.name === name);
 }
 
-export function variantName(v: string): string {
-	return v === 'color' ? 'Colors' : pretty(v);
+export function variantName(variant: string): string {
+	return variant === 'color' ? 'Colors' : pretty(variant);
 }
 
 export function sourceLabel(id: string): string {
@@ -119,26 +119,26 @@ export function pathFor(item: CatalogItem, variant: string = 'fill', sourceId: s
 	const source =
 		sourceId === 'auto'
 			? sourceForItem(item)
-			: item.sources.find((s) => s.id === sourceId) || sourceForItem(item);
+			: item.sources.find((source) => source.id === sourceId) || sourceForItem(item);
 	if (!source) return '';
-	const v = chooseVariant(source, variant);
+	const selectedVariant = chooseVariant(source, variant);
 	if (source.id === 'community' || source.id === 'community-upload') {
-		return `${ASSET_ROOT}/icons/${item.category}/${item.name}/${v}.svg`;
+		return `${ASSET_ROOT}/icons/${item.category}/${item.name}/${selectedVariant}.svg`;
 	}
-	return `${ASSET_ROOT}/icons/${item.category}/${item.name}/sources/${source.id}/${v}.svg`;
+	return `${ASSET_ROOT}/icons/${item.category}/${item.name}/sources/${source.id}/${selectedVariant}.svg`;
 }
 
 export function iconPath(item: CatalogItem, variant: string = 'fill'): string {
 	const source = sourceForItem(item);
 	if (!source) return '';
-	const v = chooseVariant(source, variant);
+	const selectedVariant = chooseVariant(source, variant);
 	const base = `${ASSET_ROOT}/icons/${item.category}/${item.name}`;
-	if (source.id === 'community' || source.id === 'community-upload') return `${base}/${v}.svg`;
-	return `${base}/sources/${source.id}/${v}.svg`;
+	if (source.id === 'community' || source.id === 'community-upload') return `${base}/${selectedVariant}.svg`;
+	return `${base}/sources/${source.id}/${selectedVariant}.svg`;
 }
 
-export function categoryDescription(c: string): string {
-	const d: Record<string, string> = {
+export function categoryDescription(category: string): string {
+	const descriptions: Record<string, string> = {
 		charity: 'Zakat, sadaqah and giving.',
 		flags: 'National and cause-related imagery.',
 		food: 'Halal food, animals and dietary symbols.',
@@ -152,7 +152,7 @@ export function categoryDescription(c: string): string {
 		quran: 'Quran, Kaaba and sacred reading symbols.',
 		ramadan: 'Ramadan, crescent, lantern, iftar and Eid-adjacent imagery.'
 	};
-	return d[c] || 'Islamic visual symbols and community contributions.';
+	return descriptions[category] || 'Islamic visual symbols and community contributions.';
 }
 
 export const categoryMeta: Record<string, string> = {

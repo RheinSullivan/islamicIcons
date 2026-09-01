@@ -35,11 +35,6 @@
     "canonical": "hajj-caravan"
   },
   {
-    "name": "locationMuslim",
-    "category": "mosque",
-    "canonical": "locationMosque"
-  },
-  {
     "name": "mosque-silhouette",
     "category": "mosque",
     "canonical": "mosque"

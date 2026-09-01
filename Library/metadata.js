@@ -9,7 +9,7 @@ export const metadata = {
   "css": "Tailwind CSS v4 (used in docs only, not required for asset consumption)",
   "assetModel": "SVG-first, WebP when original artwork is raster",
   "documentation": "docs/README.md",
-  "iconCount": 76,
+  "iconCount": 71,
   "sourceArchive": "Islamic Icons New.zip",
   "importedIconPolicy": "Numeric source filenames are normalized into semantic names and grouped by category; exact duplicates already present in the library are not re-imported.",
   "repository": "https://github.com/RheinSullivan/islamicIcons",

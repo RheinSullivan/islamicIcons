@@ -19,6 +19,8 @@
   html { scroll-behavior: smooth; background: #07110d; }
   body { margin: 0; min-width: 320px; background: #07110d; color: #f0f7f3; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
   button, a, input { font: inherit; }
+  /* Every clickable element gets pointer cursor */
+  button, a, [role="button"], [role="option"], [role="tab"], label[for], summary { cursor: pointer; }
   button, a { -webkit-tap-highlight-color: transparent; }
   ::selection { background: rgba(115,224,174,.24); color: #f0f7f3; }
   :focus-visible { outline: 2px solid #73e0ae; outline-offset: 3px; }

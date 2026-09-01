@@ -79,16 +79,16 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "node --experimental-strip-types scripts/build-catalog.mjs && node scripts/build-package.mjs",
-    "icons:catalog": "node --experimental-strip-types scripts/build-catalog.mjs",
-    "icons:package": "node scripts/build-package.mjs",
-    "icons:validate": "node --experimental-strip-types scripts/validate-icons.mjs",
-    "icons:import:google": "node --experimental-strip-types scripts/import-google.mjs",
+    "build": "bun run icons:catalog && bun run icons:package",
+    "icons:catalog": "bun scripts/build-catalog.ts",
+    "icons:package": "bun scripts/build-package.ts",
+    "icons:validate": "bun scripts/validate-icons.ts",
+    "icons:import:google": "bun scripts/import-google.ts",
     "typecheck": "node --check index.js && node --check metadata.js && node --check categories.js",
-    "test": "node --test tests/library.test.js",
+    "test": "node --test",
     "lint": "node --check index.js && node --check metadata.js && node --check categories.js && node scripts/validate-publish.mjs",
     "pack": "npm pack",
-    "prepublishOnly": "node --experimental-strip-types scripts/build-catalog.mjs && node scripts/build-package.mjs && node --experimental-strip-types scripts/validate-icons.mjs && node scripts/validate-publish.mjs"
+    "prepublishOnly": "bun run icons:catalog && bun run icons:package && bun run icons:validate && bun run build && node scripts/validate-publish.mjs"
   },
   "engines": {
     "node": ">=18.0.0"

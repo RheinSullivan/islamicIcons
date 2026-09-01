@@ -4,17 +4,6 @@ export type DocEntry = {
 	body: string;
 };
 
-export const sideLinks: Array<[string, string]> = [
-	['Overview', '/docs'],
-	['Installation', '/docs/installation'],
-	['Usage', '/docs/usage'],
-	['Variants', '/docs/variants'],
-	['Frameworks', '/docs/frameworks'],
-	['Sources & attribution', '/docs/sources'],
-	['Donations', '/docs/donations'],
-	['Contributing', '/contributing']
-];
-
 const SOURCE_LINKS_HTML = `<div class="source-links"><a href="https://www.svgrepo.com/svg/235387/mosque-islam" target="_blank" rel="noreferrer"><span>Mosque Islam</span><small>CC0 ↗</small></a><a href="https://www.svgrepo.com/svg/123343/islamic-lantern" target="_blank" rel="noreferrer"><span>Islamic Lantern</span><small>CC0 ↗</small></a><a href="https://www.svgrepo.com/svg/80653/qibla-compass" target="_blank" rel="noreferrer"><span>Qibla Compass</span><small>CC0 ↗</small></a><a href="https://www.svgrepo.com/svg/317543/quran-islam" target="_blank" rel="noreferrer"><span>Quran Islam</span><small>CC0 ↗</small></a><a href="https://www.svgrepo.com/svg/262970/quran-quran" target="_blank" rel="noreferrer"><span>Quran Quran</span><small>CC0 ↗</small></a></div>`;
 
 export const docs: Record<string, DocEntry> = {
@@ -26,16 +15,7 @@ export const docs: Record<string, DocEntry> = {
 	'/docs/installation': {
 		title: 'Installation',
 		lead: 'A practical reference for building with Islamic Icons while keeping the artwork local and the provenance visible.',
-		body: `<p>Install the library with the package manager used by your project. The package exposes semantic category entry points and keeps the artwork as local SVG/WebP assets.</p><h2>Install</h2><pre>bun add islamic-icons
-npm install islamic-icons
-pnpm add islamic-icons
-yarn add islamic-icons</pre><h2>Run the Web Docs locally</h2><pre>git clone &lt;repository&gt;
-cd islamic-icons
-bun install
-bun run docs</pre><p>For contributors, use Bun for the repository build pipeline. The published package can be installed with Bun, npm, pnpm or Yarn.</p><h2>Build the library</h2><pre>bun run icons:catalog
-bun run icons:package
-bun run icons:validate
-bun run build</pre>`
+		body: `<p>Install the library with the package manager used by your project. The package exposes semantic category entry points and keeps the artwork as local SVG/WebP assets.</p><h2>Install</h2><pre>bun add islamic-icons\nnpm install islamic-icons\npnpm add islamic-icons\nyarn add islamic-icons</pre><h2>Run the Web Docs locally</h2><pre>git clone &lt;repository&gt;\ncd islamic-icons\nbun install\nbun run docs</pre><p>For contributors, use Bun for the repository build pipeline. The published package can be installed with Bun, npm, pnpm or Yarn.</p><h2>Build the library</h2><pre>bun run icons:catalog\nbun run icons:package\nbun run icons:validate\nbun run build</pre>`
 	},
 	'/docs/usage': {
 		title: 'Usage',
@@ -64,36 +44,65 @@ bun run build</pre>`
 	}
 };
 
+// Indonesian translations
+export const docsId: Record<string, DocEntry> = {
+	'/docs': {
+		title: 'Ikhtisar',
+		lead: 'Semua yang Anda butuhkan untuk menjelajahi, menginstal, menggunakan, menelusuri sumber, dan berkontribusi pada Islamic Icons.',
+		body: `<p>Islamic Icons adalah koleksi karya seni Islam SVG dan WebP yang framework-agnostic, dirancang berdasarkan dua gagasan: <strong>ikonografi yang mudah dikenali</strong> dan <strong>sumber yang dapat dilacak</strong>. Library ini tidak terikat pada React. Aset adalah file biasa, sementara adaptor framework membuat impor lebih mudah di React, Vue, Svelte, Angular, Astro, dan tumpukan modern lainnya.</p><p>Koleksi ini secara sengaja tidak menjanjikan jumlah ikon yang tetap. Kontributor dapat menambahkan satu ikon, sepuluh ikon, atau menghapus ikon ketika lisensi berubah. Katalog dibuat dari aset dan metadata saat waktu build.</p><div class="callout"><b>Aturan utama</b><span>Google adalah alat penemuan, bukan lisensi. Sebuah ikon hanya masuk ke library yang dapat didistribusikan setelah sumber asli dan ketentuan redistribusinya dicatat.</span></div>`
+	},
+	'/docs/installation': {
+		title: 'Instalasi',
+		lead: 'Referensi praktis untuk membangun dengan Islamic Icons sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
+		body: `<p>Instal library dengan package manager yang digunakan proyek Anda. Package ini mengekspos entry point kategori semantik dan menyimpan karya seni sebagai aset SVG/WebP lokal.</p><h2>Install</h2><pre>bun add islamic-icons\nnpm install islamic-icons\npnpm add islamic-icons\nyarn add islamic-icons</pre><h2>Jalankan Web Docs secara lokal</h2><pre>git clone &lt;repository&gt;\ncd islamic-icons\nbun install\nbun run docs</pre><p>Untuk kontributor, gunakan Bun untuk pipeline build repository. Package yang dipublish dapat diinstal dengan Bun, npm, pnpm, atau Yarn.</p><h2>Build library</h2><pre>bun run icons:catalog\nbun run icons:package\nbun run icons:validate\nbun run build</pre>`
+	},
+	'/docs/usage': {
+		title: 'Penggunaan',
+		lead: 'Referensi praktis untuk membangun dengan Islamic Icons sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
+		body: `<p>Gunakan kategori semantik yang berisi ikon yang Anda butuhkan. Contoh framework dan library harus menggunakan bentuk komponen dengan prop <strong>className</strong>, <strong>size</strong>, dan <strong>style</strong>. Contoh Allah di bawah ini adalah sintaks komponen kanonik.</p><h2>Komponen framework / library</h2><pre>&lt;Allah className="" size="" style="" /&gt;</pre><p>Untuk proyek bergaya React, komponen yang sama dapat diimpor dari adaptor framework yang relevan dan dirender langsung di JSX.</p><h2>HTML Native</h2><pre>&lt;islamic-icons categories="Allah" class="" size="" style="" /&gt;</pre><p>HTML native juga dapat mereferensikan SVG lokal secara langsung ketika elemen kustom bukan bagian dari aplikasi.</p><pre>&lt;img src="/assets/icons/mosque/mosque/original.svg" alt="Masjid" /&gt;</pre><p>Semua aset sumber tetap lokal ke package; aplikasi tidak memerlukan permintaan runtime ke API ikon upstream.</p>`
+	},
+	'/docs/variants': {
+		title: 'Varian',
+		lead: 'Referensi praktis untuk membangun dengan Islamic Icons sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
+		body: `<p>Sebuah ikon logis dapat mengekspos varian <strong>fill</strong>, <strong>outline</strong>, dan <strong>color</strong>. Galeri sengaja merender satu kartu per ikon logis. Pergantian varian terjadi di dalam panel detail ikon.</p><div class="variant-demo"><div><span>Fill</span><b>Siluet padat</b></div><div><span>Outline</span><b>Tanda berorientasi garis</b></div><div><span>Colors</span><b>Karya multi-warna</b></div></div><p>Beberapa karya yang dikontribusikan secara sengaja hanya tersedia sebagai <strong>original</strong>. Library tidak membuat varian ketika melakukannya akan mendistorsi karya seni pembuat.</p>`
+	},
+	'/docs/frameworks': {
+		title: 'Framework',
+		lead: 'Referensi praktis untuk membangun dengan Islamic Icons sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
+		body: `<p>SVG adalah lapisan kompatibilitas. Adaptor framework adalah paket kenyamanan, bukan persyaratan untuk menggunakan koleksi ini.</p><h2>Penggunaan komponen kanonik</h2><pre>&lt;Allah className="" size="" style="" /&gt;</pre><p>Gunakan API berbentuk komponen yang sama dalam dokumentasi framework, kemudian adaptasi sintaks sekitarnya ke compiler framework. Untuk HTML biasa, gunakan bentuk elemen kustom native di bawah ini.</p><pre>&lt;islamic-icons categories="Allah" class="" size="" style="" /&gt;</pre><div class="framework-list"><article><b>React / Remix</b><code>islamic-icons/react</code></article><article><b>Vue / Nuxt</b><code>islamic-icons/vue</code></article><article><b>Svelte / SvelteKit</b><code>islamic-icons/svelte</code></article><article><b>Angular</b><code>islamic-icons/angular</code></article><article><b>Astro</b><code>islamic-icons/astro</code></article><article><b>Plain HTML</b><code>assets/icons/**</code></article></div><p>Aset sumber yang sama karena itu dapat digunakan dalam sistem desain, situs statis, SPA, atau aplikasi yang dirender di server.</p>`
+	},
+	'/docs/sources': {
+		title: 'Sumber & atribusi',
+		lead: 'Referensi praktis untuk membangun dengan Islamic Icons sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
+		body: `<p>Ada tiga jalur sumber: aset komunitas yang disediakan untuk proyek ini, vektor berlisensi eksternal, dan Google Material Icons. Google Search hanya untuk penemuan; tidak pernah memberikan izin redistribusi.</p><h2>Penemuan eksternal</h2><p>Kandidat eksternal ditinjau secara individual. Halaman sumber dan lisensi tetap terlampir pada aset.</p>${SOURCE_LINKS_HTML}`
+	},
+	'/docs/donations': {
+		title: 'Donasi & bantuan kemanusiaan',
+		lead: 'Referensi praktis untuk membangun dengan Islamic Icons sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
+		body: `<p>Islamic Icons menerima donasi publik dengan <strong>transparansi keuangan 100%</strong>. Minimum 70% dari semua dana dialokasikan untuk bantuan kemanusiaan, termasuk bantuan Palestina 🇵🇸, panti asuhan, keluarga berpenghasilan rendah, perawatan lansia, dan bantuan bencana. Hingga 30% dapat mendukung operasi framework seperti server, CDN, dan biaya domain.</p><div class="callout"><b>Saluran donasi</b><span>Buy Me a Coffee: <a href="https://buymeacoffee.com/rheinsullivan" target="_blank" rel="noreferrer">buymeacoffee.com/rheinsullivan ↗</a></span></div><h2>Pelaporan transparansi</h2><p>Kebijakan pelaporan publik dan indeks laporan transparansi terperinci ada di <strong>docs/en/donations.md</strong>. Pernyataan terverifikasi harus ditambahkan di sana untuk setiap periode pelaporan.</p><h2>Kebijakan alokasi</h2><p><strong>Minimum 70%</strong> dialokasikan untuk bantuan kemanusiaan. <strong>Hingga 30%</strong> dapat dialokasikan untuk operasi framework yang diperlukan.</p><div class="framework-list"><article><b>Bantuan Palestina 🇵🇸</b><code>Prioritas bantuan kemanusiaan</code></article><article><b>Panti asuhan</b><code>Bantuan kemanusiaan</code></article><article><b>Keluarga berpenghasilan rendah</b><code>Bantuan kemanusiaan</code></article><article><b>Perawatan lansia</b><code>Bantuan kemanusiaan</code></article><article><b>Bantuan bencana</b><code>Bantuan kemanusiaan</code></article><article><b>Server, CDN, domain</b><code>Operasi framework</code></article></div>`
+	}
+};
+
+export function getDoc(path: string, locale: 'en' | 'id'): DocEntry {
+	const map = locale === 'id' ? docsId : docs;
+	return map[path] || map['/docs'] || docs['/docs'];
+}
+
 export function richBody(body: string): string {
 	return body
-		.replaceAll(
-			'class="callout"',
-			'class="my-7 rounded-2xl border border-islamic-green/15 bg-islamic-green/5 p-5"'
-		)
+		.replaceAll('class="callout"', 'class="my-7 rounded-2xl border border-islamic-green/15 bg-islamic-green/5 p-5"')
 		.replaceAll('class="variant-demo"', 'class="my-7 grid gap-3 sm:grid-cols-3"')
-		.replaceAll(
-			'<div><span>Fill</span><b>Dense silhouette</b></div>',
-			'<div class="rounded-xl border border-islamic-line bg-islamic-panel p-5"><span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">Fill</span><b class="mt-8 block text-sm">Dense silhouette</b></div>'
-		)
-		.replaceAll(
-			'<div><span>Outline</span><b>Line-oriented mark</b></div>',
-			'<div class="rounded-xl border border-islamic-line bg-islamic-panel p-5"><span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">Outline</span><b class="mt-8 block text-sm">Line-oriented mark</b></div>'
-		)
-		.replaceAll(
-			'<div><span>Colors</span><b>Multi-tone artwork</b></div>',
-			'<div class="rounded-xl border border-islamic-line bg-islamic-panel p-5"><span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">Colors</span><b class="mt-8 block text-sm">Multi-tone artwork</b></div>'
-		)
+		.replaceAll('<div><span>Fill</span><b>Dense silhouette</b></div>', '<div class="rounded-xl border border-islamic-line bg-islamic-panel p-5"><span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">Fill</span><b class="mt-8 block text-sm">Dense silhouette</b></div>')
+		.replaceAll('<div><span>Fill</span><b>Siluet padat</b></div>', '<div class="rounded-xl border border-islamic-line bg-islamic-panel p-5"><span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">Fill</span><b class="mt-8 block text-sm">Siluet padat</b></div>')
+		.replaceAll('<div><span>Outline</span><b>Line-oriented mark</b></div>', '<div class="rounded-xl border border-islamic-line bg-islamic-panel p-5"><span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">Outline</span><b class="mt-8 block text-sm">Line-oriented mark</b></div>')
+		.replaceAll('<div><span>Outline</span><b>Tanda berorientasi garis</b></div>', '<div class="rounded-xl border border-islamic-line bg-islamic-panel p-5"><span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">Outline</span><b class="mt-8 block text-sm">Tanda berorientasi garis</b></div>')
+		.replaceAll('<div><span>Colors</span><b>Multi-tone artwork</b></div>', '<div class="rounded-xl border border-islamic-line bg-islamic-panel p-5"><span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">Colors</span><b class="mt-8 block text-sm">Multi-tone artwork</b></div>')
+		.replaceAll('<div><span>Colors</span><b>Karya multi-warna</b></div>', '<div class="rounded-xl border border-islamic-line bg-islamic-panel p-5"><span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">Colors</span><b class="mt-8 block text-sm">Karya multi-warna</b></div>')
 		.replaceAll('class="framework-list"', 'class="my-7 grid gap-3 sm:grid-cols-2"')
 		.replaceAll('<article><b>', '<article class="rounded-xl border border-islamic-line bg-islamic-panel p-4"><b>')
 		.replaceAll('</b><code>', '</b><code class="mt-2 block text-[10px] text-islamic-green">')
 		.replaceAll('class="source-links"', 'class="my-7 grid gap-2"')
-		.replaceAll(
-			'<a href="',
-			'<a class="flex items-center justify-between gap-4 rounded-xl border border-islamic-line bg-islamic-panel px-4 py-3 text-[11px] text-islamic-muted transition hover:border-islamic-line-strong hover:text-islamic-text" href="'
-		)
+		.replaceAll('<a href="', '<a class="flex items-center justify-between gap-4 rounded-xl border border-islamic-line bg-islamic-panel px-4 py-3 text-[11px] text-islamic-muted transition hover:border-islamic-line-strong hover:text-islamic-text" href="')
 		.replaceAll('<small>', '<small class="shrink-0 text-[9px] text-islamic-green">')
-		.replaceAll(
-			'<pre>',
-			'<pre class="my-6 overflow-x-auto rounded-2xl border border-islamic-line bg-black/20 p-4 text-[11px] leading-7 text-islamic-muted">'
-		);
+		.replaceAll('<pre>', '<pre class="my-6 overflow-x-auto rounded-2xl border border-islamic-line bg-black/20 p-4 text-[11px] leading-7 text-islamic-muted">');
 }

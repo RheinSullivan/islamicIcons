@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { sideLinks } from '$lib/docs-content';
+	import { sideLinks } from '$lib/site';
 
 	const currentPath = $derived(page.url.pathname.replace(/\/$/, '') || '/');
 </script>
