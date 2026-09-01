@@ -1,34 +1,97 @@
 {
   "name": "islamic-icons",
-  "version": "0.1.3",
-  "private": true,
-  "description": "A framework-agnostic Islamic SVG icon library for the modern web.",
-  "author": "Islamic Icons Community | Vyagra Nexus™",
+  "version": "0.1.0",
+  "description": "A framework-agnostic Islamic SVG and WebP icon library for the modern web.",
+  "author": {
+    "name": "Islamic Icons Community",
+    "email": "icons@vyagra.dev",
+    "url": "https://github.com/RheinSullivan/islamicIcons"
+  },
   "license": "MIT",
   "type": "module",
-  "packageManager": "bun@1.2.20",
-  "scripts": {
-    "dev": "vite --config ../web-docs/vite.config.ts --host 0.0.0.0",
-    "build": "vite build --config ../web-docs/vite.config.ts",
-    "preview": "vite preview --config ../web-docs/vite.config.ts",
-    "docs": "vite --config ../web-docs/vite.config.ts --host 0.0.0.0",
-    "icons:catalog": "bun scripts/build-catalog.ts",
-    "icons:package": "bun scripts/build-package.ts",
-    "icons:validate": "bun scripts/validate-icons.ts",
-    "test": "node --test",
-    "test:static": "node --test",
-    "prepublishOnly": "bun run icons:catalog && bun run icons:package && bun run icons:validate && bun run build",
-    "icons:import:google": "bun scripts/import-google.ts"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "tailwindcss": "^4.3.3",
-    "vite": "^7.1.3",
-    "typescript": "^5.9.2"
-  },
-  "workspaces": [
-    "packages/*"
+  "main": "./index.js",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "sideEffects": false,
+  "keywords": [
+    "islamic",
+    "icons",
+    "svg",
+    "webp",
+    "icon-library",
+    "islamic-icons",
+    "muslim",
+    "mosque",
+    "quran",
+    "ramadan",
+    "prayer",
+    "hajj",
+    "sadaqah",
+    "zakat",
+    "framework-agnostic",
+    "design-system",
+    "ui"
   ],
+  "homepage": "https://github.com/RheinSullivan/islamicIcons",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RheinSullivan/islamicIcons.git",
+    "directory": "library"
+  },
+  "bugs": {
+    "url": "https://github.com/RheinSullivan/islamicIcons/issues"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "metadata.js",
+    "metadata.d.ts",
+    "categories.js",
+    "categories.d.ts",
+    "icons",
+    "sources",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+    "ATTRIBUTION.md",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./metadata": {
+      "types": "./metadata.d.ts",
+      "import": "./metadata.js"
+    },
+    "./categories": {
+      "types": "./categories.d.ts",
+      "import": "./categories.js"
+    },
+    "./icons/*": "./icons/*/index.js",
+    "./icons/*.js": "./icons/*.js",
+    "./sources/*": "./sources/*.json",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "node --experimental-strip-types scripts/build-catalog.mjs && node scripts/build-package.mjs",
+    "icons:catalog": "node --experimental-strip-types scripts/build-catalog.mjs",
+    "icons:package": "node scripts/build-package.mjs",
+    "icons:validate": "node --experimental-strip-types scripts/validate-icons.mjs",
+    "icons:import:google": "node --experimental-strip-types scripts/import-google.mjs",
+    "typecheck": "node --check index.js && node --check metadata.js && node --check categories.js",
+    "test": "node --test tests/library.test.js",
+    "lint": "node --check index.js && node --check metadata.js && node --check categories.js && node scripts/validate-publish.mjs",
+    "pack": "npm pack",
+    "prepublishOnly": "node --experimental-strip-types scripts/build-catalog.mjs && node scripts/build-package.mjs && node --experimental-strip-types scripts/validate-icons.mjs && node scripts/validate-publish.mjs"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "logo": "assets/logo-islamic-icons.svg"
 }

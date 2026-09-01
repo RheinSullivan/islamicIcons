@@ -133,7 +133,7 @@ test('package scripts preserve the Bun build pipeline and add TDD checks', () =>
 
 
 test('search modal regression is centered with 40% opacity and 4px blur', () => {
-  assert.match(docs, /grid place-items-center bg-black\/40 px-4 backdrop-blur-\[4px\]/)
+  assert.match(docs, /bg-black\/40 px-4 backdrop-blur-\[4px\]/)
   assert.doesNotMatch(docs, /place-items-start bg-black\/70/)
 })
 

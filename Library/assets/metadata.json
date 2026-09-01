@@ -1,14 +1,17 @@
 {
   "name": "Islamic Icons",
-  "version": "0.1.3",
+  "version": "0.1.0",
   "logo": "logo-islamic-icons.svg",
-  "description": "A framework-agnostic Islamic SVG icon library for the modern web.",
+  "description": "A framework-agnostic Islamic SVG and WebP icon library for the modern web.",
   "author": "Islamic Icons Community | Vyagra Nexus™",
-  "runtime": "Bun",
-  "css": "Tailwind CSS v4",
+  "runtime": "Node.js 18+ / Bun / Deno (npm: specifier)",
+  "css": "Tailwind CSS v4 (used in docs only, not required for asset consumption)",
   "assetModel": "SVG-first, WebP when original artwork is raster",
   "documentation": "docs/README.md",
   "iconCount": 76,
   "sourceArchive": "Islamic Icons New.zip",
-  "importedIconPolicy": "Numeric source filenames are normalized into semantic names and grouped by category; exact duplicates already present in the library are not re-imported."
+  "importedIconPolicy": "Numeric source filenames are normalized into semantic names and grouped by category; exact duplicates already present in the library are not re-imported.",
+  "repository": "https://github.com/RheinSullivan/islamicIcons",
+  "homepage": "https://github.com/RheinSullivan/islamicIcons",
+  "license": "MIT"
 }

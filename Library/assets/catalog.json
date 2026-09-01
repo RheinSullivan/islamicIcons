@@ -319,26 +319,6 @@
     ]
   },
   {
-    "name": "locationMosque",
-    "category": "mosque",
-    "title": "Location Mosque",
-    "sources": [
-      {
-        "id": "community",
-        "label": "Community / Rhein Sullivan",
-        "variants": [
-          "fill",
-          "outline",
-          "color",
-          "original"
-        ]
-      }
-    ],
-    "aliases": [
-      "locationMuslim"
-    ]
-  },
-  {
     "name": "mosque",
     "category": "mosque",
     "title": "Mosque",
@@ -528,23 +508,6 @@
         "id": "community-upload",
         "label": "Community Upload",
         "variants": [
-          "original"
-        ]
-      }
-    ]
-  },
-  {
-    "name": "community",
-    "category": "people",
-    "title": "Community",
-    "sources": [
-      {
-        "id": "community",
-        "label": "Community / Rhein Sullivan",
-        "variants": [
-          "fill",
-          "outline",
-          "color",
           "original"
         ]
       }
