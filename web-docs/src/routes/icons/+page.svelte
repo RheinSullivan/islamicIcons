@@ -41,8 +41,8 @@
 		source = src;
 		category = 'all';
 	}
-	function setVariant(v: 'fill' | 'outline' | 'color') {
-		variant = v;
+	function setVariant(newVariant: 'fill' | 'outline' | 'color') {
+		variant = newVariant;
 	}
 	function openSearch() {
 		if (typeof window !== 'undefined') {
@@ -163,7 +163,7 @@
 					</span>
 					<input
 						id="q"
-						bind:value={q}
+						bind:value={searchQuery}
 						placeholder={translation.icons.searchPlaceholder}
 						autocomplete="off"
 						aria-label={translation.icons.searchPlaceholder}
