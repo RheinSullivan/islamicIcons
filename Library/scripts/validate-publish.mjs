@@ -15,7 +15,7 @@ function expect(cond, msg) {
 	if (!cond) errors.push(msg);
 }
 
-expect(pkg.version === '0.2.0', `version must be "0.2.0" (got "${pkg.version}")`);
+expect(pkg.version === '0.1.0', `version must be "0.1.0" (got "${pkg.version}")`);
 expect(pkg.name === 'athar', `name must be "athar" (got "${pkg.name}")`);
 expect(pkg.private !== true, 'package must NOT be private');
 expect(pkg.license, 'license field is required');
