@@ -24,10 +24,18 @@ deno add npm:atsarul-mujahidin
 ### React / JSX
 
 ```jsx
-import { Mosque } from 'atsarul-mujahidin/react/fill';
+import { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';
+import { MosqueSimple } from 'atsarul-mujahidin/react/mosquesimple-fill';
+// For outline: '/react/kaaba-outline'
+// For color: '/react/kaaba-color'
 
 export default function App() {
-  return <Mosque colors="#10b981" size={32} />;
+  return (
+    <>
+      <Kaaba colors="#10b981" size={32} />
+      <MosqueSimple colors="#3b82f6" size={24} />
+    </>
+  );
 }
 ```
 
@@ -35,11 +43,15 @@ export default function App() {
 
 ```vue
 <script setup>
-import { Mosque } from 'atsarul-mujahidin/vue/fill';
+import { Kaaba } from 'atsarul-mujahidin/vue/kaaba-fill';
+import { MosqueSimple } from 'atsarul-mujahidin/vue/mosquesimple-fill';
+// For outline: '/vue/kaaba-outline'
+// For color: '/vue/kaaba-color'
 </script>
 
 <template>
-  <Mosque colors="#10b981" :size="32" />
+  <Kaaba colors="#10b981" :size="32" />
+  <MosqueSimple colors="#3b82f6" :size="24" />
 </template>
 ```
 
@@ -47,28 +59,51 @@ import { Mosque } from 'atsarul-mujahidin/vue/fill';
 
 ```svelte
 <script>
-  import { Mosque } from 'atsarul-mujahidin/svelte/fill';
+  import { Kaaba } from 'atsarul-mujahidin/svelte/kaaba-fill';
+  import { MosqueSimple } from 'atsarul-mujahidin/svelte/mosquesimple-fill';
+  // For outline: '/svelte/kaaba-outline'
+  // For color: '/svelte/kaaba-color'
 </script>
 
-<Mosque colors="#10b981" size={32} />
+<Kaaba colors="#10b981" size={32} />
+<MosqueSimple colors="#3b82f6" size={24} />
 ```
 
 ### Astro
 
 ```astro
 ---
-import { Mosque } from 'atsarul-mujahidin/astro/fill';
+import { Kaaba } from 'atsarul-mujahidin/astro/kaaba-fill';
+import { MosqueSimple } from 'atsarul-mujahidin/astro/mosquesimple-fill';
+// For outline: '/astro/kaaba-outline'
+// For color: '/astro/kaaba-color'
 ---
-<Mosque colors="#10b981" size={32} />
+<Kaaba colors="#10b981" size={32} />
+<MosqueSimple colors="#3b82f6" size={24} />
 ```
 
 ### Vanilla JS (Web Component)
 
-```html
-<script type="module">
-  import 'atsarul-mujahidin/vanilla';
-</script>
+**NO IMPORT NEEDED** - Use CDN or local script like Bootstrap Icons:
 
+**Via CDN (Recommended):**
+```html
+<!-- Add this once in your HTML head or before closing body tag -->
+<script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.0/vanilla/atsarul-mujahidin.js"></script>
+
+<!-- Then use anywhere in your HTML -->
+<atsarul-mujahidin variant="mosque" colors="#10b981" size="32">Masjid</atsarul-mujahidin>
+<atsarul-mujahidin variant="quran" colors="#3b82f6" size="24">Al-Quran</atsarul-mujahidin>
+<atsarul-mujahidin variant="kaaba" colors="#ef4444" size="48">Kaaba</atsarul-mujahidin>
+```
+
+**Via NPM Install:**
+```html
+<!-- After: npm install atsarul-mujahidin -->
+<!-- Add this script tag in your HTML -->
+<script src="node_modules/atsarul-mujahidin/vanilla/atsarul-mujahidin.js"></script>
+
+<!-- Then use the web component -->
 <atsarul-mujahidin variant="mosque" colors="#10b981" size="32">Masjid</atsarul-mujahidin>
 ```
 
