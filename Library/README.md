@@ -1,154 +1,105 @@
-# Athar (أثر)
+# Islamic Icons
 
-> **أثر** means *trace, impact, legacy* — something you leave behind.  
-> Create something that leaves a lasting impact.
+A framework-agnostic Islamic SVG and WebP icon library for the modern web.
 
-A component-first Islamic icon library with framework-specific implementations for React, Vue, Svelte, and Vanilla JS.
+The collection is organized around semantic categories and ships with three style variants (fill, outline, color) per logical icon when the source artwork permits. Every icon is a local asset; no runtime fetch is required to render.
 
 ## Installation
 
 ```bash
-bun add athar
-npm install athar
-pnpm add athar
-yarn add athar
+bun add @rhein.sullivan/islamic-icons
+npm install @rhein.sullivan/islamic-icons
+pnpm add @rhein.sullivan/islamic-icons
+yarn add @rhein.sullivan/islamic-icons
+```
+
+For Deno, use the npm compatibility specifier:
+
+```bash
+deno add npm:@rhein.sullivan/islamic-icons
 ```
 
 ## Usage
 
-### Vanilla JS (Web Component)
+### Native HTML
 
 ```html
-<script type="module">
-  import 'athar/vanilla';
-</script>
-
-<athar-icon variant="mosque" colors="#10b981" size="32">Masjid</athar-icon>
+<img src="/assets/icons/mosque/mosque/fill.svg" alt="Mosque" width="24" height="24" />
 ```
 
-### React
+### JavaScript / TypeScript
+
+```ts
+import { categories, catalog, metadata } from 'islamic-icons';
+import { mosque, mosqueOutline, mosqueColor } from 'islamic-icons/icons/mosque.js';
+
+console.log(categories);
+console.log(mosque);     // URL string to fill variant
+console.log(mosqueOutline);
+console.log(mosqueColor);
+```
+
+### React / JSX
 
 ```jsx
-import { Mosque } from 'athar/react/fill';
-import { Mosque as MosqueOutline } from 'athar/react/outline';
-import { Mosque as MosqueColor } from 'athar/react/color';
+import { mosque } from 'islamic-icons/icons/mosque.js';
 
-export function App() {
-  return (
-    <div>
-      <Mosque colors="#10b981" size={32} className="icon" />
-      <MosqueOutline colors="#3b82f6" size={32} />
-      <MosqueColor size={48} />
-    </div>
-  );
+export function MosqueIcon() {
+	return <img src={mosque} alt="Mosque" width={24} height={24} />;
 }
 ```
 
-### Vue 3
+### Vue
 
 ```vue
-<script setup>
-import { Mosque } from 'athar/vue/fill';
-import { Mosque as MosqueOutline } from 'athar/vue/outline';
+<script setup lang="ts">
+import { mosque } from 'islamic-icons/icons/mosque.js';
 </script>
 
 <template>
-  <div>
-    <Mosque colors="#10b981" :size="32" class="icon" />
-    <MosqueOutline colors="#3b82f6" :size="32" />
-  </div>
+	<img :src="mosque" alt="Mosque" width="24" height="24" />
 </template>
 ```
 
 ### Svelte / SvelteKit
 
 ```svelte
-<script>
-  import { Mosque } from 'athar/svelte/fill';
-  import { Mosque as MosqueOutline } from 'athar/svelte/outline';
+<script lang="ts">
+	import { mosque } from 'islamic-icons/icons/mosque.js';
 </script>
 
-<Mosque colors="#10b981" size={32} class="icon" />
-<MosqueOutline colors="#3b82f6" size={32} />
+<img src={mosque} alt="Mosque" width="24" height="24" />
 ```
 
-### Import by Variant
+### Astro
 
-You can also import SVG content directly:
-
-```js
-import { mosque } from 'athar/fill/mosque';
-import { mosque as mosqueOutline } from 'athar/outline/mosque';
-import { mosque as mosqueColor } from 'athar/color/mosque';
-
-// mosque is an SVG string that you can use however you want
-console.log(mosque); // "<svg>...</svg>"
+```astro
+---
+import { mosque } from 'islamic-icons/icons/mosque.js';
+---
+<img src={mosque} alt="Mosque" width="24" height="24" />
 ```
 
-## Component Props
+### Aliases
 
-All framework components support these props:
+Several canonical icons have aliases for convenience:
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `colors` | string | `"currentColor"` | Fill/stroke color |
-| `size` | number \| string | `24` | Width and height in pixels |
-| `strokeWidth` | number \| string | `1.5` | Stroke width for outline variants |
-| `class` / `className` | string | `""` | CSS classes (Vue/Svelte use `class`, React uses `className`) |
+```ts
+import { allah, quran, tasbih, qibla, muslim } from 'islamic-icons/icons/god.js';
+// or any of the relevant category files
+```
 
-### Web Component (`<athar-icon>`)
+## Exports
 
-| Attribute | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `variant` | string | required | Icon name (e.g., "mosque", "quran") |
-| `colors` | string | `"currentColor"` | Fill/stroke color |
-| `size` | number | `24` | Width and height |
-| `stroke-width` | number | `1.5` | Stroke width |
-| Content | string | - | Accessible label text |
-
-## Icon Variants
-
-Each icon is available in up to 3 variants:
-
-- **fill** - Solid silhouette style
-- **outline** - Line-based style  
-- **color** - Multi-color artwork
-
-## Available Icons
-
-81 icons across 14 categories:
-
-- **mosque** (8) - Mosques, Kaaba, Islamic architecture
-- **prayer** (21) - Prayer positions, mat, wudhu, qibla
-- **quran** (3) - Quran book, Quran stand
-- **god** (3) - Allah calligraphy
-- **prophet** (1) - Muhammad calligraphy
-- **qalligraphy** (5) - Arabic calligraphy, Bismillah
-- **ornamen** (8) - Crescent star, moon, patterns
-- **patterns** (9) - Islamic geometric patterns
-- **food** (6) - Ramadan food, ketupat, fasting
-- **lifestyle** (7) - Muslim family, hijab
-- **charity** (3) - Zakat, sadaqah
-- **flags** (3) - Palestine flag and relief
-- **animal** (4) - Halal animals (camel, goat, cow)
-- **muslim-brand** (1) - Athar logo
-
-## Philosophy
-
-**أثر (Athar)** means *trace, impact, legacy* — something meaningful you leave behind.
-
-When you build with Athar, you're not just using icons. You're creating experiences that leave a lasting impression, tools that benefit the Ummah, and projects that become part of your legacy.
-
-*Create something that leaves a good أثر.*
+| Path | Description |
+| --- | --- |
+| `islamic-icons` | `catalog`, `sources`, `metadata`, `categories`, `library` |
+| `islamic-icons/metadata` | `metadata` (name, version, icon count, etc.) |
+| `islamic-icons/categories` | `categories` array with id, name, count |
+| `islamic-icons/icons/<category>` | Per-icon URL exports for `<category>` |
+| `islamic-icons/icons/<category>.js` | Same as above (CJS-friendly) |
+| `islamic-icons/sources/<slug>.json` | License & attribution metadata per external source |
 
 ## License
 
-MIT © Athar (أثر) Community | Vyagra Nexus™
-
----
-
-**Made with ❤️ for the Muslim Ummah**
-
-🕌 **Free Palestine** | ☪️ **Support Sudan** | 🤲 **Sadaqah Jariyah**
-
-*أثر* — Leave a lasting impact
+MIT © Islamic Icons Community | Vyagra Nexus™
