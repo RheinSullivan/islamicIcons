@@ -1,10 +1,13 @@
-# Islamic Icons
+# Athar (أثر)
 
-[![NPM Version](https://img.shields.io/npm/v/@rhein.sullivan/islamic-icons)](https://www.npmjs.com/package/@rhein.sullivan/islamic-icons)
-[![License](https://img.shields.io/npm/l/@rhein.sullivan/islamic-icons)](LICENSE)
-[![Downloads](https://img.shields.io/npm/dm/@rhein.sullivan/islamic-icons)](https://www.npmjs.com/package/@rhein.sullivan/islamic-icons)
+[![NPM Version](https://img.shields.io/npm/v/@rhein.sullivan/athar)](https://www.npmjs.com/package/@rhein.sullivan/athar)
+[![License](https://img.shields.io/npm/l/@rhein.sullivan/athar)](LICENSE)
+[![Downloads](https://img.shields.io/npm/dm/@rhein.sullivan/athar)](https://www.npmjs.com/package/@rhein.sullivan/athar)
 
-A framework-agnostic Islamic SVG and WebP icon library for the modern web.
+> **أثر** means *trace, impact, legacy* — something you leave behind.  
+> Create something that leaves a lasting impact.
+
+A framework-agnostic Islamic icon library for developers who want to build meaningful, lasting experiences on the modern web.
 
 ## 🕌 Features
 
@@ -18,13 +21,13 @@ A framework-agnostic Islamic SVG and WebP icon library for the modern web.
 ## 📦 Installation
 
 ```bash
-npm install @rhein.sullivan/islamic-icons
+npm install @rhein.sullivan/athar
 # or
-bun add @rhein.sullivan/islamic-icons
+bun add @rhein.sullivan/athar
 # or
-yarn add @rhein.sullivan/islamic-icons
+yarn add @rhein.sullivan/athar
 # or
-pnpm add @rhein.sullivan/islamic-icons
+pnpm add @rhein.sullivan/athar
 ```
 
 ## 🚀 Quick Start
@@ -33,7 +36,7 @@ pnpm add @rhein.sullivan/islamic-icons
 
 ```html
 <img 
-  src="node_modules/@rhein.sullivan/islamic-icons/icons/mosque/kaaba/fill.svg" 
+  src="node_modules/@rhein.sullivan/athar/icons/mosque/kaaba/fill.svg" 
   alt="Kaaba"
   width="24"
   height="24"
@@ -44,7 +47,7 @@ pnpm add @rhein.sullivan/islamic-icons
 
 ```javascript
 // Import SVG as asset
-import kaabaIcon from '@rhein.sullivan/islamic-icons/icons/mosque/kaaba/fill.svg';
+import kaabaIcon from '@rhein.sullivan/athar/icons/mosque/kaaba/fill.svg';
 
 // Use in your HTML
 <img src={kaabaIcon} alt="Kaaba" width="24" height="24" />
@@ -53,7 +56,7 @@ import kaabaIcon from '@rhein.sullivan/islamic-icons/icons/mosque/kaaba/fill.svg
 ### React Example
 
 ```jsx
-import kaabaIcon from '@rhein.sullivan/islamic-icons/icons/mosque/kaaba/fill.svg';
+import kaabaIcon from '@rhein.sullivan/athar/icons/mosque/kaaba/fill.svg';
 
 function App() {
   return (
@@ -96,13 +99,13 @@ Each icon may have up to 3 variants:
 
 ## 📖 Documentation
 
-Visit our documentation site: **[islamicicons.vyagranexus.org](https://islamicicons.vyagranexus.org)**
+Visit our documentation site: **[athar.vyagra.dev](https://athar.vyagra.dev)**
 
-- [Installation Guide](https://islamicicons.vyagranexus.org/en/docs/installation)
-- [Usage Examples](https://islamicicons.vyagranexus.org/en/docs/usage)
-- [Framework Integration](https://islamicicons.vyagranexus.org/en/docs/frameworks)
-- [Icon Gallery](https://islamicicons.vyagranexus.org/en/icons)
-- [Browse All Icons](https://islamicicons.vyagranexus.org/en/icons)
+- [Installation Guide](https://athar.vyagra.dev/en/docs/installation)
+- [Usage Examples](https://athar.vyagra.dev/en/docs/usage)
+- [Framework Integration](https://athar.vyagra.dev/en/docs/frameworks)
+- [Icon Gallery](https://athar.vyagra.dev/en/icons)
+- [Browse All Icons](https://athar.vyagra.dev/en/icons)
 
 ## 🛠️ Development
 
@@ -110,8 +113,8 @@ Visit our documentation site: **[islamicicons.vyagranexus.org](https://islamicic
 
 ```bash
 # Clone repository
-git clone https://github.com/RheinSullivan/islamicIcons.git
-cd islamicIcons
+git clone https://github.com/RheinSullivan/athar.git
+cd athar
 
 # Install dependencies
 bun install
@@ -147,8 +150,8 @@ We welcome contributions! Please see [CONTRIBUTING.md](library/CONTRIBUTING.md) 
 ## 🇵🇸 Support Palestine & Sudan
 
 This project stands in solidarity with Palestine and Sudan. Consider supporting humanitarian efforts:
-- [Palestine Relief](https://islamicicons.vyagranexus.org/en/donations)
-- [Sudan Relief](https://islamicicons.vyagranexus.org/en/donations)
+- [Palestine Relief](https://athar.vyagra.dev/en/donations)
+- [Sudan Relief](https://athar.vyagra.dev/en/donations)
 
 ## 📄 License
 
@@ -160,10 +163,10 @@ All icons include source attribution. See [ATTRIBUTION.md](library/ATTRIBUTION.m
 
 ## 🔗 Links
 
-- **NPM Package**: [@rhein.sullivan/islamic-icons](https://www.npmjs.com/package/@rhein.sullivan/islamic-icons)
-- **Documentation**: [islamicicons.vyagranexus.org](https://islamicicons.vyagranexus.org)
-- **GitHub**: [RheinSullivan/islamicIcons](https://github.com/RheinSullivan/islamicIcons)
-- **Report Issues**: [GitHub Issues](https://github.com/RheinSullivan/islamicIcons/issues)
+- **NPM Package**: [@rhein.sullivan/athar](https://www.npmjs.com/package/@rhein.sullivan/athar)
+- **Documentation**: [athar.vyagra.dev](https://athar.vyagra.dev)
+- **GitHub**: [RheinSullivan/athar](https://github.com/RheinSullivan/athar)
+- **Report Issues**: [GitHub Issues](https://github.com/RheinSullivan/athar/issues)
 
 ---
 
@@ -171,4 +174,5 @@ All icons include source attribution. See [ATTRIBUTION.md](library/ATTRIBUTION.m
 
 🕌 **Free Palestine** | ☪️ **Support Sudan** | 🤲 **Sadaqah Jariyah**
 
+*Create something that leaves a lasting أثر*  
 *Bismillah ar-Rahman ar-Rahim*

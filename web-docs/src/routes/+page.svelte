@@ -38,9 +38,9 @@
 <svelte:head>
 	<title>Islamic Icons - Free Palestine</title>
 	<meta name="description" content="Islamic Icons is a source-aware, framework-agnostic SVG and WebP icon library for the modern web." />
-	<meta property="og:title" content="Islamic Icons - Free Palestine" />
-	<meta property="og:description" content="A source-aware, framework-agnostic Islamic SVG and WebP icon library for the modern web." />
-	<meta property="og:image" content="/logo-islamic-icons.svg" />
+	<meta property="og:title" content="Athar (أثر) - Free Palestine" />
+	<meta property="og:description" content="Athar (أثر) - Create something that leaves a lasting impact. Islamic icon library for the modern web." />
+	<meta property="og:image" content="/logo-athar.svg" />
 </svelte:head>
 
 <main>

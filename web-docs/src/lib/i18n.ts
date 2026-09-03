@@ -86,15 +86,15 @@ export const en: Translations = {
 		installation: 'Installation',
 		frameworks: 'Frameworks',
 		contributing: 'Contributing',
-		copyright: 'Copyright © 2026 Islamic Icons. All rights reserved.',
+		copyright: 'Copyright © 2026 Athar (أثر). All rights reserved.',
 		credits: 'Vyagra Nexus™ | Indonesia',
-		tagline: 'Framework-agnostic Islamic SVG/WebP icons, organized for real projects.'
+		tagline: 'Athar (أثر) - Create something that leaves a lasting impact. Islamic icons for the modern web.'
 	},
 	home: {
-		badge: 'SVG-first · framework agnostic · Bun runtime',
-		heroWords: ['Islamic', 'icons', 'for', 'the', 'modern', 'web.'],
+		badge: 'أثر · Athar · Leave a lasting impact',
+		heroWords: ['Athar', 'أثر', 'Islamic', 'icons', 'for', 'modern', 'web.'],
 		heroDesc:
-			'A source-aware icon library built for developers who need Islamic imagery that is recognizable, consistent, reusable, and easy to contribute to. Use local SVG and WebP assets across React, Vue, Svelte, Angular, Astro, Remix, or plain HTML - without a runtime API.',
+			'Athar (أثر) means trace, impact, legacy. A source-aware Islamic icon library built for developers who want to create something that leaves a lasting أثر. Use local SVG and WebP assets across React, Vue, Svelte, Angular, Astro, or plain HTML.',
 		exploreBtn: 'Explore {count} icons',
 		docsBtn: 'Read the documentation',
 		statIcons: 'logical icons',
