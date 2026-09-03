@@ -123,16 +123,16 @@ export function pathFor(item: CatalogItem, variant: string = 'fill', sourceId: s
 	if (!source) return '';
 	const selectedVariant = chooseVariant(source, variant);
 	if (source.id === 'community' || source.id === 'community-upload') {
-		return `${ASSET_ROOT}/icons/${item.category}/${item.name}/${selectedVariant}.svg`;
+		return `${ASSET_ROOT}/${item.category}/${item.name}/${selectedVariant}.svg`;
 	}
-	return `${ASSET_ROOT}/icons/${item.category}/${item.name}/sources/${source.id}/${selectedVariant}.svg`;
+	return `${ASSET_ROOT}/${item.category}/${item.name}/sources/${source.id}/${selectedVariant}.svg`;
 }
 
 export function iconPath(item: CatalogItem, variant: string = 'fill'): string {
 	const source = sourceForItem(item);
 	if (!source) return '';
 	const selectedVariant = chooseVariant(source, variant);
-	const base = `${ASSET_ROOT}/icons/${item.category}/${item.name}`;
+	const base = `${ASSET_ROOT}/${item.category}/${item.name}`;
 	if (source.id === 'community' || source.id === 'community-upload') return `${base}/${selectedVariant}.svg`;
 	return `${base}/sources/${source.id}/${selectedVariant}.svg`;
 }

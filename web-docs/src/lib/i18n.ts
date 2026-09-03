@@ -10,7 +10,10 @@ export const localeNames: Record<Locale, string> = {
 export type Translations = {
 	locale: Locale;
 	nav: {
-		home: string; icons: string; categories: string; docs: string; sources: string; donations: string;
+		home: string; icons: string; categories: string; packages: string; showcase: string; docs: string; sources: string; donations: string;
+	};
+	resources: {
+		license: string; community: string; codeOfConduct: string; sources: string; contributing: string;
 	};
 	footer: {
 		explore: string; develop: string; principles: string; localAssets: string;
@@ -60,9 +63,18 @@ export const en: Translations = {
 		home: 'Home',
 		icons: 'Icons',
 		categories: 'Categories',
+		packages: 'Packages',
+		showcase: 'Showcase',
 		docs: 'Docs',
 		sources: 'Sources',
 		donations: 'Donations'
+	},
+	resources: {
+		license: 'License',
+		community: 'Community',
+		codeOfConduct: 'Code of Conduct',
+		sources: 'Sources',
+		contributing: 'Contributing'
 	},
 	footer: {
 		explore: 'Explore',
@@ -196,9 +208,18 @@ export const id: Translations = {
 		home: 'Beranda',
 		icons: 'Ikon',
 		categories: 'Kategori',
+		packages: 'Paket',
+		showcase: 'Showcase',
 		docs: 'Dokumentasi',
 		sources: 'Sumber',
 		donations: 'Donasi'
+	},
+	resources: {
+		license: 'Lisensi',
+		community: 'Komunitas',
+		codeOfConduct: 'Kode Etik',
+		sources: 'Sumber',
+		contributing: 'Kontribusi'
 	},
 	footer: {
 		explore: 'Jelajahi',

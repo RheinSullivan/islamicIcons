@@ -12,14 +12,14 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Islamic Icons — Modern Islamic Icon Library' : 'Islamic Icons — Library Ikon Islami Modern'}</title>
+	<title>Islamic Icons | Free Palestine and Sudan</title>
 	<meta name="description" content={locale === 'en' ? 'A source-aware, framework-agnostic Islamic SVG and WebP icon library for the modern web.' : 'Perpustakaan ikon Islam SVG dan WebP yang framework-agnostic untuk web modern.'} />
-	<meta property="og:title" content={locale === 'en' ? 'Islamic Icons — Modern Islamic Icon Library' : 'Islamic Icons — Library Ikon Islami Modern'} />
+	<meta property="og:title" content="Islamic Icons | Free Palestine and Sudan" />
 	<meta property="og:description" content={locale === 'en' ? 'A source-aware, framework-agnostic Islamic SVG and WebP icon library for the modern web.' : 'Perpustakaan ikon Islam SVG dan WebP yang framework-agnostic untuk web modern.'} />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="/logo-islamic-icons.svg" />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content={locale === 'en' ? 'Islamic Icons — Modern Islamic Icon Library' : 'Islamic Icons — Library Ikon Islami Modern'} />
+	<meta name="twitter:title" content="Islamic Icons | Free Palestine and Sudan" />
 	<link rel="canonical" href="https://islamicicons.vyagranexus.org/{locale}" />
 </svelte:head>
 
@@ -50,12 +50,12 @@
 				</a>
 			</div>
 			<div class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[10px] text-islamic-dim">
-				<span>✓ Fill, outline &amp; color</span>
-				<span>✓ Source attribution</span>
-				<span>✓ Contributor friendly</span>
+				<span>Fill, outline and color</span>
+				<span>Source attribution</span>
+				<span>Contributor friendly</span>
 			</div>
 		</div>
-		<!-- Hero art panels — exact from native -->
+		<!-- Hero art panels - exact from native -->
 		<div class="relative mx-auto h-[430px] w-full max-w-[510px] gsap-container sm:h-[500px]">
 			<div class="absolute inset-10 rounded-full bg-islamic-green/8 blur-3xl"></div>
 			<div class="absolute right-0 top-8 h-[78%] w-[72%] rotate-[6deg] rounded-[2rem] border border-islamic-line bg-islamic-panel/70 p-5 shadow-2xl">
@@ -82,7 +82,7 @@
 	</div>
 </section>
 
-<!-- Stats strip — exact from native -->
+<!-- Stats strip - exact from native -->
 <section class="{MAX} pb-16">
 	<div class="grid grid-cols-2 divide-x divide-y divide-islamic-line border-y border-islamic-line md:grid-cols-3 md:divide-y-0">
 		<div class="py-7 pr-5 md:py-8">
@@ -100,7 +100,7 @@
 	</div>
 </section>
 
-<!-- Featured icons — exact from native -->
+<!-- Featured icons - exact from native -->
 <section class="{MAX} py-16 sm:py-24">
 	<div class="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
 		<div>
@@ -132,7 +132,7 @@
 	</div>
 </section>
 
-<!-- Why section — exact from native -->
+<!-- Why section - exact from native -->
 <section class="{MAX} py-16 sm:py-24">
 	<div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
 		<div>
@@ -159,7 +159,7 @@
 	</div>
 </section>
 
-<!-- CTA — exact from native -->
+<!-- CTA - exact from native -->
 <section class="{MAX} pb-10">
 	<div class="overflow-hidden rounded-3xl border border-islamic-line bg-islamic-panel p-7 sm:p-10">
 		<div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">

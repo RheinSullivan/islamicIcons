@@ -36,9 +36,9 @@
 </script>
 
 <svelte:head>
-	<title>Islamic Icons - Free Palestine  🇵🇸</title>
+	<title>Islamic Icons - Free Palestine</title>
 	<meta name="description" content="Islamic Icons is a source-aware, framework-agnostic SVG and WebP icon library for the modern web." />
-	<meta property="og:title" content="Islamic Icons - Free Palestine  🇵🇸" />
+	<meta property="og:title" content="Islamic Icons - Free Palestine" />
 	<meta property="og:description" content="A source-aware, framework-agnostic Islamic SVG and WebP icon library for the modern web." />
 	<meta property="og:image" content="/logo-islamic-icons.svg" />
 </svelte:head>
@@ -72,9 +72,9 @@
 					</a>
 				</div>
 				<div class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[10px] text-islamic-dim">
-					<span>✓ Fill, outline &amp; color</span>
-					<span>✓ Source attribution</span>
-					<span>✓ Contributor friendly</span>
+					<span>Fill, outline and color</span>
+					<span>Source attribution</span>
+					<span>Contributor friendly</span>
 				</div>
 			</div>
 			<div class="relative mx-auto h-[430px] w-full max-w-[510px] gsap-container sm:h-[500px]">

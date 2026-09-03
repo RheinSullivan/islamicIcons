@@ -21,8 +21,8 @@
 </script>
 
 <div class="{MAX} pt-32 pb-16 sm:pt-36 sm:pb-24">
-	<div class="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14">
-		<!-- Docs sidebar — exact from native -->
+	<div class="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14 xl:grid-cols-[220px_minmax(0,1fr)_200px]">
+		<!-- Docs sidebar - exact from native -->
 		<aside class="hidden lg:block lg:sticky lg:top-28 lg:h-fit">
 			<div class="mb-5 text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim">
 				{t.docs.docsSidebarLabel}
@@ -36,7 +36,7 @@
 					>{item.label}</a>
 				{/each}
 			</div>
-			<!-- Contribute card — exact from native -->
+			<!-- Contribute card - exact from native -->
 			<div class="mt-8 rounded-2xl border border-islamic-line bg-islamic-panel p-4">
 				<span class="mb-3 grid size-8 place-items-center rounded-lg bg-islamic-green/10 text-islamic-green">✦</span>
 				<b class="text-[12px]">{t.docs.contributeCard}</b>
@@ -47,9 +47,9 @@
 
 		<!-- Mobile sidebar dropdown -->
 		<div class="lg:hidden">
-			<label class="block text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim mb-2">
+			<div class="mb-2 text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim">
 				{t.docs.docsSidebarLabel}
-			</label>
+			</div>
 			<div class="flex flex-wrap gap-1">
 				{#each SIDE as item (item.href)}
 					<a
@@ -60,8 +60,8 @@
 			</div>
 		</div>
 
-		<!-- Content -->
-		<div class="min-w-0">
+		<!-- Content with right sidebar -->
+		<div class="min-w-0 lg:col-span-1 xl:col-span-2">
 			{@render children()}
 		</div>
 	</div>

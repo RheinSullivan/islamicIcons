@@ -1,68 +1,94 @@
 <script lang="ts">
-	import { MAX } from '$lib/site';
+	import ResourceLayout from '$lib/components/ResourceLayout.svelte';
 	import { translations, type Locale } from '$lib/i18n';
+	
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
 	const t = $derived(translations[locale]);
-
-	const STEPS = $derived(locale === 'en' ? [
-		{ n: '01', title: 'Drop the asset', desc: 'Use SVG whenever possible. WebP is acceptable for artwork that should remain raster. Keep the original untouched in the source directory.' },
-		{ n: '02', title: 'Describe it', desc: 'Give it a semantic name, category, creator, source URL, license and provenance. If it came from Google, record the original page - not Google.' },
-		{ n: '03', title: 'Generate variants', desc: 'Only generate fill, outline or color when the transformation preserves the artwork. Otherwise keep the original variant only.' },
-		{ n: '04', title: 'Validate with Bun', desc: 'Run the catalog, package and validation scripts before opening a pull request.' },
-	] : [
-		{ n: '01', title: 'Tambahkan aset', desc: 'Gunakan SVG bila memungkinkan. WebP dapat diterima untuk karya seni yang harus tetap raster. Simpan aslinya tanpa diubah di direktori sumber.' },
-		{ n: '02', title: 'Deskripsikan', desc: 'Berikan nama semantik, kategori, pembuat, URL sumber, lisensi, dan asal-usul. Jika berasal dari Google, catat halaman aslinya - bukan Google.' },
-		{ n: '03', title: 'Buat varian', desc: 'Hanya buat fill, outline, atau color ketika transformasi mempertahankan karya seni. Jika tidak, pertahankan varian original saja.' },
-		{ n: '04', title: 'Validasi dengan Bun', desc: 'Jalankan skrip katalog, paket, dan validasi sebelum membuka pull request.' },
-	]);
+	
+	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons';
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Contributing — Islamic Icons' : 'Kontribusi — Islamic Icons'}</title>
-	<meta name="description" content={t.contributing.pageDesc} />
-	<meta property="og:title" content={locale === 'en' ? 'Contributing — Islamic Icons' : 'Kontribusi — Islamic Icons'} />
-	<meta property="og:description" content={t.contributing.pageDesc} />
-	<link rel="canonical" href="https://islamic-icons.dev/{locale}/contributing" />
+	<title>{locale === 'en' ? 'Contributing - Islamic Icons' : 'Kontribusi - Islamic Icons'}</title>
+	<meta name="description" content={locale === 'en' ? 'How to contribute to Islamic Icons' : 'Cara berkontribusi ke Islamic Icons'} />
 </svelte:head>
 
-<div class="{MAX} pt-36 pb-16 sm:pt-44 sm:pb-24 lg:pt-32">
-	<div class="gsap-container max-w-4xl">
-		<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">
-			{locale === 'en' ? 'Open contribution model' : 'Model kontribusi terbuka'}
-		</span>
-		<h1 class="mt-3 font-display text-5xl tracking-[-.06em] sm:text-7xl">
-			{locale === 'en'
-				? 'Add an icon without breaking the catalog.'
-				: 'Tambahkan ikon tanpa merusak katalog.'}
-		</h1>
-		<p class="mt-5 max-w-3xl text-base leading-8 text-islamic-muted">
-			{locale === 'en'
-				? 'There is deliberately no fixed target such as 78 or 100 icons. The collection should grow when useful, licensed artwork is available and shrink when an asset should no longer be redistributed.'
-				: 'Tidak ada target tetap seperti 78 atau 100 ikon. Koleksi harus berkembang ketika karya seni berlisensi yang berguna tersedia dan menyusut ketika aset tidak boleh lagi didistribusikan ulang.'}
-		</p>
+<ResourceLayout 
+	title={locale === 'en' ? 'Contributing' : 'Kontribusi'}
+	label={locale === 'en' ? 'Get Involved' : 'Ikut Terlibat'}
+>
+	<p>
+		{locale === 'en' 
+			? 'Thank you for your interest in contributing to Islamic Icons! We welcome contributions from everyone.'
+			: 'Terima kasih atas ketertarikan Anda untuk berkontribusi ke Islamic Icons! Kami menerima kontribusi dari siapa saja.'}
+	</p>
+
+	<h2>{locale === 'en' ? 'Ways to Contribute' : 'Cara Berkontribusi'}</h2>
+	
+	<div class="resource-grid">
+		<div class="resource-box">
+			<h3>{locale === 'en' ? 'Submit New Icons' : 'Kirim Ikon Baru'}</h3>
+			<p class="mb-0">
+				{locale === 'en' 
+					? 'Add new Islamic icons or variants from reputable sources with proper attribution.'
+					: 'Tambahkan ikon Islam baru atau varian dari sumber terpercaya dengan atribusi yang tepat.'}
+			</p>
+		</div>
+		
+		<div class="resource-box">
+			<h3>{locale === 'en' ? 'Report Issues' : 'Laporkan Masalah'}</h3>
+			<p class="mb-0">
+				{locale === 'en' 
+					? 'Found a bug or have a feature request? Open an issue on GitHub.'
+					: 'Menemukan bug atau ada permintaan fitur? Buka issue di GitHub.'}
+			</p>
+		</div>
+		
+		<div class="resource-box">
+			<h3>{locale === 'en' ? 'Improve Documentation' : 'Tingkatkan Dokumentasi'}</h3>
+			<p class="mb-0">
+				{locale === 'en' 
+					? 'Help make our documentation clearer. Fix typos, add examples, or write tutorials.'
+					: 'Bantu membuat dokumentasi kami lebih jelas. Perbaiki typo, tambahkan contoh, atau tulis tutorial.'}
+			</p>
+		</div>
+		
+		<div class="resource-box">
+			<h3>{locale === 'en' ? 'Code Contributions' : 'Kontribusi Kode'}</h3>
+			<p class="mb-0">
+				{locale === 'en' 
+					? 'Improve the website, build tools, or add new framework packages.'
+					: 'Tingkatkan website, alat build, atau tambahkan paket framework baru.'}
+			</p>
+		</div>
 	</div>
 
-	<div class="mt-12 grid gap-3 sm:grid-cols-2">
-		{#each STEPS as step (step.n)}
-			<article class="gsap-on-scroll rounded-2xl border border-islamic-line bg-islamic-panel p-6">
-				<span class="text-[10px] text-islamic-green">{step.n}</span>
-				<h2 class="mt-12 font-display text-xl tracking-[-.03em]">{step.title}</h2>
-				<p class="mt-3 text-[12px] leading-7 text-islamic-muted">{step.desc}</p>
-			</article>
-		{/each}
-	</div>
+	<h2>{locale === 'en' ? 'Getting Started' : 'Memulai'}</h2>
+	<ol>
+		<li>{locale === 'en' ? 'Fork the repository on GitHub' : 'Fork repository di GitHub'}</li>
+		<li>{locale === 'en' ? 'Clone your fork locally' : 'Clone fork Anda secara lokal'}: <code>git clone https://github.com/YOUR_USERNAME/islamic-icons.git</code></li>
+		<li>{locale === 'en' ? 'Create a new branch' : 'Buat branch baru'}: <code>git checkout -b feature/your-feature-name</code></li>
+		<li>{locale === 'en' ? 'Make your changes and commit them with clear messages' : 'Buat perubahan dan commit dengan pesan yang jelas'}</li>
+		<li>{locale === 'en' ? 'Push to your fork' : 'Push ke fork Anda'}: <code>git push origin feature/your-feature-name</code></li>
+		<li>{locale === 'en' ? 'Open a Pull Request on GitHub' : 'Buka Pull Request di GitHub'}</li>
+	</ol>
 
-	<pre class="mt-3 overflow-x-auto rounded-2xl border border-islamic-line bg-black/20 p-5 text-[11px] leading-7 text-islamic-muted">bun run icons:catalog
-bun run icons:package
-bun run icons:validate</pre>
+	<h2>{locale === 'en' ? 'Guidelines' : 'Pedoman'}</h2>
+	<ul>
+		<li>{locale === 'en' ? 'Follow the existing code style and conventions' : 'Ikuti gaya kode dan konvensi yang ada'}</li>
+		<li>{locale === 'en' ? 'Write clear, descriptive commit messages' : 'Tulis pesan commit yang jelas dan deskriptif'}</li>
+		<li>{locale === 'en' ? 'Include proper attribution for all icon sources' : 'Sertakan atribusi yang tepat untuk semua sumber ikon'}</li>
+		<li>{locale === 'en' ? 'Test your changes before submitting' : 'Uji perubahan Anda sebelum mengirim'}</li>
+		<li>{locale === 'en' ? 'Be respectful and follow our Code of Conduct' : 'Bersikap hormat dan ikuti Kode Etik kami'}</li>
+	</ul>
 
-	<div class="mt-3 rounded-2xl border border-islamic-green/15 bg-islamic-green/5 p-5 text-[12px] leading-7 text-islamic-muted">
-		<b class="text-islamic-text">{locale === 'en' ? 'Source integrity' : 'Integritas sumber'}</b>
-		<span class="mt-2 block">
-			{locale === 'en'
-				? "Do not replace a creator's artwork with a generic AI recreation just because it is easier to normalize. Preserve the source asset and its visual identity."
-				: 'Jangan ganti karya seni pembuat dengan kreasi AI generik hanya karena lebih mudah dinormalisasi. Pertahankan aset sumber dan identitas visualnya.'}
-		</span>
+	<div class="mt-10 flex gap-6">
+		<a href={REPO_URL} target="_blank" rel="noreferrer" class="text-islamic-green">
+			{locale === 'en' ? 'Visit GitHub' : 'Kunjungi GitHub'} →
+		</a>
+		<a href="/{locale}/code-of-conduct" class="text-islamic-green">
+			{locale === 'en' ? 'Code of Conduct' : 'Kode Etik'} →
+		</a>
 	</div>
-</div>
+</ResourceLayout>

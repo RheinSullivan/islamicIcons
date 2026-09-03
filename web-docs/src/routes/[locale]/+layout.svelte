@@ -26,12 +26,22 @@
 
 	const pathname = $derived(page.url.pathname.replace(/\/$/, '') || '/');
 
-	// Nav items — only the 4 required items
+	// Nav items - Icons, Packages, Showcase, Resources (dropdown), Docs
+	// Nav order: Docs, Icons, Packages, Showcase, Donations
 	const NAV = $derived([
-		{ href: `/${locale}/icons`,      label: t.nav.icons,      key: 'icons'      },
-		{ href: `/${locale}/categories`, label: t.nav.categories, key: 'categories' },
 		{ href: `/${locale}/docs`,       label: t.nav.docs,       key: 'docs'       },
-		{ href: `/${locale}/sources`,    label: t.nav.sources,    key: 'sources'    },
+		{ href: `/${locale}/icons`,      label: t.nav.icons,      key: 'icons'      },
+		{ href: `/${locale}/packages`,   label: t.nav.packages,   key: 'packages'   },
+		{ href: `/${locale}/showcase`,   label: t.nav.showcase,   key: 'showcase'   },
+		{ href: `/${locale}/donations`,  label: t.nav.donations,  key: 'donations'  },
+	]);
+
+	const RESOURCES = $derived([
+		{ href: `/${locale}/license`,          label: t.resources.license       },
+		{ href: `/${locale}/community`,        label: t.resources.community     },
+		{ href: `/${locale}/code-of-conduct`,  label: t.resources.codeOfConduct },
+		{ href: `/${locale}/sources`,          label: t.resources.sources       },
+		{ href: `/${locale}/contributing`,     label: t.resources.contributing  },
 	]);
 
 	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons';
@@ -62,9 +72,10 @@
 	});
 
 	function isActive(key: string) {
-		const p = pathname;
-		if (key === 'docs') return p.includes('/docs');
-		return p.includes(`/${key}`);
+		const currentPath = pathname;
+		if (key === 'docs') return currentPath.includes('/docs');
+		if (key === 'donations') return currentPath.includes('/donations');
+		return currentPath.includes(`/${key}`);
 	}
 
 	function switchLocale() {
@@ -137,20 +148,20 @@
 	});
 
 	function animatePage() {
-		const w = window as any;
-		if (!w.gsap) return;
-		const gsap = w.gsap;
+		const windowGlobal = window as any;
+		if (!windowGlobal.gsap) return;
+		const gsap = windowGlobal.gsap;
 		const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 		if (reduced) return;
 
 		// Cleanup previous observers
-		if (w.__islamicIconsObservers) {
-			w.__islamicIconsObservers.forEach((observer: IntersectionObserver) => observer.disconnect());
+		if (windowGlobal.__islamicIconsObservers) {
+			windowGlobal.__islamicIconsObservers.forEach((observer: IntersectionObserver) => observer.disconnect());
 		}
-		w.__islamicIconsObservers = [];
+		windowGlobal.__islamicIconsObservers = [];
 		// Cleanup previous gsap context
-		if (w.__islamicIconsGsapContext) {
-			w.__islamicIconsGsapContext.revert();
+		if (windowGlobal.__islamicIconsGsapContext) {
+			windowGlobal.__islamicIconsGsapContext.revert();
 		}
 
 		const ctx = gsap.context(() => {
@@ -173,11 +184,11 @@
 						}
 					}
 				}, { threshold: 0.08 });
-				w.__islamicIconsObservers.push(observer);
+				windowGlobal.__islamicIconsObservers.push(observer);
 				observer.observe(el);
 			});
 		});
-		w.__islamicIconsGsapContext = ctx;
+		windowGlobal.__islamicIconsGsapContext = ctx;
 	}
 </script>
 
@@ -189,10 +200,10 @@
 </svelte:head>
 
 <div class="min-h-screen overflow-x-clip bg-islamic-bg text-islamic-text">
-	<!-- Background radial gradients — exact from native -->
+	<!-- Background radial gradients - exact from native -->
 	<div class="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_18%_15%,rgba(50,132,96,.09),transparent_32%),radial-gradient(circle_at_85%_10%,rgba(215,182,107,.045),transparent_25%)]"></div>
 
-	<!-- HEADER — exact from native: Logo | Icons Categories Docs Sources | Search GitHub | Mobile -->
+	<!-- HEADER - exact from native: Logo | Icons Categories Docs Sources | Search GitHub | Mobile -->
 	<header class="fixed inset-x-0 top-0 z-50 border-b border-islamic-line bg-islamic-bg/88 backdrop-blur-xl supports-[backdrop-filter]:bg-islamic-bg/72">
 		<div class="{MAX} relative flex h-20 items-center justify-between gap-4">
 			<!-- Logo -->
@@ -202,19 +213,31 @@
 				</span>
 				<span class="hidden sm:block">
 					<strong class="block font-display text-base font-semibold tracking-tight text-islamic-text">Islamic Icons</strong>
-					<small class="block text-[9px] uppercase tracking-[.18em] text-islamic-dim">🇮🇩 Free Palestine  🇵🇸</small>
+					<small class="block text-[9px] uppercase tracking-[.18em] text-islamic-dim">Free Palestine 🇵🇸</small>
 				</span>
 			</a>
 
-			<!-- Desktop nav — centered -->
+			<!-- Desktop nav - centered -->
 			<nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 md:flex" aria-label="Primary">
 				{#each NAV as item (item.key)}
 					<a
 						href={item.href}
 						aria-current={isActive(item.key) ? 'page' : undefined}
-						class="flex h-20 items-center border-b-2 border-transparent px-3 text-[13px] font-medium transition {isActive(item.key) ? 'border-islamic-green text-islamic-text' : 'text-islamic-muted hover:text-islamic-text'}"
+						class="flex h-20 items-center border-b-2 px-3 text-[13px] font-medium transition {isActive(item.key) ? 'border-islamic-green text-islamic-green' : 'border-transparent text-islamic-muted hover:border-islamic-green hover:text-islamic-green'}"
 					>{item.label}</a>
 				{/each}
+				<!-- Resources dropdown -->
+				<div class="group relative flex h-20 items-center">
+					<button type="button" class="flex h-20 cursor-pointer items-center gap-1 border-b-2 border-transparent px-3 text-[13px] font-medium text-islamic-muted transition hover:border-islamic-green hover:text-islamic-green">
+						Resources
+						<svg viewBox="0 0 24 24" aria-hidden="true" class="size-3 fill-none stroke-current stroke-[2] transition group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+					</button>
+					<div class="pointer-events-none absolute left-0 top-full hidden w-56 rounded-xl border border-islamic-line bg-islamic-bg/98 p-2 opacity-0 shadow-2xl backdrop-blur-xl transition group-hover:pointer-events-auto group-hover:block group-hover:opacity-100">
+						{#each RESOURCES as resource (resource.href)}
+							<a href={resource.href} class="flex h-10 cursor-pointer items-center rounded-lg px-3 text-[12px] text-islamic-muted transition hover:bg-white/5 hover:text-islamic-text">{resource.label}</a>
+						{/each}
+					</div>
+				</div>
 			</nav>
 
 			<!-- Right actions -->
@@ -224,10 +247,10 @@
 					type="button"
 					data-search
 					aria-label="Search icons"
-					class="hidden h-11 cursor-pointer items-center gap-3 rounded-xl border border-islamic-line bg-white/2 px-3.5 text-[12px] text-islamic-muted transition hover:border-islamic-line-strong hover:bg-white/4 hover:text-islamic-text md:flex"
+					class="hidden h-8 cursor-pointer items-center gap-3 rounded-xl border border-islamic-line bg-white/2 px-3.5 text-[12px] text-islamic-muted transition hover:border-islamic-line-strong hover:bg-white/4 hover:text-islamic-text md:flex"
 				>
 					<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.7]"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-					<span>Search icons</span>
+					<span>Search...</span>
 					<kbd class="rounded-md border border-islamic-line px-1.5 py-1 text-[9px] tracking-[.08em] text-islamic-dim">CTRL + K</kbd>
 				</button>
 				<!-- GitHub -->
@@ -265,9 +288,21 @@
 				{#each NAV as item (item.key)}
 					<a
 						href={item.href}
-						class="flex h-11 items-center border-b-2 border-transparent px-3 text-[13px] font-medium transition {isActive(item.key) ? 'border-islamic-green text-islamic-text' : 'text-islamic-muted hover:text-islamic-text'}"
+						class="flex h-11 items-center border-b-2 px-3 text-[13px] font-medium transition {isActive(item.key) ? 'border-islamic-green text-islamic-green' : 'border-transparent text-islamic-muted hover:border-islamic-green hover:text-islamic-green'}"
 					>{item.label}</a>
 				{/each}
+				<!-- Resources accordion for mobile -->
+				<details class="group">
+					<summary class="flex h-11 cursor-pointer items-center justify-between px-3 text-[13px] font-medium text-islamic-muted hover:text-islamic-text">
+						Resources
+						<svg viewBox="0 0 24 24" aria-hidden="true" class="size-3 fill-none stroke-current stroke-[2] transition group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+					</summary>
+					<div class="mt-1 grid gap-1 pl-3">
+						{#each RESOURCES as resource (resource.href)}
+							<a href={resource.href} class="flex h-10 items-center px-3 text-[12px] text-islamic-dim hover:text-islamic-text">{resource.label}</a>
+						{/each}
+					</div>
+				</details>
 				<button
 					type="button"
 					data-search
@@ -295,7 +330,7 @@
 	<!-- Page content -->
 	{@render children()}
 
-	<!-- FOOTER — exact from native -->
+	<!-- FOOTER - exact from native -->
 	<footer class="mt-24 border-t border-islamic-line bg-black/12">
 		<div class="{MAX} py-14">
 			<div class="grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
@@ -310,9 +345,10 @@
 				<div class="grid content-start gap-2">
 					<b class="mb-2 text-[10px] uppercase tracking-[.16em] text-islamic-text">{t.footer.explore}</b>
 					<a href="/{locale}/icons"        class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.icons}</a>
-					<a href="/{locale}/categories"   class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.categories}</a>
-					<a href="/{locale}/sources"      class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.sources}</a>
+					<a href="/{locale}/packages"     class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.packages}</a>
+					<a href="/{locale}/showcase"     class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.showcase}</a>
 					<a href="/{locale}/donations"    class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.donations}</a>
+					<a href="/{locale}/sources"      class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.resources.sources}</a>
 				</div>
 				<div class="grid content-start gap-2">
 					<b class="mb-2 text-[10px] uppercase tracking-[.16em] text-islamic-text">{t.footer.develop}</b>
@@ -334,7 +370,7 @@
 		</div>
 	</footer>
 
-	<!-- Icon Drawer — exact from native -->
+	<!-- Icon Drawer - exact from native -->
 	{#if drawerItem}
 		<div class="fixed inset-0 z-[90]" data-drawer-root>
 			<button type="button" data-close aria-label="Close details" class="absolute inset-0 h-full w-full cursor-pointer border-0 bg-black/65 backdrop-blur-sm"></button>

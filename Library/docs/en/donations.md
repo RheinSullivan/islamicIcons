@@ -5,7 +5,7 @@ Islamic Icons accepts public donations with 100% financial transparency. The pol
 ## Allocation policy
 
 - **Minimum 70%** of all funds is allocated to humanitarian aid.
-- Humanitarian aid may support **Palestine 🇵🇸 relief, orphanages, low-income families, elderly care, and disaster relief**.
+- Humanitarian aid may support **Palestine relief, orphanages, low-income families, elderly care, and disaster relief**.
 - **Up to 30%** may be used for framework operations required to keep Islamic Icons available and maintainable, including **server, CDN, and domain** costs.
 
 The 70% figure is a floor for humanitarian allocation, not a target to reduce aid to. When operational costs are lower, the remaining funds can remain available for humanitarian allocation.

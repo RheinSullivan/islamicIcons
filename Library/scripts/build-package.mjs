@@ -102,7 +102,7 @@ for (const category of categories) {
 	await writeFile(join(root, 'icons', `${category}.js`), lines.join('\n') + '\n', 'utf8');
 }
 
-// 5. categories.js — list of all categories with metadata
+// 5. categories.js - list of all categories with metadata
 const categoryList = categories.map((c) => {
 	const count = catalog.filter((i) => i.category === c).length;
 	return { id: c, name: title(c), count };
@@ -130,7 +130,7 @@ await writeFile(
 	'utf8'
 );
 
-// 7. index.js — top-level entrypoint
+// 7. index.js - top-level entrypoint
 const indexExports = [
 	`export { catalog, sources, metadata } from './catalog.js';`,
 	`export { categories } from './categories.js';`,

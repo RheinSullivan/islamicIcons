@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Three style variants** per icon when the source artwork permits: `fill`, `outline`, `color`
 - **Source-aware metadata** for every icon with creator, source URL, and license tracking
 - **TypeScript-first** API with bundled `.d.ts` types
-- **Framework-agnostic** core package — no React, Vue, Svelte, or other framework runtime dependencies
+- **Framework-agnostic** core package - no React, Vue, Svelte, or other framework runtime dependencies
 - **Per-category exports** under `islamic-icons/icons/<category>` with `fill`, `outline`, `color`, `original`, and `alternate` variants
 - **Aliases** for common icon names (e.g. `allah` → `allah-calligraphy`, `tasbih` → `tasbih-ring`)
 - **External source manifests** under `islamic-icons/sources/<slug>.json`
@@ -28,9 +28,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Source lanes
 
-- **Community** — original artwork supplied for this project
-- **Google Material Icons** — Apache-2.0, vendored with provenance
-- **External discovery** — CC0 candidates from SVG Repo and public-domain vectors from Mary Akveo
+- **Community** - original artwork supplied for this project
+- **Google Material Icons** - Apache-2.0, vendored with provenance
+- **External discovery** - CC0 candidates from SVG Repo and public-domain vectors from Mary Akveo
 
 ### Categories
 
