@@ -10,7 +10,7 @@ This guide explains how to build and publish the Athar library to npm.
 
 1. **npm account**: Create at [npmjs.com](https://www.npmjs.com/signup)
 2. **npm login**: `npm login` or `npm adduser`
-3. **Package name available**: Check with `npm search @rhein.sullivan/athar`
+3. **Package name available**: Check with `npm search athar`
 
 ### Step 1: Prepare Package
 
@@ -31,7 +31,7 @@ Ensure `library/package.json` has these fields:
 
 ```json
 {
-  "name": "@rhein.sullivan/athar",
+  "name": "athar",
   "version": "0.2.0",
   "description": "Athar (أثر) - Islamic icon library. Create something that leaves a lasting impact.",
   "main": "./dist/index.js",
@@ -134,16 +134,16 @@ npm publish --access public
 
 ```bash
 # Check on npm
-npm view @rhein.sullivan/athar
+npm view athar
 
 # Install and test
 mkdir test-install
 cd test-install
 npm init -y
-npm install @rhein.sullivan/athar
+npm install athar
 
 # Test import
-node -e "console.log(require('@rhein.sullivan/athar'))"
+node -e "console.log(require('athar'))"
 ```
 
 ## Version Bumping
@@ -272,10 +272,10 @@ npm login
 ### "403 Forbidden"
 ```bash
 # Check if you have publish rights
-npm owner ls @rhein.sullivan/athar
+npm owner ls athar
 
 # Add yourself as owner (if you own it)
-npm owner add yourusername @rhein.sullivan/athar
+npm owner add yourusername athar
 ```
 
 ### "Missing files in package"
@@ -297,7 +297,7 @@ tar -tzf athar-*.tgz
 
 ## Links
 
-- **Package**: https://www.npmjs.com/package/@rhein.sullivan/athar
+- **Package**: https://www.npmjs.com/package/athar
 - **Website**: https://athar.vyagra.dev
 - **GitHub**: https://github.com/RheinSullivan/athar
 - **Issues**: https://github.com/RheinSullivan/athar/issues

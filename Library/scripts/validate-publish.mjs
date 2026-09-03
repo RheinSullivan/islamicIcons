@@ -16,7 +16,7 @@ function expect(cond, msg) {
 }
 
 expect(pkg.version === '0.1.1', `version must be "0.1.1" (got "${pkg.version}")`);
-expect(pkg.name === '@rhein.sullivan/islamic-icons', `name must be "@rhein.sullivan/islamic-icons" (got "${pkg.name}")`);
+expect(pkg.name === 'athar', `name must be "athar" (got "${pkg.name}")`);
 expect(pkg.private !== true, 'package must NOT be private');
 expect(pkg.license, 'license field is required');
 expect(pkg.description, 'description field is required');
@@ -85,5 +85,5 @@ if (errors.length) {
 }
 
 console.log(
-	`✓ @rhein.sullivan/islamic-icons@${pkg.version} is publish-ready. ${pkg.files.length} whitelisted files, ${Object.keys(pkg.exports).length} exports.`
+	`✓ @rhein.sullivan/athar@${pkg.version} is publish-ready. ${pkg.files.length} whitelisted files, ${Object.keys(pkg.exports).length} exports.`
 );

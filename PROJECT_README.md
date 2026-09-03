@@ -1,8 +1,8 @@
 # Athar (أثر)
 
-[![NPM Version](https://img.shields.io/npm/v/@rhein.sullivan/athar)](https://www.npmjs.com/package/@rhein.sullivan/athar)
-[![License](https://img.shields.io/npm/l/@rhein.sullivan/athar)](LICENSE)
-[![Downloads](https://img.shields.io/npm/dm/@rhein.sullivan/athar)](https://www.npmjs.com/package/@rhein.sullivan/athar)
+[![NPM Version](https://img.shields.io/npm/v/athar)](https://www.npmjs.com/package/athar)
+[![License](https://img.shields.io/npm/l/athar)](LICENSE)
+[![Downloads](https://img.shields.io/npm/dm/athar)](https://www.npmjs.com/package/athar)
 
 > **أثر** means *trace, impact, legacy* — something you leave behind.  
 > Create something that leaves a lasting impact.
@@ -21,13 +21,13 @@ A framework-agnostic Islamic icon library for developers who want to build meani
 ## 📦 Installation
 
 ```bash
-npm install @rhein.sullivan/athar
+npm install athar
 # or
-bun add @rhein.sullivan/athar
+bun add athar
 # or
-yarn add @rhein.sullivan/athar
+yarn add athar
 # or
-pnpm add @rhein.sullivan/athar
+pnpm add athar
 ```
 
 ## 🚀 Quick Start
@@ -36,7 +36,7 @@ pnpm add @rhein.sullivan/athar
 
 ```html
 <img 
-  src="node_modules/@rhein.sullivan/athar/icons/mosque/kaaba/fill.svg" 
+  src="node_modules/athar/icons/mosque/kaaba/fill.svg" 
   alt="Kaaba"
   width="24"
   height="24"
@@ -47,7 +47,7 @@ pnpm add @rhein.sullivan/athar
 
 ```javascript
 // Import SVG as asset
-import kaabaIcon from '@rhein.sullivan/athar/icons/mosque/kaaba/fill.svg';
+import kaabaIcon from 'athar/icons/mosque/kaaba/fill.svg';
 
 // Use in your HTML
 <img src={kaabaIcon} alt="Kaaba" width="24" height="24" />
@@ -56,7 +56,7 @@ import kaabaIcon from '@rhein.sullivan/athar/icons/mosque/kaaba/fill.svg';
 ### React Example
 
 ```jsx
-import kaabaIcon from '@rhein.sullivan/athar/icons/mosque/kaaba/fill.svg';
+import kaabaIcon from 'athar/icons/mosque/kaaba/fill.svg';
 
 function App() {
   return (
@@ -163,7 +163,7 @@ All icons include source attribution. See [ATTRIBUTION.md](library/ATTRIBUTION.m
 
 ## 🔗 Links
 
-- **NPM Package**: [@rhein.sullivan/athar](https://www.npmjs.com/package/@rhein.sullivan/athar)
+- **NPM Package**: [athar](https://www.npmjs.com/package/athar)
 - **Documentation**: [athar.vyagra.dev](https://athar.vyagra.dev)
 - **GitHub**: [RheinSullivan/athar](https://github.com/RheinSullivan/athar)
 - **Report Issues**: [GitHub Issues](https://github.com/RheinSullivan/athar/issues)
