@@ -86,15 +86,15 @@ export const en: Translations = {
 		installation: 'Installation',
 		frameworks: 'Frameworks',
 		contributing: 'Contributing',
-		copyright: 'Copyright © 2026 Athar (أثر). All rights reserved.',
+		copyright: 'Copyright © 2026 Atsarul Mujahidin. All rights reserved.',
 		credits: 'Vyagra Nexus™ | Indonesia',
-		tagline: 'Athar (أثر) - Create something that leaves a lasting impact. Islamic icons for the modern web.'
+		tagline: 'Atsarul Mujahidin - Traces of the Mujahidin. Create something that leaves a lasting impact for the fighters.'
 	},
 	home: {
-		badge: 'أثر · Athar · Leave a lasting impact',
-		heroWords: ['Athar', 'أثر', 'Islamic', 'icons', 'for', 'modern', 'web.'],
+		badge: 'Atsarul Mujahidin · Traces of the Mujahidin',
+		heroWords: ['Atsarul', 'Mujahidin', 'for', 'modern', 'web'],
 		heroDesc:
-			'Athar (أثر) means trace, impact, legacy. A source-aware Islamic icon library built for developers who want to create something that leaves a lasting أثر. Use local SVG and WebP assets across React, Vue, Svelte, Angular, Astro, or plain HTML.',
+			'Atsarul Mujahidin means Traces of the Mujahidin. A source-aware Islamic icon library built for developers who want to create something that leaves a lasting impact for the fighters. Use local SVG and WebP assets across React, Vue, Svelte, Angular, Astro, or plain HTML.',
 		exploreBtn: 'Explore {count} icons',
 		docsBtn: 'Read the documentation',
 		statIcons: 'logical icons',
@@ -122,10 +122,10 @@ export const en: Translations = {
 		builtFromSub: 'Community · licensed external assets'
 	},
 	icons: {
-		pageTitle: 'Icons | Islamic Icons',
-		pageDesc: 'Browse the public Islamic Icons catalog by category and asset.',
+		pageTitle: 'Icons | Atsarul Mujahidin',
+		pageDesc: 'Browse the public Atsarul Mujahidin catalog by category and asset.',
 		label: 'Icon library',
-		title: 'Islamic icons',
+		title: 'Atsarul Mujahidin',
 		desc: '{count} logical icons. Select an icon to inspect its variants, source, attribution and import path.',
 		searchPlaceholder: 'Search icons...',
 		results: '{count} results',
@@ -139,15 +139,15 @@ export const en: Translations = {
 		externalSvgRepo: 'External / SVG Repo'
 	},
 	categories: {
-		pageTitle: 'Categories | Islamic Icons',
-		pageDesc: 'Browse Islamic Icons by category and design intent.',
+		pageTitle: 'Categories | Atsarul Mujahidin',
+		pageDesc: 'Browse Atsarul Mujahidin by category and design intent.',
 		label: 'Browse by meaning',
 		title: 'Categories',
-		desc: 'Islamic Icons is organized around semantic categories rather than visual style. Each category can grow independently as contributors add new artwork.'
+		desc: 'Atsarul Mujahidin is organized around semantic categories rather than visual style. Each category can grow independently as contributors add new artwork.'
 	},
 	docs: {
-		pageTitle: 'Docs | Islamic Icons',
-		pageDesc: 'Documentation for the Islamic Icons library.',
+		pageTitle: 'Docs | Atsarul Mujahidin',
+		pageDesc: 'Documentation for the Atsarul Mujahidin library.',
 		docsSidebarLabel: 'Documentation',
 		contributeCard: 'Contribute an icon',
 		contributeDesc: 'Drop in SVG/WebP metadata, then validate with Bun.',

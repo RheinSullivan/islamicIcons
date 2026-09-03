@@ -209,12 +209,12 @@
 	<header class="fixed inset-x-0 top-0 z-50 border-b border-islamic-line bg-islamic-bg/88 backdrop-blur-xl supports-[backdrop-filter]:bg-islamic-bg/72">
 		<div class="{MAX} relative flex h-20 items-center justify-between gap-4">
 			<!-- Logo -->
-			<a href="/{locale}" aria-label="Islamic Icons home" class="group flex shrink-0 items-center gap-1">
+			<a href="/{locale}" aria-label="Atsarul Mujahidin home" class="group flex shrink-0 items-center gap-1">
 				<span class="grid size-12 shrink-0 place-items-center overflow-hidden">
-					<img src={logo} alt="Islamic Icons logo" class="size-full object-contain" />
+					<img src={logo} alt="Atsarul Mujahidin logo" class="size-full object-contain" />
 				</span>
 				<span class="hidden sm:block">
-					<strong class="block font-display text-base font-semibold tracking-tight text-islamic-text">Islamic Icons</strong>
+					<strong class="block font-display text-base font-semibold tracking-tight text-islamic-text">Atsarul Mujahidin</strong>
 					<small class="block text-[9px] uppercase tracking-[.18em] text-islamic-dim">Free Palestine 🇵🇸</small>
 				</span>
 			</a>
