@@ -5,6 +5,7 @@
     "": {
       "name": "web-docs",
       "dependencies": {
+        "@rhein.sullivan/islamic-icons": "^0.1.1",
         "@tailwindcss/vite": "^4.3.3",
         "tailwindcss": "^4.3.3",
       },
@@ -136,6 +137,8 @@
     "@oxc-project/types": ["@oxc-project/types@0.148.0", "", {}, "sha512-Nm4s/jB+4FpFsPhWGEC4h7rzksesmtnMXomo6rCMcg/b8zLQuOziRgkCS1fxDCXOlJB/6Q8oABOZ/OP6RIPj9A=="],
 
     "@polka/url": ["@polka/url@1.0.0-next.29", "", {}, "sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww=="],
+
+    "@rhein.sullivan/islamic-icons": ["@rhein.sullivan/islamic-icons@0.1.1", "", {}, "sha512-Jki+lLg/jO5CAkXb4RcgWUqt5akMp056ogXr1bxnBk1bN564tyeRmYxUfZsXZCg4bc4/aMuFMKC29qW3r+8nYw=="],
 
     "@rolldown/binding-android-arm-eabi": ["@rolldown/binding-android-arm-eabi@1.2.7", "", { "os": "android", "cpu": "arm" }, "sha512-EypzgnYCwyVY4NDHKzGmNJT5b+XaQEBniHxsMdeIQLB/tcCzZnhqrzHpZFbX9iaxx+5RiB8caATBtfvZP7zVxQ=="],
 

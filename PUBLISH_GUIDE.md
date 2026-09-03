@@ -1,6 +1,6 @@
 # Islamic Icons - Publishing Guide
 
-## ✅ Package Ready: `@rhein.sullivan/islamic-icons@0.1.0`
+## ✅ Package Ready: `@rhein.sullivan/islamic-icons@0.1.1`
 
 All documentation and code has been updated to use `@rhein.sullivan/islamic-icons`.
 
@@ -9,7 +9,7 @@ All documentation and code has been updated to use `@rhein.sullivan/islamic-icon
 ## 📦 Package Details
 
 - **Name:** `@rhein.sullivan/islamic-icons`
-- **Version:** `0.1.0`
+- **Version:** `0.1.1`
 - **Size:** 6.5 MB (10.0 MB unpacked)
 - **Icons:** 81 icons across 14 categories
 - **Files:** 111 files total
@@ -164,4 +164,9 @@ import { Mosque } from '@rhein.sullivan/islamic-icons';
 
 ---
 
-**Alhamdulillah! Package is ready to publish! 🕌☪️**
+**Alhamdulillah! Package v0.1.1 successfully published! 🕌☪️**
+
+## Published Package
+- NPM: https://www.npmjs.com/package/@rhein.sullivan/islamic-icons
+- Version: 0.1.1 (clean version without bad dependencies)
+- Installation: `npm install @rhein.sullivan/islamic-icons`
