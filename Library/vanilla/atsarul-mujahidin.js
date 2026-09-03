@@ -1,9 +1,9 @@
 /**
- * Athar Web Component
- * <athar variant="mosque" colors="#000" size="24">Masjid</athar>
+ * Atsarul Mujahidin Web Component
+ * <atsarul-mujahidin variant="mosque" colors="#000" size="24">Masjid</atsarul-mujahidin>
  */
 
-class AtharIcon extends HTMLElement {
+class AtsarulMujahidinIcon extends HTMLElement {
 	static observedAttributes = ['variant', 'colors', 'size', 'stroke-width'];
 
 	constructor() {
@@ -41,7 +41,7 @@ class AtharIcon extends HTMLElement {
 			}
 
 			const svgContent = svgModule.default || svgModule[variant];
-			
+
 			if (!svgContent) {
 				throw new Error(`Icon "${variant}" not found`);
 			}
@@ -113,8 +113,8 @@ class AtharIcon extends HTMLElement {
 }
 
 // Register the custom element
-if (typeof window !== 'undefined' && !customElements.get('athar-icon')) {
-	customElements.define('athar-icon', AtharIcon);
+if (typeof window !== 'undefined' && !customElements.get('atsarul-mujahidin')) {
+	customElements.define('atsarul-mujahidin', AtsarulMujahidinIcon);
 }
 
 export default AtharIcon;
