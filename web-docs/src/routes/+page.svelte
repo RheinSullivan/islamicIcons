@@ -14,7 +14,7 @@
 	} from '$lib/site';
 	import { localeStore } from '$lib/locale.svelte';
 
-	const t = $derived(localeStore.t);
+	const translation = $derived(localeStore.t);
 	const featuredIcons = $derived(featured);
 	const mosque = icon('mosque');
 	const lantern = icon('lantern');
@@ -49,7 +49,7 @@
 			<div class="gsap-container">
 				<div class="mb-7 inline-flex items-center gap-2 rounded-full border border-islamic-green/20 bg-islamic-green/6 px-3 py-2 text-[9px] font-semibold uppercase tracking-[.18em] text-islamic-green">
 					<span class="size-1.5 rounded-full bg-islamic-green shadow-[0_0_14px_rgba(115,224,174,.9)]"></span>
-					{t.home.badge}
+					{translation.home.badge}
 				</div>
 				<h1
 					class="hero-title max-w-3xl font-display text-[clamp(54px,6.6vw,96px)] font-medium leading-[.9] tracking-[-.065em]"
@@ -60,15 +60,15 @@
 					{/each}
 				</h1>
 				<p class="mt-8 max-w-2xl text-[15px] leading-8 text-islamic-muted sm:text-base">
-					{t.home.heroDesc}
+					{translation.home.heroDesc}
 				</p>
 				<div class="mt-9 flex flex-col gap-3 sm:flex-row">
 					<a href="/icons" class="inline-flex h-12 items-center justify-center gap-3 rounded-xl bg-islamic-green px-5 text-[12px] font-bold text-islamic-bg transition hover:-translate-y-0.5 hover:shadow-[0_15px_40px_rgba(115,224,174,.16)]">
-						{t.home.exploreBtn.replace('{count}', String(icons.length))}
+						{translation.home.exploreBtn.replace('{count}', String(icons.length))}
 						<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.8]"><path d="M5 12h13M13 6l6 6-6 6" /></svg>
 					</a>
 					<a href="/docs" class="inline-flex h-12 items-center justify-center rounded-xl border border-islamic-line px-5 text-[12px] font-medium text-islamic-muted transition hover:border-islamic-line-strong hover:bg-white/4 hover:text-islamic-text">
-						{t.home.docsBtn}
+						{translation.home.docsBtn}
 					</a>
 				</div>
 				<div class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[10px] text-islamic-dim">
@@ -95,8 +95,8 @@
 						<img class="mt-8 size-[65%] w-full object-contain" src={pathFor(mosque, 'original')} alt="Mosque icon" />
 					{/if}
 					<div class="absolute inset-x-5 bottom-5 border-t border-islamic-line pt-4">
-						<b class="block text-[11px]">{t.home.builtFrom}</b>
-						<small class="mt-1 block text-[9px] text-islamic-dim">{t.home.builtFromSub}</small>
+						<b class="block text-[11px]">{translation.home.builtFrom}</b>
+						<small class="mt-1 block text-[9px] text-islamic-dim">{translation.home.builtFromSub}</small>
 					</div>
 				</div>
 			</div>
@@ -107,15 +107,15 @@
 		<div class="grid grid-cols-2 divide-x divide-y divide-islamic-line border-y border-islamic-line md:grid-cols-3 md:divide-y-0">
 			<div class="py-7 pr-5 md:py-8">
 				<strong class="block font-display text-3xl tracking-tight sm:text-4xl">{icons.length}</strong>
-				<span class="mt-2 block text-[10px] uppercase tracking-[.12em] text-islamic-dim">{t.home.statIcons}</span>
+				<span class="mt-2 block text-[10px] uppercase tracking-[.12em] text-islamic-dim">{translation.home.statIcons}</span>
 			</div>
 			<div class="px-5 py-7 md:py-8">
 				<strong class="block font-display text-3xl tracking-tight sm:text-4xl">{categories.length}</strong>
-				<span class="mt-2 block text-[10px] uppercase tracking-[.12em] text-islamic-dim">{t.home.statCategories}</span>
+				<span class="mt-2 block text-[10px] uppercase tracking-[.12em] text-islamic-dim">{translation.home.statCategories}</span>
 			</div>
 			<div class="px-5 py-7 md:py-8">
 				<strong class="block font-display text-3xl tracking-tight sm:text-4xl">3</strong>
-				<span class="mt-2 block text-[10px] uppercase tracking-[.12em] text-islamic-dim">{t.home.statVariants}</span>
+				<span class="mt-2 block text-[10px] uppercase tracking-[.12em] text-islamic-dim">{translation.home.statVariants}</span>
 			</div>
 		</div>
 	</section>
@@ -123,12 +123,12 @@
 	<section class="{MAX} py-16 sm:py-24">
 		<div class="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
 			<div>
-				<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{t.home.featuredLabel}</span>
-				<h2 class="mt-3 font-display text-3xl tracking-[-.04em] sm:text-4xl">{t.home.featuredTitle}</h2>
-				<p class="mt-3 max-w-xl text-sm leading-7 text-islamic-muted">{t.home.featuredDesc}</p>
+				<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{translation.home.featuredLabel}</span>
+				<h2 class="mt-3 font-display text-3xl tracking-[-.04em] sm:text-4xl">{translation.home.featuredTitle}</h2>
+				<p class="mt-3 max-w-xl text-sm leading-7 text-islamic-muted">{translation.home.featuredDesc}</p>
 			</div>
 			<a href="/icons" class="inline-flex items-center gap-2 text-[11px] font-semibold text-islamic-green">
-				{t.home.viewCollection}
+				{translation.home.viewCollection}
 				<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.8]"><path d="M5 12h13M13 6l6 6-6 6" /></svg>
 			</a>
 		</div>
@@ -144,7 +144,7 @@
 					</span>
 					<span class="mt-3 block">
 						<strong class="block text-[13px] font-semibold text-islamic-text">{item.title}</strong>
-						<small class="mt-1 block text-[10px] text-islamic-dim">{pretty(item.category)} · {t.variants.fill}</small>
+						<small class="mt-1 block text-[10px] text-islamic-dim">{pretty(item.category)} · {translation.variants.fill}</small>
 					</span>
 				</button>
 			{/each}
@@ -154,24 +154,24 @@
 	<section class="{MAX} py-16 sm:py-24">
 		<div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
 			<div>
-				<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{t.home.whyLabel}</span>
-				<h2 class="mt-3 max-w-md font-display text-3xl tracking-[-.04em] sm:text-4xl">{t.home.whyTitle}</h2>
+				<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{translation.home.whyLabel}</span>
+				<h2 class="mt-3 max-w-md font-display text-3xl tracking-[-.04em] sm:text-4xl">{translation.home.whyTitle}</h2>
 			</div>
 			<div class="grid gap-3 sm:grid-cols-3">
 				<article class="gsap-on-scroll rounded-2xl border border-islamic-line bg-islamic-panel p-5">
 					<span class="text-[10px] text-islamic-green">01</span>
-					<h3 class="mt-14 text-sm font-semibold">{t.home.card1Title}</h3>
-					<p class="mt-2 text-[11px] leading-6 text-islamic-dim">{t.home.card1Desc}</p>
+					<h3 class="mt-14 text-sm font-semibold">{translation.home.card1Title}</h3>
+					<p class="mt-2 text-[11px] leading-6 text-islamic-dim">{translation.home.card1Desc}</p>
 				</article>
 				<article class="gsap-on-scroll rounded-2xl border border-islamic-line bg-islamic-panel p-5">
 					<span class="text-[10px] text-islamic-green">02</span>
-					<h3 class="mt-14 text-sm font-semibold">{t.home.card2Title}</h3>
-					<p class="mt-2 text-[11px] leading-6 text-islamic-dim">{t.home.card2Desc}</p>
+					<h3 class="mt-14 text-sm font-semibold">{translation.home.card2Title}</h3>
+					<p class="mt-2 text-[11px] leading-6 text-islamic-dim">{translation.home.card2Desc}</p>
 				</article>
 				<article class="gsap-on-scroll rounded-2xl border border-islamic-line bg-islamic-panel p-5">
 					<span class="text-[10px] text-islamic-green">03</span>
-					<h3 class="mt-14 text-sm font-semibold">{t.home.card3Title}</h3>
-					<p class="mt-2 text-[11px] leading-6 text-islamic-dim">{t.home.card3Desc}</p>
+					<h3 class="mt-14 text-sm font-semibold">{translation.home.card3Title}</h3>
+					<p class="mt-2 text-[11px] leading-6 text-islamic-dim">{translation.home.card3Desc}</p>
 				</article>
 			</div>
 		</div>
@@ -181,12 +181,12 @@
 		<div class="overflow-hidden rounded-3xl border border-islamic-line bg-islamic-panel p-7 sm:p-10">
 			<div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
 				<div>
-					<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{t.home.ctaLabel}</span>
-					<h2 class="mt-3 font-display text-2xl tracking-[-.035em] sm:text-3xl">{t.home.ctaTitle}</h2>
-					<p class="mt-3 max-w-xl text-sm leading-7 text-islamic-muted">{t.home.ctaDesc}</p>
+					<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{translation.home.ctaLabel}</span>
+					<h2 class="mt-3 font-display text-2xl tracking-[-.035em] sm:text-3xl">{translation.home.ctaTitle}</h2>
+					<p class="mt-3 max-w-xl text-sm leading-7 text-islamic-muted">{translation.home.ctaDesc}</p>
 				</div>
 				<a href="/docs/installation" class="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-islamic-green px-5 text-[11px] font-bold text-islamic-bg">
-					{t.home.ctaBtn}
+					{translation.home.ctaBtn}
 					<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.8]"><path d="M5 12h13M13 6l6 6-6 6" /></svg>
 				</a>
 			</div>

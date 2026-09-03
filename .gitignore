@@ -4,3 +4,5 @@ node_modules/
 dist/
 # Root README.md (for npm publish only)
 /README.md
+/Islamic-Icons-New
+library/assets/backup-old-icons/

@@ -17,31 +17,33 @@
 	import { docs as docsContent, richBody } from '$lib/docs-content';
 	import { translations, type Locale } from '$lib/i18n';
 	import SearchModal from '$lib/components/SearchModal.svelte';
+	import SalamModal from '$lib/components/SalamModal.svelte';
 	import { onMount, tick } from 'svelte';
 
 	let { children, data } = $props();
 
 	const locale = $derived(data.locale as Locale);
-	const t = $derived(translations[locale]);
+	const translation = $derived(translations[locale]);
 
 	const pathname = $derived(page.url.pathname.replace(/\/$/, '') || '/');
 
 	// Nav items - Icons, Packages, Showcase, Resources (dropdown), Docs
 	// Nav order: Docs, Icons, Packages, Showcase, Donations
 	const NAV = $derived([
-		{ href: `/${locale}/docs`,       label: t.nav.docs,       key: 'docs'       },
-		{ href: `/${locale}/icons`,      label: t.nav.icons,      key: 'icons'      },
-		{ href: `/${locale}/packages`,   label: t.nav.packages,   key: 'packages'   },
-		{ href: `/${locale}/showcase`,   label: t.nav.showcase,   key: 'showcase'   },
-		{ href: `/${locale}/donations`,  label: t.nav.donations,  key: 'donations'  },
+		{ href: `/${locale}/docs`,       label: translation.nav.docs,       key: 'docs'       },
+		{ href: `/${locale}/icons`,      label: translation.nav.icons,      key: 'icons'      },
+		{ href: `/${locale}/packages`,   label: translation.nav.packages,   key: 'packages'   },
+		{ href: `/${locale}/showcase`,   label: translation.nav.showcase,   key: 'showcase'   },
+		{ href: `/${locale}/donations`,  label: translation.nav.donations,  key: 'donations'  },
 	]);
 
 	const RESOURCES = $derived([
-		{ href: `/${locale}/license`,          label: t.resources.license       },
-		{ href: `/${locale}/community`,        label: t.resources.community     },
-		{ href: `/${locale}/code-of-conduct`,  label: t.resources.codeOfConduct },
-		{ href: `/${locale}/sources`,          label: t.resources.sources       },
-		{ href: `/${locale}/contributing`,     label: t.resources.contributing  },
+		{ href: `/${locale}/license`,          label: translation.resources.license       },
+		{ href: `/${locale}/community`,        label: translation.resources.community     },
+		{ href: `/${locale}/code-of-conduct`,  label: translation.resources.codeOfConduct },
+		{ href: `/${locale}/sources`,          label: translation.resources.sources       },
+		{ href: `/${locale}/brand-logos`,      label: locale === 'en' ? 'Brand Logos' : 'Logo Brand' },
+		{ href: `/${locale}/contributing`,     label: translation.resources.contributing  },
 	]);
 
 	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons';
@@ -343,29 +345,29 @@
 					<span class="mt-4 block text-[10px] text-islamic-muted">Islam Community</span>
 				</div>
 				<div class="grid content-start gap-2">
-					<b class="mb-2 text-[10px] uppercase tracking-[.16em] text-islamic-text">{t.footer.explore}</b>
-					<a href="/{locale}/icons"        class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.icons}</a>
-					<a href="/{locale}/packages"     class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.packages}</a>
-					<a href="/{locale}/showcase"     class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.showcase}</a>
-					<a href="/{locale}/donations"    class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.nav.donations}</a>
-					<a href="/{locale}/sources"      class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.resources.sources}</a>
+					<b class="mb-2 text-[10px] uppercase tracking-[.16em] text-islamic-text">{translation.footer.explore}</b>
+					<a href="/{locale}/icons"        class="text-[11px] text-islamic-dim hover:text-islamic-text">{translation.nav.icons}</a>
+					<a href="/{locale}/packages"     class="text-[11px] text-islamic-dim hover:text-islamic-text">{translation.nav.packages}</a>
+					<a href="/{locale}/showcase"     class="text-[11px] text-islamic-dim hover:text-islamic-text">{translation.nav.showcase}</a>
+					<a href="/{locale}/donations"    class="text-[11px] text-islamic-dim hover:text-islamic-text">{translation.nav.donations}</a>
+					<a href="/{locale}/sources"      class="text-[11px] text-islamic-dim hover:text-islamic-text">{translation.resources.sources}</a>
 				</div>
 				<div class="grid content-start gap-2">
-					<b class="mb-2 text-[10px] uppercase tracking-[.16em] text-islamic-text">{t.footer.develop}</b>
-					<a href="/{locale}/docs/installation" class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.footer.installation}</a>
-					<a href="/{locale}/docs/frameworks"   class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.footer.frameworks}</a>
-					<a href="/{locale}/contributing"      class="text-[11px] text-islamic-dim hover:text-islamic-text">{t.footer.contributing}</a>
+					<b class="mb-2 text-[10px] uppercase tracking-[.16em] text-islamic-text">{translation.footer.develop}</b>
+					<a href="/{locale}/docs/installation" class="text-[11px] text-islamic-dim hover:text-islamic-text">{translation.footer.installation}</a>
+					<a href="/{locale}/docs/frameworks"   class="text-[11px] text-islamic-dim hover:text-islamic-text">{translation.footer.frameworks}</a>
+					<a href="/{locale}/contributing"      class="text-[11px] text-islamic-dim hover:text-islamic-text">{translation.footer.contributing}</a>
 				</div>
 				<div class="grid content-start gap-2">
-					<b class="mb-2 text-[10px] uppercase tracking-[.16em] text-islamic-text">{t.footer.principles}</b>
-					<span class="text-[11px] text-islamic-dim">{t.footer.localAssets}</span>
-					<span class="text-[11px] text-islamic-dim">{t.footer.attributionFirst}</span>
-					<span class="text-[11px] text-islamic-dim">{t.footer.noRuntimeApi}</span>
+					<b class="mb-2 text-[10px] uppercase tracking-[.16em] text-islamic-text">{translation.footer.principles}</b>
+					<span class="text-[11px] text-islamic-dim">{translation.footer.localAssets}</span>
+					<span class="text-[11px] text-islamic-dim">{translation.footer.attributionFirst}</span>
+					<span class="text-[11px] text-islamic-dim">{translation.footer.noRuntimeApi}</span>
 				</div>
 			</div>
 			<div class="mt-10 flex flex-col gap-2 border-t border-islamic-line pt-5 text-[10px] text-islamic-dim sm:flex-row sm:items-center sm:justify-between">
-				<span>{t.footer.copyright}</span>
-				<span>{t.footer.credits}</span>
+				<span>{translation.footer.copyright}</span>
+				<span>{translation.footer.credits}</span>
 			</div>
 		</div>
 	</footer>
@@ -395,7 +397,7 @@
 					</div>
 					<!-- Source tabs -->
 					<div class="mt-6">
-						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.source}</span>
+						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.source}</span>
 						<div class="flex flex-wrap gap-2">
 							{#each drawerItem.item.sources as s (s.id)}
 								<button type="button" data-drawer-source={s.id} class="cursor-pointer rounded-lg border px-3 py-2 text-[10px] {s.id === drawerItem.source?.id ? 'border-islamic-green/30 bg-islamic-green/8 text-islamic-green' : 'border-islamic-line text-islamic-muted hover:text-islamic-text'}">{s.label}</button>
@@ -404,7 +406,7 @@
 					</div>
 					<!-- Variant tabs -->
 					<div class="mt-6">
-						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.variant}</span>
+						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.variant}</span>
 						<div class="flex flex-wrap gap-2">
 							{#each drawerItem.vars as v (v)}
 								<button type="button" data-drawer-var={v} class="cursor-pointer rounded-lg border px-3 py-2 text-[10px] {v === drawerItem.variant ? 'border-islamic-green/30 bg-islamic-green/8 text-islamic-green' : 'border-islamic-line text-islamic-muted hover:text-islamic-text'}">{variantName(v)}</button>
@@ -413,31 +415,31 @@
 					</div>
 					<!-- Import -->
 					<div class="mt-6">
-						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.import}</span>
+						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.import}</span>
 						<div class="flex gap-2 rounded-xl border border-islamic-line bg-black/20 p-2">
 							<code class="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap p-2 text-[10px] text-islamic-muted">{drawerItem.imp}</code>
-							<button type="button" data-copy={drawerItem.imp} class="cursor-pointer shrink-0 rounded-lg bg-islamic-green px-3 text-[10px] font-bold text-islamic-bg">{t.drawer.copy}</button>
+							<button type="button" data-copy={drawerItem.imp} class="cursor-pointer shrink-0 rounded-lg bg-islamic-green px-3 text-[10px] font-bold text-islamic-bg">{translation.drawer.copy}</button>
 						</div>
 					</div>
 					<!-- Metadata grid -->
 					<div class="mt-6 grid grid-cols-2 gap-2">
 						<div class="rounded-xl border border-islamic-line p-4">
-							<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.category}</span>
+							<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.category}</span>
 							<b class="mt-2 block text-xs">{pretty(drawerItem.item.category)}</b>
 						</div>
 						<div class="rounded-xl border border-islamic-line p-4">
-							<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.sources}</span>
+							<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.sources}</span>
 							<b class="mt-2 block text-xs">{drawerItem.item.sources.length}</b>
 						</div>
 					</div>
 					<!-- Asset path -->
 					<div class="mt-6">
-						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.assetPath}</span>
+						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.assetPath}</span>
 						<code class="block break-all rounded-xl border border-islamic-line bg-black/20 p-4 text-[10px] leading-6 text-islamic-muted">{drawerItem.path}</code>
 					</div>
 					<div class="mt-6 flex gap-4 text-[10px] text-islamic-green">
-						<a href="/{locale}/docs/usage">{t.drawer.usageGuide} →</a>
-						<a href="/{locale}/sources">{t.drawer.sourcePolicy} →</a>
+						<a href="/{locale}/docs/usage">{translation.drawer.usageGuide} →</a>
+						<a href="/{locale}/sources">{translation.drawer.sourcePolicy} →</a>
 					</div>
 				</div>
 			</aside>
@@ -456,4 +458,7 @@
 			{toastMsg}
 		</div>
 	{/if}
+	
+	<!-- Salam Modal -->
+	<SalamModal />
 </div>

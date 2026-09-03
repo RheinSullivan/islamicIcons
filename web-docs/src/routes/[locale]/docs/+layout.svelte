@@ -5,7 +5,7 @@
 
 	let { children, data } = $props();
 	const locale = $derived(data.locale as Locale);
-	const t = $derived(translations[locale]);
+	const translation = $derived(translations[locale]);
 	const pathname = $derived(page.url.pathname.replace(/\/$/, ''));
 
 	const SIDE = $derived([
@@ -25,7 +25,7 @@
 		<!-- Docs sidebar - exact from native -->
 		<aside class="hidden lg:block lg:sticky lg:top-28 lg:h-fit">
 			<div class="mb-5 text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim">
-				{t.docs.docsSidebarLabel}
+				{translation.docs.docsSidebarLabel}
 			</div>
 			<div class="grid gap-1">
 				{#each SIDE as item (item.href)}
@@ -39,16 +39,16 @@
 			<!-- Contribute card - exact from native -->
 			<div class="mt-8 rounded-2xl border border-islamic-line bg-islamic-panel p-4">
 				<span class="mb-3 grid size-8 place-items-center rounded-lg bg-islamic-green/10 text-islamic-green">✦</span>
-				<b class="text-[12px]">{t.docs.contributeCard}</b>
-				<p class="mt-2 text-[11px] leading-6 text-islamic-dim">{t.docs.contributeDesc}</p>
-				<a href="/{locale}/contributing" class="mt-3 inline-flex cursor-pointer text-[11px] font-medium text-islamic-green">{t.docs.contributeLink} →</a>
+				<b class="text-[12px]">{translation.docs.contributeCard}</b>
+				<p class="mt-2 text-[11px] leading-6 text-islamic-dim">{translation.docs.contributeDesc}</p>
+				<a href="/{locale}/contributing" class="mt-3 inline-flex cursor-pointer text-[11px] font-medium text-islamic-green">{translation.docs.contributeLink} →</a>
 			</div>
 		</aside>
 
 		<!-- Mobile sidebar dropdown -->
 		<div class="lg:hidden">
 			<div class="mb-2 text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim">
-				{t.docs.docsSidebarLabel}
+				{translation.docs.docsSidebarLabel}
 			</div>
 			<div class="flex flex-wrap gap-1">
 				{#each SIDE as item (item.href)}

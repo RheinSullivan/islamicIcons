@@ -4,7 +4,7 @@
 	
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
-	const t = $derived(translations[locale]);
+	const translation = $derived(translations[locale]);
 	
 	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons';
 </script>

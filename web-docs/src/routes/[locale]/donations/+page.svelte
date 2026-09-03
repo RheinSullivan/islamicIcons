@@ -4,52 +4,65 @@
 
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
-	const t = $derived(translations[locale]);
+	const translation = $derived(translations[locale]);
 
 	const donationPhotos = [
 		{
-			title: 'Low-income families',
-			image: 'https://ik.imagekit.io/qkwbj7b7u/charity-meals/uploads/162/family-food-parcel2.png?ik-sdk-version=php-2.0.0',
-			source: 'Charity Meals',
-			sourceUrl: 'https://charitymeals.org/projects',
-			alt: 'Family receiving a food parcel and essential supplies'
-		},
-		{
-			title: 'Orphanage care',
-			image: 'https://www.hopeandprosperity.org/wp-content/uploads/2020/06/5J2A7153.jpg',
-			source: 'Hope & Prosperity',
-			sourceUrl: 'https://www.hopeandprosperity.org/our-orphanage/',
-			alt: 'Children sharing a meal at an orphanage'
-		},
-		{
-			title: 'Elderly care',
-			image: 'https://www.thefinancialcoconut.com/hubfs/caregivers-png-1.png',
-			source: 'The Financial Coconut',
-			sourceUrl: 'https://www.thefinancialcoconut.com/blog/the-real-cost-of-caregiving-in-singapore',
-			alt: 'Caregivers supporting elderly residents in a care home'
-		},
-		{
-			title: 'Palestine relief',
+			title: 'Palestine Relief',
 			image: 'https://help.unicef.org/mexico/sites/mexico/files/styles/facebook_share_image/public/2025-01/UNI495572.jpg?itok=q8E8Yyli',
 			source: 'UNICEF',
 			sourceUrl: 'https://help.unicef.org/mexico/es/dona-gaza',
-			alt: 'Children in Gaza waiting for humanitarian food aid'
+			alt: 'Children in Gaza waiting for humanitarian food aid',
+			span: 'lg:col-span-8 lg:row-span-2'
 		},
 		{
-			title: 'Disaster relief',
+			title: 'Sudan Humanitarian Crisis',
+			image: 'https://www.unicef.org/sites/default/files/styles/hero_desktop/public/UN0784820.jpg.webp?itok=vOakVvzz',
+			source: 'UNICEF Sudan',
+			sourceUrl: 'https://www.unicef.org/sudan',
+			alt: 'Sudan humanitarian crisis relief efforts',
+			span: 'lg:col-span-4 lg:row-span-1'
+		},
+		{
+			title: 'Orphanage Care',
+			image: 'https://www.hopeandprosperity.org/wp-content/uploads/2020/06/5J2A7153.jpg',
+			source: 'Hope & Prosperity',
+			sourceUrl: 'https://www.hopeandprosperity.org/our-orphanage/',
+			alt: 'Children sharing a meal at an orphanage',
+			span: 'lg:col-span-4 lg:row-span-1'
+		},
+		{
+			title: 'Indonesia Disaster Relief',
 			image: 'https://en.vcci.com.vn/hm_content/uploads/247-news/FLOODS.png',
-			source: 'Vietnam Chamber of Commerce and Industry',
+			source: 'Vietnam Chamber of Commerce',
 			sourceUrl: 'https://en.vcci.com.vn/disaster-relief-when-foreign-friends-show-kind-support-vietnam',
-			alt: 'Volunteers delivering food during a flood'
+			alt: 'Indonesia flood disaster relief volunteers',
+			span: 'lg:col-span-4 lg:row-span-2'
+		},
+		{
+			title: 'Low-Income Families',
+			image: 'https://ik.imagekit.io/qkwbj7b7u/charity-meals/uploads/162/family-food-parcel2.png?ik-sdk-version=php-2.0.0',
+			source: 'Charity Meals',
+			sourceUrl: 'https://charitymeals.org/projects',
+			alt: 'Family receiving food parcels and essential supplies',
+			span: 'lg:col-span-4 lg:row-span-1'
+		},
+		{
+			title: 'Elderly Care Support',
+			image: 'https://www.thefinancialcoconut.com/hubfs/caregivers-png-1.png',
+			source: 'The Financial Coconut',
+			sourceUrl: 'https://www.thefinancialcoconut.com/blog/the-real-cost-of-caregiving-in-singapore',
+			alt: 'Caregivers supporting elderly residents',
+			span: 'lg:col-span-4 lg:row-span-1'
 		}
 	];
 
 	const humanitarian = [
-		'Palestine relief',
+		'Palestine & Sudan relief',
 		'Orphanages',
 		'Low-income families',
 		'Elderly care',
-		'Disaster relief'
+		'Disaster relief (Indonesia & worldwide)'
 	];
 	const ops = ['Server', 'CDN', 'Domain'];
 
@@ -82,49 +95,39 @@
 		</p>
 	</section>
 
-	<section class="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-12">
-		{#each donationPhotos as photo, index (photo.title)}
-			<figure
-				class="gsap-on-scroll group {index === 0
-					? 'lg:col-span-7'
-					: index === 1
-						? 'lg:col-span-5'
-						: 'lg:col-span-4'}"
-			>
-				<div
-					class="relative overflow-hidden {index === 0
-						? 'aspect-[16/10]'
-						: 'aspect-[4/3]'} bg-islamic-panel-2"
+	<section class="mt-14">
+		<h2 class="mb-6 text-2xl font-semibold">Where Your Donations Go</h2>
+		<!-- Bento Grid Layout -->
+		<div class="grid auto-rows-[200px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12">
+			{#each donationPhotos as photo (photo.title)}
+				<figure
+					class="gsap-on-scroll group relative overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel {photo.span}"
 				>
 					<img
 						src={photo.image}
 						alt={photo.alt}
+						class="size-full object-cover transition duration-700 group-hover:scale-105"
 						loading="lazy"
-						referrerpolicy="no-referrer"
-						class="size-full object-cover transition duration-700 group-hover:scale-[1.025]"
 						onerror={imgError}
 					/>
-					<div
-						class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent"
-					></div>
-				</div>
-				<figcaption class="pt-4">
-					<div class="flex items-baseline justify-between gap-4">
-						<h2 class="font-display text-lg tracking-[-.03em]">{photo.title}</h2>
-						<span class="text-[9px] uppercase tracking-[.14em] text-islamic-dim"
-							>{String(index + 1).padStart(2, '0')}</span
+					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+					<figcaption class="absolute bottom-0 left-0 right-0 p-5">
+						<h3 class="text-base font-semibold text-white">{photo.title}</h3>
+						<a
+							href={photo.sourceUrl}
+							target="_blank"
+							rel="noreferrer"
+							class="mt-1 inline-flex items-center gap-1 text-[11px] text-white/70 hover:text-white"
 						>
-					</div>
-					<a
-						href={photo.sourceUrl}
-						target="_blank"
-						rel="noreferrer"
-						class="mt-2 inline-flex text-[9px] text-islamic-dim hover:text-islamic-green"
-						>Photo: {photo.source}</a
-					>
-				</figcaption>
-			</figure>
-		{/each}
+							{photo.source}
+							<svg viewBox="0 0 24 24" class="size-3 fill-none stroke-current stroke-2">
+								<path d="M7 17 17 7M7 7h10v10"/>
+							</svg>
+						</a>
+					</figcaption>
+				</figure>
+			{/each}
+		</div>
 	</section>
 
 	<section class="mt-16 border-y border-islamic-line">

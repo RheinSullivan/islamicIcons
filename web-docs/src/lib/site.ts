@@ -122,7 +122,7 @@ export function pathFor(item: CatalogItem, variant: string = 'fill', sourceId: s
 			: item.sources.find((source) => source.id === sourceId) || sourceForItem(item);
 	if (!source) return '';
 	const selectedVariant = chooseVariant(source, variant);
-	if (source.id === 'community' || source.id === 'community-upload') {
+	if (source.id === 'community') {
 		return `${ASSET_ROOT}/${item.category}/${item.name}/${selectedVariant}.svg`;
 	}
 	return `${ASSET_ROOT}/${item.category}/${item.name}/sources/${source.id}/${selectedVariant}.svg`;
@@ -133,39 +133,45 @@ export function iconPath(item: CatalogItem, variant: string = 'fill'): string {
 	if (!source) return '';
 	const selectedVariant = chooseVariant(source, variant);
 	const base = `${ASSET_ROOT}/${item.category}/${item.name}`;
-	if (source.id === 'community' || source.id === 'community-upload') return `${base}/${selectedVariant}.svg`;
+	if (source.id === 'community') return `${base}/${selectedVariant}.svg`;
 	return `${base}/sources/${source.id}/${selectedVariant}.svg`;
 }
 
 export function categoryDescription(category: string): string {
 	const descriptions: Record<string, string> = {
+		animal: 'Animals in Islamic context and halal dietary symbols.',
 		charity: 'Zakat, sadaqah and giving.',
-		flags: 'National and cause-related imagery.',
-		food: 'Halal food, animals and dietary symbols.',
+		flag: 'National and cause-related imagery.',
+		food: 'Halal food and dietary symbols.',
 		god: 'Allah, tawhid and Arabic religious marks.',
 		lifestyle: 'Hajj, travel and everyday Islamic life.',
 		mosque: 'Mosques, minarets and sacred locations.',
+		'muslim-brand': 'Muslim brand logos and identities.',
+		ornamen: 'Ornamental decorations and embellishments.',
 		patterns: 'Geometric and ornamental Islamic motifs.',
-		people: 'Muslim, family and community figures.',
 		prayer: 'Salah, dua, wudhu, qibla and tasbih.',
 		prophet: 'Prophetic names and calligraphy.',
+		qalligraphy: 'Arabic calligraphy and religious scripts.',
 		quran: 'Quran, Kaaba and sacred reading symbols.',
-		ramadan: 'Ramadan, crescent, lantern, iftar and Eid-adjacent imagery.'
+		ramadhan: 'Ramadan, crescent, lantern, iftar and Eid-adjacent imagery.'
 	};
 	return descriptions[category] || 'Islamic visual symbols and community contributions.';
 }
 
 export const categoryMeta: Record<string, string> = {
+	animal: 'Animals in Islamic context and halal dietary symbols.',
 	charity: 'Zakat, sadaqah and giving.',
-	flags: 'National and cause-related imagery.',
-	food: 'Halal food, animals and dietary symbols.',
+	flag: 'National and cause-related imagery.',
+	food: 'Halal food and dietary symbols.',
 	god: 'Allah, tawhid and Arabic religious marks.',
 	lifestyle: 'Hajj, travel and everyday Islamic life.',
 	mosque: 'Mosques, minarets and sacred locations.',
+	'muslim-brand': 'Muslim brand logos and identities.',
+	ornamen: 'Ornamental decorations and embellishments.',
 	patterns: 'Geometric and ornamental Islamic motifs.',
-	people: 'Muslim, family and community figures.',
 	prayer: 'Salah, dua, wudhu, qibla and tasbih.',
 	prophet: 'Prophetic names and calligraphy.',
+	qalligraphy: 'Arabic calligraphy and religious scripts.',
 	quran: 'Quran, Kaaba and sacred reading symbols.',
-	ramadan: 'Ramadan, crescent, lantern, iftar and Eid-adjacent imagery.'
+	ramadhan: 'Ramadan, crescent, lantern, iftar and Eid-adjacent imagery.'
 };

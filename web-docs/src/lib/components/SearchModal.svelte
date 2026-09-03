@@ -6,10 +6,10 @@
 	let query = $state('');
 
 	const results = $derived.by(() => {
-		const q = query.trim().toLowerCase();
-		if (!q) return [];
+		const queryLower = query.trim().toLowerCase();
+		if (!queryLower) return [];
 		return icons
-			.filter((i) => `${i.title} ${i.name} ${i.category} ${(i.aliases || []).join(' ')}`.toLowerCase().includes(q))
+			.filter((icon) => `${icon.title} ${icon.name} ${icon.category} ${(icon.aliases || []).join(' ')}`.toLowerCase().includes(queryLower))
 			.slice(0, 10);
 	});
 

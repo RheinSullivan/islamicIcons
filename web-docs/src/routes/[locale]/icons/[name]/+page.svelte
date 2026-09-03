@@ -5,7 +5,7 @@
 
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
-	const t = $derived(translations[locale]);
+	const translation = $derived(translations[locale]);
 
 	const iconName = $derived(page.params.name);
 	const item = $derived(icons.find(i => i.name === iconName) ?? null);
@@ -45,7 +45,7 @@
 	<!-- Breadcrumb -->
 	<nav class="mb-8 text-[10px] text-islamic-dim" aria-label="Breadcrumb">
 		<ol class="flex items-center gap-1">
-			<li><a href="/{locale}/icons" class="hover:text-islamic-text">{t.nav.icons}</a></li>
+			<li><a href="/{locale}/icons" class="hover:text-islamic-text">{translation.nav.icons}</a></li>
 			<li aria-hidden="true"><span class="px-1">/</span></li>
 			<li aria-current="page" class="text-islamic-text">{item.title}</li>
 		</ol>
@@ -55,12 +55,12 @@
 		<!-- Preview column -->
 		<div>
 			<div class="relative grid aspect-square place-items-center overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel">
-				<img class="size-[72%] object-contain" src={path} alt={item.title} />
+				<img class="{variant === 'color' ? 'size-[72%] object-contain' : 'size-[72%] object-contain [filter:brightness(0)_invert(1)]'}" src={path} alt={item.title} />
 				<span class="absolute bottom-3 left-3 rounded-full border border-islamic-line bg-islamic-bg px-2 py-1 text-[9px] text-islamic-dim">{sourceLabel(source?.id || '')} · {variantName(variant)}</span>
 			</div>
 			{#if vars.length > 1}
 				<div class="mt-6">
-					<span class="mb-3 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.variant}</span>
+					<span class="mb-3 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.variant}</span>
 					<div class="flex flex-wrap gap-2">
 						{#each vars as v (v)}
 							<button type="button" onclick={() => activeVariant = v} aria-pressed={v === variant} class="cursor-pointer rounded-xl border px-4 py-2 text-[11px] transition {v === variant ? 'border-islamic-green/30 bg-islamic-green/8 text-islamic-green' : 'border-islamic-line text-islamic-muted hover:text-islamic-text'}">{variantName(v)}</button>
@@ -70,7 +70,7 @@
 			{/if}
 			{#if item.sources.length > 1}
 				<div class="mt-6">
-					<span class="mb-3 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.source}</span>
+					<span class="mb-3 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.source}</span>
 					<div class="flex flex-wrap gap-2">
 						{#each item.sources as s (s.id)}
 							<button type="button" onclick={() => activeSource = s.id} aria-pressed={s.id === source?.id} class="cursor-pointer rounded-xl border px-4 py-2 text-[11px] transition {s.id === source?.id ? 'border-islamic-green/30 bg-islamic-green/8 text-islamic-green' : 'border-islamic-line text-islamic-muted hover:text-islamic-text'}">{s.label}</button>
@@ -94,29 +94,29 @@
 
 			<!-- Import -->
 			<div class="mt-8">
-				<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.import}</span>
+				<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.import}</span>
 				<div class="flex items-center gap-2 overflow-hidden rounded-xl border border-islamic-line bg-black/20 p-2">
 					<code class="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap p-2 text-[11px] text-islamic-muted">{imp}</code>
-					<button type="button" onclick={() => copyText(imp)} class="cursor-pointer shrink-0 rounded-lg bg-islamic-green px-3 py-2 text-[10px] font-bold text-islamic-bg">{t.drawer.copy}</button>
+					<button type="button" onclick={() => copyText(imp)} class="cursor-pointer shrink-0 rounded-lg bg-islamic-green px-3 py-2 text-[10px] font-bold text-islamic-bg">{translation.drawer.copy}</button>
 				</div>
 			</div>
 
 			<!-- Asset path -->
 			<div class="mt-4">
-				<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.assetPath}</span>
+				<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.assetPath}</span>
 				<div class="flex items-center gap-2 overflow-hidden rounded-xl border border-islamic-line bg-black/20 p-2">
 					<code class="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap p-2 text-[11px] text-islamic-muted">{path}</code>
-					<button type="button" onclick={() => copyText(path)} class="cursor-pointer shrink-0 rounded-lg border border-islamic-line px-3 py-2 text-[10px] text-islamic-muted hover:border-islamic-line-strong hover:text-islamic-text">{t.drawer.copy}</button>
+					<button type="button" onclick={() => copyText(path)} class="cursor-pointer shrink-0 rounded-lg border border-islamic-line px-3 py-2 text-[10px] text-islamic-muted hover:border-islamic-line-strong hover:text-islamic-text">{translation.drawer.copy}</button>
 				</div>
 			</div>
 
 			<div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
 				<div class="rounded-xl border border-islamic-line p-4">
-					<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.category}</span>
+					<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.category}</span>
 					<b class="mt-2 block text-sm">{pretty(item.category)}</b>
 				</div>
 				<div class="rounded-xl border border-islamic-line p-4">
-					<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{t.drawer.sources}</span>
+					<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.sources}</span>
 					<b class="mt-2 block text-sm">{item.sources.length}</b>
 				</div>
 				<div class="rounded-xl border border-islamic-line p-4">
@@ -127,13 +127,13 @@
 
 			<div class="mt-8 rounded-2xl border border-islamic-line bg-islamic-panel p-5">
 				<b class="block text-[11px]">Usage</b>
-				<pre class="mt-4 overflow-x-auto rounded-xl border border-islamic-line bg-black/20 p-4 text-[10px] leading-6 text-islamic-muted">&lt;img src="{path}" alt="{item.title}" width="24" height="24" /&gt;</pre>
+				<pre class="mt-4 overflow-x-auto rounded-xl border border-islamic-line bg-black/20 p-4 text-[10px] leading-6 text-islamic-muted">&lt;islamic-icons name="{item.name}" size="24" /&gt;</pre>
 			</div>
 
 			<div class="mt-6 flex flex-wrap gap-4 text-[10px] text-islamic-green">
-				<a href="/{locale}/icons">← {t.nav.icons}</a>
-				<a href="/{locale}/docs/usage">{t.drawer.usageGuide} →</a>
-				<a href="/{locale}/sources">{t.drawer.sourcePolicy} →</a>
+				<a href="/{locale}/icons">← {translation.nav.icons}</a>
+				<a href="/{locale}/docs/usage">{translation.drawer.usageGuide} →</a>
+				<a href="/{locale}/sources">{translation.drawer.sourcePolicy} →</a>
 			</div>
 		</div>
 	</div>
@@ -147,7 +147,7 @@
 					{#each related as rel (rel.name)}
 						<a href="/{locale}/icons/{rel.name}" class="gsap-on-scroll group text-center" aria-label="{rel.title} icon">
 							<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong">
-								<img class="size-full object-contain p-8 transition duration-500 group-hover:scale-105" src={pathFor(rel, 'fill')} alt={rel.title} loading="lazy" />
+								<img class="size-full object-contain p-8 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]" src={pathFor(rel, 'fill')} alt={rel.title} loading="lazy" />
 							</span>
 							<span class="mt-2 block text-[11px] font-medium text-islamic-muted group-hover:text-islamic-text">{rel.title}</span>
 						</a>

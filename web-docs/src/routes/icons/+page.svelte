@@ -12,21 +12,21 @@
 	} from '$lib/site';
 	import { localeStore } from '$lib/locale.svelte';
 
-	const t = $derived(localeStore.t);
+	const translation = $derived(localeStore.t);
 
-	let q = $state('');
+	let searchQuery = $state('');
 	let category = $state('all');
 	let variant = $state<'fill' | 'outline' | 'color'>('fill');
 	let source = $state('all');
 
 	const filtered = $derived.by(() => {
-		return icons.filter((i) => {
-			if (category !== 'all' && i.category !== category) return false;
-			if (source !== 'all' && !i.sources.some((s) => s.id === source)) return false;
-			if (q) {
-				const ql = q.toLowerCase();
-				const searchText = `${i.name} ${i.title} ${i.category} ${(i.aliases || []).join(' ')}`;
-				if (!searchText.toLowerCase().includes(ql)) return false;
+		return icons.filter((icon) => {
+			if (category !== 'all' && icon.category !== category) return false;
+			if (source !== 'all' && !icon.sources.some((iconSource) => iconSource.id === source)) return false;
+			if (searchQuery) {
+				const queryLower = searchQuery.toLowerCase();
+				const searchText = `${icon.name} ${icon.title} ${icon.category} ${(icon.aliases || []).join(' ')}`;
+				if (!searchText.toLowerCase().includes(queryLower)) return false;
 			}
 			return true;
 		});
@@ -35,7 +35,7 @@
 	function setCategory(cat: string) {
 		category = cat;
 		source = 'all';
-		q = '';
+		searchQuery = '';
 	}
 	function setSource(src: string) {
 		source = src;
@@ -52,15 +52,15 @@
 </script>
 
 <svelte:head>
-	<title>{t.icons.pageTitle}</title>
-	<meta name="description" content={t.icons.pageDesc} />
+	<title>{translation.icons.pageTitle}</title>
+	<meta name="description" content={translation.icons.pageDesc} />
 </svelte:head>
 
 <main class="{MAX} pt-32 pb-16 sm:pt-36 sm:pb-24">
 	<div class="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)]">
 		<aside class="lg:sticky lg:top-28 lg:h-fit">
 			<div class="mb-3 text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim">
-				{t.icons.collection}
+				{translation.icons.collection}
 			</div>
 			<div class="flex gap-1 overflow-x-auto pb-2 lg:grid lg:overflow-visible">
 				<button
@@ -72,7 +72,7 @@
 						? 'bg-islamic-green/9 text-islamic-green'
 						: 'text-islamic-muted hover:bg-white/4 hover:text-islamic-text'}"
 				>
-					<span>{t.icons.allIcons}</span><span class="text-[10px] text-islamic-dim">{icons.length}</span>
+					<span>{translation.icons.allIcons}</span><span class="text-[10px] text-islamic-dim">{icons.length}</span>
 				</button>
 				{#each categories as cat (cat)}
 					<button
@@ -93,7 +93,7 @@
 			</div>
 			<div class="my-5 h-px bg-islamic-line"></div>
 			<div class="mb-3 text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim">
-				{t.icons.sources}
+				{translation.icons.sources}
 			</div>
 			<div class="grid gap-1">
 				<button
@@ -105,7 +105,7 @@
 						? 'bg-islamic-green/9 text-islamic-green'
 						: 'text-islamic-muted hover:bg-white/4 hover:text-islamic-text'}"
 				>
-					{t.icons.community}
+					{translation.icons.community}
 					<span class="text-[10px] text-islamic-dim"
 						>{icons.filter((i) => i.sources.some((s) => s.id === 'community')).length}</span
 					>
@@ -119,7 +119,7 @@
 						? 'bg-islamic-green/9 text-islamic-green'
 						: 'text-islamic-muted hover:bg-white/4 hover:text-islamic-text'}"
 				>
-					{t.icons.externalSvgRepo}
+					{translation.icons.externalSvgRepo}
 					<span class="text-[10px] text-islamic-dim"
 						>{icons.filter((i) => i.sources.some((s) => s.id === 'svg-repo')).length}</span
 					>
@@ -130,13 +130,13 @@
 		<section class="min-w-0">
 			<div class="gsap-container">
 				<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green"
-					>{t.icons.label}</span
+					>{translation.icons.label}</span
 				>
 				<div class="mt-3 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 					<div>
-						<h1 class="font-display text-4xl tracking-[-.05em] sm:text-5xl">{t.icons.title}</h1>
+						<h1 class="font-display text-4xl tracking-[-.05em] sm:text-5xl">{translation.icons.title}</h1>
 						<p class="mt-3 max-w-xl text-sm leading-7 text-islamic-muted">
-							{t.icons.desc.replace('{count}', String(filtered.length))}
+							{translation.icons.desc.replace('{count}', String(filtered.length))}
 						</p>
 					</div>
 					<button
@@ -164,9 +164,9 @@
 					<input
 						id="q"
 						bind:value={q}
-						placeholder={t.icons.searchPlaceholder}
+						placeholder={translation.icons.searchPlaceholder}
 						autocomplete="off"
-						aria-label={t.icons.searchPlaceholder}
+						aria-label={translation.icons.searchPlaceholder}
 						class="min-w-0 flex-1 bg-transparent text-sm text-islamic-text outline-none placeholder:text-islamic-dim"
 					/>
 					<kbd class="hidden rounded-md border border-islamic-line px-1.5 py-1 text-[9px] text-islamic-dim sm:block"
@@ -192,17 +192,17 @@
 				</div>
 			</div>
 			<div class="mt-4 flex items-center justify-between text-[10px] text-islamic-dim">
-				<span>{t.icons.results.replace('{count}', String(filtered.length))}</span>
-				<span>{t.icons.hint}</span>
+				<span>{translation.icons.results.replace('{count}', String(filtered.length))}</span>
+				<span>{translation.icons.hint}</span>
 			</div>
 			<div class="mt-7 grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-4">
 				{#if filtered.length === 0}
 					<div
 						class="col-span-full rounded-2xl border border-dashed border-islamic-line-strong p-12 text-center"
 					>
-						<b class="text-sm">{t.icons.noResults}</b>
+						<b class="text-sm">{translation.icons.noResults}</b>
 						<p class="mt-2 text-xs text-islamic-dim">
-							{t.icons.noResultsHint}
+							{translation.icons.noResultsHint}
 						</p>
 					</div>
 				{:else}

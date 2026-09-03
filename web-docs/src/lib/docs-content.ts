@@ -15,7 +15,7 @@ export const docs: Record<string, DocEntry> = {
 	'/docs/installation': {
 		title: 'Installation',
 		lead: 'A practical reference for building with Islamic Icons while keeping the artwork local and the provenance visible.',
-		body: `<p>Install the library with the package manager used by your project. The package exposes semantic category entry points and keeps the artwork as local SVG/WebP assets.</p><h2>Install</h2><pre>bun add islamic-icons\nnpm install islamic-icons\npnpm add islamic-icons\nyarn add islamic-icons</pre><h2>Run the Web Docs locally</h2><pre>git clone &lt;repository&gt;\ncd islamic-icons\nbun install\nbun run docs</pre><p>For contributors, use Bun for the repository build pipeline. The published package can be installed with Bun, npm, pnpm or Yarn.</p><h2>Build the library</h2><pre>bun run icons:catalog\nbun run icons:package\nbun run icons:validate\nbun run build</pre>`
+		body: `<p>Install the library with the package manager used by your project. The package exposes semantic category entry points and keeps the artwork as local SVG/WebP assets.</p><h2>Install</h2><pre>bun add @rhein.sullivan/islamic-icons\nnpm install @rhein.sullivan/islamic-icons\npnpm add @rhein.sullivan/islamic-icons\nyarn add @rhein.sullivan/islamic-icons</pre><h2>Run the Web Docs locally</h2><pre>git clone &lt;repository&gt;\ncd islamic-icons\nbun install\nbun run docs</pre><p>For contributors, use Bun for the repository build pipeline. The published package can be installed with Bun, npm, pnpm or Yarn.</p><h2>Build the library</h2><pre>bun run icons:catalog\nbun run icons:package\nbun run icons:validate\nbun run build</pre>`
 	},
 	'/docs/usage': {
 		title: 'Usage',
@@ -54,7 +54,7 @@ export const docsId: Record<string, DocEntry> = {
 	'/docs/installation': {
 		title: 'Instalasi',
 		lead: 'Referensi praktis untuk membangun dengan Islamic Icons sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
-		body: `<p>Instal library dengan package manager yang digunakan proyek Anda. Package ini mengekspos entry point kategori semantik dan menyimpan karya seni sebagai aset SVG/WebP lokal.</p><h2>Install</h2><pre>bun add islamic-icons\nnpm install islamic-icons\npnpm add islamic-icons\nyarn add islamic-icons</pre><h2>Jalankan Web Docs secara lokal</h2><pre>git clone &lt;repository&gt;\ncd islamic-icons\nbun install\nbun run docs</pre><p>Untuk kontributor, gunakan Bun untuk pipeline build repository. Package yang dipublish dapat diinstal dengan Bun, npm, pnpm, atau Yarn.</p><h2>Build library</h2><pre>bun run icons:catalog\nbun run icons:package\nbun run icons:validate\nbun run build</pre>`
+		body: `<p>Instal library dengan package manager yang digunakan proyek Anda. Package ini mengekspos entry point kategori semantik dan menyimpan karya seni sebagai aset SVG/WebP lokal.</p><h2>Install</h2><pre>bun add @rhein.sullivan/islamic-icons\nnpm install @rhein.sullivan/islamic-icons\npnpm add @rhein.sullivan/islamic-icons\nyarn add @rhein.sullivan/islamic-icons</pre><h2>Jalankan Web Docs secara lokal</h2><pre>git clone &lt;repository&gt;\ncd islamic-icons\nbun install\nbun run docs</pre><p>Untuk kontributor, gunakan Bun untuk pipeline build repository. Package yang dipublish dapat diinstal dengan Bun, npm, pnpm, atau Yarn.</p><h2>Build library</h2><pre>bun run icons:catalog\nbun run icons:package\nbun run icons:validate\nbun run build</pre>`
 	},
 	'/docs/usage': {
 		title: 'Penggunaan',

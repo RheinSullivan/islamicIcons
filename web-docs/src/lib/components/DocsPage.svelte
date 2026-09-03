@@ -21,7 +21,7 @@
 		nextLabel?: string | null;
 	} = $props();
 
-	const t = $derived(translations[locale]);
+	const translation = $derived(translations[locale]);
 	
 	// Extract headings from body for subchapter navigation
 	let headings = $state<{id: string; text: string; level: number}[]>([]);
@@ -70,7 +70,7 @@
 	<!-- Main content -->
 	<article class="gsap-container min-w-0">
 		<div class="text-[10px] text-islamic-dim">
-			{t.docs.breadcrumb} <span class="px-1">/</span> {entry.title}
+			{translation.docs.breadcrumb} <span class="px-1">/</span> {entry.title}
 		</div>
 		<h1 class="mt-4 font-display text-4xl tracking-[-.055em] sm:text-6xl">{entry.title}</h1>
 		<p class="mt-5 max-w-2xl text-base leading-8 text-islamic-muted">{entry.lead}</p>

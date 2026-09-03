@@ -23,7 +23,8 @@
 			{ label: 'License', href: '/en/license' },
 			{ label: 'Community', href: '/en/community' },
 			{ label: 'Code of Conduct', href: '/en/code-of-conduct' },
-			{ label: 'Brand logo statement', href: '/en/brand' },
+			{ label: 'Sources', href: '/en/sources' },
+			{ label: 'Brand Logos', href: '/en/brand-logos' },
 			{ label: 'Contributing', href: '/en/contributing' }
 		]},
 		{ label: 'Designing Icons', items: [
@@ -86,6 +87,12 @@
 
 		<!-- Main content -->
 		<div class="min-w-0">
+			<!-- Bismillah at the beginning -->
+			<div class="mb-8 rounded-xl border border-islamic-green/20 bg-islamic-green/5 p-6 text-center">
+				<p class="font-display text-2xl tracking-tight text-islamic-green">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+				<p class="mt-2 text-xs text-islamic-muted">Bismillahir Rahmanir Rahim</p>
+			</div>
+			
 			<div class="gsap-container mb-10">
 				<span class="text-[9px] font-semibold uppercase tracking-[.2em] text-islamic-green">{label}</span>
 				<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">{title}</h1>
@@ -93,6 +100,12 @@
 			
 			<div class="resource-content">
 				{@render children()}
+			</div>
+			
+			<!-- Alhamdulillah at the end -->
+			<div class="mt-12 rounded-xl border border-islamic-green/20 bg-islamic-green/5 p-6 text-center">
+				<p class="font-display text-2xl tracking-tight text-islamic-green">ٱلْحَمْدُ لِلَّٰهِ</p>
+				<p class="mt-2 text-xs text-islamic-muted">Alhamdulillah - All praise is due to Allah</p>
 			</div>
 		</div>
 

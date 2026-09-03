@@ -124,7 +124,7 @@
 						<button type="button" data-open={item.name} aria-label="View {item.title} details" class="gsap-on-scroll group w-full cursor-pointer text-left">
 							<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
 								<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur" aria-hidden="true">{sourceLabel(itemSource?.id || '')}</span>
-								<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105" src={iconPath} alt={item.title} loading="lazy" />
+								<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105 {selectedVariant === 'color' ? '' : '[filter:brightness(0)_invert(1)]'}" src={iconPath} alt={item.title} loading="lazy" />
 							</span>
 							<span class="mt-3 block">
 								<strong class="block text-[13px] font-semibold text-islamic-text">{item.title}</strong>

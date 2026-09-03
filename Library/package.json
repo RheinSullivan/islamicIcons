@@ -1,6 +1,6 @@
 {
-  "name": "islamic-icons",
-  "version": "0.1.0",
+  "name": "@rhein.sullivan/islamic-icons",
+  "version": "0.1.1",
   "description": "A framework-agnostic Islamic SVG and WebP icon library for the modern web.",
   "author": {
     "name": "Islamic Icons Community",

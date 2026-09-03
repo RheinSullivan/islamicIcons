@@ -3,7 +3,7 @@
 	import { translations, type Locale } from '$lib/i18n';
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
-	const t = $derived(translations[locale]);
+	const translation = $derived(translations[locale]);
 
 	const LANES = $derived([
 		{
@@ -46,17 +46,17 @@
 
 <svelte:head>
 	<title>{locale === 'en' ? 'Islamic Icons - Sources & Attribution' : 'Islamic Icons - Sumber & Atribusi'}</title>
-	<meta name="description" content={t.sources.pageDesc} />
+	<meta name="description" content={translation.sources.pageDesc} />
 	<meta property="og:title" content={locale === 'en' ? 'Islamic Icons - Sources & Attribution' : 'Islamic Icons - Sumber & Atribusi'} />
-	<meta property="og:description" content={t.sources.pageDesc} />
+	<meta property="og:description" content={translation.sources.pageDesc} />
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/sources" />
 </svelte:head>
 
 <div class="{MAX} pt-36 pb-16 sm:pt-44 sm:pb-24 lg:pt-32">
 	<div class="gsap-container max-w-3xl">
-		<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{t.sources.label}</span>
-		<h1 class="mt-3 font-display text-5xl tracking-[-.06em] sm:text-6xl">{t.sources.title}</h1>
-		<p class="mt-5 text-base leading-8 text-islamic-muted">{t.sources.desc}</p>
+		<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{translation.sources.label}</span>
+		<h1 class="mt-3 font-display text-5xl tracking-[-.06em] sm:text-6xl">{translation.sources.title}</h1>
+		<p class="mt-5 text-base leading-8 text-islamic-muted">{translation.sources.desc}</p>
 	</div>
 
 	<div class="mt-12 grid gap-3">

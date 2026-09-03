@@ -12,7 +12,7 @@
 			package: 'islamic-icons/react',
 			logo: '/framework-logos/react.svg',
 			docs: `/${locale}/docs/frameworks#react`,
-			install: 'bun add islamic-icons'
+			install: 'bun add @rhein.sullivan/islamic-icons'
 		},
 		{
 			name: 'Vue / Nuxt',
@@ -20,7 +20,7 @@
 			package: 'islamic-icons/vue',
 			logo: '/framework-logos/vue.svg',
 			docs: `/${locale}/docs/frameworks#vue`,
-			install: 'bun add islamic-icons'
+			install: 'bun add @rhein.sullivan/islamic-icons'
 		},
 		{
 			name: 'Svelte / SvelteKit',
@@ -28,7 +28,7 @@
 			package: 'islamic-icons/svelte',
 			logo: '/framework-logos/svelte.svg',
 			docs: `/${locale}/docs/frameworks#svelte`,
-			install: 'bun add islamic-icons'
+			install: 'bun add @rhein.sullivan/islamic-icons'
 		},
 		{
 			name: 'Angular',
@@ -36,7 +36,7 @@
 			package: 'islamic-icons/angular',
 			logo: '/framework-logos/angular.svg',
 			docs: `/${locale}/docs/frameworks#angular`,
-			install: 'bun add islamic-icons'
+			install: 'bun add @rhein.sullivan/islamic-icons'
 		},
 		{
 			name: 'Astro',
@@ -44,7 +44,7 @@
 			package: 'islamic-icons/astro',
 			logo: '/framework-logos/astro.svg',
 			docs: `/${locale}/docs/frameworks#astro`,
-			install: 'bun add islamic-icons'
+			install: 'bun add @rhein.sullivan/islamic-icons'
 		},
 		{
 			name: 'Plain HTML',
@@ -52,7 +52,7 @@
 			package: 'assets/icons/**',
 			logo: '/framework-logos/html.svg',
 			docs: `/${locale}/docs/usage#html`,
-			install: 'bun add islamic-icons'
+			install: 'bun add @rhein.sullivan/islamic-icons'
 		}
 	]);
 </script>
