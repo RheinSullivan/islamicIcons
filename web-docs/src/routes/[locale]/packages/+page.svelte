@@ -8,51 +8,51 @@
 	const PACKAGES = $derived([
 		{
 			name: 'React / Remix',
-			description: locale === 'en' ? 'A Islamic Icons package for React applications.' : 'Paket Islamic Icons untuk aplikasi React.',
-			package: 'islamic-icons/react',
+			description: locale === 'en' ? 'A Atsarul Mujahidin package for React applications.' : 'Paket Atsarul Mujahidin untuk aplikasi React.',
+			package: 'atsarul-mujahidin/react',
 			logo: '/framework-logos/react.svg',
 			docs: `/${locale}/docs/frameworks#react`,
-			install: 'bun add @rhein.sullivan/islamic-icons'
+			install: 'bun add atsarul-mujahidin'
 		},
 		{
 			name: 'Vue / Nuxt',
-			description: locale === 'en' ? 'A Islamic Icons package for Vue applications.' : 'Paket Islamic Icons untuk aplikasi Vue.',
-			package: 'islamic-icons/vue',
+			description: locale === 'en' ? 'A Atsarul Mujahidin package for Vue applications.' : 'Paket Atsarul Mujahidin untuk aplikasi Vue.',
+			package: 'atsarul-mujahidin/vue',
 			logo: '/framework-logos/vue.svg',
 			docs: `/${locale}/docs/frameworks#vue`,
-			install: 'bun add @rhein.sullivan/islamic-icons'
+			install: 'bun add atsarul-mujahidin'
 		},
 		{
 			name: 'Svelte / SvelteKit',
-			description: locale === 'en' ? 'A Islamic Icons package for Svelte applications.' : 'Paket Islamic Icons untuk aplikasi Svelte.',
-			package: 'islamic-icons/svelte',
+			description: locale === 'en' ? 'A Atsarul Mujahidin package for Svelte applications.' : 'Paket Atsarul Mujahidin untuk aplikasi Svelte.',
+			package: 'atsarul-mujahidin/svelte',
 			logo: '/framework-logos/svelte.svg',
 			docs: `/${locale}/docs/frameworks#svelte`,
-			install: 'bun add @rhein.sullivan/islamic-icons'
+			install: 'bun add atsarul-mujahidin'
 		},
 		{
 			name: 'Angular',
-			description: locale === 'en' ? 'A Islamic Icons package for Angular applications.' : 'Paket Islamic Icons untuk aplikasi Angular.',
-			package: 'islamic-icons/angular',
+			description: locale === 'en' ? 'A Atsarul Mujahidin package for Angular applications.' : 'Paket Atsarul Mujahidin untuk aplikasi Angular.',
+			package: 'atsarul-mujahidin/angular',
 			logo: '/framework-logos/angular.svg',
 			docs: `/${locale}/docs/frameworks#angular`,
-			install: 'bun add @rhein.sullivan/islamic-icons'
+			install: 'bun add atsarul-mujahidin'
 		},
 		{
 			name: 'Astro',
-			description: locale === 'en' ? 'A Islamic Icons package for Astro projects.' : 'Paket Islamic Icons untuk proyek Astro.',
-			package: 'islamic-icons/astro',
+			description: locale === 'en' ? 'A Atsarul Mujahidin package for Astro projects.' : 'Paket Atsarul Mujahidin untuk proyek Astro.',
+			package: 'atsarul-mujahidin/astro',
 			logo: '/framework-logos/astro.svg',
 			docs: `/${locale}/docs/frameworks#astro`,
-			install: 'bun add @rhein.sullivan/islamic-icons'
+			install: 'bun add atsarul-mujahidin'
 		},
 		{
 			name: 'Plain HTML',
-			description: locale === 'en' ? 'A Islamic Icons package for static projects.' : 'Paket Islamic Icons untuk proyek statis.',
+			description: locale === 'en' ? 'A Atsarul Mujahidin package for static projects.' : 'Paket Atsarul Mujahidin untuk proyek statis.',
 			package: 'assets/icons/**',
 			logo: '/framework-logos/html.svg',
 			docs: `/${locale}/docs/usage#html`,
-			install: 'bun add @rhein.sullivan/islamic-icons'
+			install: 'bun add atsarul-mujahidin'
 		}
 	]);
 </script>
