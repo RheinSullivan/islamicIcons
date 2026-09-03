@@ -12,15 +12,15 @@
 </script>
 
 <svelte:head>
-	<title>Athar (أثر) | Islamic Icons - Free Palestine and Sudan</title>
-	<meta name="description" content={locale === 'en' ? 'Athar (أثر) - Create something that leaves a lasting impact. A source-aware Islamic icon library for the modern web.' : 'Athar (أثر) - Ciptakan sesuatu yang meninggalkan jejak abadi. Perpustakaan ikon Islam untuk web modern.'} />
-	<meta property="og:title" content="Athar (أثر) | Islamic Icons - Free Palestine and Sudan" />
-	<meta property="og:description" content={locale === 'en' ? 'Athar (أثر) - Create something that leaves a lasting impact. Islamic icon library.' : 'Athar (أثر) - Ciptakan sesuatu yang meninggalkan jejak abadi.'} />
+	<title>Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) | Islamic Icons - Free Palestine</title>
+	<meta name="description" content={locale === 'en' ? 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Traces of the Mujahidin. Create something that leaves a lasting impact for the fighters. A source-aware Islamic icon library for the modern web.' : 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Jejak Para Mujahidin. Ciptakan sesuatu yang meninggalkan dampak abadi untuk para pejuang.'} />
+	<meta property="og:title" content="Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) | Islamic Icons - Free Palestine" />
+	<meta property="og:description" content={locale === 'en' ? 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Traces of the Mujahidin. Islamic icon library for the fighters.' : 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Jejak Para Mujahidin.'} />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="/logo-athar.svg" />
+	<meta property="og:image" content="/logo-atsarul-mujahidin.svg" />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="Athar (أثر) | Islamic Icons" />
-	<link rel="canonical" href="https://athar.vyagra.dev/{locale}" />
+	<meta name="twitter:title" content="Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) | Islamic Icons" />
+	<link rel="canonical" href="https://atsarul-mujahidin.vyagra.dev/{locale}" />
 </svelte:head>
 
 <!-- HERO - exact from native -->
@@ -68,7 +68,7 @@
 			</div>
 			<div class="hero-art-front absolute bottom-4 left-0 h-[78%] w-[78%] -rotate-[5deg] rounded-[2rem] border border-islamic-line-strong bg-[#0a1a13] p-5 shadow-[0_40px_100px_rgba(0,0,0,.45)] sm:bottom-8">
 				<div class="flex items-center justify-between text-[8px] uppercase tracking-[.16em] text-islamic-dim">
-					<span>Athar أثر</span><span>01 / 03</span>
+					<span>Atsarul Mujahidin</span><span>01 / 03</span>
 				</div>
 				{#if mosque}
 					<img class="mt-8 size-[65%] w-full object-contain [filter:brightness(0)_invert(1)]" src={pathFor(mosque, 'original')} alt="Mosque icon" />

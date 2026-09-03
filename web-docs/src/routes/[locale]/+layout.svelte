@@ -1,5 +1,5 @@
 <script lang="ts">
-	import logo from '$lib/assets/logo-athar.svg';
+	import logo from '$lib/assets/logo-atsarul-mujahidin.svg';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import {
