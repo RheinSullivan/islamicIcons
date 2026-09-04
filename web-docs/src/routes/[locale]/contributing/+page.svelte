@@ -10,8 +10,8 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Contributing - Islamic Icons' : 'Kontribusi - Islamic Icons'}</title>
-	<meta name="description" content={locale === 'en' ? 'How to contribute to Islamic Icons' : 'Cara berkontribusi ke Islamic Icons'} />
+	<title>{locale === 'en' ? 'Contributing - Atsarul Mujahidin' : 'Kontribusi - Atsarul Mujahidin'}</title>
+	<meta name="description" content={locale === 'en' ? 'How to contribute to Atsarul Mujahidin' : 'Cara berkontribusi ke Atsarul Mujahidin'} />
 </svelte:head>
 
 <ResourceLayout 

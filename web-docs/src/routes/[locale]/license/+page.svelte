@@ -8,8 +8,8 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'License - Islamic Icons' : 'Lisensi - Islamic Icons'}</title>
-	<meta name="description" content={locale === 'en' ? 'Islamic Icons license information and terms of use' : 'Informasi lisensi Islamic Icons dan ketentuan penggunaan'} />
+	<title>{locale === 'en' ? 'License - Atsarul Mujahidin' : 'Lisensi - Atsarul Mujahidin'}</title>
+	<meta name="description" content={locale === 'en' ? 'Atsarul Mujahidin license information and terms of use' : 'Informasi lisensi Atsarul Mujahidin dan ketentuan penggunaan'} />
 </svelte:head>
 
 <ResourceLayout 

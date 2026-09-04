@@ -45,7 +45,7 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Islamic Icons - Sources & Attribution' : 'Islamic Icons - Sumber & Atribusi'}</title>
+	<title>{locale === 'en' ? 'Atsarul Mujahidin - Sources & Attribution' : 'Atsarul Mujahidin - Sumber & Atribusi'}</title>
 	<meta name="description" content={translation.sources.pageDesc} />
 	<meta property="og:title" content={locale === 'en' ? 'Atsarul Mujahidin - Sources & Attribution' : 'Atsarul Mujahidin - Sumber & Atribusi'} />
 	<meta property="og:description" content={translation.sources.pageDesc} />

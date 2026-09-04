@@ -72,10 +72,10 @@
 </script>
 
 <svelte:head>
-	<title>Donations | Islamic Icons</title>
+	<title>Donations | Atsarul Mujahidin</title>
 	<meta
 		name="description"
-		content="Support humanitarian aid with 100% financial transparency through Islamic Icons donations."
+		content="Support humanitarian aid with 100% financial transparency through Atsarul Mujahidin donations."
 	/>
 </svelte:head>
 

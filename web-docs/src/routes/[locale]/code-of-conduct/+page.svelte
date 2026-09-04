@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Code of Conduct - Islamic Icons' : 'Kode Etik - Islamic Icons'}</title>
+	<title>{locale === 'en' ? 'Code of Conduct - Atsarul Mujahidin' : 'Kode Etik - Atsarul Mujahidin'}</title>
 	<meta name="description" content={locale === 'en' ? 'Community guidelines and code of conduct for Islamic Icons contributors' : 'Panduan komunitas dan kode etik untuk kontributor Islamic Icons'} />
 </svelte:head>
 

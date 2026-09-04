@@ -10,8 +10,8 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Community - Islamic Icons' : 'Komunitas - Islamic Icons'}</title>
-	<meta name="description" content={locale === 'en' ? 'Join the Islamic Icons community and contribute to the project' : 'Bergabung dengan komunitas Islamic Icons dan berkontribusi pada proyek'} />
+	<title>{locale === 'en' ? 'Community - Atsarul Mujahidin' : 'Komunitas - Atsarul Mujahidin'}</title>
+	<meta name="description" content={locale === 'en' ? 'Join the Atsarul Mujahidin community and contribute to the project' : 'Bergabung dengan komunitas Atsarul Mujahidin dan berkontribusi pada proyek'} />
 </svelte:head>
 
 <ResourceLayout 
