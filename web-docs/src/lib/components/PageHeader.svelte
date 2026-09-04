@@ -1,5 +1,5 @@
 <script lang="ts">
-  let { eyebrow = 'Overview', title = 'Islamic Icons', description = '' } = $props();
+  let { eyebrow = 'Overview', title = 'Atsarul Mujahidin', description = '' } = $props();
 </script>
 
 <div class="mb-8">

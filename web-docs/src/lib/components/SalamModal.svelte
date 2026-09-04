@@ -54,7 +54,7 @@
 				Peace be upon you
 			</p>
 			<p class="text-sm leading-6 text-islamic-muted">
-				Welcome to Islamic Icons. May your visit be blessed and beneficial.
+				Welcome to Atsarul Mujahidin. May your visit be blessed and beneficial.
 			</p>
 			
 			<!-- Footer -->

@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>{entry.title} | Islamic Icons</title>
+	<title>{entry.title} | Atsarul Mujahidin</title>
 	<meta name="description" content={entry.lead} />
 </svelte:head>
 

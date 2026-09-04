@@ -52,13 +52,13 @@
 
 <svelte:head>
 	{#if item}
-		<title>{item.title} | Islamic Icons</title>
+		<title>{item.title} | Atsarul Mujahidin</title>
 		<meta
 			name="description"
-			content="{item.title} - {pretty(item.category)} icon in Islamic Icons. Available in {item.sources[0]?.variants?.length ?? 1} variants."
+			content="{item.title} - {pretty(item.category)} icon in Atsarul Mujahidin. Available in {item.sources[0]?.variants?.length ?? 1} variants."
 		/>
 	{:else}
-		<title>Icon Not Found | Islamic Icons</title>
+		<title>Icon Not Found | Atsarul Mujahidin</title>
 	{/if}
 </svelte:head>
 

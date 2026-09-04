@@ -36,10 +36,10 @@
 </script>
 
 <svelte:head>
-	<title>Islamic Icons - Free Palestine</title>
-	<meta name="description" content="Islamic Icons is a source-aware, framework-agnostic SVG and WebP icon library for the modern web." />
-	<meta property="og:title" content="Athar (أثر) - Free Palestine" />
-	<meta property="og:description" content="Athar (أثر) - Create something that leaves a lasting impact. Islamic icon library for the modern web." />
+	<title>Atsarul Mujahidin - Free Palestine</title>
+	<meta name="description" content="Atsarul Mujahidin is a source-aware, framework-agnostic SVG and WebP icon library for the modern web." />
+	<meta property="og:title" content="Atsarul Mujahidin - Free Palestine" />
+	<meta property="og:description" content="Atsarul Mujahidin - Create something that leaves a lasting impact. Islamic icon library for the modern web." />
 	<meta property="og:image" content="/logo-athar.svg" />
 </svelte:head>
 
@@ -53,7 +53,7 @@
 				</div>
 				<h1
 					class="hero-title max-w-3xl font-display text-[clamp(54px,6.6vw,96px)] font-medium leading-[.9] tracking-[-.065em]"
-					aria-label="Islamic icons for the modern web."
+					aria-label="Atsarul Mujahidin icons for the modern web."
 				>
 					{#each translation.home.heroWords as word, i (i)}
 						<span class="hero-word inline-block {i === translation.home.heroWords.length - 1 ? 'text-islamic-green' : ''}">{word}{#if i < translation.home.heroWords.length - 1}&nbsp;{/if}</span>
@@ -89,7 +89,7 @@
 				</div>
 				<div class="hero-art-front absolute bottom-4 left-0 h-[78%] w-[78%] -rotate-[5deg] rounded-[2rem] border border-islamic-line-strong bg-[#0a1a13] p-5 shadow-[0_40px_100px_rgba(0,0,0,.45)] sm:bottom-8">
 					<div class="flex items-center justify-between text-[8px] uppercase tracking-[.16em] text-islamic-dim">
-						<span>Islamic Icons</span><span>01 / 03</span>
+						<span>Atsarul Mujahidin</span><span>01 / 03</span>
 					</div>
 					{#if mosque}
 						<img class="mt-8 size-[65%] w-full object-contain" src={pathFor(mosque, 'original')} alt="Mosque icon" />

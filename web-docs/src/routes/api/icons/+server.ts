@@ -3,7 +3,7 @@ import type { RequestHandler } from './$types';
 import { icons, categories } from '$lib/site';
 
 /**
- * Islamic Icons REST API
+ * Atsarul Mujahidin REST API
  * 
  * GET /api/icons - Get all icons
  * GET /api/icons?category=mosque - Filter by category

@@ -10,10 +10,10 @@
 </script>
 
 <svelte:head>
-	<title>Contributing | Islamic Icons</title>
+	<title>Contributing | Atsarul Mujahidin</title>
 	<meta
 		name="description"
-		content="Add an icon to Islamic Icons without breaking the catalog."
+		content="Add an icon to Atsarul Mujahidin without breaking the catalog."
 	/>
 </svelte:head>
 

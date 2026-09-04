@@ -21,10 +21,10 @@
 </script>
 
 <svelte:head>
-	<title>Sources | Islamic Icons</title>
+	<title>Sources | Atsarul Mujahidin</title>
 	<meta
 		name="description"
-		content="Review source provenance and usage notes for the Islamic Icons library."
+		content="Review source provenance and usage notes for the Atsarul Mujahidin library."
 	/>
 </svelte:head>
 

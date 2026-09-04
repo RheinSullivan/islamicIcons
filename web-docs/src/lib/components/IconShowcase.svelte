@@ -27,9 +27,9 @@
 		<p class="text-gray-500">Loading icons...</p>
 	{:else}
 		<div class="mb-8">
-			<h3 class="mb-4 text-xl font-semibold text-gray-800">Featured Islamic Icons</h3>
+			<h3 class="mb-4 text-xl font-semibold text-gray-800">Featured Atsarul Mujahidin</h3>
 			<p class="mb-6 text-sm text-gray-600">
-				Icons from <code class="rounded bg-gray-100 px-2 py-1">@rhein.sullivan/islamic-icons</code> package
+				Icons from <code class="rounded bg-gray-100 px-2 py-1">atsarul-mujahidin</code> package
 			</p>
 		</div>
 		
