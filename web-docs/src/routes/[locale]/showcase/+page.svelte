@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { MAX } from '$lib/site';
 	import { translations, type Locale } from '$lib/i18n';
+	import PrayerTime from 'atsarul-mujahidin/svelte/fill/PrayerTime';
+	import QuranBook from 'atsarul-mujahidin/svelte/fill/QuranBook';
+	import ShadaqahHand from 'atsarul-mujahidin/svelte/fill/ShadaqahHand';
+	import MosqueSimple from 'atsarul-mujahidin/svelte/fill/MosqueSimple';
+	import MosqueMaps from 'atsarul-mujahidin/svelte/fill/MosqueMaps';
+	import Fast from 'atsarul-mujahidin/svelte/fill/Fast';
+
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
 	const translation = $derived(translations[locale]);
@@ -9,42 +16,42 @@
 		{
 			title: 'Islamic Prayer Times App',
 			description: locale === 'en' ? 'A modern prayer times application using Atsarul Mujahidin for all UI elements' : 'Aplikasi waktu sholat modern menggunakan Atsarul Mujahidin untuk semua elemen UI',
-			image: 'https://via.placeholder.com/400x300/0a1711/73e0ae?text=Prayer+Times+App',
+			icon: PrayerTime,
 			url: '#',
 			tags: ['React', 'Next.js', 'Tailwind CSS']
 		},
 		{
 			title: 'Quran Reader',
 			description: locale === 'en' ? 'Beautiful Quran reader with Atsarul Mujahidin integration' : 'Pembaca Quran yang indah dengan integrasi Atsarul Mujahidin',
-			image: 'https://via.placeholder.com/400x300/0a1711/73e0ae?text=Quran+Reader',
+			icon: QuranBook,
 			url: '#',
 			tags: ['Vue', 'Nuxt', 'TypeScript']
 		},
 		{
 			title: 'Zakat Calculator',
 			description: locale === 'en' ? 'Calculate your zakat with a user-friendly interface powered by Atsarul Mujahidin' : 'Hitung zakat Anda dengan antarmuka ramah pengguna yang didukung Atsarul Mujahidin',
-			image: 'https://via.placeholder.com/400x300/0a1711/73e0ae?text=Zakat+Calculator',
+			icon: ShadaqahHand,
 			url: '#',
 			tags: ['Svelte', 'SvelteKit']
 		},
 		{
 			title: 'Islamic E-Commerce',
 			description: locale === 'en' ? 'Online marketplace for Islamic products with icon integration' : 'Pasar online untuk produk Islam dengan integrasi ikon',
-			image: 'https://via.placeholder.com/400x300/0a1711/73e0ae?text=E-Commerce',
+			icon: MosqueSimple,
 			url: '#',
 			tags: ['React', 'Astro', 'Tailwind CSS']
 		},
 		{
 			title: 'Mosque Finder',
 			description: locale === 'en' ? 'Find nearby mosques with an intuitive map interface' : 'Temukan masjid terdekat dengan antarmuka peta yang intuitif',
-			image: 'https://via.placeholder.com/400x300/0a1711/73e0ae?text=Mosque+Finder',
+			icon: MosqueMaps,
 			url: '#',
 			tags: ['Angular', 'Mapbox']
 		},
 		{
 			title: 'Ramadan Tracker',
 			description: locale === 'en' ? 'Track your Ramadan activities and ibadah with beautiful icons' : 'Lacak aktivitas Ramadan dan ibadah Anda dengan ikon yang indah',
-			image: 'https://via.placeholder.com/400x300/0a1711/73e0ae?text=Ramadan+Tracker',
+			icon: Fast,
 			url: '#',
 			tags: ['Vue', 'Pinia', 'Vite']
 		}
@@ -75,8 +82,13 @@
 	<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 		{#each SHOWCASES as project (project.title)}
 			<article class="gsap-on-scroll group overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition hover:-translate-y-1 hover:border-islamic-line-strong hover:shadow-[0_12px_40px_rgba(0,0,0,.15)]">
-				<div class="aspect-[4/3] overflow-hidden bg-islamic-panel-2">
-					<img src={project.image} alt={project.title} class="size-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+				<div class="flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-islamic-panel-2 to-islamic-panel">
+					<div class="transition duration-500 group-hover:scale-110">
+						{#if project.icon}
+							{@const IconComponent = project.icon}
+							<IconComponent width={160} height={160} class="text-islamic-green opacity-80" />
+						{/if}
+					</div>
 				</div>
 				<div class="p-5">
 					<h2 class="font-display text-lg tracking-[-.02em]">{project.title}</h2>

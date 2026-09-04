@@ -2,9 +2,25 @@
 	import { MAX } from '$lib/site';
 	import { translations, type Locale } from '$lib/i18n';
 
+	import PalestineFlag from 'atsarul-mujahidin/svelte/color/PalestineFlag';
+	import MuslimFamily from 'atsarul-mujahidin/svelte/fill/MuslimFamily';
+	import MuslimFamilyChild from 'atsarul-mujahidin/svelte/fill/MuslimFamilyChild';
+	import DuaHands from 'atsarul-mujahidin/svelte/fill/DuaHands';
+	import Ketupat from 'atsarul-mujahidin/svelte/fill/Ketupat';
+	import MuslimWoman from 'atsarul-mujahidin/svelte/fill/MuslimWoman';
+
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
 	const translation = $derived(translations[locale]);
+
+	const iconComponents: Record<string, any> = {
+		'palestine-flag-color': PalestineFlag,
+		'muslim-family-fill': MuslimFamily,
+		'muslim-family-child-fill': MuslimFamilyChild,
+		'dua-hands-fill': DuaHands,
+		'ketupat-fill': Ketupat,
+		'muslim-woman-fill': MuslimWoman
+	};
 
 	const donationPhotos = [
 		{
@@ -13,7 +29,8 @@
 			source: 'UNICEF',
 			sourceUrl: 'https://help.unicef.org/mexico/es/dona-gaza',
 			alt: 'Children in Gaza waiting for humanitarian food aid',
-			span: 'lg:col-span-8 lg:row-span-2'
+			span: 'lg:col-span-8 lg:row-span-2',
+			fallbackIcon: 'palestine-flag-color'
 		},
 		{
 			title: 'Sudan Humanitarian Crisis',
@@ -21,7 +38,8 @@
 			source: 'UNICEF Sudan',
 			sourceUrl: 'https://www.unicef.org/sudan',
 			alt: 'Sudan humanitarian crisis relief efforts',
-			span: 'lg:col-span-4 lg:row-span-1'
+			span: 'lg:col-span-4 lg:row-span-1',
+			fallbackIcon: 'muslim-family-fill'
 		},
 		{
 			title: 'Orphanage Care',
@@ -29,7 +47,8 @@
 			source: 'Hope & Prosperity',
 			sourceUrl: 'https://www.hopeandprosperity.org/our-orphanage/',
 			alt: 'Children sharing a meal at an orphanage',
-			span: 'lg:col-span-4 lg:row-span-1'
+			span: 'lg:col-span-4 lg:row-span-1',
+			fallbackIcon: 'muslim-family-child-fill'
 		},
 		{
 			title: 'Indonesia Disaster Relief',
@@ -37,7 +56,8 @@
 			source: 'Vietnam Chamber of Commerce',
 			sourceUrl: 'https://en.vcci.com.vn/disaster-relief-when-foreign-friends-show-kind-support-vietnam',
 			alt: 'Indonesia flood disaster relief volunteers',
-			span: 'lg:col-span-4 lg:row-span-2'
+			span: 'lg:col-span-4 lg:row-span-2',
+			fallbackIcon: 'dua-hands-fill'
 		},
 		{
 			title: 'Low-Income Families',
@@ -45,7 +65,8 @@
 			source: 'Charity Meals',
 			sourceUrl: 'https://charitymeals.org/projects',
 			alt: 'Family receiving food parcels and essential supplies',
-			span: 'lg:col-span-4 lg:row-span-1'
+			span: 'lg:col-span-4 lg:row-span-1',
+			fallbackIcon: 'ketupat-fill'
 		},
 		{
 			title: 'Elderly Care Support',
@@ -53,9 +74,20 @@
 			source: 'The Financial Coconut',
 			sourceUrl: 'https://www.thefinancialcoconut.com/blog/the-real-cost-of-caregiving-in-singapore',
 			alt: 'Caregivers supporting elderly residents',
-			span: 'lg:col-span-4 lg:row-span-1'
+			span: 'lg:col-span-4 lg:row-span-1',
+			fallbackIcon: 'muslim-woman-fill'
 		}
 	];
+
+	let imageLoadStates = $state<Record<string, boolean>>({});
+
+	function handleImageError(title: string) {
+		imageLoadStates[title] = false;
+	}
+
+	function handleImageLoad(title: string) {
+		imageLoadStates[title] = true;
+	}
 
 	const humanitarian = [
 		'Palestine & Sudan relief',
@@ -65,10 +97,6 @@
 		'Disaster relief (Indonesia & worldwide)'
 	];
 	const ops = ['Server', 'CDN', 'Domain'];
-
-	function imgError(e: Event) {
-		(e.target as HTMLImageElement).style.display = 'none';
-	}
 </script>
 
 <svelte:head>
@@ -103,13 +131,24 @@
 				<figure
 					class="gsap-on-scroll group relative overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel {photo.span}"
 				>
-					<img
-						src={photo.image}
-						alt={photo.alt}
-						class="size-full object-cover transition duration-700 group-hover:scale-105"
-						loading="lazy"
-						onerror={imgError}
-					/>
+					{#if imageLoadStates[photo.title] === false}
+						<!-- Fallback: Show icon if image failed to load -->
+						<div class="flex size-full items-center justify-center bg-gradient-to-br from-islamic-panel-2 to-islamic-panel">
+							{#if iconComponents[photo.fallbackIcon]}
+								{@const IconComponent = iconComponents[photo.fallbackIcon]}
+								<IconComponent width={120} height={120} class="text-islamic-green opacity-60" />
+							{/if}
+						</div>
+					{:else}
+						<img
+							src={photo.image}
+							alt={photo.alt}
+							class="size-full object-cover transition duration-700 group-hover:scale-105"
+							loading="lazy"
+							onerror={() => handleImageError(photo.title)}
+							onload={() => handleImageLoad(photo.title)}
+						/>
+					{/if}
 					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 					<figcaption class="absolute bottom-0 left-0 right-0 p-5">
 						<h3 class="text-base font-semibold text-white">{photo.title}</h3>
@@ -182,12 +221,11 @@
 		<div class="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
 			<div class="max-w-2xl">
 				<span class="text-[9px] font-semibold uppercase tracking-[.16em] text-islamic-green"
-					>Public donation</span
+					>Support the creator</span
 				>
 				<h2 class="mt-3 font-display text-3xl tracking-[-.04em] sm:text-4xl">Buy Me a Coffee</h2>
 				<p class="mt-4 text-[12px] leading-7 text-islamic-muted">
-					Every contribution is handled under the allocation policy above. Donation records and
-					future transparency statements belong in the public reporting document.
+					Support the developer and maintainer of Atsarul Mujahidin. This is personal support for the creator, separate from the humanitarian donation policy above. Your contribution helps sustain development and maintenance of this open-source project.
 				</p>
 			</div>
 			<a
@@ -201,6 +239,22 @@
 					><path d="M5 12h13M13 6l6 6-6 6" /></svg
 				>
 			</a>
+		</div>
+	</section>
+
+	<section class="border-b border-islamic-line py-10 sm:py-12">
+		<div class="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
+			<div class="max-w-2xl">
+				<span class="text-[9px] font-semibold uppercase tracking-[.16em] text-islamic-dim"
+					>Humanitarian donation</span
+				>
+				<h2 class="mt-3 font-display text-3xl tracking-[-.04em] sm:text-4xl">Public Donations</h2>
+				<p class="mt-4 text-[12px] leading-7 text-islamic-muted">
+					Every contribution is handled under the allocation policy above. Donation records and
+					future transparency statements belong in the public reporting document.
+				</p>
+			</div>
+			<span class="text-[11px] text-islamic-dim">Coming soon</span>
 		</div>
 	</section>
 

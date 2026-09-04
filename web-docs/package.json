@@ -26,7 +26,7 @@
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.3.3",
-		"atsarul-mujahidin": "^0.1.0",
+		"atsarul-mujahidin": "file:../library",
 		"tailwindcss": "^4.3.3"
 	}
 }
