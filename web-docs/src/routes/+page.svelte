@@ -40,7 +40,7 @@
 	<meta name="description" content="Atsarul Mujahidin is a source-aware, framework-agnostic SVG and WebP icon library for the modern web." />
 	<meta property="og:title" content="Atsarul Mujahidin - Free Palestine" />
 	<meta property="og:description" content="Atsarul Mujahidin - Create something that leaves a lasting impact. Islamic icon library for the modern web." />
-	<meta property="og:image" content="/logo-athar.svg" />
+	<meta property="og:image" content="/logo-atsarul-mujahidin.svg" />
 </svelte:head>
 
 <main>
