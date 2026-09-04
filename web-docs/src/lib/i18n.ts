@@ -154,7 +154,7 @@ export const en: Translations = {
 		contributeLink: 'Contribution guide',
 		breadcrumb: 'Docs',
 		leadDefault:
-			'A practical reference for building with Islamic Icons while keeping the artwork local and the provenance visible.',
+			'A practical reference for building with Atsarul Mujahidin while keeping the artwork local and the provenance visible.',
 		prevLink: 'Documentation home',
 		nextLink: 'Browse icons'
 	},

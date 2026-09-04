@@ -33,7 +33,7 @@
 			</div>
 			<h1
 				class="hero-title max-w-3xl font-display text-[clamp(54px,6.6vw,96px)] font-medium leading-[.9] tracking-[-.065em]"
-				aria-label="Islamic icons for the modern web."
+				aria-label="Atsarul Mujahidin for the modern web."
 			>
 				{#each translation.home.heroWords as word, i (i)}
 					<span class="hero-word inline-block {i === translation.home.heroWords.length - 1 ? 'text-islamic-green' : ''}">{word}{#if i < translation.home.heroWords.length - 1}&nbsp;{/if}</span>
