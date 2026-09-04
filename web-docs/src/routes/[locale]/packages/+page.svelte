@@ -60,7 +60,7 @@
 <svelte:head>
 	<title>{locale === 'en' ? 'Packages - Atsarul Mujahidin' : 'Paket - Atsarul Mujahidin'}</title>
 	<meta name="description" content={locale === 'en' ? 'Framework packages for Atsarul Mujahidin - React, Vue, Svelte, Angular, Astro, and plain HTML' : 'Paket framework untuk Atsarul Mujahidin - React, Vue, Svelte, Angular, Astro, dan HTML biasa'} />
-	<link rel="canonical" href="https://islamic-icons.dev/{locale}/packages" />
+	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/packages" />
 </svelte:head>
 
 <div class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">

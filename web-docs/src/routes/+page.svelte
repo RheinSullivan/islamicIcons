@@ -21,7 +21,7 @@
 
 	onMount(() => {
 		// Redirect to locale-prefixed route
-		const saved = typeof localStorage !== 'undefined' ? localStorage.getItem('islamic-icons-locale') : null;
+		const saved = typeof localStorage !== 'undefined' ? localStorage.getItem('atsarul-mujahidin-locale') : null;
 		if (saved === 'en' || saved === 'id') {
 			goto(`/${saved}`, { replaceState: true });
 			return;

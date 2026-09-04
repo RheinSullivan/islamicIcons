@@ -34,7 +34,7 @@
 		<meta name="description" content="{item.title} - {pretty(item.category)} {locale === 'en' ? 'icon available in fill, outline and color styles from Atsarul Mujahidin.' : 'ikon tersedia dalam gaya fill, outline, dan color dari Atsarul Mujahidin.'}" />
 		<meta property="og:title" content="{item.title} Icon - Atsarul Mujahidin" />
 		<meta property="og:description" content="Modern {item.title} SVG icon from Atsarul Mujahidin." />
-		<link rel="canonical" href="https://islamic-icons.dev/{locale}/icons/{item.name}" />
+		<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/icons/{item.name}" />
 	{:else}
 		<title>Icon Not Found - Atsarul Mujahidin</title>
 	{/if}
@@ -127,7 +127,7 @@
 
 			<div class="mt-8 rounded-2xl border border-islamic-line bg-islamic-panel p-5">
 				<b class="block text-[11px]">Usage</b>
-				<pre class="mt-4 overflow-x-auto rounded-xl border border-islamic-line bg-black/20 p-4 text-[10px] leading-6 text-islamic-muted">&lt;islamic-icons name="{item.name}" size="24" /&gt;</pre>
+				<pre class="mt-4 overflow-x-auto rounded-xl border border-islamic-line bg-black/20 p-4 text-[10px] leading-6 text-islamic-muted">&lt;atsarul-mujahidin name="{item.name}" size="24" /&gt;</pre>
 			</div>
 
 			<div class="mt-6 flex flex-wrap gap-4 text-[10px] text-islamic-green">

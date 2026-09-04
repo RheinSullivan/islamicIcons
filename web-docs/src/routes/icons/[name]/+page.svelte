@@ -38,7 +38,7 @@
 	});
 
 	const importStatement = $derived(
-		item ? `import { ${camel(item.name)} } from "islamic-icons/${item.category}"` : ''
+		item ? `import { ${camel(item.name)} } from "atsarul-mujahidin/${item.category}"` : ''
 	);
 
 	async function copyText(text: string) {
@@ -211,7 +211,7 @@
 				<!-- Usage example -->
 				<div class="mt-8 rounded-2xl border border-islamic-line bg-islamic-panel p-5">
 					<b class="block text-[11px]">Usage</b>
-					<pre class="mt-4 overflow-x-auto rounded-xl border border-islamic-line bg-black/20 p-4 text-[10px] leading-6 text-islamic-muted">&lt;islamic-icons name=&quot;{item.name}&quot; size=&quot;24&quot; /&gt;</pre>
+					<pre class="mt-4 overflow-x-auto rounded-xl border border-islamic-line bg-black/20 p-4 text-[10px] leading-6 text-islamic-muted">&lt;atsarul-mujahidin name=&quot;{item.name}&quot; size=&quot;24&quot; /&gt;</pre>
 				</div>
 
 				<div class="mt-6 flex flex-wrap gap-4 text-[10px] text-islamic-green">

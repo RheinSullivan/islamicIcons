@@ -9,7 +9,7 @@
 <svelte:head>
 	<title>{locale === 'en' ? 'Donations - Atsarul Mujahidin' : 'Donasi - Atsarul Mujahidin'}</title>
 	<meta name="description" content={entry.lead} />
-	<link rel="canonical" href="https://islamic-icons.dev/{locale}/docs/donations" />
+	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/docs/donations" />
 </svelte:head>
 <DocsPage {locale} path="/docs/donations" {entry}
 	prevHref="/{locale}/docs/sources" prevLabel={locale === 'en' ? 'Sources & attribution' : 'Sumber & atribusi'}

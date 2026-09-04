@@ -33,7 +33,7 @@
 	<meta name="description" content={translation.icons.pageDesc} />
 	<meta property="og:title" content={locale === 'en' ? 'Atsarul Mujahidin - Browse Icons' : 'Atsarul Mujahidin - Jelajahi Ikon'} />
 	<meta property="og:description" content={translation.icons.pageDesc} />
-	<link rel="canonical" href="https://islamic-icons.dev/{locale}/icons" />
+	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/icons" />
 </svelte:head>
 
 <div class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">

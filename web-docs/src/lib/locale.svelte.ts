@@ -1,7 +1,7 @@
 import { translations, type Locale, type Translations } from './i18n';
 
 const DEFAULT_LOCALE: Locale = 'en';
-const STORAGE_KEY = 'islamic-icons-locale';
+const STORAGE_KEY = 'atsarul-mujahidin-locale';
 
 function createLocaleStore() {
 	let locale = $state<Locale>(DEFAULT_LOCALE);

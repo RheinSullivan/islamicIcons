@@ -9,6 +9,6 @@
 <svelte:head>
 	<title>{locale === 'en' ? 'Atsarul Mujahidin - Documentation' : 'Atsarul Mujahidin - Dokumentasi'}</title>
 	<meta name="description" content={entry.lead} />
-	<link rel="canonical" href="https://islamic-icons.dev/{locale}/docs" />
+	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/docs" />
 </svelte:head>
 <DocsPage {locale} path="/docs" {entry} nextHref="/{locale}/docs/installation" nextLabel={locale === 'en' ? 'Installation' : 'Instalasi'} />

@@ -1,5 +1,5 @@
 <script lang="ts">
-	// Icon showcase component - displaying icons from @rhein.sullivan/islamic-icons
+	// Icon showcase component - displaying icons from atsarul-mujahidin
 	import { onMount } from 'svelte';
 	
 	// Import sample icons from the published package
@@ -55,16 +55,16 @@
 			<p class="mb-4 text-sm text-gray-600">
 				Install the package in your project:
 			</p>
-			<pre class="mb-4 overflow-x-auto rounded bg-gray-900 p-4 text-sm text-green-400">npm install @rhein.sullivan/islamic-icons
+			<pre class="mb-4 overflow-x-auto rounded bg-gray-900 p-4 text-sm text-green-400">npm install atsarul-mujahidin
 # or
-bun add @rhein.sullivan/islamic-icons</pre>
+bun add atsarul-mujahidin</pre>
 			
 			<h3 class="mb-2 mt-6 text-lg font-semibold text-islamic-green">Usage Example</h3>
 			<p class="mb-4 text-sm text-gray-600">
 				Import and use icons in your HTML:
 			</p>
 			<pre class="overflow-x-auto rounded bg-gray-900 p-4 text-sm text-green-400">&lt;img 
-  src="node_modules/@rhein.sullivan/islamic-icons/icons/mosque/kaaba/fill.svg" 
+  src="node_modules/atsarul-mujahidin/icons/mosque/kaaba/fill.svg" 
   alt="Kaaba"
   width="24"
   height="24"

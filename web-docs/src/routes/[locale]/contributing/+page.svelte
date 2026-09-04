@@ -6,7 +6,7 @@
 	const locale = $derived(data.locale as Locale);
 	const translation = $derived(translations[locale]);
 	
-	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons';
+	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons'; // Keep GitHub URL unchanged
 </script>
 
 <svelte:head>
@@ -67,7 +67,7 @@
 	<h2>{locale === 'en' ? 'Getting Started' : 'Memulai'}</h2>
 	<ol>
 		<li>{locale === 'en' ? 'Fork the repository on GitHub' : 'Fork repository di GitHub'}</li>
-		<li>{locale === 'en' ? 'Clone your fork locally' : 'Clone fork Anda secara lokal'}: <code>git clone https://github.com/YOUR_USERNAME/islamic-icons.git</code></li>
+		<li>{locale === 'en' ? 'Clone your fork locally' : 'Clone fork Anda secara lokal'}: <code>git clone https://github.com/YOUR_USERNAME/atsarul-mujahidin.git</code></li>
 		<li>{locale === 'en' ? 'Create a new branch' : 'Buat branch baru'}: <code>git checkout -b feature/your-feature-name</code></li>
 		<li>{locale === 'en' ? 'Make your changes and commit them with clear messages' : 'Buat perubahan dan commit dengan pesan yang jelas'}</li>
 		<li>{locale === 'en' ? 'Push to your fork' : 'Push ke fork Anda'}: <code>git push origin feature/your-feature-name</code></li>

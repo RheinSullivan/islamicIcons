@@ -54,7 +54,7 @@
 <svelte:head>
 	<title>{locale === 'en' ? 'Showcase - Atsarul Mujahidin' : 'Showcase - Atsarul Mujahidin'}</title>
 	<meta name="description" content={locale === 'en' ? 'Projects and applications built with Atsarul Mujahidin' : 'Proyek dan aplikasi yang dibangun dengan Atsarul Mujahidin'} />
-	<link rel="canonical" href="https://islamic-icons.dev/{locale}/showcase" />
+	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/showcase" />
 </svelte:head>
 
 <div class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">

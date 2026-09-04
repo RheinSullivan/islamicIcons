@@ -49,7 +49,7 @@
 	<meta name="description" content={translation.sources.pageDesc} />
 	<meta property="og:title" content={locale === 'en' ? 'Atsarul Mujahidin - Sources & Attribution' : 'Atsarul Mujahidin - Sumber & Atribusi'} />
 	<meta property="og:description" content={translation.sources.pageDesc} />
-	<link rel="canonical" href="https://islamic-icons.dev/{locale}/sources" />
+	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/sources" />
 </svelte:head>
 
 <div class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">

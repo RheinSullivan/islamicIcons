@@ -6,7 +6,7 @@
 	const locale = $derived(data.locale as Locale);
 	const translation = $derived(translations[locale]);
 	
-	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons';
+	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons'; // Keep GitHub URL unchanged
 </script>
 
 <svelte:head>

@@ -46,7 +46,7 @@
 		{ href: `/${locale}/contributing`,     label: translation.resources.contributing  },
 	]);
 
-	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons';
+	const REPO_URL = 'https://github.com/RheinSullivan/islamic-icons'; // Keep GitHub URL unchanged
 
 	let searchOpen = $state(false);
 	let drawerName: string | null = $state(null);
@@ -82,7 +82,7 @@
 
 	function switchLocale() {
 		const next: Locale = locale === 'en' ? 'id' : 'en';
-		if (typeof localStorage !== 'undefined') localStorage.setItem('islamic-icons-locale', next);
+		if (typeof localStorage !== 'undefined') localStorage.setItem('atsarul-mujahidin-locale', next);
 		// Preserve the current page under the new locale
 		const newPath = pathname.replace(`/${locale}`, `/${next}`);
 		goto(newPath, { replaceState: false });
@@ -123,7 +123,7 @@
 
 	onMount(() => {
 		// Save locale preference
-		if (typeof localStorage !== 'undefined') localStorage.setItem('islamic-icons-locale', locale);
+		if (typeof localStorage !== 'undefined') localStorage.setItem('atsarul-mujahidin-locale', locale);
 
 		function onKeydown(e: KeyboardEvent) {
 			if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); searchOpen = true; }
@@ -334,7 +334,7 @@
 
 	<!-- FOOTER - exact from native -->
 	<footer class="mt-24 border-t border-islamic-line bg-black/12">
-		<div class="{MAX} py-14">
+		<div class="{MAX} pt-14 pb-10">
 			<div class="grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
 				<div>
 					<div class="flex items-center gap-3">
