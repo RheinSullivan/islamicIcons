@@ -51,6 +51,7 @@
 	let searchOpen = $state(false);
 	let drawerName: string | null = $state(null);
 	let drawerSource: string | null = $state(null);
+	let drawerMaximized = $state(false);
 	let mobileOpen = $state(false);
 	let currentVariant = $state('fill');
 	let toastMsg: string | null = $state(null);
@@ -69,8 +70,23 @@
 		);
 		const variant = chooseVariant(source, currentVariant);
 		const path = pathFor(item, variant, source?.id);
-		const imp = `import { ${camel(item.name)} } from "atsarul-mujahidin/react/${item.name}-${variant}"`;
-		return { item, source, variant, path, vars, imp };
+		
+		// Get proper contributor name - check source metadata for actual contributor
+		let contributorName = 'Rhein Sullivan'; // Default
+		if (source?.metadata?.contributor) {
+			contributorName = source.metadata.contributor;
+		} else if (source?.metadata?.author) {
+			contributorName = source.metadata.author;
+		}
+		
+		const frameworkExamples = {
+			react: `import { ${camel(item.name)} } from 'atsarul-mujahidin/react/${variant}/${camel(item.name)}.jsx';\n\n${'<'}${camel(item.name)} size={32} />`,
+			vue: `import { ${camel(item.name)} } from 'atsarul-mujahidin/vue/${variant}/${camel(item.name)}.vue';\n\n${'<'}${camel(item.name)} :size="32" />`,
+			svelte: `import { ${camel(item.name)} } from 'atsarul-mujahidin/svelte/${variant}/${camel(item.name)}.svelte';\n\n${'<'}${camel(item.name)} size={32} />`,
+			vanilla: `<script type="module">\n  import 'atsarul-mujahidin/vanilla/atsarul-mujahidin.js';\n${'<'}/script>\n\n${'<'}atsarul-mujahidin-icon name="${item.name}" variant="${variant}" size="32">${'<'}/atsarul-mujahidin-icon>`
+		};
+		
+		return { item, source, variant, path, vars, contributorName, frameworkExamples };
 	});
 
 	function isActive(key: string) {
@@ -106,9 +122,11 @@
 	function onGlobalClick(e: MouseEvent) {
 		const target = e.target as HTMLElement;
 		const openEl = target.closest('[data-open]') as HTMLElement | null;
-		if (openEl) { drawerName = openEl.dataset.open!; drawerSource = null; return; }
+		if (openEl) { drawerName = openEl.dataset.open!; drawerSource = null; drawerMaximized = false; return; }
 		const closeEl = target.closest('[data-close]') as HTMLElement | null;
-		if (closeEl) { drawerName = null; drawerSource = null; return; }
+		if (closeEl) { drawerName = null; drawerSource = null; drawerMaximized = false; return; }
+		const maximizeEl = target.closest('[data-maximize]') as HTMLElement | null;
+		if (maximizeEl) { drawerMaximized = !drawerMaximized; return; }
 		const copyEl = target.closest('[data-copy]') as HTMLElement | null;
 		if (copyEl) { copyText(copyEl.dataset.copy!); return; }
 		const searchEl = target.closest('[data-search]') as HTMLElement | null;
@@ -127,7 +145,11 @@
 
 		function onKeydown(e: KeyboardEvent) {
 			if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); searchOpen = true; }
-			if (e.key === 'Escape') { searchOpen = false; drawerName = null; }
+			if (e.key === 'Escape') {
+				if (drawerMaximized) { drawerMaximized = false; }
+				else if (drawerName) { drawerName = null; drawerMaximized = false; }
+				else { searchOpen = false; }
+			}
 		}
 		window.addEventListener('keydown', onKeydown);
 		document.addEventListener('click', onGlobalClick);
@@ -139,7 +161,7 @@
 
 	$effect(() => {
 		void pathname;
-		drawerName = null; drawerSource = null;
+		drawerName = null; drawerSource = null; drawerMaximized = false;
 		mobileOpen = false; searchOpen = false;
 	});
 
@@ -206,7 +228,7 @@
 	<div class="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_18%_15%,rgba(50,132,96,.09),transparent_32%),radial-gradient(circle_at_85%_10%,rgba(215,182,107,.045),transparent_25%)]"></div>
 
 	<!-- HEADER - exact from native: Logo | Icons Categories Docs Sources | Search GitHub | Mobile -->
-	<header class="fixed inset-x-0 top-0 z-50 border-b border-islamic-line bg-islamic-bg/88 backdrop-blur-xl supports-[backdrop-filter]:bg-islamic-bg/72">
+	<header class="fixed inset-x-0 top-0 z-50 border-b border-islamic-line bg-[#08150f]/95 backdrop-blur-xl supports-[backdrop-filter]:bg-[#08150f]/88">
 		<div class="{MAX} relative flex h-20 items-center justify-between gap-4">
 			<!-- Logo -->
 			<a href="/{locale}" aria-label="Atsarul Mujahidin home" class="group flex shrink-0 items-center gap-1">
@@ -248,11 +270,11 @@
 				<button
 					type="button"
 					data-search
-					aria-label="Search icons"
+					aria-label="Search"
 					class="hidden h-8 cursor-pointer items-center gap-3 rounded-xl border border-islamic-line bg-white/2 px-3.5 text-[12px] text-islamic-muted transition hover:border-islamic-line-strong hover:bg-white/4 hover:text-islamic-text md:flex"
 				>
 					<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.7]"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-					<span>Search...</span>
+					<span>{locale === 'en' ? 'Search...' : 'Cari...'}</span>
 					<kbd class="rounded-md border border-islamic-line px-1.5 py-1 text-[9px] tracking-[.08em] text-islamic-dim">CTRL + K</kbd>
 				</button>
 				<!-- GitHub -->
@@ -333,7 +355,7 @@
 	{@render children()}
 
 	<!-- FOOTER - exact from native -->
-	<footer class="mt-24 border-t border-islamic-line bg-black/12">
+	<footer class="border-t border-islamic-line bg-black/12">
 		<div class="{MAX} pt-14 pb-10">
 			<div class="grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
 				<div>
@@ -375,74 +397,162 @@
 		</div>
 	</footer>
 
-	<!-- Icon Drawer - exact from native -->
+	<!-- Icon Drawer - Professional documentation style -->
 	{#if drawerItem}
-		<div class="fixed inset-0 z-[90]" data-drawer-root>
-			<button type="button" data-close aria-label="Close details" class="absolute inset-0 h-full w-full cursor-pointer border-0 bg-black/65 backdrop-blur-sm"></button>
+		<div class="fixed inset-0 z-[90] {drawerMaximized ? 'bg-islamic-bg' : ''}" data-drawer-root>
+			{#if !drawerMaximized}
+				<button type="button" data-close aria-label={translation.drawer.close} class="absolute inset-0 h-full w-full cursor-pointer border-0 bg-black/65 backdrop-blur-sm"></button>
+			{/if}
 			<aside
-				class="absolute right-0 top-0 h-full w-full max-w-xl overflow-y-auto border-l border-islamic-line-strong bg-[#09150f] shadow-[-30px_0_90px_rgba(0,0,0,.45)]"
-				aria-label="Icon details"
+				class="absolute {drawerMaximized ? 'inset-0' : 'right-0 top-0 h-full w-full max-w-xl border-l border-islamic-line-strong shadow-[-30px_0_90px_rgba(0,0,0,.45)]'} overflow-y-auto bg-[#09150f]"
+				aria-label={locale === 'id' ? 'Detail ikon' : 'Icon details'}
 			>
-				<div class="sticky top-0 z-10 flex items-start justify-between border-b border-islamic-line bg-[#09150f]/90 p-5 backdrop-blur-xl">
-					<div>
+				<!-- Header -->
+				<div class="sticky top-0 z-10 flex items-center justify-between border-b border-islamic-line bg-[#09150f]/95 px-5 py-4 backdrop-blur-xl">
+					<div class="min-w-0 flex-1">
 						<span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">{pretty(drawerItem.item.category)}</span>
-						<h2 class="mt-2 font-display text-xl tracking-[-.03em]">{drawerItem.item.title}</h2>
+						<h2 class="mt-1 font-display text-lg tracking-[-.02em] sm:text-xl">{drawerItem.item.title}</h2>
 					</div>
-					<button type="button" data-close aria-label="Close" class="grid size-9 cursor-pointer place-items-center rounded-lg border border-islamic-line text-islamic-muted hover:text-islamic-text">
-						<svg viewBox="0 0 24 24" aria-hidden="true" class="size-5 fill-none stroke-current stroke-[1.7]"><path d="m6 6 12 12M18 6 6 18"/></svg>
-					</button>
+					<div class="ml-4 flex shrink-0 gap-2">
+						<button 
+							type="button" 
+							data-maximize 
+							aria-label={drawerMaximized ? translation.drawer.minimize : translation.drawer.maximize}
+							class="grid size-9 cursor-pointer place-items-center rounded-lg border border-islamic-line text-islamic-muted transition hover:text-islamic-text"
+						>
+							{#if drawerMaximized}
+								<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.7]">
+									<path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/>
+								</svg>
+							{:else}
+								<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.7]">
+									<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+								</svg>
+							{/if}
+						</button>
+						<button 
+							type="button" 
+							data-close 
+							aria-label={translation.drawer.close}
+							class="grid size-9 cursor-pointer place-items-center rounded-lg border border-islamic-line text-islamic-muted transition hover:text-islamic-text"
+						>
+							<svg viewBox="0 0 24 24" aria-hidden="true" class="size-5 fill-none stroke-current stroke-[1.7]">
+								<path d="m6 6 12 12M18 6 6 18"/>
+							</svg>
+						</button>
+					</div>
 				</div>
-				<div class="p-5 sm:p-6">
+
+				<!-- Content -->
+				<div class="{drawerMaximized ? 'mx-auto max-w-4xl' : ''} p-5 sm:p-6">
 					<!-- Preview -->
-					<div class="relative grid aspect-square place-items-center overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel">
-						<img class="size-[72%] object-contain" src={drawerItem.path} alt={drawerItem.item.title} />
-						<span class="absolute bottom-3 left-3 rounded-full border border-islamic-line bg-islamic-bg px-2 py-1 text-[9px] text-islamic-dim">{sourceLabel(drawerItem.source?.id || '')} · {variantName(drawerItem.variant)}</span>
+					<div class="relative grid {drawerMaximized ? 'aspect-[16/10]' : 'aspect-square'} place-items-center overflow-hidden rounded-xl border border-islamic-line bg-[radial-gradient(circle_at_50%_50%,rgba(115,224,174,.03),transparent_70%)]">
+						<img 
+							class="{drawerMaximized ? 'max-h-[60%] max-w-[50%]' : 'max-h-[45%] max-w-[45%]'} object-contain" 
+							src={drawerItem.path} 
+							alt={drawerItem.item.title}
+						/>
 					</div>
-					<!-- Source tabs -->
+
+					<!-- Variant Selection -->
+					{#if drawerItem.vars.length > 1}
+						<div class="mt-5">
+							<span class="mb-2 block text-[10px] font-medium uppercase tracking-[.14em] text-islamic-dim">{translation.drawer.variant}</span>
+							<div class="flex flex-wrap gap-2">
+								{#each drawerItem.vars as v (v)}
+									<button 
+										type="button" 
+										data-drawer-var={v} 
+										class="cursor-pointer rounded-lg border px-3 py-1.5 text-[11px] font-medium transition {v === drawerItem.variant ? 'border-islamic-green/30 bg-islamic-green/10 text-islamic-green' : 'border-islamic-line text-islamic-muted hover:border-islamic-line-strong hover:text-islamic-text'}"
+									>
+										{variantName(v)}
+									</button>
+								{/each}
+							</div>
+						</div>
+					{/if}
+
+					<!-- Source -->
+					<div class="mt-5">
+						<span class="mb-2 block text-[10px] font-medium uppercase tracking-[.14em] text-islamic-dim">{translation.drawer.source}</span>
+						<div class="rounded-lg border border-islamic-line bg-islamic-panel px-4 py-3">
+							<div class="text-[12px] text-islamic-text">{drawerItem.contributorName}</div>
+						</div>
+					</div>
+
+					<!-- Import Examples -->
 					<div class="mt-6">
-						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.source}</span>
-						<div class="flex flex-wrap gap-2">
-							{#each drawerItem.item.sources as s (s.id)}
-								<button type="button" data-drawer-source={s.id} class="cursor-pointer rounded-lg border px-3 py-2 text-[10px] {s.id === drawerItem.source?.id ? 'border-islamic-green/30 bg-islamic-green/8 text-islamic-green' : 'border-islamic-line text-islamic-muted hover:text-islamic-text'}">{s.label}</button>
-							{/each}
+						<span class="mb-3 block text-[10px] font-medium uppercase tracking-[.14em] text-islamic-dim">{translation.drawer.import}</span>
+						
+						<!-- React -->
+						<div class="mb-3">
+							<div class="mb-1 flex items-center justify-between">
+								<span class="text-[10px] font-medium text-islamic-muted">React / Next.js</span>
+								<button 
+									type="button" 
+									data-copy={drawerItem.frameworkExamples.react}
+									class="cursor-pointer rounded px-2 py-1 text-[9px] font-medium text-islamic-green transition hover:bg-islamic-green/10"
+								>
+									{translation.drawer.copy}
+								</button>
+							</div>
+							<pre class="overflow-x-auto rounded-lg border border-islamic-line bg-black/20 p-3 text-[10px] leading-relaxed text-islamic-muted"><code>{drawerItem.frameworkExamples.react}</code></pre>
+						</div>
+
+						<!-- Vue -->
+						<div class="mb-3">
+							<div class="mb-1 flex items-center justify-between">
+								<span class="text-[10px] font-medium text-islamic-muted">Vue / Nuxt</span>
+								<button 
+									type="button" 
+									data-copy={drawerItem.frameworkExamples.vue}
+									class="cursor-pointer rounded px-2 py-1 text-[9px] font-medium text-islamic-green transition hover:bg-islamic-green/10"
+								>
+									{translation.drawer.copy}
+								</button>
+							</div>
+							<pre class="overflow-x-auto rounded-lg border border-islamic-line bg-black/20 p-3 text-[10px] leading-relaxed text-islamic-muted"><code>{drawerItem.frameworkExamples.vue}</code></pre>
+						</div>
+
+						<!-- Svelte -->
+						<div class="mb-3">
+							<div class="mb-1 flex items-center justify-between">
+								<span class="text-[10px] font-medium text-islamic-muted">Svelte / SvelteKit</span>
+								<button 
+									type="button" 
+									data-copy={drawerItem.frameworkExamples.svelte}
+									class="cursor-pointer rounded px-2 py-1 text-[9px] font-medium text-islamic-green transition hover:bg-islamic-green/10"
+								>
+									{translation.drawer.copy}
+								</button>
+							</div>
+							<pre class="overflow-x-auto rounded-lg border border-islamic-line bg-black/20 p-3 text-[10px] leading-relaxed text-islamic-muted"><code>{drawerItem.frameworkExamples.svelte}</code></pre>
+						</div>
+
+						<!-- Vanilla -->
+						<div>
+							<div class="mb-1 flex items-center justify-between">
+								<span class="text-[10px] font-medium text-islamic-muted">Vanilla JS / HTML</span>
+								<button 
+									type="button" 
+									data-copy={drawerItem.frameworkExamples.vanilla}
+									class="cursor-pointer rounded px-2 py-1 text-[9px] font-medium text-islamic-green transition hover:bg-islamic-green/10"
+								>
+									{translation.drawer.copy}
+								</button>
+							</div>
+							<pre class="overflow-x-auto rounded-lg border border-islamic-line bg-black/20 p-3 text-[10px] leading-relaxed text-islamic-muted"><code>{drawerItem.frameworkExamples.vanilla}</code></pre>
 						</div>
 					</div>
-					<!-- Variant tabs -->
-					<div class="mt-6">
-						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.variant}</span>
-						<div class="flex flex-wrap gap-2">
-							{#each drawerItem.vars as v (v)}
-								<button type="button" data-drawer-var={v} class="cursor-pointer rounded-lg border px-3 py-2 text-[10px] {v === drawerItem.variant ? 'border-islamic-green/30 bg-islamic-green/8 text-islamic-green' : 'border-islamic-line text-islamic-muted hover:text-islamic-text'}">{variantName(v)}</button>
-							{/each}
-						</div>
-					</div>
-					<!-- Import -->
-					<div class="mt-6">
-						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.import}</span>
-						<div class="flex gap-2 rounded-xl border border-islamic-line bg-black/20 p-2">
-							<code class="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap p-2 text-[10px] text-islamic-muted">{drawerItem.imp}</code>
-							<button type="button" data-copy={drawerItem.imp} class="cursor-pointer shrink-0 rounded-lg bg-islamic-green px-3 text-[10px] font-bold text-islamic-bg">{translation.drawer.copy}</button>
-						</div>
-					</div>
-					<!-- Metadata grid -->
-					<div class="mt-6 grid grid-cols-2 gap-2">
-						<div class="rounded-xl border border-islamic-line p-4">
-							<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.category}</span>
-							<b class="mt-2 block text-xs">{pretty(drawerItem.item.category)}</b>
-						</div>
-						<div class="rounded-xl border border-islamic-line p-4">
-							<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.sources}</span>
-							<b class="mt-2 block text-xs">{drawerItem.item.sources.length}</b>
-						</div>
-					</div>
-					<!-- Asset path -->
-					<div class="mt-6">
-						<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.assetPath}</span>
-						<code class="block break-all rounded-xl border border-islamic-line bg-black/20 p-4 text-[10px] leading-6 text-islamic-muted">{drawerItem.path}</code>
-					</div>
-					<div class="mt-6 flex gap-4 text-[10px] text-islamic-green">
-						<a href="/{locale}/docs/usage">{translation.drawer.usageGuide} →</a>
-						<a href="/{locale}/sources">{translation.drawer.sourcePolicy} →</a>
+
+					<!-- Additional Info -->
+					<div class="mt-6 flex flex-wrap gap-4 text-[11px]">
+						<a href="/{locale}/docs/usage" class="text-islamic-green transition hover:underline">
+							{translation.drawer.usageGuide} →
+						</a>
+						<a href="/{locale}/sources" class="text-islamic-green transition hover:underline">
+							{translation.drawer.sourcePolicy} →
+						</a>
 					</div>
 				</div>
 			</aside>

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-islamic-bg: #07110d;
-  --color-islamic-panel: #0a1711;
-  --color-islamic-panel-2: #0d1d16;
-  --color-islamic-line: rgba(137, 183, 159, 0.14);
-  --color-islamic-line-strong: rgba(137, 183, 159, 0.24);
-  --color-islamic-text: #f0f7f3;
-  --color-islamic-muted: #8ea99a;
-  --color-islamic-dim: #5e7669;
+  --color-islamic-bg: #05110c;
+  --color-islamic-panel: #0c1d14;
+  --color-islamic-panel-2: #0e2017;
+  --color-islamic-line: rgba(137, 183, 159, 0.12);
+  --color-islamic-line-strong: rgba(137, 183, 159, 0.22);
+  --color-islamic-text: #e8f0ed;
+  --color-islamic-muted: #9ab4a6;
+  --color-islamic-dim: #687a70;
   --color-islamic-green: #73e0ae;
   --color-islamic-gold: #d7b66b;
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
@@ -16,12 +16,12 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; background: #07110d; }
-  body { margin: 0; min-width: 320px; background: #07110d; color: #f0f7f3; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+  html { scroll-behavior: smooth; background: #05110c; }
+  body { margin: 0; min-width: 320px; background: #05110c; color: #e8f0ed; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
   button, a, input { font: inherit; }
   /* Every clickable element gets pointer cursor */
   button, a, [role="button"], [role="option"], [role="tab"], label[for], summary { cursor: pointer; }
   button, a { -webkit-tap-highlight-color: transparent; }
-  ::selection { background: rgba(115,224,174,.24); color: #f0f7f3; }
+  ::selection { background: rgba(115,224,174,.24); color: #e8f0ed; }
   :focus-visible { outline: 2px solid #73e0ae; outline-offset: 3px; }
 }

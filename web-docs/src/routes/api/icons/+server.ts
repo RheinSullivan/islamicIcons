@@ -66,9 +66,7 @@ export const GET: RequestHandler = async ({ url }) => {
 			id: s.id,
 			label: s.label,
 			variants: s.variants || [],
-			license: s.license,
-			author: s.author,
-			url: s.url
+			solidVariants: s.solidVariants || []
 		}))
 	}));
 

@@ -30,15 +30,7 @@ export const GET: RequestHandler = async ({ params }) => {
 			id: s.id,
 			label: s.label,
 			variants: s.variants || [],
-			license: s.license,
-			author: s.author,
-			url: s.url,
-			paths: Object.fromEntries(
-				(s.variants || []).map(v => [
-					v,
-					`/assets/icons/${iconData.category}/${iconData.name}/${v}.${s.paths?.[v]?.endsWith('.webp') ? 'webp' : 'svg'}`
-				])
-			)
+			solidVariants: s.solidVariants || []
 		}))
 	};
 

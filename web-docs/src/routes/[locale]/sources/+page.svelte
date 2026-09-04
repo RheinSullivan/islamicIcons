@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { sources, MAX } from '$lib/site';
+	import ResourceLayout from '$lib/components/ResourceLayout.svelte';
+	import { sources } from '$lib/site';
 	import { translations, type Locale } from '$lib/i18n';
+	
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
 	const translation = $derived(translations[locale]);
@@ -8,7 +10,7 @@
 	const LANES = $derived([
 		{
 			type: locale === 'en' ? 'COMMUNITY ARTWORK' : 'KARYA KOMUNITAS',
-			title: locale === 'en' ? 'Community / Rhein Sullivan' : 'Komunitas / Rhein Sullivan',
+			title: locale === 'en' ? 'Rhein Sullivan' : 'Rhein Sullivan',
 			desc: locale === 'en'
 				? 'Original artwork created specifically for Atsarul Mujahidin. These assets are first-party and carry their own provenance records.'
 				: 'Karya seni asli yang dibuat khusus untuk Atsarul Mujahidin. Aset ini bersifat first-party dan memiliki catatan asal-usulnya sendiri.',
@@ -32,66 +34,68 @@
 				{ label: locale === 'en' ? 'Official repository ↗' : 'Repository resmi ↗', url: 'https://github.com/google/material-design-icons' },
 				{ label: locale === 'en' ? 'Google Fonts ↗' : 'Google Fonts ↗', url: 'https://fonts.google.com/icons' }
 			]
-		},
-		{
-			type: locale === 'en' ? 'COMMUNITY UPLOAD' : 'UNGGAHAN KOMUNITAS',
-			title: locale === 'en' ? 'Community Upload' : 'Unggahan Komunitas',
-			desc: locale === 'en'
-				? 'Artwork submitted by community contributors. Each asset is reviewed for licensing and quality before entering the catalog.'
-				: 'Karya seni yang dikirimkan oleh kontributor komunitas. Setiap aset ditinjau lisensi dan kualitasnya sebelum masuk ke katalog.',
-			links: [] as { label: string; url: string }[]
-		},
+		}
 	]);
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Atsarul Mujahidin - Sources & Attribution' : 'Atsarul Mujahidin - Sumber & Atribusi'}</title>
+	<title>{translation.sources.pageTitle}</title>
 	<meta name="description" content={translation.sources.pageDesc} />
-	<meta property="og:title" content={locale === 'en' ? 'Atsarul Mujahidin - Sources & Attribution' : 'Atsarul Mujahidin - Sumber & Atribusi'} />
+	<meta property="og:title" content={translation.sources.pageTitle} />
 	<meta property="og:description" content={translation.sources.pageDesc} />
 	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/sources" />
 </svelte:head>
 
-<div class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
-	<div class="gsap-container max-w-3xl">
-		<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{translation.sources.label}</span>
-		<h1 class="mt-3 font-display text-5xl tracking-[-.06em] sm:text-6xl">{translation.sources.title}</h1>
-		<p class="mt-5 text-base leading-8 text-islamic-muted">{translation.sources.desc}</p>
-	</div>
+<ResourceLayout 
+	title={translation.sources.title}
+	label={translation.sources.label}
+>
+	<section id="overview" class="mb-10">
+		<p class="text-base leading-7">{translation.sources.desc}</p>
+	</section>
 
-	<div class="mt-12 grid gap-3">
-		{#each LANES as lane (lane.title)}
-			<article class="gsap-on-scroll rounded-2xl border border-islamic-line bg-islamic-panel p-6 sm:p-7">
-				<span class="text-[9px] font-semibold uppercase tracking-[.17em] text-islamic-green">{lane.type}</span>
-				<h2 class="mt-3 font-display text-xl tracking-[-.03em]">{lane.title}</h2>
-				<p class="mt-3 max-w-3xl text-[12px] leading-7 text-islamic-muted">{lane.desc}</p>
-				{#if lane.links.length > 0}
-					<div class="mt-5 flex flex-wrap gap-2">
-						{#each lane.links as link (link.url)}
-							<a class="inline-flex cursor-pointer items-center rounded-lg border border-islamic-line px-3 py-2 text-[10px] text-islamic-green transition hover:border-islamic-line-strong" href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
-						{/each}
-					</div>
-				{/if}
-			</article>
-		{/each}
-	</div>
+	<section id="community-artwork" class="mb-10">
+		<h2>Community Artwork</h2>
+		<div class="resource-card">
+			<span class="block text-[9px] font-semibold uppercase tracking-[.17em] text-islamic-green">{LANES[0].type}</span>
+			<h3 class="mt-3 font-display text-lg tracking-[-.02em]">{LANES[0].title}</h3>
+			<p class="mt-3 text-sm leading-7">{LANES[0].desc}</p>
+		</div>
+	</section>
 
-	<!-- External sources from catalog data -->
+	<section id="external-sources" class="mb-10">
+		<h2>External Sources</h2>
+		<div class="resource-grid">
+			{#each LANES.slice(1) as lane (lane.title)}
+				<div class="resource-box">
+					<span class="block text-[9px] font-semibold uppercase tracking-[.17em] text-islamic-green">{lane.type}</span>
+					<h3 class="mt-2 font-display text-base tracking-[-.02em] text-islamic-text">{lane.title}</h3>
+					<p class="mt-2 text-xs leading-6 text-islamic-dim">{lane.desc}</p>
+					{#if lane.links.length > 0}
+						<div class="mt-4 flex flex-wrap gap-2">
+							{#each lane.links as link (link.url)}
+								<a class="inline-flex cursor-pointer items-center text-[10px] text-islamic-green transition hover:underline" href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
+							{/each}
+						</div>
+					{/if}
+				</div>
+			{/each}
+		</div>
+	</section>
+
 	{#if sources.length > 0}
-		<div class="mt-8">
-			<h2 class="mb-4 text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim">
-				{locale === 'en' ? 'Tracked external sources' : 'Sumber eksternal yang dilacak'}
-			</h2>
-			<div class="grid gap-2">
+		<section id="tracked-sources" class="mb-10">
+			<h2>Tracked Sources</h2>
+			<div class="grid gap-3">
 				{#each sources.filter(s => s.kind === 'external') as src (src.name)}
-					<div class="rounded-xl border border-islamic-line bg-islamic-panel/50 p-4">
+					<div class="resource-box">
 						<div class="flex items-start justify-between gap-4">
 							<div>
-								<b class="text-[12px] text-islamic-text">{src.name}</b>
+								<b class="text-sm text-islamic-text">{src.name}</b>
 								{#if src.license}
 									<span class="ml-2 rounded-full border border-islamic-line px-2 py-0.5 text-[9px] text-islamic-green">{src.license}</span>
 								{/if}
-								<p class="mt-1 text-[11px] leading-6 text-islamic-dim">{src.licensePolicy}</p>
+								<p class="mt-2 text-xs leading-6">{src.licensePolicy}</p>
 							</div>
 							{#if src.source}
 								<a href={src.source} target="_blank" rel="noreferrer" class="cursor-pointer shrink-0 text-[10px] text-islamic-green hover:underline">
@@ -102,6 +106,24 @@
 					</div>
 				{/each}
 			</div>
-		</div>
+		</section>
 	{/if}
-</div>
+
+	<section id="attribution" class="mb-10">
+		<h2>Attribution</h2>
+		<p class="text-base leading-7">
+			{locale === 'en'
+				? 'When using icons from external sources, proper attribution must be maintained according to each source\'s license terms. The icon metadata includes source information, license details, and attribution requirements.'
+				: 'Saat menggunakan ikon dari sumber eksternal, atribusi yang tepat harus dipelihara sesuai dengan ketentuan lisensi setiap sumber. Metadata ikon mencakup informasi sumber, detail lisensi, dan persyaratan atribusi.'}
+		</p>
+	</section>
+
+	<section id="disclaimer">
+		<h2>Disclaimer</h2>
+		<p class="text-base leading-7">
+			{locale === 'en'
+				? 'Google Search is a discovery tool only and does not grant redistribution permission. An icon enters the distributable library only after its original source and redistribution terms are verified and recorded in the asset metadata.'
+				: 'Google Search hanya merupakan alat penemuan dan tidak memberikan izin redistribusi. Sebuah ikon masuk ke library yang dapat didistribusikan hanya setelah sumber asli dan ketentuan redistribusinya diverifikasi dan dicatat dalam metadata aset.'}
+		</p>
+	</section>
+</ResourceLayout>

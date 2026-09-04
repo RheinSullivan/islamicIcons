@@ -84,12 +84,12 @@
 		<!-- Prev / Next navigation -->
 		<div class="mt-14 flex flex-col justify-between gap-3 border-t border-islamic-line pt-5 text-[10px] text-islamic-dim sm:flex-row">
 			{#if prevHref}
-				<a href={prevHref} class="cursor-pointer hover:text-islamic-text">← {prevLabel || t.docs.prevLink}</a>
+				<a href={prevHref} class="cursor-pointer hover:text-islamic-text">← {prevLabel || translation.docs.prevLink}</a>
 			{:else}
 				<span></span>
 			{/if}
 			{#if nextHref}
-				<a href={nextHref} class="cursor-pointer text-islamic-green">{nextLabel || t.docs.nextLink} →</a>
+				<a href={nextHref} class="cursor-pointer text-islamic-green">{nextLabel || translation.docs.nextLink} →</a>
 			{:else}
 				<span></span>
 			{/if}

@@ -62,7 +62,19 @@
 
 		<!-- Content with right sidebar -->
 		<div class="min-w-0 lg:col-span-1 xl:col-span-2">
+			<!-- Bismillah at the beginning of all docs -->
+			<div class="mb-8 text-center">
+				<p class="font-display text-2xl tracking-tight text-islamic-green">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+				<p class="mt-2 text-xs text-islamic-muted">Bismillahir Rahmanir Rahim</p>
+			</div>
+
 			{@render children()}
+
+			<!-- Alhamdulillah at the end of all docs -->
+			<div class="mt-12 text-center">
+				<p class="font-display text-2xl tracking-tight text-islamic-green">ٱلْحَمْدُ لِلَّٰهِ</p>
+				<p class="mt-2 text-xs text-islamic-muted">Alhamdulillah - All praise is due to Allah</p>
+			</div>
 		</div>
 	</div>
 </div>

@@ -48,7 +48,7 @@ export type Translations = {
 	contributing: { pageTitle: string; pageDesc: string; };
 	search: { placeholder: string; noResults: string; close: string; };
 	drawer: {
-		close: string; closeDetails: string; source: string; variant: string; import: string;
+		close: string; closeDetails: string; maximize: string; minimize: string; source: string; variant: string; import: string;
 		copy: string; category: string; sources: string; assetPath: string; usageGuide: string;
 		sourcePolicy: string; copied: string; copyUnavailable: string;
 	};
@@ -181,6 +181,8 @@ export const en: Translations = {
 	drawer: {
 		close: 'Close',
 		closeDetails: 'Close details',
+		maximize: 'Maximize',
+		minimize: 'Minimize',
 		source: 'Source',
 		variant: 'Variant',
 		import: 'Import',
@@ -325,6 +327,8 @@ export const id: Translations = {
 	drawer: {
 		close: 'Tutup',
 		closeDetails: 'Tutup detail',
+		maximize: 'Perbesar',
+		minimize: 'Perkecil',
 		source: 'Sumber',
 		variant: 'Varian',
 		import: 'Import',

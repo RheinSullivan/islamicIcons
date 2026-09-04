@@ -66,7 +66,7 @@
 <main class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
 		<nav class="mb-8 text-[10px] text-islamic-dim" aria-label="Breadcrumb">
 			<ol class="flex items-center gap-1">
-				<li><a href="/icons" class="hover:text-islamic-text">{translation.nav.icons}</a></li>
+				<li><a href="/icons" class="hover:text-islamic-text">{t.nav.icons}</a></li>
 				<li aria-hidden="true"><span class="px-1">/</span></li>
 				<li aria-current="page" class="text-islamic-text">{item.title}</li>
 			</ol>
@@ -89,7 +89,7 @@
 				{#if vars.length > 1}
 					<div class="mt-6">
 						<span class="mb-3 block text-[9px] uppercase tracking-[.15em] text-islamic-dim"
-							>{translation.drawer.variant}</span
+							>{t.drawer.variant}</span
 						>
 						<div class="flex flex-wrap gap-2">
 							{#each vars as v (v)}
@@ -111,7 +111,7 @@
 				{#if item.sources.length > 1}
 					<div class="mt-6">
 						<span class="mb-3 block text-[9px] uppercase tracking-[.15em] text-islamic-dim"
-							>{translation.drawer.source}</span
+							>{t.drawer.source}</span
 						>
 						<div class="flex flex-wrap gap-2">
 							{#each item.sources as s (s.id)}
@@ -151,7 +151,7 @@
 				<!-- Import -->
 				<div class="mt-8">
 					<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim"
-						>{translation.drawer.import}</span
+						>{t.drawer.import}</span
 					>
 					<div
 						class="flex items-center gap-2 overflow-hidden rounded-xl border border-islamic-line bg-black/20 p-2"
@@ -163,7 +163,7 @@
 							type="button"
 							onclick={() => copyText(importStatement)}
 							class="shrink-0 rounded-lg bg-islamic-green px-3 py-2 text-[10px] font-bold text-islamic-bg transition hover:bg-islamic-green/90"
-							>{translation.drawer.copy}</button
+							>{t.drawer.copy}</button
 						>
 					</div>
 				</div>
@@ -171,7 +171,7 @@
 				<!-- SVG path copy -->
 				<div class="mt-4">
 					<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim"
-						>{translation.drawer.assetPath}</span
+						>{t.drawer.assetPath}</span
 					>
 					<div
 						class="flex items-center gap-2 overflow-hidden rounded-xl border border-islamic-line bg-black/20 p-2"
@@ -183,7 +183,7 @@
 							type="button"
 							onclick={() => copyText(path)}
 							class="shrink-0 rounded-lg border border-islamic-line px-3 py-2 text-[10px] text-islamic-muted transition hover:border-islamic-line-strong hover:text-islamic-text"
-							>{translation.drawer.copy}</button
+							>{t.drawer.copy}</button
 						>
 					</div>
 				</div>
@@ -192,13 +192,13 @@
 				<div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
 					<div class="rounded-xl border border-islamic-line p-4">
 						<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim"
-							>{translation.drawer.category}</span
+							>{t.drawer.category}</span
 						>
 						<b class="mt-2 block text-sm">{pretty(item.category)}</b>
 					</div>
 					<div class="rounded-xl border border-islamic-line p-4">
 						<span class="block text-[9px] uppercase tracking-[.15em] text-islamic-dim"
-							>{translation.drawer.sources}</span
+							>{t.drawer.sources}</span
 						>
 						<b class="mt-2 block text-sm">{item.sources.length}</b>
 					</div>
@@ -215,9 +215,9 @@
 				</div>
 
 				<div class="mt-6 flex flex-wrap gap-4 text-[10px] text-islamic-green">
-					<a href="/icons">← {translation.nav.icons}</a>
-					<a href="/docs/usage">{translation.drawer.usageGuide} →</a>
-					<a href="/sources">{translation.drawer.sourcePolicy} →</a>
+					<a href="/icons">← {t.nav.icons}</a>
+					<a href="/docs/usage">{t.drawer.usageGuide} →</a>
+					<a href="/sources">{t.drawer.sourcePolicy} →</a>
 				</div>
 			</div>
 		</div>
