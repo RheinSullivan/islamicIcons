@@ -7,7 +7,7 @@
 	const entry = $derived(getDoc('/docs/sources', locale));
 </script>
 <svelte:head>
-	<title>{locale === 'en' ? 'Sources & Attribution - Islamic Icons' : 'Sumber & Atribusi - Islamic Icons'}</title>
+	<title>{locale === 'en' ? 'Sources & Attribution - Atsarul Mujahidin' : 'Sumber & Atribusi - Atsarul Mujahidin'}</title>
 	<meta name="description" content={entry.lead} />
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/docs/sources" />
 </svelte:head>

@@ -52,8 +52,8 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Showcase - Islamic Icons' : 'Showcase - Islamic Icons'}</title>
-	<meta name="description" content={locale === 'en' ? 'Projects and applications built with Islamic Icons' : 'Proyek dan aplikasi yang dibangun dengan Islamic Icons'} />
+	<title>{locale === 'en' ? 'Showcase - Atsarul Mujahidin' : 'Showcase - Atsarul Mujahidin'}</title>
+	<meta name="description" content={locale === 'en' ? 'Projects and applications built with Atsarul Mujahidin' : 'Proyek dan aplikasi yang dibangun dengan Atsarul Mujahidin'} />
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/showcase" />
 </svelte:head>
 

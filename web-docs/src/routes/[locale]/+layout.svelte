@@ -69,7 +69,7 @@
 		);
 		const variant = chooseVariant(source, currentVariant);
 		const path = pathFor(item, variant, source?.id);
-		const imp = `import { ${camel(item.name)} } from "islamic-icons/${item.category}"`;
+		const imp = `import { ${camel(item.name)} } from "atsarul-mujahidin/react/${item.name}-${variant}"`;
 		return { item, source, variant, path, vars, imp };
 	});
 

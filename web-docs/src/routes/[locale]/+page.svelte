@@ -12,9 +12,9 @@
 </script>
 
 <svelte:head>
-	<title>Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) | Islamic Icons - Free Palestine</title>
+	<title>Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Free Palestine</title>
 	<meta name="description" content={locale === 'en' ? 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Traces of the Mujahidin. Create something that leaves a lasting impact for the fighters. A source-aware Islamic icon library for the modern web.' : 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Jejak Para Mujahidin. Ciptakan sesuatu yang meninggalkan dampak abadi untuk para pejuang.'} />
-	<meta property="og:title" content="Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) | Islamic Icons - Free Palestine" />
+	<meta property="og:title" content="Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Free Palestine" />
 	<meta property="og:description" content={locale === 'en' ? 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Traces of the Mujahidin. Islamic icon library for the fighters.' : 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Jejak Para Mujahidin.'} />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="/logo-atsarul-mujahidin.svg" />

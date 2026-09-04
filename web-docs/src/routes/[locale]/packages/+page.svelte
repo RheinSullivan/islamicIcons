@@ -58,8 +58,8 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Packages - Islamic Icons' : 'Paket - Islamic Icons'}</title>
-	<meta name="description" content={locale === 'en' ? 'Framework packages for Islamic Icons - React, Vue, Svelte, Angular, Astro, and plain HTML' : 'Paket framework untuk Islamic Icons - React, Vue, Svelte, Angular, Astro, dan HTML biasa'} />
+	<title>{locale === 'en' ? 'Packages - Atsarul Mujahidin' : 'Paket - Atsarul Mujahidin'}</title>
+	<meta name="description" content={locale === 'en' ? 'Framework packages for Atsarul Mujahidin - React, Vue, Svelte, Angular, Astro, and plain HTML' : 'Paket framework untuk Atsarul Mujahidin - React, Vue, Svelte, Angular, Astro, dan HTML biasa'} />
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/packages" />
 </svelte:head>
 

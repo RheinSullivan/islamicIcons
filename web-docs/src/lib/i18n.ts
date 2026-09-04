@@ -159,19 +159,19 @@ export const en: Translations = {
 		nextLink: 'Browse icons'
 	},
 	sources: {
-		pageTitle: 'Sources | Islamic Icons',
-		pageDesc: 'Review source provenance and usage notes for the Islamic Icons library.',
+		pageTitle: 'Sources | Atsarul Mujahidin',
+		pageDesc: 'Review source provenance and usage notes for the Atsarul Mujahidin library.',
 		label: 'Provenance',
 		title: 'Sources, not mystery meat.',
 		desc: 'Every source lane is explicit. The library can combine upstream packages, contributor artwork and externally licensed vectors without pretending they all have the same ownership.'
 	},
 	donations: {
-		pageTitle: 'Donations | Islamic Icons',
-		pageDesc: 'Support humanitarian aid with 100% financial transparency through Islamic Icons donations.'
+		pageTitle: 'Donations | Atsarul Mujahidin',
+		pageDesc: 'Support humanitarian aid with 100% financial transparency through Atsarul Mujahidin donations.'
 	},
 	contributing: {
-		pageTitle: 'Contributing | Islamic Icons',
-		pageDesc: 'Add an icon to Islamic Icons without breaking the catalog.'
+		pageTitle: 'Contributing | Atsarul Mujahidin',
+		pageDesc: 'Add an icon to Atsarul Mujahidin without breaking the catalog.'
 	},
 	search: {
 		placeholder: 'Search icons, categories, docs...',
@@ -266,8 +266,8 @@ export const id: Translations = {
 		builtFromSub: 'Komunitas · aset eksternal berlisensi'
 	},
 	icons: {
-		pageTitle: 'Ikon | Islamic Icons',
-		pageDesc: 'Jelajahi katalog Islamic Icons berdasarkan kategori dan aset.',
+		pageTitle: 'Ikon | Atsarul Mujahidin',
+		pageDesc: 'Jelajahi katalog Atsarul Mujahidin berdasarkan kategori dan aset.',
 		label: 'Perpustakaan ikon',
 		title: 'Ikon Islam',
 		desc: '{count} ikon logis. Pilih ikon untuk memeriksa varian, sumber, atribusi, dan jalur impor.',
@@ -283,39 +283,39 @@ export const id: Translations = {
 		externalSvgRepo: 'Eksternal / SVG Repo'
 	},
 	categories: {
-		pageTitle: 'Kategori | Islamic Icons',
-		pageDesc: 'Jelajahi Islamic Icons berdasarkan kategori dan maksud desain.',
+		pageTitle: 'Kategori | Atsarul Mujahidin',
+		pageDesc: 'Jelajahi Atsarul Mujahidin berdasarkan kategori dan maksud desain.',
 		label: 'Jelajahi berdasarkan makna',
 		title: 'Kategori',
-		desc: 'Islamic Icons diorganisir berdasarkan kategori semantik, bukan gaya visual. Setiap kategori dapat berkembang secara independen saat kontributor menambahkan karya baru.'
+		desc: 'Atsarul Mujahidin diorganisir berdasarkan kategori semantik, bukan gaya visual. Setiap kategori dapat berkembang secara independen saat kontributor menambahkan karya baru.'
 	},
 	docs: {
-		pageTitle: 'Dokumentasi | Islamic Icons',
-		pageDesc: 'Dokumentasi untuk library Islamic Icons.',
+		pageTitle: 'Dokumentasi | Atsarul Mujahidin',
+		pageDesc: 'Dokumentasi untuk library Atsarul Mujahidin.',
 		docsSidebarLabel: 'Dokumentasi',
 		contributeCard: 'Kontribusi ikon',
 		contributeDesc: 'Tambahkan metadata SVG/WebP, lalu validasi dengan Bun.',
 		contributeLink: 'Panduan kontribusi',
 		breadcrumb: 'Dokumentasi',
 		leadDefault:
-			'Referensi praktis untuk membangun dengan Islamic Icons sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
+			'Referensi praktis untuk membangun dengan Atsarul Mujahidin sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
 		prevLink: 'Beranda dokumentasi',
 		nextLink: 'Jelajahi ikon'
 	},
 	sources: {
-		pageTitle: 'Sumber | Islamic Icons',
-		pageDesc: 'Tinjau asal-usul sumber dan catatan penggunaan untuk library Islamic Icons.',
+		pageTitle: 'Sumber | Atsarul Mujahidin',
+		pageDesc: 'Tinjau asal-usul sumber dan catatan penggunaan untuk library Atsarul Mujahidin.',
 		label: 'Asal-usul',
 		title: 'Sumber, bukan misterius.',
 		desc: 'Setiap jalur sumber bersifat eksplisit. Library dapat menggabungkan paket upstream, karya kontributor, dan vektor berlisensi eksternal tanpa berpura-pura semuanya memiliki kepemilikan yang sama.'
 	},
 	donations: {
-		pageTitle: 'Donasi | Islamic Icons',
-		pageDesc: 'Dukung bantuan kemanusiaan dengan transparansi keuangan 100% melalui donasi Islamic Icons.'
+		pageTitle: 'Donasi | Atsarul Mujahidin',
+		pageDesc: 'Dukung bantuan kemanusiaan dengan transparansi keuangan 100% melalui donasi Atsarul Mujahidin.'
 	},
 	contributing: {
-		pageTitle: 'Kontribusi | Islamic Icons',
-		pageDesc: 'Tambahkan ikon ke Islamic Icons tanpa merusak katalog.'
+		pageTitle: 'Kontribusi | Atsarul Mujahidin',
+		pageDesc: 'Tambahkan ikon ke Atsarul Mujahidin tanpa merusak katalog.'
 	},
 	search: {
 		placeholder: 'Cari ikon, kategori, dokumentasi...',

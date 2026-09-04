@@ -21,7 +21,7 @@
 	const variant = $derived(chooseVariant(source ?? undefined, activeVariant));
 	const path = $derived(item ? pathFor(item, variant, source?.id) : '');
 	const vars = $derived((source?.variants ?? []).filter(v => ['fill','outline','color','original','alternate'].includes(v)));
-	const imp = $derived(item ? `import { ${camel(item.name)} } from "islamic-icons/${item.category}"` : '');
+	const imp = $derived(item ? `import { ${camel(item.name)} } from "atsarul-mujahidin/react/${item.name}-${variant}"` : '');
 
 	async function copyText(text: string) {
 		try { await navigator.clipboard.writeText(text); } catch { /* silent */ }
@@ -30,13 +30,13 @@
 
 <svelte:head>
 	{#if item}
-		<title>{item.title} {locale === 'en' ? 'Icon' : 'Ikon'} — Islamic Icons</title>
-		<meta name="description" content="{item.title} — {pretty(item.category)} {locale === 'en' ? 'icon available in fill, outline and color styles from Islamic Icons.' : 'ikon tersedia dalam gaya fill, outline, dan color dari Islamic Icons.'}" />
-		<meta property="og:title" content="{item.title} Icon — Islamic Icons" />
-		<meta property="og:description" content="Modern {item.title} SVG icon from Islamic Icons." />
+		<title>{item.title} {locale === 'en' ? 'Icon' : 'Ikon'} — Atsarul Mujahidin</title>
+		<meta name="description" content="{item.title} — {pretty(item.category)} {locale === 'en' ? 'icon available in fill, outline and color styles from Atsarul Mujahidin.' : 'ikon tersedia dalam gaya fill, outline, dan color dari Atsarul Mujahidin.'}" />
+		<meta property="og:title" content="{item.title} Icon — Atsarul Mujahidin" />
+		<meta property="og:description" content="Modern {item.title} SVG icon from Atsarul Mujahidin." />
 		<link rel="canonical" href="https://islamic-icons.dev/{locale}/icons/{item.name}" />
 	{:else}
-		<title>Icon Not Found — Islamic Icons</title>
+		<title>Icon Not Found — Atsarul Mujahidin</title>
 	{/if}
 </svelte:head>
 

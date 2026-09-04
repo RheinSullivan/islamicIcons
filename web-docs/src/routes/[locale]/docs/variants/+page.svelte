@@ -7,7 +7,7 @@
 	const entry = $derived(getDoc('/docs/variants', locale));
 </script>
 <svelte:head>
-	<title>{locale === 'en' ? 'Variants - Islamic Icons' : 'Varian - Islamic Icons'}</title>
+	<title>{locale === 'en' ? 'Variants - Atsarul Mujahidin' : 'Varian - Atsarul Mujahidin'}</title>
 	<meta name="description" content={entry.lead} />
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/docs/variants" />
 </svelte:head>

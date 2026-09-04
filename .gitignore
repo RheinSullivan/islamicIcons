@@ -5,6 +5,7 @@ dist/
 # Root README.md (for npm publish only)
 /README.md
 /PROJECT_README.md
+/PUBLISH_GUIDE.md
 /Islamic-Icons-New
 library/assets/backup-old-icons/
 /Webb-Docs

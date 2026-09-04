@@ -31,7 +31,7 @@
 <svelte:head>
 	<title>{locale === 'en' ? 'Islamic Icons - Browse Islamic Icons' : 'Islamic Icons - Jelajahi Ikon Islami'}</title>
 	<meta name="description" content={translation.icons.pageDesc} />
-	<meta property="og:title" content={locale === 'en' ? 'Islamic Icons - Browse Islamic Icons' : 'Islamic Icons - Jelajahi Ikon Islami'} />
+	<meta property="og:title" content={locale === 'en' ? 'Atsarul Mujahidin - Browse Islamic Icons' : 'Atsarul Mujahidin - Jelajahi Ikon Islami'} />
 	<meta property="og:description" content={translation.icons.pageDesc} />
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/icons" />
 </svelte:head>
