@@ -45,16 +45,16 @@ Welcome to the Atsarul Mujahidin documentation! This guide will help you get sta
 
 ## Quick Links
 
-- **Website**: [islamicicons.vyagranexus.org](https://islamicicons.vyagranexus.org)
-- **npm**: [npmjs.com/package/islamic-icons](https://www.npmjs.com/package/islamic-icons)
+- **Website**: [atsarul-mujahidin.dev](https://atsarul-mujahidin.dev)
+- **npm**: [npmjs.com/package/atsarul-mujahidin](https://www.npmjs.com/package/atsarul-mujahidin)
 - **GitHub**: [github.com/RheinSullivan/islamic-icons](https://github.com/RheinSullivan/islamic-icons)
-- **Browse Icons**: [islamicicons.vyagranexus.org/icons](https://islamicicons.vyagranexus.org/icons)
+- **Browse Icons**: [atsarul-mujahidin.dev/icons](https://atsarul-mujahidin.dev/icons)
 
 ## Need Help?
 
 - [GitHub Issues](https://github.com/RheinSullivan/islamic-icons/issues)
-- [Contributing Guide](https://islamicicons.vyagranexus.org/contributing)
-- [Community](https://islamicicons.vyagranexus.org/community)
+- [Contributing Guide](https://atsarul-mujahidin.dev/contributing)
+- [Community](https://atsarul-mujahidin.dev/community)
 
 ---
 

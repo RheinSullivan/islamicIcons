@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Duplicate icon detection** via SHA-256 fingerprinting
 - **Source manifest** for community uploads, Google Material Icons, SVG Repo candidates, and Mary Akveo
 - **Donation transparency** page with full allocation policy and reporting structure
-- **Deno support** via the `npm:islamic-icons` specifier
+- **Deno support** via the `npm:atsarul-mujahidin` specifier
 - **MIT license** with full attribution to upstream sources
 
 ### Source lanes

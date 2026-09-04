@@ -45,16 +45,16 @@ Selamat datang di dokumentasi Atsarul Mujahidin! Panduan ini akan membantu Anda 
 
 ## Link Cepat
 
-- 🌐 **Website**: [islamicicons.vyagranexus.org](https://islamicicons.vyagranexus.org)
-- 📦 **npm**: [npmjs.com/package/islamic-icons](https://www.npmjs.com/package/islamic-icons)
+- 🌐 **Website**: [atsarul-mujahidin.dev](https://atsarul-mujahidin.dev)
+- 📦 **npm**: [npmjs.com/package/atsarul-mujahidin](https://www.npmjs.com/package/atsarul-mujahidin)
 - 🐙 **GitHub**: [github.com/RheinSullivan/islamic-icons](https://github.com/RheinSullivan/islamic-icons)
-- 🎨 **Jelajahi Ikon**: [islamicicons.vyagranexus.org/icons](https://islamicicons.vyagranexus.org/icons)
+- 🎨 **Jelajahi Ikon**: [atsarul-mujahidin.dev/icons](https://atsarul-mujahidin.dev/icons)
 
 ## Butuh Bantuan?
 
 - [GitHub Issues](https://github.com/RheinSullivan/islamic-icons/issues)
 - [Panduan Kontribusi](./contributing.md)
-- [Komunitas](https://islamicicons.vyagranexus.org/community)
+- [Komunitas](https://atsarul-mujahidin.dev/community)
 
 ---
 

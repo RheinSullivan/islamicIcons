@@ -38,16 +38,15 @@ Atsarul Mujahidin v0.1 includes:
 
 ```bash
 # Install with bun (recommended)
-bun add athar
+bun add atsarul-mujahidin
 
 # Or with npm
-npm install athar
-npm install @vyagranexus/islamic-icons
+npm install atsarul-mujahidin
 ```
 
 ```jsx
 // React example
-import { Kaaba, Mosque } from 'islamic-icons/react';
+import { Kaaba, Mosque } from 'atsarul-mujahidin/react';
 
 function App() {
   return (
