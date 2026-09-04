@@ -1,11 +1,11 @@
-# Islamic Icons Documentation
+# Atsarul Mujahidin Documentation
 
-Welcome to the Islamic Icons documentation! This guide will help you get started with using Islamic Icons in your projects.
+Welcome to the Atsarul Mujahidin documentation! This guide will help you get started with using Atsarul Mujahidin in your projects.
 
 ## Table of Contents
 
 ### Introduction
-- [What is Islamic Icons?](./introduction.md#what-is-islamic-icons)
+- [What is Atsarul Mujahidin?](./introduction.md#what-is-atsarul-mujahidin)
 - [Key Features](./introduction.md#key-features)
 - [Version 1](./introduction.md#version-1)
 

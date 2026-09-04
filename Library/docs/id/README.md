@@ -1,11 +1,11 @@
-# Dokumentasi Islamic Icons
+# Dokumentasi Atsarul Mujahidin
 
-Selamat datang di dokumentasi Islamic Icons! Panduan ini akan membantu Anda memulai menggunakan Islamic Icons dalam proyek Anda.
+Selamat datang di dokumentasi Atsarul Mujahidin! Panduan ini akan membantu Anda memulai menggunakan Atsarul Mujahidin dalam proyek Anda.
 
 ## Daftar Isi
 
 ### Pengenalan
-- [Apa itu Islamic Icons?](./introduction.md#apa-itu-islamic-icons)
+- [Apa itu Atsarul Mujahidin?](./introduction.md#apa-itu-atsarul-mujahidin)
 - [Fitur Utama](./introduction.md#fitur-utama)
 - [Versi 1](./introduction.md#versi-1)
 

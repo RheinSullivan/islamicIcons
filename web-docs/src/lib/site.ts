@@ -40,7 +40,13 @@ export const featuredNames = [
 	'wudhu',
 	'lantern',
 	'qibla-compass',
-	'kaaba'
+	'kaaba',
+	'prayer-beads',
+	'prayer-mat',
+	'crescent-moon',
+	'star',
+	'minaret',
+	'hand-prayer'
 ];
 
 export const featured = featuredNames
