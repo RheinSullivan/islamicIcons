@@ -25,8 +25,8 @@
 		"vitepress": "^1.6.4"
 	},
 	"dependencies": {
-		"atsarul-mujahidin": "file:../library/package",
 		"@tailwindcss/vite": "^4.3.3",
+		"atsarul-mujahidin": "^0.1.0",
 		"tailwindcss": "^4.3.3"
 	}
 }
