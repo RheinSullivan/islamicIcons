@@ -12,19 +12,19 @@
 </script>
 
 <svelte:head>
-	<title>Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Free Palestine</title>
-	<meta name="description" content={locale === 'en' ? 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Traces of the Mujahidin. Create something that leaves a lasting impact for the fighters. A source-aware Islamic icon library for the modern web.' : 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Jejak Para Mujahidin. Ciptakan sesuatu yang meninggalkan dampak abadi untuk para pejuang.'} />
-	<meta property="og:title" content="Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Free Palestine" />
-	<meta property="og:description" content={locale === 'en' ? 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Traces of the Mujahidin. Islamic icon library for the fighters.' : 'Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) - Jejak Para Mujahidin.'} />
+	<title>Atsarul Mujahidin - Free Palestine</title>
+	<meta name="description" content={locale === 'en' ? 'Atsarul Mujahidin - Traces of the Mujahidin. Create something that leaves a lasting impact for the fighters. A source-aware Islamic icon library for the modern web.' : 'Atsarul Mujahidin - Jejak Para Mujahidin. Ciptakan sesuatu yang meninggalkan dampak abadi untuk para pejuang.'} />
+	<meta property="og:title" content="Atsarul Mujahidin - Free Palestine" />
+	<meta property="og:description" content={locale === 'en' ? 'Atsarul Mujahidin - Traces of the Mujahidin. Islamic icon library for the fighters.' : 'Atsarul Mujahidin - Jejak Para Mujahidin.'} />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="/logo-atsarul-mujahidin.svg" />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) | Islamic Icons" />
+	<meta name="twitter:title" content="Atsarul Mujahidin - Atsarul Mujahidin" />
 	<link rel="canonical" href="https://atsarul-mujahidin.vyagra.dev/{locale}" />
 </svelte:head>
 
 <!-- HERO - exact from native -->
-<section class="{MAX} pt-36 pb-16 sm:pt-44 sm:pb-24 lg:pt-32">
+<section class="{MAX} pt-36 pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<div class="grid items-center gap-14 lg:grid-cols-[1.06fr_.94fr] lg:gap-20">
 		<div class="gsap-container">
 			<div class="mb-7 inline-flex items-center gap-2 rounded-full border border-islamic-green/20 bg-islamic-green/6 px-3 py-2 text-[9px] font-semibold uppercase tracking-[.18em] text-islamic-green">

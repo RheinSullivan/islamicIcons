@@ -231,7 +231,7 @@ export const id: Translations = {
 		installation: 'Instalasi',
 		frameworks: 'Framework',
 		contributing: 'Kontribusi',
-		copyright: 'Hak Cipta © 2026 Islamic Icons. Semua hak dilindungi.',
+		copyright: 'Hak Cipta © 2026 Atsarul Mujahidin. Semua hak dilindungi.',
 		credits: 'Vyagra Nexus™ | Indonesia',
 		tagline: 'Ikon SVG/WebP Islam yang framework-agnostic, dikelola untuk proyek nyata.'
 	},

@@ -63,7 +63,7 @@
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/packages" />
 </svelte:head>
 
-<div class="{MAX} pt-32 pb-16 sm:pt-36 sm:pb-24">
+<div class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
 	<div class="gsap-container mb-16 max-w-2xl">
 		<h1 class="font-display text-5xl font-medium tracking-[-.055em] sm:text-6xl">
 			{locale === 'en' ? 'Packages' : 'Paket'}

@@ -36,7 +36,7 @@
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/icons" />
 </svelte:head>
 
-<div class="{MAX} pt-32 pb-16 sm:pt-36 sm:pb-24">
+<div class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
 	<div class="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)]">
 		<!-- Sidebar - exact from native -->
 		<aside class="lg:sticky lg:top-28 lg:h-fit">

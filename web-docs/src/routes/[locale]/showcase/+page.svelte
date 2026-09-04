@@ -8,21 +8,21 @@
 	const SHOWCASES = $derived([
 		{
 			title: 'Islamic Prayer Times App',
-			description: locale === 'en' ? 'A modern prayer times application using Islamic Icons for all UI elements' : 'Aplikasi waktu sholat modern menggunakan Islamic Icons untuk semua elemen UI',
+			description: locale === 'en' ? 'A modern prayer times application using Atsarul Mujahidin for all UI elements' : 'Aplikasi waktu sholat modern menggunakan Atsarul Mujahidin untuk semua elemen UI',
 			image: 'https://via.placeholder.com/400x300/0a1711/73e0ae?text=Prayer+Times+App',
 			url: '#',
 			tags: ['React', 'Next.js', 'Tailwind CSS']
 		},
 		{
 			title: 'Quran Reader',
-			description: locale === 'en' ? 'Beautiful Quran reader with Islamic Icons integration' : 'Pembaca Quran yang indah dengan integrasi Islamic Icons',
+			description: locale === 'en' ? 'Beautiful Quran reader with Atsarul Mujahidin integration' : 'Pembaca Quran yang indah dengan integrasi Atsarul Mujahidin',
 			image: 'https://via.placeholder.com/400x300/0a1711/73e0ae?text=Quran+Reader',
 			url: '#',
 			tags: ['Vue', 'Nuxt', 'TypeScript']
 		},
 		{
 			title: 'Zakat Calculator',
-			description: locale === 'en' ? 'Calculate your zakat with a user-friendly interface powered by Islamic Icons' : 'Hitung zakat Anda dengan antarmuka ramah pengguna yang didukung Islamic Icons',
+			description: locale === 'en' ? 'Calculate your zakat with a user-friendly interface powered by Atsarul Mujahidin' : 'Hitung zakat Anda dengan antarmuka ramah pengguna yang didukung Atsarul Mujahidin',
 			image: 'https://via.placeholder.com/400x300/0a1711/73e0ae?text=Zakat+Calculator',
 			url: '#',
 			tags: ['Svelte', 'SvelteKit']
@@ -57,7 +57,7 @@
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/showcase" />
 </svelte:head>
 
-<div class="{MAX} pt-36 pb-16 sm:pt-44 sm:pb-24 lg:pt-32">
+<div class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<div class="gsap-container max-w-4xl">
 		<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">
 			{locale === 'en' ? 'Community projects' : 'Proyek komunitas'}
@@ -67,8 +67,8 @@
 		</h1>
 		<p class="mt-5 text-base leading-8 text-islamic-muted">
 			{locale === 'en'
-				? 'Discover applications and websites built by our community using Islamic Icons. Want to add your project? Submit a pull request!'
-				: 'Temukan aplikasi dan website yang dibangun oleh komunitas kami menggunakan Islamic Icons. Ingin menambahkan proyek Anda? Kirim pull request!'}
+				? 'Discover applications and websites built by our community using Atsarul Mujahidin. Want to add your project? Submit a pull request!'
+				: 'Temukan aplikasi dan website yang dibangun oleh komunitas kami menggunakan Atsarul Mujahidin. Ingin menambahkan proyek Anda? Kirim pull request!'}
 		</p>
 	</div>
 
@@ -99,8 +99,8 @@
 		<h2 class="font-display text-2xl tracking-[-.03em]">{locale === 'en' ? 'Add Your Project' : 'Tambahkan Proyek Anda'}</h2>
 		<p class="mt-3 text-sm text-islamic-muted">
 			{locale === 'en'
-				? 'Built something awesome with Islamic Icons? Share it with the community!'
-				: 'Membangun sesuatu yang mengagumkan dengan Islamic Icons? Bagikan dengan komunitas!'}
+				? 'Built something awesome with Atsarul Mujahidin? Share it with the community!'
+				: 'Membangun sesuatu yang mengagumkan dengan Atsarul Mujahidin? Bagikan dengan komunitas!'}
 		</p>
 		<a href="/{locale}/contributing" class="mt-6 inline-flex h-11 cursor-pointer items-center gap-2 rounded-xl bg-islamic-green px-5 text-[12px] font-bold text-islamic-bg transition hover:-translate-y-0.5">
 			{locale === 'en' ? 'Submit Your Project' : 'Kirim Proyek Anda'}

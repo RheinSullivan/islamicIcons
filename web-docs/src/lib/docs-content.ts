@@ -10,7 +10,44 @@ export const docs: Record<string, DocEntry> = {
 	'/docs': {
 		title: 'Overview',
 		lead: 'Everything you need to browse, install, use, source and contribute to Atsarul Mujahidin.',
-		body: `<p>Atsarul Mujahidin is a framework-agnostic collection of Islamic SVG and WebP artwork. <strong>Atsarul Mujahidin</strong> (آثَارُ المُجَاهِدِيْنَ) means <strong>Traces of the Mujahidin</strong> in Arabic - something you leave behind for the fighters. The library is designed around two ideas: <strong>recognizable iconography</strong> and <strong>traceable sources</strong>.</p><p>The library is not tied to React. The assets are ordinary files, while framework adapters make imports pleasant in React, Vue, Svelte, Angular, Astro and other modern stacks.</p><p>The collection intentionally does not promise a fixed number of icons. A contributor can add one icon, ten icons, or remove an icon when licensing changes. The catalog is generated from assets and metadata at build time.</p><div class="callout"><b>Core rule</b><span>Google is a discovery tool, not a license. An icon only enters the distributable library after its original source and redistribution terms are recorded.</span></div>`
+		body: `<p>Atsarul Mujahidin is a framework-agnostic collection of Islamic SVG and WebP artwork. <strong>Atsarul Mujahidin</strong> (آثَارُ المُجَاهِدِيْنَ) means <strong>Traces of the Mujahidin</strong> in Arabic - representing something you create and leave behind for the fighters. The name embodies the philosophy of building meaningful work that has lasting impact for those who struggle.</p>
+
+<h2>Philosophy & Purpose</h2>
+<p>This library was created with a specific mission: to provide high-quality Islamic iconography while supporting humanitarian causes. Every icon in this collection serves a dual purpose - practical utility in modern web development and symbolic representation of Islamic values and practices.</p>
+
+<p>The library is designed around three core principles:</p>
+<ul>
+<li><strong>Recognizable Iconography:</strong> Icons that Muslims and developers immediately understand - mosque, Kaaba, prayer beads, Quran, lantern, and more.</li>
+<li><strong>Traceable Sources:</strong> Every asset carries full provenance - creator attribution, source URL, license terms, and redistribution permissions are recorded in metadata.</li>
+<li><strong>Framework Agnostic:</strong> Not tied to React or any single framework. Assets are ordinary SVG/WebP files with pleasant adapter layers for React, Vue, Svelte, Angular, Astro and plain HTML.</li>
+</ul>
+
+<h2>What Makes This Different</h2>
+<p>Most icon libraries treat Google Image Search as a license. Atsarul Mujahidin treats discovery and licensing as separate concerns. Google is a discovery tool only - an icon enters the distributable library only after its original source and redistribution terms are verified and recorded.</p>
+
+<p>The collection intentionally does not promise a fixed number of icons. Contributors can add one icon, ten icons, or remove an icon when licensing changes. The catalog is generated from assets and metadata at build time, ensuring accuracy and traceability.</p>
+
+<div class="callout"><b>Core rule</b><span>Google is a discovery tool, not a license. An icon only enters the distributable library after its original source and redistribution terms are recorded in the asset metadata.</span></div>
+
+<h2>Technical Architecture</h2>
+<p>The library ships as a standard npm package with the following structure:</p>
+<ul>
+<li><strong>Source Assets:</strong> Original SVG/WebP files organized by semantic category (worship, ramadan, symbols, etc.)</li>
+<li><strong>Framework Adapters:</strong> Pre-built components for React, Vue, Svelte, Angular, Astro</li>
+<li><strong>Vanilla JS:</strong> Web Component with CDN support (like Bootstrap Icons)</li>
+<li><strong>Metadata:</strong> JSON files containing source URL, license, creator, and attribution requirements</li>
+<li><strong>Build Pipeline:</strong> Bun-powered catalog generation, validation, and packaging</li>
+</ul>
+
+<h2>Humanitarian Support</h2>
+<p>Atsarul Mujahidin accepts public donations with 100% financial transparency. Minimum 70% of all funds go directly to humanitarian aid (Palestine relief, orphanages, low-income families, elderly care, disaster relief). Up to 30% supports infrastructure (server, CDN, domain costs) required to keep the library available.</p>
+
+<p>Read more in the <a href="/en/docs/donations">Donations & Humanitarian Aid</a> documentation.</p>
+
+<h2>Open Source & Community</h2>
+<p>This is a community-driven project. Contributors supply artwork, improve documentation, add framework adapters, and help review source licenses. The library welcomes contributions from developers, designers, and anyone who wants to build something meaningful for the Muslim tech community.</p>
+
+<p>See the <a href="/en/contributing">Contributing Guide</a> to get started.</p>`
 	},
 	'/docs/installation': {
 		title: 'Installation',
@@ -49,7 +86,44 @@ export const docsId: Record<string, DocEntry> = {
 	'/docs': {
 		title: 'Ikhtisar',
 		lead: 'Semua yang Anda butuhkan untuk menjelajahi, menginstal, menggunakan, menelusuri sumber, dan berkontribusi pada Atsarul Mujahidin.',
-		body: `<p>Atsarul Mujahidin (آثَارُ المُجَاهِدِيْنَ) adalah koleksi karya seni Islam SVG dan WebP yang framework-agnostic, dirancang berdasarkan dua gagasan: <strong>ikonografi yang mudah dikenali</strong> dan <strong>sumber yang dapat dilacak</strong>. Library ini tidak terikat pada React. Aset adalah file biasa, sementara adaptor framework membuat impor lebih mudah di React, Vue, Svelte, Angular, Astro, dan tumpukan modern lainnya.</p><p>Koleksi ini secara sengaja tidak menjanjikan jumlah ikon yang tetap. Kontributor dapat menambahkan satu ikon, sepuluh ikon, atau menghapus ikon ketika lisensi berubah. Katalog dibuat dari aset dan metadata saat waktu build.</p><div class="callout"><b>Aturan utama</b><span>Google adalah alat penemuan, bukan lisensi. Sebuah ikon hanya masuk ke library yang dapat didistribusikan setelah sumber asli dan ketentuan redistribusinya dicatat.</span></div>`
+		body: `<p>Atsarul Mujahidin adalah koleksi karya seni Islam SVG dan WebP yang framework-agnostic. <strong>Atsarul Mujahidin</strong> (آثَارُ المُجَاهِدِيْنَ) berarti <strong>Jejak Para Mujahidin</strong> dalam bahasa Arab - mewakili sesuatu yang Anda ciptakan dan tinggalkan untuk para pejuang. Nama ini mewujudkan filosofi membangun karya bermakna yang memiliki dampak abadi bagi mereka yang berjuang.</p>
+
+<h2>Filosofi & Tujuan</h2>
+<p>Library ini dibuat dengan misi khusus: menyediakan ikonografi Islam berkualitas tinggi sambil mendukung tujuan kemanusiaan. Setiap ikon dalam koleksi ini melayani tujuan ganda - utilitas praktis dalam pengembangan web modern dan representasi simbolis nilai dan praktik Islam.</p>
+
+<p>Library dirancang berdasarkan tiga prinsip inti:</p>
+<ul>
+<li><strong>Ikonografi yang Mudah Dikenali:</strong> Ikon yang langsung dipahami oleh Muslim dan developer - masjid, Kaaba, tasbih, Quran, lentera, dan lainnya.</li>
+<li><strong>Sumber Terlacak:</strong> Setiap aset membawa asal-usul lengkap - atribusi pembuat, URL sumber, ketentuan lisensi, dan izin redistribusi dicatat dalam metadata.</li>
+<li><strong>Framework Agnostic:</strong> Tidak terikat pada React atau framework tunggal. Aset adalah file SVG/WebP biasa dengan lapisan adapter yang menyenangkan untuk React, Vue, Svelte, Angular, Astro, dan HTML biasa.</li>
+</ul>
+
+<h2>Apa yang Membuatnya Berbeda</h2>
+<p>Sebagian besar library ikon memperlakukan Google Image Search sebagai lisensi. Atsarul Mujahidin memperlakukan penemuan dan lisensi sebagai hal terpisah. Google hanya alat penemuan - sebuah ikon masuk ke library yang dapat didistribusikan hanya setelah sumber asli dan ketentuan redistribusinya diverifikasi dan dicatat.</p>
+
+<p>Koleksi ini secara sengaja tidak menjanjikan jumlah ikon yang tetap. Kontributor dapat menambahkan satu ikon, sepuluh ikon, atau menghapus ikon ketika lisensi berubah. Katalog dibuat dari aset dan metadata saat waktu build, memastikan akurasi dan keterlacakan.</p>
+
+<div class="callout"><b>Aturan utama</b><span>Google adalah alat penemuan, bukan lisensi. Sebuah ikon hanya masuk ke library yang dapat didistribusikan setelah sumber asli dan ketentuan redistribusinya dicatat dalam metadata aset.</span></div>
+
+<h2>Arsitektur Teknis</h2>
+<p>Library ini dikirim sebagai paket npm standar dengan struktur berikut:</p>
+<ul>
+<li><strong>Aset Sumber:</strong> File SVG/WebP asli yang diorganisir berdasarkan kategori semantik (ibadah, ramadan, simbol, dll.)</li>
+<li><strong>Adapter Framework:</strong> Komponen yang sudah dibuat untuk React, Vue, Svelte, Angular, Astro</li>
+<li><strong>Vanilla JS:</strong> Web Component dengan dukungan CDN (seperti Bootstrap Icons)</li>
+<li><strong>Metadata:</strong> File JSON yang berisi URL sumber, lisensi, pembuat, dan persyaratan atribusi</li>
+<li><strong>Pipeline Build:</strong> Generasi katalog, validasi, dan pengemasan berbasis Bun</li>
+</ul>
+
+<h2>Dukungan Kemanusiaan</h2>
+<p>Atsarul Mujahidin menerima donasi publik dengan transparansi keuangan 100%. Minimum 70% dari semua dana langsung ke bantuan kemanusiaan (bantuan Palestina, panti asuhan, keluarga berpenghasilan rendah, perawatan lansia, bantuan bencana). Hingga 30% mendukung infrastruktur (server, CDN, biaya domain) yang diperlukan untuk menjaga library tetap tersedia.</p>
+
+<p>Baca lebih lanjut di dokumentasi <a href="/id/docs/donations">Donasi & Bantuan Kemanusiaan</a>.</p>
+
+<h2>Open Source & Komunitas</h2>
+<p>Ini adalah proyek yang digerakkan oleh komunitas. Kontributor menyediakan karya seni, meningkatkan dokumentasi, menambahkan adapter framework, dan membantu meninjau lisensi sumber. Library menyambut kontribusi dari developer, desainer, dan siapa saja yang ingin membangun sesuatu yang bermakna untuk komunitas teknologi Muslim.</p>
+
+<p>Lihat <a href="/id/contributing">Panduan Kontribusi</a> untuk memulai.</p>`
 	},
 	'/docs/installation': {
 		title: 'Instalasi',

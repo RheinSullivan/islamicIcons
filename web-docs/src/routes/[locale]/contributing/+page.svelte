@@ -20,8 +20,8 @@
 >
 	<p>
 		{locale === 'en' 
-			? 'Thank you for your interest in contributing to Islamic Icons! We welcome contributions from everyone.'
-			: 'Terima kasih atas ketertarikan Anda untuk berkontribusi ke Islamic Icons! Kami menerima kontribusi dari siapa saja.'}
+			? 'Thank you for your interest in contributing to Atsarul Mujahidin! We welcome contributions from everyone.'
+			: 'Terima kasih atas ketertarikan Anda untuk berkontribusi ke Atsarul Mujahidin! Kami menerima kontribusi dari siapa saja.'}
 	</p>
 
 	<h2>{locale === 'en' ? 'Ways to Contribute' : 'Cara Berkontribusi'}</h2>

@@ -10,8 +10,8 @@
 			type: locale === 'en' ? 'COMMUNITY ARTWORK' : 'KARYA KOMUNITAS',
 			title: locale === 'en' ? 'Community / Rhein Sullivan' : 'Komunitas / Rhein Sullivan',
 			desc: locale === 'en'
-				? 'Original artwork created specifically for Islamic Icons. These assets are first-party and carry their own provenance records.'
-				: 'Karya seni asli yang dibuat khusus untuk Islamic Icons. Aset ini bersifat first-party dan memiliki catatan asal-usulnya sendiri.',
+				? 'Original artwork created specifically for Atsarul Mujahidin. These assets are first-party and carry their own provenance records.'
+				: 'Karya seni asli yang dibuat khusus untuk Atsarul Mujahidin. Aset ini bersifat first-party dan memiliki catatan asal-usulnya sendiri.',
 			links: [] as { label: string; url: string }[]
 		},
 		{
@@ -52,7 +52,7 @@
 	<link rel="canonical" href="https://islamic-icons.dev/{locale}/sources" />
 </svelte:head>
 
-<div class="{MAX} pt-36 pb-16 sm:pt-44 sm:pb-24 lg:pt-32">
+<div class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<div class="gsap-container max-w-3xl">
 		<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">{translation.sources.label}</span>
 		<h1 class="mt-3 font-display text-5xl tracking-[-.06em] sm:text-6xl">{translation.sources.title}</h1>

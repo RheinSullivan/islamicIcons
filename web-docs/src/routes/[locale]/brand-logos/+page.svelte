@@ -20,8 +20,8 @@
 		<h2 class="mb-4 text-2xl font-semibold">{locale === 'en' ? 'Feature Your Brand' : 'Tampilkan Brand Anda'}</h2>
 		<p class="mb-6 text-base leading-7 text-islamic-muted">
 			{locale === 'en' 
-				? 'Islamic Icons offers a unique opportunity for brands to showcase their commitment to humanitarian causes. By participating in our Brand Logo Program, your company demonstrates solidarity with communities in need while gaining visibility among our global user base.'
-				: 'Islamic Icons menawarkan kesempatan unik bagi brand untuk menunjukkan komitmen mereka terhadap tujuan kemanusiaan. Dengan berpartisipasi dalam Program Logo Brand kami, perusahaan Anda menunjukkan solidaritas dengan komunitas yang membutuhkan sambil mendapatkan visibilitas di antara basis pengguna global kami.'}
+				? 'Atsarul Mujahidin offers a unique opportunity for brands to showcase their commitment to humanitarian causes. By participating in our Brand Logo Program, your company demonstrates solidarity with communities in need while gaining visibility among our global user base.'
+				: 'Atsarul Mujahidin menawarkan kesempatan unik bagi brand untuk menunjukkan komitmen mereka terhadap tujuan kemanusiaan. Dengan berpartisipasi dalam Program Logo Brand kami, perusahaan Anda menunjukkan solidaritas dengan komunitas yang membutuhkan sambil mendapatkan visibilitas di antara basis pengguna global kami.'}
 		</p>
 	</section>
 
@@ -29,8 +29,8 @@
 		<h2 class="mb-4 text-2xl font-semibold">{locale === 'en' ? 'Requirements' : 'Persyaratan'}</h2>
 		<p class="mb-6 text-base leading-7 text-islamic-muted">
 			{locale === 'en' 
-				? 'To have your brand logo featured in Islamic Icons, you must meet the following mandatory requirements:'
-				: 'Untuk menampilkan logo brand Anda di Islamic Icons, Anda harus memenuhi persyaratan wajib berikut:'}
+				? 'To have your brand logo featured in Atsarul Mujahidin, you must meet the following mandatory requirements:'
+				: 'Untuk menampilkan logo brand Anda di Atsarul Mujahidin, Anda harus memenuhi persyaratan wajib berikut:'}
 		</p>
 		
 		<div class="space-y-4">
@@ -41,8 +41,8 @@
 						<h3 class="mb-2 text-base font-semibold">{locale === 'en' ? 'Direct Donation Required' : 'Donasi Langsung Wajib'}</h3>
 						<p class="text-[13px] leading-6 text-islamic-muted">
 							{locale === 'en' 
-								? 'Your brand must make a direct donation to verified humanitarian organizations supporting Palestine and/or Sudan. Donations must be sent directly to the relief agencies, not through Islamic Icons.'
-								: 'Brand Anda harus melakukan donasi langsung ke organisasi kemanusiaan terverifikasi yang mendukung Palestina dan/atau Sudan. Donasi harus dikirim langsung ke lembaga bantuan, bukan melalui Islamic Icons.'}
+								? 'Your brand must make a direct donation to verified humanitarian organizations supporting Palestine and/or Sudan. Donations must be sent directly to the relief agencies, not through Atsarul Mujahidin.'
+								: 'Brand Anda harus melakukan donasi langsung ke organisasi kemanusiaan terverifikasi yang mendukung Palestina dan/atau Sudan. Donasi harus dikirim langsung ke lembaga bantuan, bukan melalui Atsarul Mujahidin.'}
 						</p>
 					</div>
 				</div>

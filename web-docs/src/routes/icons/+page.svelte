@@ -56,7 +56,7 @@
 	<meta name="description" content={translation.icons.pageDesc} />
 </svelte:head>
 
-<main class="{MAX} pt-32 pb-16 sm:pt-36 sm:pb-24">
+<main class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
 	<div class="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)]">
 		<aside class="lg:sticky lg:top-28 lg:h-fit">
 			<div class="mb-3 text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim">

@@ -44,7 +44,7 @@
 </svelte:head>
 
 <main>
-	<section class="{MAX} pt-36 pb-16 sm:pt-44 sm:pb-24 lg:pt-32">
+	<section class="{MAX} pt-36 pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 		<div class="grid items-center gap-14 lg:grid-cols-[1.06fr_.94fr] lg:gap-20">
 			<div class="gsap-container">
 				<div class="mb-7 inline-flex items-center gap-2 rounded-full border border-islamic-green/20 bg-islamic-green/6 px-3 py-2 text-[9px] font-semibold uppercase tracking-[.18em] text-islamic-green">
@@ -55,8 +55,8 @@
 					class="hero-title max-w-3xl font-display text-[clamp(54px,6.6vw,96px)] font-medium leading-[.9] tracking-[-.065em]"
 					aria-label="Islamic icons for the modern web."
 				>
-					{#each t.home.heroWords as word, i (i)}
-						<span class="hero-word inline-block {i === t.home.heroWords.length - 1 ? 'text-islamic-green' : ''}">{word}{#if i < t.home.heroWords.length - 1}&nbsp;{/if}</span>
+					{#each translation.home.heroWords as word, i (i)}
+						<span class="hero-word inline-block {i === translation.home.heroWords.length - 1 ? 'text-islamic-green' : ''}">{word}{#if i < translation.home.heroWords.length - 1}&nbsp;{/if}</span>
 					{/each}
 				</h1>
 				<p class="mt-8 max-w-2xl text-[15px] leading-8 text-islamic-muted sm:text-base">

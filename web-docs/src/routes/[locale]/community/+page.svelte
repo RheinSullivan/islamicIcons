@@ -22,8 +22,8 @@
 		<h2 class="mb-4 text-2xl font-semibold">{locale === 'en' ? 'Join the Community' : 'Bergabung dengan Komunitas'}</h2>
 		<p class="mb-6 text-base leading-7 text-islamic-muted">
 			{locale === 'en' 
-				? 'Islamic Icons is built by a global community of developers, designers, and contributors who share a common goal: making high-quality Islamic iconography accessible to everyone.'
-				: 'Islamic Icons dibangun oleh komunitas global pengembang, desainer, dan kontributor yang berbagi tujuan bersama: membuat ikonografi Islam berkualitas tinggi dapat diakses oleh semua orang.'}
+				? 'Atsarul Mujahidin is built by a global community of developers, designers, and contributors who share a common goal: making high-quality Islamic iconography accessible to everyone.'
+				: 'Atsarul Mujahidin dibangun oleh komunitas global pengembang, desainer, dan kontributor yang berbagi tujuan bersama: membuat ikonografi Islam berkualitas tinggi dapat diakses oleh semua orang.'}
 		</p>
 	</section>
 
@@ -31,8 +31,8 @@
 		<h2 class="mb-4 text-2xl font-semibold">{locale === 'en' ? 'How You Can Help' : 'Cara Anda Bisa Membantu'}</h2>
 		<p class="mb-6 text-base leading-7 text-islamic-muted">
 			{locale === 'en' 
-				? 'There are many ways to contribute to Islamic Icons. Choose what works best for you:'
-				: 'Ada banyak cara untuk berkontribusi ke Islamic Icons. Pilih yang paling cocok untuk Anda:'}
+				? 'There are many ways to contribute to Atsarul Mujahidin. Choose what works best for you:'
+				: 'Ada banyak cara untuk berkontribusi ke Atsarul Mujahidin. Pilih yang paling cocok untuk Anda:'}
 		</p>
 		<div class="grid gap-4 sm:grid-cols-2">
 			<a href="/{locale}/contributing" class="group block rounded-2xl border border-islamic-line bg-islamic-panel p-6 transition hover:-translate-y-1 hover:border-islamic-line-strong hover:shadow-xl">
@@ -155,8 +155,8 @@
 					<h3 class="mb-1 text-sm font-semibold">{locale === 'en' ? 'Spread the Word' : 'Sebarkan Kabar'}</h3>
 					<p class="text-[13px] leading-6 text-islamic-muted">
 						{locale === 'en' 
-							? 'Share Islamic Icons with your network, write blog posts, or create tutorials.'
-							: 'Bagikan Islamic Icons dengan jaringan Anda, tulis blog post, atau buat tutorial.'}
+							? 'Share Atsarul Mujahidin with your network, write blog posts, or create tutorials.'
+							: 'Bagikan Atsarul Mujahidin dengan jaringan Anda, tulis blog post, atau buat tutorial.'}
 					</p>
 				</div>
 			</div>

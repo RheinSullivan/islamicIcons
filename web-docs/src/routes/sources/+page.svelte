@@ -28,7 +28,7 @@
 	/>
 </svelte:head>
 
-<main class="{MAX} pt-36 pb-16 sm:pt-44 sm:pb-24 lg:pt-32">
+<main class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<div class="gsap-container max-w-3xl">
 		<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green"
 			>Provenance</span

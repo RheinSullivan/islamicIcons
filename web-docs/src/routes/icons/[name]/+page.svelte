@@ -63,7 +63,7 @@
 </svelte:head>
 
 {#if item}
-<main class="{MAX} pt-32 pb-16 sm:pt-36 sm:pb-24">
+<main class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
 		<nav class="mb-8 text-[10px] text-islamic-dim" aria-label="Breadcrumb">
 			<ol class="flex items-center gap-1">
 				<li><a href="/icons" class="hover:text-islamic-text">{translation.nav.icons}</a></li>
@@ -255,7 +255,7 @@
 		{/each}
 	</main>
 {:else}
-	<main class="{MAX} pt-36 pb-16 sm:pt-44 sm:pb-24 lg:pt-32">
+	<main class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 		<div class="max-w-lg">
 			<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green">404</span>
 			<h1 class="mt-3 font-display text-5xl tracking-[-.06em]">Icon not found</h1>

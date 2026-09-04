@@ -20,12 +20,12 @@
 		<h2 class="mb-4 text-2xl font-semibold">{locale === 'en' ? 'ISC License' : 'Lisensi ISC'}</h2>
 		<p class="mb-6 text-base leading-7 text-islamic-muted">
 			{locale === 'en' 
-				? 'Islamic Icons is free and open-source software licensed under the ISC License. This permissive license allows you to use, modify, and distribute the icons freely.'
-				: 'Islamic Icons adalah perangkat lunak gratis dan open-source berlisensi ISC. Lisensi permisif ini memungkinkan Anda menggunakan, memodifikasi, dan mendistribusikan ikon dengan bebas.'}
+				? 'Atsarul Mujahidin is free and open-source software licensed under the ISC License. This permissive license allows you to use, modify, and distribute the icons freely.'
+				: 'Atsarul Mujahidin adalah perangkat lunak gratis dan open-source berlisensi ISC. Lisensi permisif ini memungkinkan Anda menggunakan, memodifikasi, dan mendistribusikan ikon dengan bebas.'}
 		</p>
 		
 		<div class="rounded-xl border border-islamic-line bg-black/20 p-6">
-			<pre class="overflow-x-auto text-[11px] leading-6 text-islamic-muted"><code>Copyright (c) 2024 Islamic Icons Contributors
+			<pre class="overflow-x-auto text-[11px] leading-6 text-islamic-muted"><code>Copyright (c) 2024 Atsarul Mujahidin Contributors
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above

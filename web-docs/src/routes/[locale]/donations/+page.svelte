@@ -79,7 +79,7 @@
 	/>
 </svelte:head>
 
-<main class="{MAX} pt-36 pb-16 sm:pt-44 sm:pb-24 lg:pt-32">
+<main class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<section class="gsap-container max-w-4xl">
 		<span class="text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-green"
 			>Humanitarian giving</span
@@ -88,7 +88,7 @@
 			Support people. Keep every number visible.
 		</h1>
 		<p class="mt-6 max-w-3xl text-base leading-8 text-islamic-muted">
-			Islamic Icons accepts public donations with 100% financial transparency. Minimum 70% of all
+			Atsarul Mujahidin accepts public donations with 100% financial transparency. Minimum 70% of all
 			funds are allocated to humanitarian aid, including Palestine relief, orphanages,
 			low-income families, elderly care and disaster relief. Up to 30% supports framework
 			operations such as server, CDN and domain costs.
@@ -166,7 +166,7 @@
 				>
 				<h2 class="mt-3 font-display text-3xl tracking-[-.04em] sm:text-4xl">Up to 30%</h2>
 				<p class="mt-5 text-[12px] leading-7 text-islamic-muted">
-					Only infrastructure required to keep Islamic Icons available and maintainable belongs
+					Only infrastructure required to keep Atsarul Mujahidin available and maintainable belongs
 					here.
 				</p>
 				<div class="mt-8 border-t border-islamic-line">
