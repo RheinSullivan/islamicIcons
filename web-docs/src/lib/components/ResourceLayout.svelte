@@ -87,26 +87,27 @@
 
 		<!-- Main content -->
 		<div class="min-w-0">
-			<!-- Bismillah at the beginning -->
-			<div class="mb-8 rounded-xl border border-islamic-green/20 bg-islamic-green/5 p-6 text-center">
-				<p class="font-display text-2xl tracking-tight text-islamic-green">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
-				<p class="mt-2 text-xs text-islamic-muted">Bismillahir Rahmanir Rahim</p>
-			</div>
-			
-			<div class="gsap-container mb-10">
-				<span class="text-[9px] font-semibold uppercase tracking-[.2em] text-islamic-green">{label}</span>
-				<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">{title}</h1>
-			</div>
-			
 			<div class="resource-content">
+				<div class="gsap-container mb-10">
+					<span class="text-[9px] font-semibold uppercase tracking-[.2em] text-islamic-green">{label}</span>
+					<h1 class="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">{title}</h1>
+				</div>
+
+				<!-- Bismillah at the beginning -->
+				<div class="mb-8 text-center">
+					<p class="font-display text-2xl tracking-tight text-islamic-green">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+					<p class="mt-2 text-xs text-islamic-muted">Bismillahir Rahmanir Rahim</p>
+				</div>
+			
 				{@render children()}
+
+				<!-- Alhamdulillah at the end -->
+				<div class="mt-12 text-center">
+					<p class="font-display text-2xl tracking-tight text-islamic-green">ٱلْحَمْدُ لِلَّٰهِ</p>
+					<p class="mt-2 text-xs text-islamic-muted">Alhamdulillah - All praise is due to Allah</p>
+				</div>
 			</div>
 			
-			<!-- Alhamdulillah at the end -->
-			<div class="mt-12 rounded-xl border border-islamic-green/20 bg-islamic-green/5 p-6 text-center">
-				<p class="font-display text-2xl tracking-tight text-islamic-green">ٱلْحَمْدُ لِلَّٰهِ</p>
-				<p class="mt-2 text-xs text-islamic-muted">Alhamdulillah - All praise is due to Allah</p>
-			</div>
 		</div>
 
 		<!-- Right sidebar - On this page TOC -->
