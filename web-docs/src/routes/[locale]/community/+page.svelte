@@ -122,8 +122,8 @@
 					<h3 class="mb-1 text-sm font-semibold">{locale === 'en' ? 'Design & Submit Icons' : 'Desain & Kirim Ikon'}</h3>
 					<p class="text-[13px] leading-6 text-islamic-muted">
 						{locale === 'en' 
-							? 'Create new Islamic icons following our design guidelines. Submit SVG files in fill, outline, and color variants.' 
-							: 'Buat ikon Islam baru mengikuti panduan desain kami. Kirim file SVG dalam varian fill, outline, dan color.'}
+							? 'Create new icons following our design guidelines. Submit SVG files in fill, outline, and color variants.' 
+							: 'Buat ikon baru mengikuti panduan desain kami. Kirim file SVG dalam varian fill, outline, dan color.'}
 					</p>
 				</div>
 			</div>

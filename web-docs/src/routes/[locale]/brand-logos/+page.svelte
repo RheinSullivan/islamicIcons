@@ -156,7 +156,7 @@
 		<div class="rounded-2xl border border-red-500/30 bg-red-500/5 p-8">
 			<h2 class="mb-4 text-xl font-semibold text-red-400">{locale === 'en' ? '⚠️ Important Notes' : '⚠️ Catatan Penting'}</h2>
 			<ul class="space-y-3 text-[13px] leading-6 text-islamic-muted">
-				<li>→ {locale === 'en' ? 'Islamic Icons does NOT handle any donation funds. All donations must go directly to humanitarian organizations.' : 'Islamic Icons TIDAK menangani dana donasi apapun. Semua donasi harus langsung ke organisasi kemanusiaan.'}</li>
+				<li>→ {locale === 'en' ? 'Atsarul Mujahidin does NOT handle any donation funds. All donations must go directly to humanitarian organizations.' : 'Atsarul Mujahidin TIDAK menangani dana donasi apapun. Semua donasi harus langsung ke organisasi kemanusiaan.'}</li>
 				<li>→ {locale === 'en' ? 'We reserve the right to reject any application without explanation.' : 'Kami berhak menolak aplikasi apapun tanpa penjelasan.'}</li>
 				<li>→ {locale === 'en' ? 'Fake or fraudulent donation proofs will result in permanent blacklist.' : 'Bukti donasi palsu atau penipuan akan mengakibatkan daftar hitam permanen.'}</li>
 				<li>→ {locale === 'en' ? 'Logo placement does not constitute endorsement of products or services.' : 'Penempatan logo tidak merupakan dukungan produk atau layanan.'}</li>

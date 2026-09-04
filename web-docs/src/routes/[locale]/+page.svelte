@@ -100,7 +100,7 @@
 	</div>
 </section>
 
-<!-- Featured icons - exact from native -->
+<!-- Featured icons - INFINITE CAROUSEL 1 ROW WITH PAUSE ON HOVER -->
 <section class="{MAX} py-16 sm:py-24">
 	<div class="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
 		<div>
@@ -113,24 +113,64 @@
 			<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.8]"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
 		</a>
 	</div>
-	<div class="grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-4">
-		{#each featuredIcons as item (item.name)}
-			{@const source = sourceForItem(item)}
-			{@const variant = chooseVariant(source, 'fill')}
-			{@const iconPath = pathFor(item, variant)}
-			<button type="button" data-open={item.name} class="gsap-on-scroll group w-full cursor-pointer text-left">
-				<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
-					<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">Community</span>
-					<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]" src={iconPath} alt={item.title} loading="lazy" />
-				</span>
-				<span class="mt-3 block">
-					<strong class="block text-[13px] font-semibold text-islamic-text">{item.title}</strong>
-					<small class="mt-1 block text-[10px] text-islamic-dim">{pretty(item.category)} · Fill</small>
-				</span>
-			</button>
-		{/each}
+	
+	<!-- Infinite carousel wrapper -->
+	<div class="relative overflow-hidden">
+		<div class="icon-carousel flex gap-4">
+			<!-- First set of icons -->
+			{#each featuredIcons as item (item.name + '-1')}
+				{@const source = sourceForItem(item)}
+				{@const variant = chooseVariant(source, 'fill')}
+				{@const iconPath = pathFor(item, variant)}
+				<button type="button" data-open={item.name} class="group flex-shrink-0 w-[200px] cursor-pointer text-left">
+					<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
+						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">Community</span>
+						<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]" src={iconPath} alt={item.title} loading="lazy" />
+					</span>
+					<span class="mt-3 block">
+						<strong class="block text-[13px] font-semibold text-islamic-text">{item.title}</strong>
+						<small class="mt-1 block text-[10px] text-islamic-dim">{pretty(item.category)} · Fill</small>
+					</span>
+				</button>
+			{/each}
+			<!-- Duplicate set for seamless loop -->
+			{#each featuredIcons as item (item.name + '-2')}
+				{@const source = sourceForItem(item)}
+				{@const variant = chooseVariant(source, 'fill')}
+				{@const iconPath = pathFor(item, variant)}
+				<button type="button" data-open={item.name} class="group flex-shrink-0 w-[200px] cursor-pointer text-left">
+					<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
+						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">Community</span>
+						<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]" src={iconPath} alt={item.title} loading="lazy" />
+					</span>
+					<span class="mt-3 block">
+						<strong class="block text-[13px] font-semibold text-islamic-text">{item.title}</strong>
+						<small class="mt-1 block text-[10px] text-islamic-dim">{pretty(item.category)} · Fill</small>
+					</span>
+				</button>
+			{/each}
+		</div>
 	</div>
 </section>
+
+<style>
+	@keyframes scroll-carousel {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	.icon-carousel {
+		animation: scroll-carousel 40s linear infinite;
+	}
+
+	.icon-carousel:hover {
+		animation-play-state: paused;
+	}
+</style>
 
 <!-- Why section - exact from native -->
 <section class="{MAX} py-16 sm:py-24">

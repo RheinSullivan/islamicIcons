@@ -31,8 +31,8 @@
 			<h3>{locale === 'en' ? 'Submit New Icons' : 'Kirim Ikon Baru'}</h3>
 			<p class="mb-0">
 				{locale === 'en' 
-					? 'Add new Islamic icons or variants from reputable sources with proper attribution.'
-					: 'Tambahkan ikon Islam baru atau varian dari sumber terpercaya dengan atribusi yang tepat.'}
+					? 'Add new icons or variants from reputable sources with proper attribution.'
+					: 'Tambahkan ikon atau varian baru dari sumber terpercaya dengan atribusi yang tepat.'}
 			</p>
 		</div>
 		
