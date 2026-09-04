@@ -5,6 +5,37 @@ All notable changes to Atsarul Mujahidin are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-09-05
+
+### Changed
+
+- **BREAKING: Svelte 5 Compatibility** - All Svelte components now use Svelte 5 runes mode with `$props()` instead of `export let`
+- **BREAKING: Import Paths** - Svelte components now use direct file imports: `atsarul-mujahidin/svelte/fill/ComponentName` instead of `atsarul-mujahidin/svelte/component-name-fill`
+- Updated all Svelte components to use `{...restProps}` instead of `{...$$restProps}` for props spreading
+
+### Fixed
+
+- Fixed Svelte 5 compatibility issues with `$$restProps` that caused runtime errors
+- Fixed package.json exports to support both wildcard patterns and direct file imports
+
+### Migration Guide
+
+If upgrading from 0.1.0, update your Svelte imports:
+
+**Before (0.1.0):**
+```svelte
+import Kaaba from 'atsarul-mujahidin/svelte/kaaba-fill';
+import PalestineFlag from 'atsarul-mujahidin/svelte/palestine-flag-color';
+```
+
+**After (0.1.1):**
+```svelte
+import Kaaba from 'atsarul-mujahidin/svelte/fill/Kaaba';
+import PalestineFlag from 'atsarul-mujahidin/svelte/color/PalestineFlag';
+```
+
+Component naming follows PascalCase (e.g., `PrayerTime`, `QuranBook`, `MuslimFamily`).
+
 ## [0.1.0] - 2026-09-01
 
 ### Added
