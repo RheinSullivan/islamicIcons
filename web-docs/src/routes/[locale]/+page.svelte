@@ -124,7 +124,7 @@
 				{@const iconPath = pathFor(item, variant)}
 				<button type="button" data-open={item.name} class="group flex-shrink-0 w-[200px] cursor-pointer text-left">
 					<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
-						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">Community</span>
+						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">{pretty(item.category)}</span>
 						<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]" src={iconPath} alt={item.title} loading="lazy" />
 					</span>
 					<span class="mt-3 block">
@@ -140,7 +140,7 @@
 				{@const iconPath = pathFor(item, variant)}
 				<button type="button" data-open={item.name} class="group flex-shrink-0 w-[200px] cursor-pointer text-left">
 					<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
-						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">Community</span>
+						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">{pretty(item.category)}</span>
 						<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]" src={iconPath} alt={item.title} loading="lazy" />
 					</span>
 					<span class="mt-3 block">

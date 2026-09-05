@@ -24,57 +24,70 @@
 
 	const donationPhotos = [
 		{
-			title: 'Palestine Relief',
+			title: locale === 'en' ? 'Palestine Relief' : 'Bantuan Palestina',
+			description: locale === 'en' ? 'Emergency humanitarian aid for families in Gaza' : 'Bantuan kemanusiaan darurat untuk keluarga di Gaza',
+			category: locale === 'en' ? 'Emergency Relief' : 'Bantuan Darurat',
 			image: 'https://help.unicef.org/mexico/sites/mexico/files/styles/facebook_share_image/public/2025-01/UNI495572.jpg?itok=q8E8Yyli',
 			source: 'UNICEF',
-			sourceUrl: 'https://help.unicef.org/mexico/es/dona-gaza',
-			alt: 'Children in Gaza waiting for humanitarian food aid',
-			span: 'lg:col-span-8 lg:row-span-2',
+			sourceUrl: 'https://www.unicef.org/appeals/state-of-palestine',
+			alt: locale === 'en' ? 'Children in Gaza waiting for humanitarian food aid' : 'Anak-anak di Gaza menunggu bantuan makanan kemanusiaan',
+			span: 'sm:col-span-2 sm:row-span-2',
+			featured: true,
 			fallbackIcon: 'palestine-flag-color'
 		},
 		{
-			title: 'Sudan Humanitarian Crisis',
+			title: locale === 'en' ? 'Sudan Crisis' : 'Krisis Sudan',
+			description: locale === 'en' ? 'Urgent support for displaced families' : 'Dukungan mendesak untuk keluarga yang mengungsi',
+			category: locale === 'en' ? 'Humanitarian Crisis' : 'Krisis Kemanusiaan',
 			image: 'https://www.unicef.org/sites/default/files/styles/hero_desktop/public/UN0784820.jpg.webp?itok=vOakVvzz',
 			source: 'UNICEF Sudan',
 			sourceUrl: 'https://www.unicef.org/sudan',
-			alt: 'Sudan humanitarian crisis relief efforts',
-			span: 'lg:col-span-4 lg:row-span-1',
+			alt: locale === 'en' ? 'Sudan humanitarian crisis relief efforts' : 'Upaya bantuan krisis kemanusiaan Sudan',
+			span: 'sm:col-span-1 sm:row-span-1',
 			fallbackIcon: 'muslim-family-fill'
 		},
 		{
-			title: 'Orphanage Care',
+			title: locale === 'en' ? 'Orphan Care' : 'Perawatan Yatim',
+			description: locale === 'en' ? 'Supporting orphanages across Indonesia' : 'Mendukung panti asuhan di seluruh Indonesia',
+			category: locale === 'en' ? 'Children & Youth' : 'Anak & Remaja',
 			image: 'https://www.hopeandprosperity.org/wp-content/uploads/2020/06/5J2A7153.jpg',
 			source: 'Hope & Prosperity',
 			sourceUrl: 'https://www.hopeandprosperity.org/our-orphanage/',
-			alt: 'Children sharing a meal at an orphanage',
-			span: 'lg:col-span-4 lg:row-span-1',
+			alt: locale === 'en' ? 'Children sharing a meal at an orphanage' : 'Anak-anak berbagi makanan di panti asuhan',
+			span: 'sm:col-span-1 sm:row-span-1',
 			fallbackIcon: 'muslim-family-child-fill'
 		},
 		{
-			title: 'Indonesia Disaster Relief',
+			title: locale === 'en' ? 'Disaster Relief' : 'Bantuan Bencana',
+			description: locale === 'en' ? 'Emergency response for floods, earthquakes, and volcanic disasters in Indonesia' : 'Respons darurat untuk banjir, gempa, dan bencana vulkanik di Indonesia',
+			category: locale === 'en' ? 'Emergency Response' : 'Respons Darurat',
 			image: 'https://en.vcci.com.vn/hm_content/uploads/247-news/FLOODS.png',
-			source: 'Vietnam Chamber of Commerce',
+			source: 'VCCI',
 			sourceUrl: 'https://en.vcci.com.vn/disaster-relief-when-foreign-friends-show-kind-support-vietnam',
-			alt: 'Indonesia flood disaster relief volunteers',
-			span: 'lg:col-span-4 lg:row-span-2',
+			alt: locale === 'en' ? 'Flood disaster relief volunteers helping affected communities' : 'Relawan bantuan bencana banjir membantu masyarakat terdampak',
+			span: 'sm:col-span-1 sm:row-span-2',
 			fallbackIcon: 'dua-hands-fill'
 		},
 		{
-			title: 'Low-Income Families',
-			image: 'https://ik.imagekit.io/qkwbj7b7u/charity-meals/uploads/162/family-food-parcel2.png?ik-sdk-version=php-2.0.0',
+			title: locale === 'en' ? 'Food Aid' : 'Bantuan Pangan',
+			description: locale === 'en' ? 'Food parcels for dhuafa families' : 'Paket makanan untuk keluarga dhuafa',
+			category: locale === 'en' ? 'Food Security' : 'Ketahanan Pangan',
+			image: 'https://ik.imagekit.io/qkwbj7b7u/charity-meals/uploads/162/family-food-parcel2.png',
 			source: 'Charity Meals',
 			sourceUrl: 'https://charitymeals.org/projects',
-			alt: 'Family receiving food parcels and essential supplies',
-			span: 'lg:col-span-4 lg:row-span-1',
+			alt: locale === 'en' ? 'Family receiving food parcels and essential supplies' : 'Keluarga menerima paket makanan dan kebutuhan pokok',
+			span: 'sm:col-span-1 sm:row-span-1',
 			fallbackIcon: 'ketupat-fill'
 		},
 		{
-			title: 'Elderly Care Support',
+			title: locale === 'en' ? 'Elderly Care' : 'Perawatan Lansia',
+			description: locale === 'en' ? 'Support for elderly and caregivers' : 'Dukungan untuk lansia dan pengasuh',
+			category: locale === 'en' ? 'Senior Care' : 'Perawatan Lansia',
 			image: 'https://www.thefinancialcoconut.com/hubfs/caregivers-png-1.png',
 			source: 'The Financial Coconut',
 			sourceUrl: 'https://www.thefinancialcoconut.com/blog/the-real-cost-of-caregiving-in-singapore',
-			alt: 'Caregivers supporting elderly residents',
-			span: 'lg:col-span-4 lg:row-span-1',
+			alt: locale === 'en' ? 'Caregivers supporting elderly residents' : 'Pengasuh mendukung lansia',
+			span: 'sm:col-span-1 sm:row-span-1',
 			fallbackIcon: 'muslim-woman-fill'
 		}
 	];
@@ -124,20 +137,29 @@
 	</section>
 
 	<section class="mt-14">
-		<h2 class="mb-6 text-2xl font-semibold">Where Your Donations Go</h2>
+		<h2 class="mb-6 font-display text-2xl font-semibold tracking-[-.03em]">{locale === 'en' ? 'Where Your Donations Go' : 'Kemana Donasi Anda Pergi'}</h2>
 		<!-- Bento Grid Layout -->
-		<div class="grid auto-rows-[200px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12">
+		<div class="grid auto-rows-[minmax(200px,auto)] grid-cols-1 gap-4 sm:grid-cols-3">
 			{#each donationPhotos as photo (photo.title)}
-				<figure
+				<article
 					class="gsap-on-scroll group relative overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel {photo.span}"
 				>
 					{#if imageLoadStates[photo.title] === false}
 						<!-- Fallback: Show icon if image failed to load -->
-						<div class="flex size-full items-center justify-center bg-gradient-to-br from-islamic-panel-2 to-islamic-panel">
+						<div class="flex size-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-islamic-panel-2 to-islamic-panel p-6">
 							{#if iconComponents[photo.fallbackIcon]}
 								{@const IconComponent = iconComponents[photo.fallbackIcon]}
-								<IconComponent width={120} height={120} class="text-islamic-green opacity-60" />
+								<IconComponent width={photo.featured ? 160 : 80} height={photo.featured ? 160 : 80} class="text-islamic-green opacity-50" />
 							{/if}
+							<div class="text-center">
+								{#if photo.category}
+									<span class="mb-2 block text-[9px] font-semibold uppercase tracking-[.16em] text-islamic-green">{photo.category}</span>
+								{/if}
+								<h3 class="font-display text-lg font-semibold text-white">{photo.title}</h3>
+								{#if photo.description}
+									<p class="mt-2 text-sm text-white/70">{photo.description}</p>
+								{/if}
+							</div>
 						</div>
 					{:else}
 						<img
@@ -149,22 +171,28 @@
 							onload={() => handleImageLoad(photo.title)}
 						/>
 					{/if}
-					<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-					<figcaption class="absolute bottom-0 left-0 right-0 p-5">
-						<h3 class="text-base font-semibold text-white">{photo.title}</h3>
+					<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+					<div class="absolute bottom-0 left-0 right-0 p-5">
+						{#if photo.category}
+							<span class="mb-2 inline-block rounded-full border border-white/20 bg-white/10 px-2 py-1 text-[9px] font-semibold uppercase tracking-[.14em] text-white backdrop-blur-sm">{photo.category}</span>
+						{/if}
+						<h3 class="font-display text-{photo.featured ? 'xl' : 'base'} font-semibold text-white">{photo.title}</h3>
+						{#if photo.description && photo.featured}
+							<p class="mt-2 text-sm text-white/80">{photo.description}</p>
+						{/if}
 						<a
 							href={photo.sourceUrl}
 							target="_blank"
 							rel="noreferrer"
-							class="mt-1 inline-flex items-center gap-1 text-[11px] text-white/70 hover:text-white"
+							class="mt-3 inline-flex items-center gap-1 text-[11px] text-white/70 transition hover:text-white"
 						>
 							{photo.source}
 							<svg viewBox="0 0 24 24" class="size-3 fill-none stroke-current stroke-2">
 								<path d="M7 17 17 7M7 7h10v10"/>
 							</svg>
 						</a>
-					</figcaption>
-				</figure>
+					</div>
+				</article>
 			{/each}
 		</div>
 	</section>

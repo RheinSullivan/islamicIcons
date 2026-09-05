@@ -73,17 +73,18 @@
 		
 		// Get proper contributor name - check source metadata for actual contributor
 		let contributorName = 'Rhein Sullivan'; // Default
-		if (source?.metadata?.contributor) {
-			contributorName = source.metadata.contributor;
-		} else if (source?.metadata?.author) {
-			contributorName = source.metadata.author;
+		if (source?.id) {
+			// Use specific source contributors or default
+			contributorName = source.id.includes('google') ? 'Google' : 
+			                 source.id.includes('svg') ? 'SVG Repo' :
+			                 'Rhein Sullivan';
 		}
 		
 		const frameworkExamples = {
-			react: `import { ${camel(item.name)} } from 'atsarul-mujahidin/react/${variant}/${camel(item.name)}.jsx';\n\n${'<'}${camel(item.name)} size={32} />`,
-			vue: `import { ${camel(item.name)} } from 'atsarul-mujahidin/vue/${variant}/${camel(item.name)}.vue';\n\n${'<'}${camel(item.name)} :size="32" />`,
-			svelte: `import { ${camel(item.name)} } from 'atsarul-mujahidin/svelte/${variant}/${camel(item.name)}.svelte';\n\n${'<'}${camel(item.name)} size={32} />`,
-			vanilla: `<script type="module">\n  import 'atsarul-mujahidin/vanilla/atsarul-mujahidin.js';\n${'<'}/script>\n\n${'<'}atsarul-mujahidin-icon name="${item.name}" variant="${variant}" size="32">${'<'}/atsarul-mujahidin-icon>`
+			react: `import ${camel(item.name)} from 'atsarul-mujahidin/react/${item.name}-${variant}';\n\nexport function MyComponent() {\n  return <${camel(item.name)} size={32} />;\n}`,
+			vue: `<script setup>\nimport ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';\n<\/script>\n\n<template>\n  <${camel(item.name)} :size="32" />\n<\/template>`,
+			svelte: `<script>\n  import ${pretty(item.name).replace(/\s/g, '')} from 'atsarul-mujahidin/svelte/${variant}/${pretty(item.name).replace(/\s/g, '')}';\n<\/script>\n\n<${pretty(item.name).replace(/\s/g, '')} size={32} />`,
+			vanilla: `<script type="module">\n  import 'atsarul-mujahidin/vanilla/atsarul-mujahidin.js';\n<\/script>\n\n<atsarul-mujahidin-icon name="${item.name}" variant="${variant}" size="32"><\/atsarul-mujahidin-icon>`
 		};
 		
 		return { item, source, variant, path, vars, contributorName, frameworkExamples };
@@ -275,7 +276,7 @@
 				>
 					<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.7]"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
 					<span>{locale === 'en' ? 'Search...' : 'Cari...'}</span>
-					<kbd class="rounded-md border border-islamic-line px-1.5 py-1 text-[9px] tracking-[.08em] text-islamic-dim">CTRL + K</kbd>
+					<kbd class="rounded-md border border-islamic-line px-1.5 py-1 text-[9px] tracking-[.08em] text-islamic-dim">⌘K</kbd>
 				</button>
 				<!-- GitHub -->
 				<a
@@ -334,9 +335,9 @@
 				>
 					<span class="flex items-center gap-3">
 						<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.7]"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-						Search icons
+						{locale === 'en' ? 'Search...' : 'Cari...'}
 					</span>
-					<kbd class="rounded-md border border-islamic-line px-1.5 py-1 text-[9px] text-islamic-dim">CTRL + K</kbd>
+					<kbd class="rounded-md border border-islamic-line px-1.5 py-1 text-[9px] text-islamic-dim">⌘K</kbd>
 				</button>
 				<a
 					href={REPO_URL}
@@ -446,9 +447,9 @@
 				<!-- Content -->
 				<div class="{drawerMaximized ? 'mx-auto max-w-4xl' : ''} p-5 sm:p-6">
 					<!-- Preview -->
-					<div class="relative grid {drawerMaximized ? 'aspect-[16/10]' : 'aspect-square'} place-items-center overflow-hidden rounded-xl border border-islamic-line bg-[radial-gradient(circle_at_50%_50%,rgba(115,224,174,.03),transparent_70%)]">
+					<div class="relative grid {drawerMaximized ? 'aspect-[16/10]' : 'aspect-[4/3]'} place-items-center overflow-hidden rounded-xl border border-islamic-line bg-[radial-gradient(circle_at_50%_50%,rgba(115,224,174,.03),transparent_70%)]">
 						<img 
-							class="{drawerMaximized ? 'max-h-[60%] max-w-[50%]' : 'max-h-[45%] max-w-[45%]'} object-contain" 
+							class="{drawerMaximized ? 'max-h-[50%] max-w-[40%]' : 'max-h-[35%] max-w-[35%]'} object-contain" 
 							src={drawerItem.path} 
 							alt={drawerItem.item.title}
 						/>
