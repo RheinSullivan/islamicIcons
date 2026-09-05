@@ -39,11 +39,14 @@
 </script>
 
 <svelte:head>
-	<title>{translation.sources.pageTitle}</title>
-	<meta name="description" content={translation.sources.pageDesc} />
-	<meta property="og:title" content={translation.sources.pageTitle} />
-	<meta property="og:description" content={translation.sources.pageDesc} />
-	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/sources" />
+	<title>{locale === 'en' ? 'Sources • 🇵🇸 Atsarul Mujahidin 🇸🇩' : 'Sumber • 🇵🇸 Atsarul Mujahidin 🇸🇩'}</title>
+	<meta name="description" content={locale === 'en' ? 'Every icon includes full source attribution. Community artwork, open-licensed candidates from SVG Repo, and Google Material Icons. Complete provenance and licensing information.' : 'Setiap ikon menyertakan atribusi sumber lengkap. Karya komunitas, kandidat berlisensi terbuka dari SVG Repo, dan Google Material Icons. Informasi asal-usul dan lisensi lengkap.'} />
+	<link rel="canonical" href="https://atsarul-mujahidin.netlify.app/{locale}/sources" />
+	<meta property="og:title" content={locale === 'en' ? 'Icon Sources & Attribution - Atsarul Mujahidin' : 'Sumber Ikon & Atribusi - Atsarul Mujahidin'} />
+	<meta property="og:description" content={locale === 'en' ? 'Full source attribution for all icons. Community artwork and open-licensed candidates.' : 'Atribusi sumber lengkap untuk semua ikon.'} />
+	<meta property="og:url" content="https://atsarul-mujahidin.netlify.app/{locale}/sources" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
 </svelte:head>
 
 <ResourceLayout 

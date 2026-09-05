@@ -30,13 +30,13 @@
 
 <svelte:head>
 	{#if item}
-		<title>{item.title} {locale === 'en' ? 'Icon' : 'Ikon'} - Atsarul Mujahidin</title>
+		<title>{item.title} • 🇵🇸 Atsarul Mujahidin 🇸🇩</title>
 		<meta name="description" content="{item.title} - {pretty(item.category)} {locale === 'en' ? 'icon available in fill, outline and color styles from Atsarul Mujahidin.' : 'ikon tersedia dalam gaya fill, outline, dan color dari Atsarul Mujahidin.'}" />
 		<meta property="og:title" content="{item.title} Icon - Atsarul Mujahidin" />
 		<meta property="og:description" content="Modern {item.title} SVG icon from Atsarul Mujahidin." />
 		<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/icons/{item.name}" />
 	{:else}
-		<title>Icon Not Found - Atsarul Mujahidin</title>
+		<title>{locale === 'en' ? 'Icon Not Found • 🇵🇸 Atsarul Mujahidin 🇸🇩' : 'Ikon Tidak Ditemukan • 🇵🇸 Atsarul Mujahidin 🇸🇩'}</title>
 	{/if}
 </svelte:head>
 
@@ -58,7 +58,7 @@
 				<div class="{variant === 'color' ? 'size-[72%]' : 'size-[72%] [filter:brightness(0)_invert(1)]'}">
 					<DynamicIcon item={item} variant={variant} class="size-full object-contain" />
 				</div>
-				<span class="absolute bottom-3 left-3 rounded-full border border-islamic-line bg-islamic-bg px-2 py-1 text-[9px] text-islamic-dim">{sourceLabel(source?.id || '')} · {variantName(variant)}</span>
+				<span class="absolute bottom-3 left-3 rounded-full border border-islamic-line bg-islamic-bg px-2 py-1 text-[9px] text-islamic-dim">{(source?.label || sourceLabel(source?.id || '')).split(' / ').pop()} · {variantName(variant)}</span>
 			</div>
 			{#if vars.length > 1}
 				<div class="mt-6">

@@ -10,6 +10,9 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"test": "vitest",
+		"test:run": "vitest run",
+		"test:ui": "vitest --ui",
 		"docs": "vitepress dev ../library/docs",
 		"docs:build": "vitepress build ../library/docs",
 		"docs:preview": "vitepress preview ../library/docs"
@@ -18,11 +21,16 @@
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/kit": "^2.63.0",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
+		"@testing-library/jest-dom": "^7.0.1",
+		"@testing-library/svelte": "^5.4.2",
+		"happy-dom": "^20.14.0",
+		"jsdom": "^30.0.1",
 		"svelte": "^5.56.1",
 		"svelte-check": "^4.6.0",
 		"typescript": "^6.0.3",
 		"vite": "^8.0.16",
-		"vitepress": "^1.6.4"
+		"vitepress": "^1.6.4",
+		"vitest": "^5.0.0"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.3.3",

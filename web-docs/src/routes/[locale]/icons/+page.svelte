@@ -16,6 +16,12 @@
 		return icons.filter(icon => {
 			if (category !== 'all' && icon.category !== category) return false;
 			if (source !== 'all' && !icon.sources.some(iconSource => iconSource.id === source)) return false;
+			
+			// Filter by variant availability - icons MUST have the selected variant
+			const itemSource = sourceForItem(icon, source);
+			const availableVariants = itemSource?.variants || [];
+			if (!availableVariants.includes(variant)) return false;
+			
 			if (searchQuery) {
 				const queryLower = searchQuery.toLowerCase();
 				const text = `${icon.name} ${icon.title} ${icon.category} ${(icon.aliases || []).join(' ')}`;
@@ -30,11 +36,16 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Atsarul Mujahidin - Browse Icons' : 'Atsarul Mujahidin - Jelajahi Ikon'}</title>
-	<meta name="description" content={translation.icons.pageDesc} />
-	<meta property="og:title" content={locale === 'en' ? 'Atsarul Mujahidin - Browse Icons' : 'Atsarul Mujahidin - Jelajahi Ikon'} />
-	<meta property="og:description" content={translation.icons.pageDesc} />
-	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/icons" />
+	<title>{locale === 'en' ? 'List Icons • 🇵🇸 Atsarul Mujahidin 🇸🇩' : 'Daftar Ikon • 🇵🇸 Atsarul Mujahidin 🇸🇩'}</title>
+	<meta name="description" content={locale === 'en' ? '81 Islamic icons for React, Vue, Svelte. Browse mosque, prayer, Quran, charity, and Palestine icons. Free, open-source, with full attribution.' : '81 ikon Islam untuk React, Vue, Svelte. Jelajahi ikon masjid, sholat, Quran, sedekah, dan Palestina. Gratis, open-source, dengan atribusi lengkap.'} />
+	<link rel="canonical" href="https://atsarul-mujahidin.netlify.app/{locale}/icons" />
+	<meta property="og:title" content={locale === 'en' ? 'Browse 81 Islamic Icons - Atsarul Mujahidin' : 'Jelajahi 81 Ikon Islam - Atsarul Mujahidin'} />
+	<meta property="og:description" content={locale === 'en' ? '81 Islamic icons for React, Vue, Svelte. Browse mosque, prayer, Quran, charity, and Palestine icons.' : '81 ikon Islam untuk React, Vue, Svelte. Jelajahi ikon masjid, sholat, Quran, sedekah, dan Palestina.'} />
+	<meta property="og:url" content="https://atsarul-mujahidin.netlify.app/{locale}/icons" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={locale === 'en' ? 'Browse 81 Islamic Icons - Atsarul Mujahidin' : 'Jelajahi 81 Ikon Islam - Atsarul Mujahidin'} />
+	<meta name="twitter:description" content={locale === 'en' ? '81 Islamic icons for React, Vue, Svelte. Browse mosque, prayer, Quran, charity, and Palestine icons.' : '81 ikon Islam untuk React, Vue, Svelte.'} />
 </svelte:head>
 
 <div class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
@@ -123,7 +134,7 @@
 						{@const selectedVariant = chooseVariant(itemSource, variant)}
 						<button type="button" data-open={item.name} aria-label="View {item.title} details" class="gsap-on-scroll group w-full cursor-pointer text-left">
 							<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
-								<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur" aria-hidden="true">{sourceLabel(itemSource?.id || '')}</span>
+								<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur" aria-hidden="true">{(itemSource?.label || sourceLabel(itemSource?.id || '')).split(' / ').pop()}</span>
 								<div class="size-full p-10 transition duration-500 group-hover:scale-105 {selectedVariant === 'color' ? '' : '[filter:brightness(0)_invert(1)]'}">
 									<DynamicIcon item={item} variant={selectedVariant} class="size-full object-contain" />
 								</div>

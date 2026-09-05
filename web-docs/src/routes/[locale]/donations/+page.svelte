@@ -1,28 +1,24 @@
 <script lang="ts">
-	import { MAX } from '$lib/site';
+	import { MAX, icon } from '$lib/site';
 	import { translations, type Locale } from '$lib/i18n';
-
-	import PalestineFlag from 'atsarul-mujahidin/svelte/color/PalestineFlag';
-	import MuslimFamily from 'atsarul-mujahidin/svelte/fill/MuslimFamily';
-	import MuslimFamilyChild from 'atsarul-mujahidin/svelte/fill/MuslimFamilyChild';
-	import DuaHands from 'atsarul-mujahidin/svelte/fill/DuaHands';
-	import Ketupat from 'atsarul-mujahidin/svelte/fill/Ketupat';
-	import MuslimWoman from 'atsarul-mujahidin/svelte/fill/MuslimWoman';
+	import type { CatalogItem } from '$lib/types';
+	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
 	const translation = $derived(translations[locale]);
 
-	const iconComponents: Record<string, any> = {
-		'palestine-flag-color': PalestineFlag,
-		'muslim-family-fill': MuslimFamily,
-		'muslim-family-child-fill': MuslimFamilyChild,
-		'dua-hands-fill': DuaHands,
-		'ketupat-fill': Ketupat,
-		'muslim-woman-fill': MuslimWoman
+	// Get icon catalog items for fallback
+	const iconItems: Record<string, { item: CatalogItem | undefined; variant: string }> = {
+		'palestine-flag-color': { item: icon('palestine-brush'), variant: 'color' },
+		'muslim-family-fill': { item: icon('muslim-family'), variant: 'fill' },
+		'muslim-family-child-fill': { item: icon('muslim-family-child'), variant: 'fill' },
+		'dua-hands-fill': { item: icon('dua-hands'), variant: 'fill' },
+		'ketupat-fill': { item: icon('ketupat'), variant: 'fill' },
+		'muslim-woman-fill': { item: icon('muslim-woman'), variant: 'fill' }
 	};
 
-	const donationPhotos = $derived([
+	const donationPhotos = $derived.by(() => [
 		{
 			title: locale === 'en' ? 'Palestine Relief' : 'Bantuan Palestina',
 			description: locale === 'en' ? 'Emergency humanitarian aid for families in Gaza' : 'Bantuan kemanusiaan darurat untuk keluarga di Gaza',
@@ -113,11 +109,16 @@
 </script>
 
 <svelte:head>
-	<title>Donations | Atsarul Mujahidin</title>
-	<meta
-		name="description"
-		content="Support humanitarian aid with 100% financial transparency through Atsarul Mujahidin donations."
-	/>
+	<title>Donations • 🇵🇸 Atsarul Mujahidin 🇸🇩</title>
+	<meta name="description" content="Support humanitarian aid with 100% financial transparency. Donations support Palestine relief, orphanages, low-income families, elderly care, and disaster relief through Atsarul Mujahidin." />
+	<link rel="canonical" href="https://atsarul-mujahidin.netlify.app/{locale}/donations" />
+	<meta property="og:title" content="Donations & Humanitarian Aid - Atsarul Mujahidin" />
+	<meta property="og:description" content="Support Palestine relief and humanitarian causes with 100% transparency. Minimum 70% to aid." />
+	<meta property="og:url" content="https://atsarul-mujahidin.netlify.app/{locale}/donations" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Donations & Humanitarian Aid - Atsarul Mujahidin" />
+	<meta name="twitter:description" content="Support Palestine relief and humanitarian causes with 100% transparency." />
 </svelte:head>
 
 <main class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
@@ -147,9 +148,11 @@
 					{#if imageLoadStates[photo.title] === false}
 						<!-- Fallback: Show icon if image failed to load -->
 						<div class="flex size-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-islamic-panel-2 to-islamic-panel p-6">
-							{#if iconComponents[photo.fallbackIcon]}
-								{@const IconComponent = iconComponents[photo.fallbackIcon]}
-								<IconComponent size={photo.featured ? 160 : 80} class="text-islamic-green opacity-50" />
+							{#if iconItems[photo.fallbackIcon]}
+								{@const iconData = iconItems[photo.fallbackIcon]}
+								{#if iconData.item}
+									<DynamicIcon item={iconData.item} variant={iconData.variant} size={photo.featured ? 160 : 80} class="text-islamic-green opacity-50" />
+								{/if}
 							{/if}
 							<div class="text-center">
 								{#if photo.category}

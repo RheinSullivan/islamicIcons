@@ -33,20 +33,20 @@ export const sideLinks: Array<[string, string]> = [
 ];
 
 export const featuredNames = [
-	'allah-calligraphy',
+	'allah-caligraphy',
 	'muhammad-calligraphy',
-	'mosque',
-	'quran-rehal',
-	'wudhu',
-	'lantern',
-	'qibla-compass',
+	'mosque-simple',
+	'quran-stand',
+	'wudhu-ablution',
+	'lantern-outline',
+	'qibla-direction',
 	'kaaba',
-	'prayer-beads',
+	'prayer-beads-tasbih',
 	'prayer-mat',
-	'crescent-moon',
-	'star',
-	'minaret',
-	'hand-prayer'
+	'moon-start',
+	'crescent-star-frame',
+	'mosque-dome',
+	'dua-hands'
 ];
 
 export const featured = featuredNames

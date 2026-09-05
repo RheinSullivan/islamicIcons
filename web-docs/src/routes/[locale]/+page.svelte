@@ -8,27 +8,30 @@
 	const translation = $derived(translations[locale]);
 
 	const featuredIcons = $derived(featured);
-	const mosque = icon('mosque');
-	const lantern = icon('lantern');
+	const mosque = icon('mosque-simple');
+	const lantern = icon('lantern-outline');
 </script>
 
 <svelte:head>
-	<title>Atsarul Mujahidin - Free Palestine</title>
-	<meta name="description" content={locale === 'en' ? 'Atsarul Mujahidin - Traces of the Mujahidin. Create something that leaves a lasting impact for the fighters. A source-aware Islamic icon library for the modern web.' : 'Atsarul Mujahidin - Jejak Para Mujahidin. Ciptakan sesuatu yang meninggalkan dampak abadi untuk para pejuang.'} />
-	<meta property="og:title" content="Atsarul Mujahidin - Free Palestine" />
-	<meta property="og:description" content={locale === 'en' ? 'Atsarul Mujahidin - Traces of the Mujahidin. Islamic icon library for the fighters.' : 'Atsarul Mujahidin - Jejak Para Mujahidin.'} />
+	<title>Atsarul Mujahidin • 🇵🇸 Free Palestine & Sudan 🇸🇩</title>
+	<meta name="description" content={locale === 'en' ? '81 source-aware Islamic icons for modern web. Framework components for React, Vue, Svelte. Free Palestine, mosque, prayer, Quran icons. MIT licensed, full attribution.' : '81 ikon Islam dengan sumber terlacak untuk web modern. Komponen framework untuk React, Vue, Svelte. Ikon Free Palestine, masjid, sholat, Quran. Lisensi MIT, atribusi lengkap.'} />
+	<link rel="canonical" href="https://atsarul-mujahidin.netlify.app/{locale}" />
+	<meta property="og:title" content="Atsarul Mujahidin - Islamic Icon Library" />
+	<meta property="og:description" content={locale === 'en' ? 'Create something that leaves a lasting impact. 81 Islamic icons for React, Vue, Svelte.' : 'Ciptakan sesuatu yang meninggalkan dampak abadi. 81 ikon Islam untuk React, Vue, Svelte.'} />
+	<meta property="og:url" content="https://atsarul-mujahidin.netlify.app/{locale}" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="/logo-atsarul-mujahidin.svg" />
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="Atsarul Mujahidin - Atsarul Mujahidin" />
-	<link rel="canonical" href="https://atsarul-mujahidin.vyagra.dev/{locale}" />
+	<meta property="og:image" content="https://atsarul-mujahidin.netlify.app/logo-atsarul-mujahidin.svg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Atsarul Mujahidin - Islamic Icon Library" />
+	<meta name="twitter:description" content={locale === 'en' ? '81 Islamic icons for React, Vue, Svelte. Free Palestine, mosque, prayer, Quran icons.' : '81 ikon Islam untuk React, Vue, Svelte.'} />
+	<meta name="keywords" content="islamic icons, muslim icons, mosque icon, prayer icon, quran icon, kaaba icon, palestine flag, react icons, vue icons, svelte icons, free icons, open source" />
 </svelte:head>
 
 <!-- HERO - exact from native -->
 <section class="{MAX} pt-36 pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<div class="grid items-center gap-14 lg:grid-cols-[1.06fr_.94fr] lg:gap-20">
 		<div class="gsap-container">
-			<div class="mb-7 inline-flex items-center gap-2 rounded-full border border-islamic-green/20 bg-islamic-green/6 px-3 py-2 text-[9px] font-semibold uppercase tracking-[.18em] text-islamic-green">
+			<div class="mb-4 inline-flex items-center gap-2 rounded-full border border-islamic-green/20 bg-islamic-green/6 px-3 py-2 text-[8px] font-semibold uppercase tracking-[.18em] text-islamic-green">
 				<span class="size-1.5 rounded-full bg-islamic-green shadow-[0_0_14px_rgba(115,224,174,.9)]"></span>
 				{translation.home.badge}
 			</div>
@@ -64,8 +67,8 @@
 					<span>Ramadan</span><span>02 / 03</span>
 				</div>
 				{#if lantern}
-					<div class="mt-10 flex size-[75%] w-full items-center justify-center">
-						<DynamicIcon item={lantern} variant="color" size={280} class="opacity-80" />
+					<div class="mt-10 flex size-[75%] w-full items-center justify-center text-white">
+						<DynamicIcon item={lantern} variant="outline" size={280} class="opacity-80" />
 					</div>
 				{/if}
 			</div>
@@ -74,8 +77,8 @@
 					<span>Atsarul Mujahidin</span><span>01 / 03</span>
 				</div>
 				{#if mosque}
-					<div class="mt-8 flex size-[65%] w-full items-center justify-center">
-						<DynamicIcon item={mosque} variant="fill" size={240} colors="white" />
+					<div class="mt-8 flex size-[65%] w-full items-center justify-center text-white">
+						<DynamicIcon item={mosque} variant="fill" size={240} class="w-full h-auto" />
 					</div>
 				{/if}
 				<div class="absolute inset-x-5 bottom-5 border-t border-islamic-line pt-4">
@@ -120,15 +123,15 @@
 	</div>
 	
 	<!-- Infinite carousel wrapper -->
-	<div class="relative overflow-hidden">
+	<div class="relative overflow-hidden py-2">
 		<div class="icon-carousel flex gap-4">
 			<!-- First set of icons -->
 			{#each featuredIcons as item (item.name + '-1')}
 				<button type="button" data-open={item.name} class="group flex-shrink-0 w-[200px] cursor-pointer text-left">
 					<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
 						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">{pretty(item.category)}</span>
-						<div class="flex size-full items-center justify-center p-10">
-							<DynamicIcon {item} variant="fill" size={120} colors="white" />
+						<div class="flex size-full items-center justify-center p-10 text-white">
+							<DynamicIcon {item} variant="fill" size={120} class="w-full h-auto" />
 						</div>
 					</span>
 					<span class="mt-3 block">
@@ -142,8 +145,8 @@
 				<button type="button" data-open={item.name} class="group flex-shrink-0 w-[200px] cursor-pointer text-left">
 					<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
 						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">{pretty(item.category)}</span>
-						<div class="flex size-full items-center justify-center p-10">
-							<DynamicIcon {item} variant="fill" size={120} colors="white" />
+						<div class="flex size-full items-center justify-center p-10 text-white">
+							<DynamicIcon {item} variant="fill" size={120} class="w-full h-auto" />
 						</div>
 					</span>
 					<span class="mt-3 block">

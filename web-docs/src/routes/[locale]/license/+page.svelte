@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'License - Atsarul Mujahidin' : 'Lisensi - Atsarul Mujahidin'}</title>
+	<title>{locale === 'en' ? 'License • 🇵🇸 Atsarul Mujahidin 🇸🇩' : 'Lisensi • 🇵🇸 Atsarul Mujahidin 🇸🇩'}</title>
 	<meta name="description" content={locale === 'en' ? 'Atsarul Mujahidin license information and terms of use' : 'Informasi lisensi Atsarul Mujahidin dan ketentuan penggunaan'} />
 </svelte:head>
 

@@ -56,8 +56,34 @@ export const docs: Record<string, DocEntry> = {
 	},
 	'/docs/usage': {
 		title: 'Usage',
-		lead: 'A practical reference for building with Atsarul Mujahidin while keeping the artwork local and the provenance visible.',
-		body: `<p>Use the semantic category that contains the icon you need. Framework and library examples should use the component form with <strong>className</strong>, <strong>size</strong> and <strong>style</strong> props.</p><h2>Framework / library component</h2><pre>// Import per-icon with variant suffix:\nimport { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';\nimport { Kaaba as KaabaOutline } from 'atsarul-mujahidin/react/kaaba-outline';\n\n&lt;Kaaba className="" size={32} style={{}} /&gt;</pre><p>For a React-style project, the same component can be imported from the relevant framework adapter and rendered directly in JSX.</p><h2>Native HTML (Web Component)</h2><pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.0/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;\n\n&lt;atsarul-mujahidin variant="kaaba" class="" size="32" style=""&gt;Kaaba&lt;/atsarul-mujahidin&gt;</pre><p>Native HTML can also reference the local SVG directly when a custom element is not part of the application.</p><pre>&lt;img src="/assets/icons/mosque/mosque/original.svg" alt="Mosque" /&gt;</pre><p>All source assets remain local to the package; applications do not need a runtime request to the upstream icon API.</p>`
+		lead: 'Import icons as framework components or use the vanilla JavaScript web component for universal compatibility.',
+		body: `<p>Atsarul Mujahidin provides framework-specific components and a vanilla JavaScript web component. Choose the approach that fits your project.</p>
+
+<h2>Framework Components (React, Vue, Svelte)</h2>
+<pre>// Import per-icon with variant suffix
+import { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';
+import { MosqueSimple } from 'atsarul-mujahidin/react/mosquesimple-fill';
+
+&lt;Kaaba size={32} colors="#10b981" className="icon" /&gt;
+&lt;MosqueSimple size={24} /&gt;</pre>
+
+<p>All framework components accept: <code>size</code>, <code>colors</code>, <code>strokeWidth</code>, and <code>class</code>/<code>className</code> props.</p>
+
+<h2>Vanilla JavaScript (Web Component)</h2>
+<pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.1/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+
+&lt;atsarul-mujahidin variant="kaaba" size="32" colors="#10b981"&gt;Kaaba&lt;/atsarul-mujahidin&gt;
+&lt;atsarul-mujahidin variant="mosque" size="24"&gt;Mosque&lt;/atsarul-mujahidin&gt;</pre>
+
+<h2>Metadata API</h2>
+<p>Access icon catalog programmatically:</p>
+<pre>import { catalog, categories, metadata } from 'atsarul-mujahidin';
+
+console.log(metadata.iconCount);  // 81
+console.log(categories);          // Array of categories
+console.log(catalog);             // Full icon metadata</pre>
+
+<p>See <a href="/en/docs/frameworks">Framework Integration</a> for detailed examples per framework.</p>`
 	},
 	'/docs/variants': {
 		title: 'Variants',
@@ -66,8 +92,116 @@ export const docs: Record<string, DocEntry> = {
 	},
 	'/docs/frameworks': {
 		title: 'Frameworks',
-		lead: 'A practical reference for building with Atsarul Mujahidin while keeping the artwork local and the provenance visible.',
-		body: `<p>SVG is the compatibility layer. Framework adapters are convenience packages, not a requirement for using the collection.</p><h2>Canonical component usage</h2><pre>// Import per-icon:\nimport { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';\nimport { Kaaba as KaabaOutline } from 'atsarul-mujahidin/react/kaaba-outline';\n\n&lt;Kaaba className="" size="" style="" /&gt;</pre><p>Use the same component-shaped API in framework documentation, then adapt the surrounding syntax to the framework compiler. For plain HTML, use the native custom-element form below.</p><h2>Native HTML (Web Component)</h2><pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.0/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;\n\n&lt;atsarul-mujahidin variant="kaaba" class="" size="" style=""&gt;Kaaba&lt;/atsarul-mujahidin&gt;</pre><div class="framework-list"><article><b>React / Remix</b><code>atsarul-mujahidin/react/iconname-fill</code></article><article><b>Vue / Nuxt</b><code>atsarul-mujahidin/vue/iconname-fill</code></article><article><b>Svelte / SvelteKit</b><code>atsarul-mujahidin/svelte/iconname-fill</code></article><article><b>Angular</b><code>atsarul-mujahidin/angular/iconname-fill</code></article><article><b>Astro</b><code>atsarul-mujahidin/astro/iconname-fill</code></article><article><b>Plain HTML</b><code>CDN or local script</code></article></div><p>The same source asset can therefore be used in a design system, a static site, a SPA, or a server-rendered application.</p>`
+		lead: 'React, Vue, Svelte, and vanilla JavaScript integrations with real package exports and working code examples.',
+		body: `<p>Atsarul Mujahidin provides framework-specific components for React, Vue, and Svelte, plus a vanilla JavaScript web component for universal use. All components accept consistent props: <code>size</code>, <code>colors</code>, <code>strokeWidth</code>, and <code>class</code>.</p>
+
+<h2>React</h2>
+<p>Import icons from the React adapter with the variant suffix pattern:</p>
+<pre>import Kaaba from 'atsarul-mujahidin/react/kaaba-fill';
+import MosqueSimple from 'atsarul-mujahidin/react/mosquesimple-fill';
+import QuranBook from 'atsarul-mujahidin/react/quranbook-fill';
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Kaaba size={32} colors="#10b981" /&gt;
+      &lt;MosqueSimple size={24} className="my-icon" /&gt;
+      &lt;QuranBook size={48} colors="currentColor" strokeWidth={1.5} /&gt;
+    &lt;/div&gt;
+  );
+}</pre>
+
+<p><strong>Props:</strong> <code>size</code> (number | string), <code>colors</code> (string), <code>strokeWidth</code> (number), <code>className</code> (string)</p>
+
+<h2>Vue 3</h2>
+<p>Import from the Vue adapter with the same naming convention:</p>
+<pre>&lt;script setup&gt;
+import Kaaba from 'atsarul-mujahidin/vue/kaaba-fill';
+import MosqueSimple from 'atsarul-mujahidin/vue/mosquesimple-fill';
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;Kaaba :size="32" colors="#10b981" /&gt;
+  &lt;MosqueSimple :size="24" class="my-icon" /&gt;
+&lt;/template&gt;</pre>
+
+<p><strong>Props:</strong> <code>size</code> (number | string), <code>colors</code> (string), <code>strokeWidth</code> (number), <code>class</code> (string)</p>
+
+<h2>Svelte 5</h2>
+<p>Svelte components use PascalCase paths and component names:</p>
+<pre>&lt;script&gt;
+  import Kaaba from 'atsarul-mujahidin/svelte/fill/Kaaba';
+  import MosqueSimple from 'atsarul-mujahidin/svelte/fill/MosqueSimple';
+  import QuranBook from 'atsarul-mujahidin/svelte/fill/QuranBook';
+&lt;/script&gt;
+
+&lt;Kaaba size={32} colors="#10b981" /&gt;
+&lt;MosqueSimple size={24} class="my-icon" /&gt;
+&lt;QuranBook size={48} /&gt;</pre>
+
+<p><strong>Important:</strong> Svelte uses a different path structure: <code>svelte/fill/ComponentName</code>, <code>svelte/outline/ComponentName</code>, <code>svelte/color/ComponentName</code></p>
+
+<p><strong>Props:</strong> <code>size</code> (number | string), <code>colors</code> (string), <code>strokeWidth</code> (number), <code>class</code> (string)</p>
+
+<h2>Vanilla JavaScript (Web Component)</h2>
+<p>Use the custom element without any build step. Add the script once, then use the element anywhere:</p>
+<pre>&lt;!-- Add script once (CDN or local) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.1/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+
+&lt;!-- Use anywhere with closing tag --&gt;
+&lt;atsarul-mujahidin variant="kaaba" size="32" colors="#10b981"&gt;Kaaba&lt;/atsarul-mujahidin&gt;
+&lt;atsarul-mujahidin variant="mosque" size="24" class="my-icon"&gt;Mosque&lt;/atsarul-mujahidin&gt;
+&lt;atsarul-mujahidin variant="quran" size="48"&gt;Quran&lt;/atsarul-mujahidin&gt;</pre>
+
+<p><strong>Attributes:</strong> <code>variant</code> (string, required), <code>size</code> (number), <code>colors</code> (string), <code>stroke-width</code> (number), <code>class</code> (string)</p>
+
+<h2>Icon Variants</h2>
+<p>Each icon may have up to three variants: <strong>fill</strong> (solid), <strong>outline</strong> (line-based), and <strong>color</strong> (multi-color). Import the variant you need:</p>
+
+<pre>// React - variant suffix pattern
+import Kaaba from 'atsarul-mujahidin/react/kaaba-fill';
+import KaabaOutline from 'atsarul-mujahidin/react/kaaba-outline';
+
+// Svelte - variant folder pattern
+import Kaaba from 'atsarul-mujahidin/svelte/fill/Kaaba';
+import AllahHandOutline from 'atsarul-mujahidin/svelte/outline/AllahHandOutline';
+import PalestineFlag from 'atsarul-mujahidin/svelte/color/PalestineFlag';</pre>
+
+<h2>TypeScript Support</h2>
+<p>All framework components include full TypeScript definitions. Props are typed and autocomplete works out of the box:</p>
+
+<pre>import type { IconProps } from 'atsarul-mujahidin';
+
+// Props are inferred automatically
+&lt;Kaaba size={32} colors="#10b981" /&gt;</pre>
+
+<h2>Package Exports</h2>
+<p>The package provides framework-specific exports for tree-shaking:</p>
+
+<ul>
+<li><code>atsarul-mujahidin/react/*-fill</code> - React fill components</li>
+<li><code>atsarul-mujahidin/react/*-outline</code> - React outline components</li>
+<li><code>atsarul-mujahidin/react/*-color</code> - React color components</li>
+<li><code>atsarul-mujahidin/vue/*-fill</code> - Vue fill components</li>
+<li><code>atsarul-mujahidin/vue/*-outline</code> - Vue outline components</li>
+<li><code>atsarul-mujahidin/vue/*-color</code> - Vue color components</li>
+<li><code>atsarul-mujahidin/svelte/fill/*</code> - Svelte fill (PascalCase)</li>
+<li><code>atsarul-mujahidin/svelte/outline/*</code> - Svelte outline (PascalCase)</li>
+<li><code>atsarul-mujahidin/svelte/color/*</code> - Svelte color (PascalCase)</li>
+<li><code>atsarul-mujahidin/vanilla</code> - Web Component</li>
+</ul>
+
+<h2>Framework Support Status</h2>
+<div class="framework-list">
+<article><b>React 18+</b><code>✓ Full support</code></article>
+<article><b>Vue 3</b><code>✓ Full support</code></article>
+<article><b>Svelte 5</b><code>✓ Full support (runes mode)</code></article>
+<article><b>Vanilla JS</b><code>✓ Web Component (CDN ready)</code></article>
+<article><b>Angular</b><code>⚠ Planned</code></article>
+<article><b>Astro</b><code>⚠ Planned</code></article>
+</div>
+
+<p>Browse all 81 icons in the <a href="/en/icons">icon gallery</a> or view the complete <a href="https://github.com/RheinSullivan/islamic-icons">source repository</a>.</p>`
 	},
 	'/docs/sources': {
 		title: 'Sources & attribution',
@@ -132,8 +266,34 @@ export const docsId: Record<string, DocEntry> = {
 	},
 	'/docs/usage': {
 		title: 'Penggunaan',
-		lead: 'Referensi praktis untuk membangun dengan Atsarul Mujahidin sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
-		body: `<p>Gunakan kategori semantik yang berisi ikon yang Anda butuhkan. Contoh framework dan library harus menggunakan bentuk komponen dengan prop <strong>className</strong>, <strong>size</strong>, dan <strong>style</strong>.</p><h2>Komponen framework / library</h2><pre>// Import per-ikon dengan suffix varian:\nimport { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';\nimport { Kaaba as KaabaOutline } from 'atsarul-mujahidin/react/kaaba-outline';\n\n&lt;Kaaba className="" size={32} style={{}} /&gt;</pre><p>Untuk proyek bergaya React, komponen yang sama dapat diimpor dari adaptor framework yang relevan dan dirender langsung di JSX.</p><h2>HTML Native (Web Component)</h2><pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.0/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;\n\n&lt;atsarul-mujahidin variant="kaaba" class="" size="32" style=""&gt;Kaaba&lt;/atsarul-mujahidin&gt;</pre><p>HTML native juga dapat mereferensikan SVG lokal secara langsung ketika elemen kustom bukan bagian dari aplikasi.</p><pre>&lt;img src="/assets/icons/mosque/mosque/original.svg" alt="Masjid" /&gt;</pre><p>Semua aset sumber tetap lokal ke package; aplikasi tidak memerlukan permintaan runtime ke API ikon upstream.</p>`
+		lead: 'Impor ikon sebagai komponen framework atau gunakan komponen web vanilla JavaScript untuk kompatibilitas universal.',
+		body: `<p>Atsarul Mujahidin menyediakan komponen khusus framework dan komponen web vanilla JavaScript. Pilih pendekatan yang sesuai dengan proyek Anda.</p>
+
+<h2>Komponen Framework (React, Vue, Svelte)</h2>
+<pre>// Impor per-ikon dengan sufiks varian
+import { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';
+import { MosqueSimple } from 'atsarul-mujahidin/react/mosquesimple-fill';
+
+&lt;Kaaba size={32} colors="#10b981" className="icon" /&gt;
+&lt;MosqueSimple size={24} /&gt;</pre>
+
+<p>Semua komponen framework menerima props: <code>size</code>, <code>colors</code>, <code>strokeWidth</code>, dan <code>class</code>/<code>className</code>.</p>
+
+<h2>Vanilla JavaScript (Web Component)</h2>
+<pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.1/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+
+&lt;atsarul-mujahidin variant="kaaba" size="32" colors="#10b981"&gt;Kaaba&lt;/atsarul-mujahidin&gt;
+&lt;atsarul-mujahidin variant="mosque" size="24"&gt;Masjid&lt;/atsarul-mujahidin&gt;</pre>
+
+<h2>API Metadata</h2>
+<p>Akses katalog ikon secara programatis:</p>
+<pre>import { catalog, categories, metadata } from 'atsarul-mujahidin';
+
+console.log(metadata.iconCount);  // 81
+console.log(categories);          // Array kategori
+console.log(catalog);             // Metadata ikon lengkap</pre>
+
+<p>Lihat <a href="/id/docs/frameworks">Integrasi Framework</a> untuk contoh terperinci per framework.</p>`
 	},
 	'/docs/variants': {
 		title: 'Varian',
@@ -142,8 +302,116 @@ export const docsId: Record<string, DocEntry> = {
 	},
 	'/docs/frameworks': {
 		title: 'Framework',
-		lead: 'Referensi praktis untuk membangun dengan Atsarul Mujahidin sambil menjaga karya tetap lokal dan asal-usul tetap terlihat.',
-		body: `<p>SVG adalah lapisan kompatibilitas. Adaptor framework adalah paket kenyamanan, bukan persyaratan untuk menggunakan koleksi ini.</p><h2>Penggunaan komponen kanonik</h2><pre>// Import per-ikon:\nimport { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';\nimport { Kaaba as KaabaOutline } from 'atsarul-mujahidin/react/kaaba-outline';\n\n&lt;Kaaba className="" size="" style="" /&gt;</pre><p>Gunakan API berbentuk komponen yang sama dalam dokumentasi framework, kemudian adaptasi sintaks sekitarnya ke compiler framework. Untuk HTML biasa, gunakan bentuk elemen kustom native di bawah ini.</p><h2>HTML Native (Web Component)</h2><pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.0/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;\n\n&lt;atsarul-mujahidin variant="kaaba" class="" size="" style=""&gt;Kaaba&lt;/atsarul-mujahidin&gt;</pre><div class="framework-list"><article><b>React / Remix</b><code>atsarul-mujahidin/react/iconname-fill</code></article><article><b>Vue / Nuxt</b><code>atsarul-mujahidin/vue/iconname-fill</code></article><article><b>Svelte / SvelteKit</b><code>atsarul-mujahidin/svelte/iconname-fill</code></article><article><b>Angular</b><code>atsarul-mujahidin/angular/iconname-fill</code></article><article><b>Astro</b><code>atsarul-mujahidin/astro/iconname-fill</code></article><article><b>Plain HTML</b><code>CDN atau script lokal</code></article></div><p>Aset sumber yang sama karena itu dapat digunakan dalam sistem desain, situs statis, SPA, atau aplikasi yang dirender di server.</p>`
+		lead: 'Integrasi React, Vue, Svelte, dan vanilla JavaScript dengan ekspor paket nyata dan contoh kode yang berfungsi.',
+		body: `<p>Atsarul Mujahidin menyediakan komponen khusus framework untuk React, Vue, dan Svelte, plus komponen web vanilla JavaScript untuk penggunaan universal. Semua komponen menerima props yang konsisten: <code>size</code>, <code>colors</code>, <code>strokeWidth</code>, dan <code>class</code>.</p>
+
+<h2>React</h2>
+<p>Impor ikon dari adaptor React dengan pola sufiks varian:</p>
+<pre>import Kaaba from 'atsarul-mujahidin/react/kaaba-fill';
+import MosqueSimple from 'atsarul-mujahidin/react/mosquesimple-fill';
+import QuranBook from 'atsarul-mujahidin/react/quranbook-fill';
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Kaaba size={32} colors="#10b981" /&gt;
+      &lt;MosqueSimple size={24} className="my-icon" /&gt;
+      &lt;QuranBook size={48} colors="currentColor" strokeWidth={1.5} /&gt;
+    &lt;/div&gt;
+  );
+}</pre>
+
+<p><strong>Props:</strong> <code>size</code> (number | string), <code>colors</code> (string), <code>strokeWidth</code> (number), <code>className</code> (string)</p>
+
+<h2>Vue 3</h2>
+<p>Impor dari adaptor Vue dengan konvensi penamaan yang sama:</p>
+<pre>&lt;script setup&gt;
+import Kaaba from 'atsarul-mujahidin/vue/kaaba-fill';
+import MosqueSimple from 'atsarul-mujahidin/vue/mosquesimple-fill';
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;Kaaba :size="32" colors="#10b981" /&gt;
+  &lt;MosqueSimple :size="24" class="my-icon" /&gt;
+&lt;/template&gt;</pre>
+
+<p><strong>Props:</strong> <code>size</code> (number | string), <code>colors</code> (string), <code>strokeWidth</code> (number), <code>class</code> (string)</p>
+
+<h2>Svelte 5</h2>
+<p>Komponen Svelte menggunakan path PascalCase dan nama komponen:</p>
+<pre>&lt;script&gt;
+  import Kaaba from 'atsarul-mujahidin/svelte/fill/Kaaba';
+  import MosqueSimple from 'atsarul-mujahidin/svelte/fill/MosqueSimple';
+  import QuranBook from 'atsarul-mujahidin/svelte/fill/QuranBook';
+&lt;/script&gt;
+
+&lt;Kaaba size={32} colors="#10b981" /&gt;
+&lt;MosqueSimple size={24} class="my-icon" /&gt;
+&lt;QuranBook size={48} /&gt;</pre>
+
+<p><strong>Penting:</strong> Svelte menggunakan struktur path yang berbeda: <code>svelte/fill/ComponentName</code>, <code>svelte/outline/ComponentName</code>, <code>svelte/color/ComponentName</code></p>
+
+<p><strong>Props:</strong> <code>size</code> (number | string), <code>colors</code> (string), <code>strokeWidth</code> (number), <code>class</code> (string)</p>
+
+<h2>Vanilla JavaScript (Web Component)</h2>
+<p>Gunakan elemen kustom tanpa build step. Tambahkan skrip sekali, lalu gunakan elemen di mana saja:</p>
+<pre>&lt;!-- Tambahkan skrip sekali (CDN atau lokal) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.1/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+
+&lt;!-- Gunakan di mana saja dengan tag penutup --&gt;
+&lt;atsarul-mujahidin variant="kaaba" size="32" colors="#10b981"&gt;Kaaba&lt;/atsarul-mujahidin&gt;
+&lt;atsarul-mujahidin variant="mosque" size="24" class="my-icon"&gt;Masjid&lt;/atsarul-mujahidin&gt;
+&lt;atsarul-mujahidin variant="quran" size="48"&gt;Quran&lt;/atsarul-mujahidin&gt;</pre>
+
+<p><strong>Atribut:</strong> <code>variant</code> (string, diperlukan), <code>size</code> (number), <code>colors</code> (string), <code>stroke-width</code> (number), <code>class</code> (string)</p>
+
+<h2>Varian Ikon</h2>
+<p>Setiap ikon mungkin memiliki hingga tiga varian: <strong>fill</strong> (solid), <strong>outline</strong> (berbasis garis), dan <strong>color</strong> (multi-warna). Impor varian yang Anda butuhkan:</p>
+
+<pre>// React - pola sufiks varian
+import Kaaba from 'atsarul-mujahidin/react/kaaba-fill';
+import KaabaOutline from 'atsarul-mujahidin/react/kaaba-outline';
+
+// Svelte - pola folder varian
+import Kaaba from 'atsarul-mujahidin/svelte/fill/Kaaba';
+import AllahHandOutline from 'atsarul-mujahidin/svelte/outline/AllahHandOutline';
+import PalestineFlag from 'atsarul-mujahidin/svelte/color/PalestineFlag';</pre>
+
+<h2>Dukungan TypeScript</h2>
+<p>Semua komponen framework menyertakan definisi TypeScript lengkap. Props diketik dan autocomplete berfungsi langsung:</p>
+
+<pre>import type { IconProps } from 'atsarul-mujahidin';
+
+// Props disimpulkan secara otomatis
+&lt;Kaaba size={32} colors="#10b981" /&gt;</pre>
+
+<h2>Ekspor Paket</h2>
+<p>Paket menyediakan ekspor khusus framework untuk tree-shaking:</p>
+
+<ul>
+<li><code>atsarul-mujahidin/react/*-fill</code> - Komponen fill React</li>
+<li><code>atsarul-mujahidin/react/*-outline</code> - Komponen outline React</li>
+<li><code>atsarul-mujahidin/react/*-color</code> - Komponen color React</li>
+<li><code>atsarul-mujahidin/vue/*-fill</code> - Komponen fill Vue</li>
+<li><code>atsarul-mujahidin/vue/*-outline</code> - Komponen outline Vue</li>
+<li><code>atsarul-mujahidin/vue/*-color</code> - Komponen color Vue</li>
+<li><code>atsarul-mujahidin/svelte/fill/*</code> - Svelte fill (PascalCase)</li>
+<li><code>atsarul-mujahidin/svelte/outline/*</code> - Svelte outline (PascalCase)</li>
+<li><code>atsarul-mujahidin/svelte/color/*</code> - Svelte color (PascalCase)</li>
+<li><code>atsarul-mujahidin/vanilla</code> - Web Component</li>
+</ul>
+
+<h2>Status Dukungan Framework</h2>
+<div class="framework-list">
+<article><b>React 18+</b><code>✓ Dukungan penuh</code></article>
+<article><b>Vue 3</b><code>✓ Dukungan penuh</code></article>
+<article><b>Svelte 5</b><code>✓ Dukungan penuh (mode runes)</code></article>
+<article><b>Vanilla JS</b><code>✓ Web Component (siap CDN)</code></article>
+<article><b>Angular</b><code>⚠ Direncanakan</code></article>
+<article><b>Astro</b><code>⚠ Direncanakan</code></article>
+</div>
+
+<p>Jelajahi semua 81 ikon di <a href="/id/icons">galeri ikon</a> atau lihat <a href="https://github.com/RheinSullivan/islamic-icons">repositori sumber</a> lengkap.</p>`
 	},
 	'/docs/sources': {
 		title: 'Sumber & atribusi',

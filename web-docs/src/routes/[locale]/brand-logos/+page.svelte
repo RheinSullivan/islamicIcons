@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Brand Logos - Atsarul Mujahidin' : 'Logo Brand - Atsarul Mujahidin'}</title>
+	<title>{locale === 'en' ? 'Brand Logos • 🇵🇸 Atsarul Mujahidin 🇸🇩' : 'Logo Brand • 🇵🇸 Atsarul Mujahidin 🇸🇩'}</title>
 	<meta name="description" content={locale === 'en' ? 'Feature your brand logo in Atsarul Mujahidin by supporting humanitarian causes' : 'Tampilkan logo brand Anda di Atsarul Mujahidin dengan mendukung tujuan kemanusiaan'} />
 </svelte:head>
 

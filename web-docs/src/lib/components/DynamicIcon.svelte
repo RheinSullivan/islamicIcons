@@ -6,91 +6,93 @@
 	import type { CatalogItem } from '$lib/types';
 	
 	// Import all color variant icons
-	import IslamicPatternColor1 from 'atsarul-mujahidin/svelte/color/IslamicPatternColor1';
-	import IslamicPatternColor2 from 'atsarul-mujahidin/svelte/color/IslamicPatternColor2';
-	import MosqueColor from 'atsarul-mujahidin/svelte/color/MosqueColor';
-	import PalestineBrush from 'atsarul-mujahidin/svelte/color/PalestineBrush';
-	import PalestineFlag from 'atsarul-mujahidin/svelte/color/PalestineFlag';
-	import PalestineRelief from 'atsarul-mujahidin/svelte/color/PalestineRelief';
+	import AtsarulMujahidinColor from '../../../../library/svelte/color/AtsarulMujahidin.svelte';
+	import IslamicPatternColor1 from '../../../../library/svelte/color/IslamicPatternColor1.svelte';
+	import IslamicPatternColor2 from '../../../../library/svelte/color/IslamicPatternColor2.svelte';
+	import MosqueColor from '../../../../library/svelte/color/MosqueColor.svelte';
+	import PalestineBrush from '../../../../library/svelte/color/PalestineBrush.svelte';
+	import PalestineFlag from '../../../../library/svelte/color/PalestineFlag.svelte';
+	import PalestineRelief from '../../../../library/svelte/color/PalestineRelief.svelte';
 	
 	// Import all fill variant icons
-	import AdhanCall from 'atsarul-mujahidin/svelte/fill/AdhanCall';
-	import AllahCaligraphy from 'atsarul-mujahidin/svelte/fill/AllahCaligraphy';
-	import AllahHand from 'atsarul-mujahidin/svelte/fill/AllahHand';
-	import ArabicCalligraphy1 from 'atsarul-mujahidin/svelte/fill/ArabicCalligraphy1';
-	import ArabicCalligraphy2 from 'atsarul-mujahidin/svelte/fill/ArabicCalligraphy2';
-	import Basmallah from 'atsarul-mujahidin/svelte/fill/Basmallah';
-	import BismillahCalligraphy from 'atsarul-mujahidin/svelte/fill/BismillahCalligraphy';
-	import Camel from 'atsarul-mujahidin/svelte/fill/Camel';
-	import CamelPeople from 'atsarul-mujahidin/svelte/fill/CamelPeople';
-	import Cow from 'atsarul-mujahidin/svelte/fill/Cow';
-	import CrescentStarFrame from 'atsarul-mujahidin/svelte/fill/CrescentStarFrame';
-	import DuaHands from 'atsarul-mujahidin/svelte/fill/DuaHands';
-	import Fast from 'atsarul-mujahidin/svelte/fill/Fast';
-	import Fasting from 'atsarul-mujahidin/svelte/fill/Fasting';
-	import Goat from 'atsarul-mujahidin/svelte/fill/Goat';
-	import IslamicCrescentWithSmallStarSvgrepoCom from 'atsarul-mujahidin/svelte/fill/IslamicCrescentWithSmallStarSvgrepoCom';
-	import IslamicIconLogo from 'atsarul-mujahidin/svelte/fill/IslamicIconLogo';
-	import IslamicPattern2 from 'atsarul-mujahidin/svelte/fill/IslamicPattern2';
-	import Kaaba from 'atsarul-mujahidin/svelte/fill/Kaaba';
-	import KaabaSimple from 'atsarul-mujahidin/svelte/fill/KaabaSimple';
-	import Ketupat from 'atsarul-mujahidin/svelte/fill/Ketupat';
-	import ManPraying from 'atsarul-mujahidin/svelte/fill/ManPraying';
-	import MoonStart from 'atsarul-mujahidin/svelte/fill/MoonStart';
-	import MosqueDome from 'atsarul-mujahidin/svelte/fill/MosqueDome';
-	import MosqueDomeSimple from 'atsarul-mujahidin/svelte/fill/MosqueDomeSimple';
-	import MosqueMaps from 'atsarul-mujahidin/svelte/fill/MosqueMaps';
-	import MosqueSimple from 'atsarul-mujahidin/svelte/fill/MosqueSimple';
-	import MosqueSvgrepoCom from 'atsarul-mujahidin/svelte/fill/MosqueSvgrepoCom';
-	import MosqueSvgrepoCom1 from 'atsarul-mujahidin/svelte/fill/MosqueSvgrepoCom(1)';
-	import MuhammadCalligraphy from 'atsarul-mujahidin/svelte/fill/MuhammadCalligraphy';
-	import MuslimFamily from 'atsarul-mujahidin/svelte/fill/MuslimFamily';
-	import MuslimFamilyChild from 'atsarul-mujahidin/svelte/fill/MuslimFamilyChild';
-	import MuslimMan from 'atsarul-mujahidin/svelte/fill/MuslimMan';
-	import MuslimPrayerSvgrepoCom from 'atsarul-mujahidin/svelte/fill/MuslimPrayerSvgrepoCom';
-	import MuslimPraying1 from 'atsarul-mujahidin/svelte/fill/MuslimPraying1';
-	import MuslimPraying2 from 'atsarul-mujahidin/svelte/fill/MuslimPraying2';
-	import MuslimWoman from 'atsarul-mujahidin/svelte/fill/MuslimWoman';
-	import PrayerBeadsTasbih from 'atsarul-mujahidin/svelte/fill/PrayerBeadsTasbih';
-	import PrayerMat from 'atsarul-mujahidin/svelte/fill/PrayerMat';
-	import PrayerPosition from 'atsarul-mujahidin/svelte/fill/PrayerPosition';
-	import PrayerRug from 'atsarul-mujahidin/svelte/fill/PrayerRug';
-	import PrayerTime from 'atsarul-mujahidin/svelte/fill/PrayerTime';
-	import QiblaDirection from 'atsarul-mujahidin/svelte/fill/QiblaDirection';
-	import QuranBook from 'atsarul-mujahidin/svelte/fill/QuranBook';
-	import QuranStand from 'atsarul-mujahidin/svelte/fill/QuranStand';
-	import QuranSvgrepoCom from 'atsarul-mujahidin/svelte/fill/QuranSvgrepoCom';
-	import RukuBowing from 'atsarul-mujahidin/svelte/fill/RukuBowing';
-	import SajadahPrayerMat from 'atsarul-mujahidin/svelte/fill/SajadahPrayerMat';
-	import SalahPraying from 'atsarul-mujahidin/svelte/fill/SalahPraying';
-	import ShadaqahHand from 'atsarul-mujahidin/svelte/fill/ShadaqahHand';
-	import SujudProstration from 'atsarul-mujahidin/svelte/fill/SujudProstration';
-	import TakbirHands from 'atsarul-mujahidin/svelte/fill/TakbirHands';
-	import WomanHijab from 'atsarul-mujahidin/svelte/fill/WomanHijab';
-	import WudhuAblution from 'atsarul-mujahidin/svelte/fill/WudhuAblution';
+	import AdhanCall from '../../../../library/svelte/fill/AdhanCall.svelte';
+	import AllahCaligraphy from '../../../../library/svelte/fill/AllahCaligraphy.svelte';
+	import AllahHand from '../../../../library/svelte/fill/AllahHand.svelte';
+	import ArabicCalligraphy1 from '../../../../library/svelte/fill/ArabicCalligraphy1.svelte';
+	import ArabicCalligraphy2 from '../../../../library/svelte/fill/ArabicCalligraphy2.svelte';
+	import AtsarulMujahidin from '../../../../library/svelte/fill/AtsarulMujahidin.svelte';
+	import Basmallah from '../../../../library/svelte/fill/Basmallah.svelte';
+	import BismillahCalligraphy from '../../../../library/svelte/fill/BismillahCalligraphy.svelte';
+	import Camel from '../../../../library/svelte/fill/Camel.svelte';
+	import CamelPeople from '../../../../library/svelte/fill/CamelPeople.svelte';
+	import Cow from '../../../../library/svelte/fill/Cow.svelte';
+	import CrescentStarFrame from '../../../../library/svelte/fill/CrescentStarFrame.svelte';
+	import DuaHands from '../../../../library/svelte/fill/DuaHands.svelte';
+	import Fast from '../../../../library/svelte/fill/Fast.svelte';
+	import Fasting from '../../../../library/svelte/fill/Fasting.svelte';
+	import Goat from '../../../../library/svelte/fill/Goat.svelte';
+	import IslamicCrescentWithSmallStarSvgrepoCom from '../../../../library/svelte/fill/IslamicCrescentWithSmallStarSvgrepoCom.svelte';
+	import IslamicIconLogo from '../../../../library/svelte/fill/IslamicIconLogo.svelte';
+	import IslamicPattern2 from '../../../../library/svelte/fill/IslamicPattern2.svelte';
+	import Kaaba from '../../../../library/svelte/fill/Kaaba.svelte';
+	import KaabaSimple from '../../../../library/svelte/fill/KaabaSimple.svelte';
+	import Ketupat from '../../../../library/svelte/fill/Ketupat.svelte';
+	import ManPraying from '../../../../library/svelte/fill/ManPraying.svelte';
+	import MoonStart from '../../../../library/svelte/fill/MoonStart.svelte';
+	import MosqueDome from '../../../../library/svelte/fill/MosqueDome.svelte';
+	import MosqueDomeSimple from '../../../../library/svelte/fill/MosqueDomeSimple.svelte';
+	import MosqueMaps from '../../../../library/svelte/fill/MosqueMaps.svelte';
+	import MosqueSimple from '../../../../library/svelte/fill/MosqueSimple.svelte';
+	import MosqueSvgrepoCom from '../../../../library/svelte/fill/MosqueSvgrepoCom.svelte';
+	import MosqueWithMinarets from '../../../../library/svelte/fill/MosqueWithMinarets.svelte';
+	import MuhammadCalligraphy from '../../../../library/svelte/fill/MuhammadCalligraphy.svelte';
+	import MuslimFamily from '../../../../library/svelte/fill/MuslimFamily.svelte';
+	import MuslimFamilyChild from '../../../../library/svelte/fill/MuslimFamilyChild.svelte';
+	import MuslimMan from '../../../../library/svelte/fill/MuslimMan.svelte';
+	import MuslimPrayerSvgrepoCom from '../../../../library/svelte/fill/MuslimPrayerSvgrepoCom.svelte';
+	import MuslimPraying1 from '../../../../library/svelte/fill/MuslimPraying1.svelte';
+	import MuslimPraying2 from '../../../../library/svelte/fill/MuslimPraying2.svelte';
+	import MuslimWoman from '../../../../library/svelte/fill/MuslimWoman.svelte';
+	import PrayerBeadsTasbih from '../../../../library/svelte/fill/PrayerBeadsTasbih.svelte';
+	import PrayerMat from '../../../../library/svelte/fill/PrayerMat.svelte';
+	import PrayerPosition from '../../../../library/svelte/fill/PrayerPosition.svelte';
+	import PrayerRug from '../../../../library/svelte/fill/PrayerRug.svelte';
+	import PrayerTime from '../../../../library/svelte/fill/PrayerTime.svelte';
+	import QiblaDirection from '../../../../library/svelte/fill/QiblaDirection.svelte';
+	import QuranBook from '../../../../library/svelte/fill/QuranBook.svelte';
+	import QuranStand from '../../../../library/svelte/fill/QuranStand.svelte';
+	import QuranSvgrepoCom from '../../../../library/svelte/fill/QuranSvgrepoCom.svelte';
+	import RukuBowing from '../../../../library/svelte/fill/RukuBowing.svelte';
+	import SajadahPrayerMat from '../../../../library/svelte/fill/SajadahPrayerMat.svelte';
+	import SalahPraying from '../../../../library/svelte/fill/SalahPraying.svelte';
+	import ShadaqahHand from '../../../../library/svelte/fill/ShadaqahHand.svelte';
+	import SujudProstration from '../../../../library/svelte/fill/SujudProstration.svelte';
+	import TakbirHands from '../../../../library/svelte/fill/TakbirHands.svelte';
+	import WomanHijab from '../../../../library/svelte/fill/WomanHijab.svelte';
+	import WudhuAblution from '../../../../library/svelte/fill/WudhuAblution.svelte';
 	
 	// Import all outline variant icons
-	import AllahHandOutline from 'atsarul-mujahidin/svelte/outline/AllahHandOutline';
-	import CrescentStarFrameOutline from 'atsarul-mujahidin/svelte/outline/CrescentStarFrameOutline';
-	import CrescentStarOutline from 'atsarul-mujahidin/svelte/outline/CrescentStarOutline';
-	import FastOutline from 'atsarul-mujahidin/svelte/outline/FastOutline';
-	import IslamicPattern1 from 'atsarul-mujahidin/svelte/outline/IslamicPattern1';
-	import IslamicPattern3 from 'atsarul-mujahidin/svelte/outline/IslamicPattern3';
-	import IslamicPattern4 from 'atsarul-mujahidin/svelte/outline/IslamicPattern4';
-	import IslamicPattern5 from 'atsarul-mujahidin/svelte/outline/IslamicPattern5';
-	import IslamicPattern6 from 'atsarul-mujahidin/svelte/outline/IslamicPattern6';
-	import IslamicPattern7 from 'atsarul-mujahidin/svelte/outline/IslamicPattern7';
-	import KetupatOutline from 'atsarul-mujahidin/svelte/outline/KetupatOutline';
-	import KetupatSideOutline from 'atsarul-mujahidin/svelte/outline/KetupatSideOutline';
-	import LanternOutline from 'atsarul-mujahidin/svelte/outline/LanternOutline';
-	import MoonStarOutline from 'atsarul-mujahidin/svelte/outline/MoonStarOutline';
-	import PrayerBeadsOutline from 'atsarul-mujahidin/svelte/outline/PrayerBeadsOutline';
-	import QuranHolderOutline from 'atsarul-mujahidin/svelte/outline/QuranHolderOutline';
-	import QuranStandOutline from 'atsarul-mujahidin/svelte/outline/QuranStandOutline';
-	import ShadaqahHandOutline from 'atsarul-mujahidin/svelte/outline/ShadaqahHandOutline';
-	import TasbihBeadsOutline from 'atsarul-mujahidin/svelte/outline/TasbihBeadsOutline';
-	import WomanHijabOutline from 'atsarul-mujahidin/svelte/outline/WomanHijabOutline';
-	import Zakat from 'atsarul-mujahidin/svelte/outline/Zakat';
+	import AllahHandOutline from '../../../../library/svelte/outline/AllahHandOutline.svelte';
+	import CrescentStarFrameOutline from '../../../../library/svelte/outline/CrescentStarFrameOutline.svelte';
+	import CrescentStarOutline from '../../../../library/svelte/outline/CrescentStarOutline.svelte';
+	import FastOutline from '../../../../library/svelte/outline/FastOutline.svelte';
+	import IslamicPattern1 from '../../../../library/svelte/outline/IslamicPattern1.svelte';
+	import IslamicPattern3 from '../../../../library/svelte/outline/IslamicPattern3.svelte';
+	import IslamicPattern4 from '../../../../library/svelte/outline/IslamicPattern4.svelte';
+	import IslamicPattern5 from '../../../../library/svelte/outline/IslamicPattern5.svelte';
+	import IslamicPattern6 from '../../../../library/svelte/outline/IslamicPattern6.svelte';
+	import IslamicPattern7 from '../../../../library/svelte/outline/IslamicPattern7.svelte';
+	import KetupatOutline from '../../../../library/svelte/outline/KetupatOutline.svelte';
+	import KetupatSideOutline from '../../../../library/svelte/outline/KetupatSideOutline.svelte';
+	import LanternOutline from '../../../../library/svelte/outline/LanternOutline.svelte';
+	import MoonStarOutline from '../../../../library/svelte/outline/MoonStarOutline.svelte';
+	import PrayerBeadsOutline from '../../../../library/svelte/outline/PrayerBeadsOutline.svelte';
+	import QuranHolderOutline from '../../../../library/svelte/outline/QuranHolderOutline.svelte';
+	import QuranStandOutline from '../../../../library/svelte/outline/QuranStandOutline.svelte';
+	import ShadaqahHandOutline from '../../../../library/svelte/outline/ShadaqahHandOutline.svelte';
+	import TasbihBeadsOutline from '../../../../library/svelte/outline/TasbihBeadsOutline.svelte';
+	import WomanHijabOutline from '../../../../library/svelte/outline/WomanHijabOutline.svelte';
+	import Zakat from '../../../../library/svelte/outline/Zakat.svelte';
 	
 	interface Props {
 		item: CatalogItem;
@@ -118,9 +120,124 @@
 			.join('');
 	}
 	
-	// Icon registry mapping (all 81 icons)
+	// Name mapping: catalog name → component name
+	const nameAliases: Record<string, string> = {
+		// Mosque category - map plain "mosque" to MosqueSimple
+		'mosque': 'MosqueSimple',
+		'mosque-simple': 'MosqueSimple',
+		'mosque-color': 'MosqueColor',
+		'mosque-dome': 'MosqueDome',
+		'mosque-dome-simple': 'MosqueDomeSimple',
+		'mosque-maps': 'MosqueMaps',
+		'mosque-svgrepo-com': 'MosqueSvgrepoCom',
+		'mosque-with-minarets': 'MosqueWithMinarets',
+		
+		// Specific mappings for icons with unique names
+		'kaaba': 'Kaaba',
+		'kaaba-simple': 'KaabaSimple',
+		'quran-book': 'QuranBook',
+		'quran-stand': 'QuranStand',
+		'quran-svgrepo-com': 'QuranSvgrepoCom',
+		'quran-holder-outline': 'QuranHolderOutline',
+		'quran-stand-outline': 'QuranStandOutline',
+		
+		// Allah/God
+		'allah-caligraphy': 'AllahCaligraphy',
+		'allah-hand': 'AllahHand',
+		'allah-hand-outline': 'AllahHandOutline',
+		
+		// Prophet
+		'muhammad-calligraphy': 'MuhammadCalligraphy',
+		
+		// Calligraphy
+		'arabic-calligraphy-1': 'ArabicCalligraphy1',
+		'arabic-calligraphy-2': 'ArabicCalligraphy2',
+		'basmallah': 'Basmallah',
+		'bismillah-calligraphy': 'BismillahCalligraphy',
+		
+		// Prayer
+		'adhan-call': 'AdhanCall',
+		'dua-hands': 'DuaHands',
+		'man-praying': 'ManPraying',
+		'muslim-prayer-svgrepo-com': 'MuslimPrayerSvgrepoCom',
+		'muslim-praying-1': 'MuslimPraying1',
+		'muslim-praying-2': 'MuslimPraying2',
+		'prayer-beads-outline': 'PrayerBeadsOutline',
+		'prayer-beads-tasbih': 'PrayerBeadsTasbih',
+		'prayer-mat': 'PrayerMat',
+		'prayer-position': 'PrayerPosition',
+		'prayer-rug': 'PrayerRug',
+		'prayer-time': 'PrayerTime',
+		'qibla-direction': 'QiblaDirection',
+		'ruku-bowing': 'RukuBowing',
+		'sajadah-prayer-mat': 'SajadahPrayerMat',
+		'salah-praying': 'SalahPraying',
+		'sujud-prostration': 'SujudProstration',
+		'takbir-hands': 'TakbirHands',
+		'tasbih-beads-outline': 'TasbihBeadsOutline',
+		'wudhu-ablution': 'WudhuAblution',
+		
+		// Food
+		'fast': 'Fast',
+		'fast-outline': 'FastOutline',
+		'fasting': 'Fasting',
+		'ketupat': 'Ketupat',
+		'ketupat-outline': 'KetupatOutline',
+		'ketupat-side-outline': 'KetupatSideOutline',
+		
+		// Lifestyle
+		'muslim-family': 'MuslimFamily',
+		'muslim-family-child': 'MuslimFamilyChild',
+		'muslim-man': 'MuslimMan',
+		'muslim-woman': 'MuslimWoman',
+		'woman-hijab': 'WomanHijab',
+		'woman-hijab-outline': 'WomanHijabOutline',
+		
+		// Charity
+		'shadaqah-hand': 'ShadaqahHand',
+		'shadaqah-hand-outline': 'ShadaqahHandOutline',
+		'zakat': 'Zakat',
+		
+		// Flags
+		'palestine-brush': 'PalestineBrush',
+		'palestine-flag': 'PalestineFlag',
+		'palestine-relief': 'PalestineRelief',
+		
+		// Animals
+		'camel': 'Camel',
+		'camel-people': 'CamelPeople',
+		'cow': 'Cow',
+		'goat': 'Goat',
+		
+		// Ornaments
+		'crescent-star-frame': 'CrescentStarFrame',
+		'crescent-star-frame-outline': 'CrescentStarFrameOutline',
+		'crescent-star-outline': 'CrescentStarOutline',
+		'islamic-crescent-with-small-star-svgrepo-com': 'IslamicCrescentWithSmallStarSvgrepoCom',
+		'lantern-outline': 'LanternOutline',
+		'moon-star-outline': 'MoonStarOutline',
+		'moon-start': 'MoonStart',
+		
+		// Patterns
+		'islamic-pattern-1': 'IslamicPattern1',
+		'islamic-pattern-2': 'IslamicPattern2',
+		'islamic-pattern-3': 'IslamicPattern3',
+		'islamic-pattern-4': 'IslamicPattern4',
+		'islamic-pattern-5': 'IslamicPattern5',
+		'islamic-pattern-6': 'IslamicPattern6',
+		'islamic-pattern-7': 'IslamicPattern7',
+		'islamic-pattern-color-1': 'IslamicPatternColor1',
+		'islamic-pattern-color-2': 'IslamicPatternColor2',
+		
+		// Brand
+		'atsarul-mujahidin': 'AtsarulMujahidin',
+		'islamic-icon-logo': 'IslamicIconLogo'
+	};
+	
+	// Icon registry mapping (all 82 icons)
 	const iconRegistry: Record<string, any> = {
 		// Color variants
+		'AtsarulMujahidinColor': AtsarulMujahidinColor,
 		'IslamicPatternColor1': IslamicPatternColor1,
 		'IslamicPatternColor2': IslamicPatternColor2,
 		'MosqueColor': MosqueColor,
@@ -134,6 +251,7 @@
 		'AllahHand': AllahHand,
 		'ArabicCalligraphy1': ArabicCalligraphy1,
 		'ArabicCalligraphy2': ArabicCalligraphy2,
+		'AtsarulMujahidin': AtsarulMujahidin,
 		'Basmallah': Basmallah,
 		'BismillahCalligraphy': BismillahCalligraphy,
 		'Camel': Camel,
@@ -157,7 +275,7 @@
 		'MosqueMaps': MosqueMaps,
 		'MosqueSimple': MosqueSimple,
 		'MosqueSvgrepoCom': MosqueSvgrepoCom,
-		'MosqueSvgrepoCom(1)': MosqueSvgrepoCom1,
+		'MosqueWithMinarets': MosqueWithMinarets,
 		'MuhammadCalligraphy': MuhammadCalligraphy,
 		'MuslimFamily': MuslimFamily,
 		'MuslimFamilyChild': MuslimFamilyChild,
@@ -209,8 +327,16 @@
 	};
 	
 	// Use $derived to ensure reactivity in runes mode
-	const componentName = $derived(toPascalCase(item.name));
-	const IconComponent = $derived(iconRegistry[componentName]);
+	const componentName = $derived(() => {
+		// First try direct alias mapping
+		if (nameAliases[item.name]) {
+			return nameAliases[item.name];
+		}
+		// Fall back to PascalCase conversion
+		return toPascalCase(item.name);
+	});
+	
+	const IconComponent = $derived(iconRegistry[componentName()]);
 </script>
 
 {#if IconComponent}

@@ -70,13 +70,12 @@
 		);
 		const variant = chooseVariant(source, currentVariant);
 		
-		// Get proper contributor name - check source metadata for actual contributor
+		// Get proper contributor name - extract only username from "Community / Username"
 		let contributorName = 'Rhein Sullivan'; // Default
-		if (source?.id) {
-			// Use specific source contributors or default
-			contributorName = source.id.includes('google') ? 'Google' : 
-			                 source.id.includes('svg') ? 'SVG Repo' :
-			                 'Rhein Sullivan';
+		if (source?.label) {
+			// Extract username from "Community / Username" format
+			const parts = source.label.split(' / ');
+			contributorName = parts.length > 1 ? parts[1] : parts[0];
 		}
 		
 		const frameworkExamples = {
@@ -285,11 +284,11 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 					type="button"
 					data-search
 					aria-label="Search"
-					class="hidden h-8 cursor-pointer items-center gap-3 rounded-xl border border-islamic-line bg-white/2 px-3.5 text-[12px] text-islamic-muted transition hover:border-islamic-line-strong hover:bg-white/4 hover:text-islamic-text md:flex"
+					class="hidden h-8 cursor-pointer items-center gap-3 rounded-md border border-islamic-line bg-white/2 px-3.5 text-[12px] text-islamic-muted transition hover:border-islamic-line-strong hover:bg-white/4 hover:text-islamic-text md:flex"
 				>
 					<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-none stroke-current stroke-[1.7]"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
 					<span>{locale === 'en' ? 'Search...' : 'Cari...'}</span>
-					<kbd class="rounded-md border border-islamic-line px-1.5 py-1 text-[9px] tracking-[.08em] text-islamic-dim">⌘K</kbd>
+					<kbd class="rounded-md border border-islamic-line px-1.5 py-0.5 text-[9px] tracking-[.08em] text-islamic-dim">CTRL + K</kbd>
 				</button>
 				<!-- GitHub -->
 				<a
@@ -418,11 +417,11 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 				<button type="button" data-close aria-label={translation.drawer.close} class="absolute inset-0 h-full w-full cursor-pointer border-0 bg-black/65 backdrop-blur-sm"></button>
 			{/if}
 			<aside
-				class="absolute {drawerMaximized ? 'inset-0' : 'right-0 top-0 h-full w-full max-w-xl border-l border-islamic-line-strong shadow-[-30px_0_90px_rgba(0,0,0,.45)]'} overflow-y-auto bg-[#09150f]"
+				class="absolute {drawerMaximized ? 'inset-0' : 'right-0 top-0 h-full w-full max-w-xl border-l border-islamic-line-strong shadow-[-30px_0_90px_rgba(0,0,0,.45)]'} flex flex-col overflow-hidden bg-[#09150f]"
 				aria-label={locale === 'id' ? 'Detail ikon' : 'Icon details'}
 			>
 				<!-- Header -->
-				<div class="sticky top-0 z-10 flex items-center justify-between border-b border-islamic-line bg-[#09150f]/95 px-5 py-4 backdrop-blur-xl">
+				<div class="flex shrink-0 items-center justify-between border-b border-islamic-line bg-[#09150f]/95 px-5 py-4 backdrop-blur-xl">
 					<div class="min-w-0 flex-1">
 						<span class="text-[9px] uppercase tracking-[.16em] text-islamic-green">{pretty(drawerItem.item.category)}</span>
 						<h2 class="mt-1 font-display text-lg tracking-[-.02em] sm:text-xl">{drawerItem.item.title}</h2>
@@ -457,14 +456,15 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 					</div>
 				</div>
 
-				<!-- Content -->
-				<div class="{drawerMaximized ? 'mx-auto max-w-4xl' : ''} p-5 sm:p-6">
-					<!-- Preview -->
-					<div class="relative grid {drawerMaximized ? 'aspect-[16/10]' : 'aspect-[4/3]'} place-items-center overflow-hidden rounded-xl border border-islamic-line bg-[radial-gradient(circle_at_50%_50%,rgba(115,224,174,.03),transparent_70%)]">
-						<div class="{drawerMaximized ? 'max-h-[50%] max-w-[40%]' : 'max-h-[35%] max-w-[35%]'} w-full h-full flex items-center justify-center">
-							<DynamicIcon item={drawerItem.item} variant={drawerItem.variant} class="w-full h-full object-contain" />
+				<!-- Content - scrollable middle section -->
+				<div class="flex-1 overflow-y-auto">
+					<div class="{drawerMaximized ? 'mx-auto max-w-4xl' : ''} p-5 sm:p-6">
+						<!-- Preview -->
+						<div class="relative flex items-center justify-center overflow-hidden rounded-xl border border-islamic-line bg-[radial-gradient(circle_at_50%_50%,rgba(115,224,174,.03),transparent_70%)] {drawerMaximized ? 'min-h-[65vh] p-24' : 'p-10'}">
+							<div class="w-full {drawerMaximized ? 'max-w-[50%]' : 'max-w-[50%]'} flex items-center justify-center text-white">
+								<DynamicIcon item={drawerItem.item} variant={drawerItem.variant} class="w-full h-auto object-contain" />
+							</div>
 						</div>
-					</div>
 
 					<!-- Variant Selection -->
 					{#if drawerItem.vars.length > 1}
@@ -567,9 +567,66 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 						</a>
 					</div>
 				</div>
-			</aside>
-		</div>
-	{/if}
+			</div>
+
+			<!-- Footer - always visible with metadata -->
+			<div class="shrink-0 border-t border-islamic-line bg-[#09150f]/95 px-5 py-4 backdrop-blur-xl">
+				<div class="{drawerMaximized ? 'mx-auto max-w-4xl' : ''}">
+					{#if drawerMaximized}
+						<!-- Maximized: Horizontal layout with detailed metadata -->
+						<div class="grid gap-6 sm:grid-cols-3">
+							<div>
+								<div class="mb-2 text-[9px] font-semibold uppercase tracking-[.15em] text-islamic-dim">Icon</div>
+								<div class="text-[11px] text-islamic-text">{drawerItem.item.title}</div>
+							</div>
+							<div>
+								<div class="mb-2 text-[9px] font-semibold uppercase tracking-[.15em] text-islamic-dim">Category</div>
+								<div class="text-[11px] text-islamic-text">{pretty(drawerItem.item.category)}</div>
+							</div>
+							<div>
+								<div class="mb-2 text-[9px] font-semibold uppercase tracking-[.15em] text-islamic-dim">Variant</div>
+								<div class="text-[11px] text-islamic-text">{variantName(drawerItem.variant)}</div>
+							</div>
+							<div>
+								<div class="mb-2 text-[9px] font-semibold uppercase tracking-[.15em] text-islamic-dim">Source</div>
+								<div class="text-[11px] text-islamic-text">{drawerItem.contributorName}</div>
+							</div>
+							<div>
+								<div class="mb-2 text-[9px] font-semibold uppercase tracking-[.15em] text-islamic-dim">Variants</div>
+								<div class="text-[11px] text-islamic-text">{drawerItem.vars.map(v => variantName(v)).join(', ')}</div>
+							</div>
+							{#if drawerItem.item.aliases && drawerItem.item.aliases.length > 0}
+								<div>
+									<div class="mb-2 text-[9px] font-semibold uppercase tracking-[.15em] text-islamic-dim">Tags</div>
+									<div class="text-[11px] text-islamic-text">{drawerItem.item.aliases.join(', ')}</div>
+								</div>
+							{/if}
+						</div>
+					{:else}
+						<!-- Normal: Compact layout -->
+						<div class="flex flex-col gap-3 text-[11px]">
+							<div class="text-islamic-dim">
+								<span class="font-medium text-islamic-text">{drawerItem.item.title}</span>
+								<span class="mx-2">·</span>
+								<span>{pretty(drawerItem.item.category)}</span>
+								<span class="mx-2">·</span>
+								<span>{variantName(drawerItem.variant)}</span>
+							</div>
+							<div class="flex gap-3">
+								<a href="/{locale}/docs/usage" class="text-islamic-green transition hover:underline">
+									{translation.drawer.usageGuide}
+								</a>
+								<a href="/{locale}/sources" class="text-islamic-green transition hover:underline">
+									{translation.drawer.sourcePolicy}
+								</a>
+							</div>
+						</div>
+					{/if}
+				</div>
+			</div>
+		</aside>
+	</div>
+{/if}
 
 	<!-- Search Modal -->
 	{#if searchOpen}

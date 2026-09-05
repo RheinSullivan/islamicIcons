@@ -58,9 +58,16 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Packages - Atsarul Mujahidin' : 'Paket - Atsarul Mujahidin'}</title>
-	<meta name="description" content={locale === 'en' ? 'Framework packages for Atsarul Mujahidin - React, Vue, Svelte, Angular, Astro, and plain HTML' : 'Paket framework untuk Atsarul Mujahidin - React, Vue, Svelte, Angular, Astro, dan HTML biasa'} />
-	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/packages" />
+	<title>{locale === 'en' ? 'Packages • 🇵🇸 Atsarul Mujahidin 🇸🇩' : 'Paket • 🇵🇸 Atsarul Mujahidin 🇸🇩'}</title>
+	<meta name="description" content={locale === 'en' ? 'Framework packages for Atsarul Mujahidin. Install with npm, use with React, Vue, Svelte, Angular, Astro, or vanilla JavaScript. Component-first icon library with TypeScript support.' : 'Paket framework untuk Atsarul Mujahidin. Install dengan npm, gunakan dengan React, Vue, Svelte, Angular, Astro, atau vanilla JavaScript. Library ikon berbasis komponen dengan dukungan TypeScript.'} />
+	<link rel="canonical" href="https://atsarul-mujahidin.netlify.app/{locale}/packages" />
+	<meta property="og:title" content={locale === 'en' ? 'Framework Packages - Atsarul Mujahidin' : 'Paket Framework - Atsarul Mujahidin'} />
+	<meta property="og:description" content={locale === 'en' ? 'React, Vue, Svelte, Angular, Astro packages for Islamic icons.' : 'Paket React, Vue, Svelte, Angular, Astro untuk ikon Islam.'} />
+	<meta property="og:url" content="https://atsarul-mujahidin.netlify.app/{locale}/packages" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={locale === 'en' ? 'Framework Packages - Atsarul Mujahidin' : 'Paket Framework - Atsarul Mujahidin'} />
+	<meta name="twitter:description" content={locale === 'en' ? 'React, Vue, Svelte, Angular, Astro packages for Islamic icons.' : 'Paket React, Vue, Svelte, Angular, Astro untuk ikon Islam.'} />
 </svelte:head>
 
 <div class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">

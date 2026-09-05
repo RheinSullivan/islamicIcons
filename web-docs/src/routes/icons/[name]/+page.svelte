@@ -39,6 +39,10 @@
 	const importStatement = $derived(
 		item ? `import { ${camel(item.name)} } from "atsarul-mujahidin/${item.category}"` : ''
 	);
+	
+	const assetPath = $derived(
+		item && source ? `/assets/icons/${item.category}/${item.name}/${variant}.svg` : ''
+	);
 
 	async function copyText(text: string) {
 		try {
@@ -178,11 +182,11 @@
 						class="flex items-center gap-2 overflow-hidden rounded-xl border border-islamic-line bg-black/20 p-2"
 					>
 						<code class="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap p-2 text-[11px] text-islamic-muted"
-							>{path}</code
+							>{assetPath}</code
 						>
 						<button
 							type="button"
-							onclick={() => copyText(path)}
+							onclick={() => copyText(assetPath)}
 							class="shrink-0 rounded-lg border border-islamic-line px-3 py-2 text-[10px] text-islamic-muted transition hover:border-islamic-line-strong hover:text-islamic-text"
 							>{t.drawer.copy}</button
 						>

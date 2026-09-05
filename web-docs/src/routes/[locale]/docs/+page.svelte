@@ -7,7 +7,7 @@
 	const entry = $derived(getDoc('/docs', locale));
 </script>
 <svelte:head>
-	<title>{locale === 'en' ? 'Atsarul Mujahidin - Documentation' : 'Atsarul Mujahidin - Dokumentasi'}</title>
+	<title>{locale === 'en' ? 'Documentation • 🇵🇸 Atsarul Mujahidin 🇸🇩' : 'Dokumentasi • 🇵🇸 Atsarul Mujahidin 🇸🇩'}</title>
 	<meta name="description" content={entry.lead} />
 	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/docs" />
 </svelte:head>

@@ -1,6 +1,10 @@
-# sv
+<p align="center">
+  <img src="public/raktajs_benner.png" alt="Rakta.js banner" width="100%" />
+</p
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+# Svelte
+
+Everything you need to build a Svelte project, powered by [`Svelte`](https://github.com/sveltejs/cli).
 
 ## Creating a project
 

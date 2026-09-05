@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Contributing - Atsarul Mujahidin' : 'Kontribusi - Atsarul Mujahidin'}</title>
+	<title>{locale === 'en' ? 'Contributing • 🇵🇸 Atsarul Mujahidin 🇸🇩' : 'Kontribusi • 🇵🇸 Atsarul Mujahidin 🇸🇩'}</title>
 	<meta name="description" content={locale === 'en' ? 'How to contribute to Atsarul Mujahidin' : 'Cara berkontribusi ke Atsarul Mujahidin'} />
 </svelte:head>
 

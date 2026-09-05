@@ -12,18 +12,12 @@
 		if (lastSeen !== today) {
 			setTimeout(() => {
 				showModal = true;
+				// Focus the dialog when it opens
+				if (dialogEl) {
+					dialogEl.focus();
+				}
 			}, 1000);
 		}
-		
-		// Handle Escape key
-		function handleKeydown(e: KeyboardEvent) {
-			if (e.key === 'Escape' && showModal) {
-				closeModal();
-			}
-		}
-		
-		window.addEventListener('keydown', handleKeydown);
-		return () => window.removeEventListener('keydown', handleKeydown);
 	});
 	
 	function closeModal() {
@@ -36,24 +30,35 @@
 			closeModal();
 		}
 	}
+	
+	function handleBackdropKeydown(e: KeyboardEvent) {
+		if (e.key === 'Escape') {
+			closeModal();
+		}
+	}
+	
+	function handleDialogKeydown(e: KeyboardEvent) {
+		// Prevent event propagation to backdrop
+		e.stopPropagation();
+	}
 </script>
 
 {#if showModal}
-	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div 
 		class="fixed inset-0 z-[200] grid place-items-center bg-black/60 px-4 backdrop-blur-sm"
 		onclick={handleBackdropClick}
-		onkeydown={(e) => { if (e.key === 'Escape') closeModal(); }}
-		bind:this={dialogEl}
+		onkeydown={handleBackdropKeydown}
+		role="presentation"
 	>
 		<div 
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="salam-title"
-			tabindex="-1"
+			tabindex="0"
 			class="relative w-full max-w-md rounded-2xl border border-islamic-line bg-islamic-bg p-8 text-center shadow-2xl"
 			onclick={(e) => e.stopPropagation()}
+			onkeydown={handleDialogKeydown}
+			bind:this={dialogEl}
 		>
 			<!-- Close button -->
 			<button

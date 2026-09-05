@@ -1,12 +1,8 @@
 <script lang="ts">
-	import { MAX } from '$lib/site';
+	import { MAX, icon } from '$lib/site';
 	import { translations, type Locale } from '$lib/i18n';
-	import PrayerTime from 'atsarul-mujahidin/svelte/fill/PrayerTime';
-	import QuranBook from 'atsarul-mujahidin/svelte/fill/QuranBook';
-	import ShadaqahHand from 'atsarul-mujahidin/svelte/fill/ShadaqahHand';
-	import MosqueSimple from 'atsarul-mujahidin/svelte/fill/MosqueSimple';
-	import MosqueMaps from 'atsarul-mujahidin/svelte/fill/MosqueMaps';
-	import Fast from 'atsarul-mujahidin/svelte/fill/Fast';
+	import type { CatalogItem } from '$lib/types';
+	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
@@ -16,42 +12,42 @@
 		{
 			title: 'Islamic Prayer Times App',
 			description: locale === 'en' ? 'A modern prayer times application using Atsarul Mujahidin for all UI elements' : 'Aplikasi waktu sholat modern menggunakan Atsarul Mujahidin untuk semua elemen UI',
-			icon: PrayerTime,
+			iconItem: icon('prayer-time'),
 			url: '#',
 			tags: ['React', 'Next.js', 'Tailwind CSS']
 		},
 		{
 			title: 'Quran Reader',
 			description: locale === 'en' ? 'Beautiful Quran reader with Atsarul Mujahidin integration' : 'Pembaca Quran yang indah dengan integrasi Atsarul Mujahidin',
-			icon: QuranBook,
+			iconItem: icon('quran-book'),
 			url: '#',
 			tags: ['Vue', 'Nuxt', 'TypeScript']
 		},
 		{
 			title: 'Zakat Calculator',
 			description: locale === 'en' ? 'Calculate your zakat with a user-friendly interface powered by Atsarul Mujahidin' : 'Hitung zakat Anda dengan antarmuka ramah pengguna yang didukung Atsarul Mujahidin',
-			icon: ShadaqahHand,
+			iconItem: icon('shadaqah-hand'),
 			url: '#',
 			tags: ['Svelte', 'SvelteKit']
 		},
 		{
 			title: 'Islamic E-Commerce',
 			description: locale === 'en' ? 'Online marketplace for Islamic products with icon integration' : 'Pasar online untuk produk Islam dengan integrasi ikon',
-			icon: MosqueSimple,
+			iconItem: icon('mosque-simple'),
 			url: '#',
 			tags: ['React', 'Astro', 'Tailwind CSS']
 		},
 		{
 			title: 'Mosque Finder',
 			description: locale === 'en' ? 'Find nearby mosques with an intuitive map interface' : 'Temukan masjid terdekat dengan antarmuka peta yang intuitif',
-			icon: MosqueMaps,
+			iconItem: icon('mosque-maps'),
 			url: '#',
 			tags: ['Angular', 'Mapbox']
 		},
 		{
 			title: 'Ramadan Tracker',
 			description: locale === 'en' ? 'Track your Ramadan activities and ibadah with beautiful icons' : 'Lacak aktivitas Ramadan dan ibadah Anda dengan ikon yang indah',
-			icon: Fast,
+			iconItem: icon('fast'),
 			url: '#',
 			tags: ['Vue', 'Pinia', 'Vite']
 		}
@@ -59,9 +55,14 @@
 </script>
 
 <svelte:head>
-	<title>{locale === 'en' ? 'Showcase - Atsarul Mujahidin' : 'Showcase - Atsarul Mujahidin'}</title>
-	<meta name="description" content={locale === 'en' ? 'Projects and applications built with Atsarul Mujahidin' : 'Proyek dan aplikasi yang dibangun dengan Atsarul Mujahidin'} />
-	<link rel="canonical" href="https://atsarul-mujahidin.dev/{locale}/showcase" />
+	<title>{locale === 'en' ? 'Showcase • 🇵🇸 Atsarul Mujahidin 🇸🇩' : 'Galeri • 🇵🇸 Atsarul Mujahidin 🇸🇩'}</title>
+	<meta name="description" content={locale === 'en' ? 'Projects and applications built with Atsarul Mujahidin Islamic icon library. See real-world examples using React, Vue, Svelte, and more.' : 'Proyek dan aplikasi yang dibangun dengan library ikon Islam Atsarul Mujahidin. Lihat contoh penggunaan nyata dengan React, Vue, Svelte, dan lainnya.'} />
+	<link rel="canonical" href="https://atsarul-mujahidin.netlify.app/{locale}/showcase" />
+	<meta property="og:title" content={locale === 'en' ? 'Project Showcase - Atsarul Mujahidin' : 'Showcase Proyek - Atsarul Mujahidin'} />
+	<meta property="og:description" content={locale === 'en' ? 'Projects built with Atsarul Mujahidin icon library.' : 'Proyek yang dibangun dengan library ikon Atsarul Mujahidin.'} />
+	<meta property="og:url" content="https://atsarul-mujahidin.netlify.app/{locale}/showcase" />
+	<meta property="og:type" content="website" />
+	<meta name="twitter:card" content="summary" />
 </svelte:head>
 
 <div class="{MAX} pt-36pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
@@ -84,9 +85,8 @@
 			<article class="gsap-on-scroll group overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition hover:-translate-y-1 hover:border-islamic-line-strong hover:shadow-[0_12px_40px_rgba(0,0,0,.15)]">
 				<div class="flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-islamic-panel-2 to-islamic-panel">
 					<div class="transition duration-500 group-hover:scale-110">
-						{#if project.icon}
-							{@const IconComponent = project.icon}
-							<IconComponent size={160} class="text-islamic-green opacity-80" />
+						{#if project.iconItem}
+							<DynamicIcon item={project.iconItem} variant="fill" size={160} class="text-islamic-green opacity-80" />
 						{/if}
 					</div>
 				</div>
