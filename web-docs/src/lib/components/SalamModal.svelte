@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	
 	let showModal = $state(false);
+	let dialogEl = $state<HTMLDivElement | null>(null);
 	
 	onMount(() => {
 		// Check if user has already seen the modal today
@@ -13,23 +14,44 @@
 				showModal = true;
 			}, 1000);
 		}
+		
+		// Handle Escape key
+		function handleKeydown(e: KeyboardEvent) {
+			if (e.key === 'Escape' && showModal) {
+				closeModal();
+			}
+		}
+		
+		window.addEventListener('keydown', handleKeydown);
+		return () => window.removeEventListener('keydown', handleKeydown);
 	});
 	
 	function closeModal() {
 		showModal = false;
 		localStorage.setItem('salamModalLastSeen', new Date().toDateString());
 	}
+	
+	function handleBackdropClick(e: MouseEvent) {
+		if (e.target === e.currentTarget) {
+			closeModal();
+		}
+	}
 </script>
 
 {#if showModal}
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<div 
 		class="fixed inset-0 z-[200] grid place-items-center bg-black/60 px-4 backdrop-blur-sm"
-		onclick={closeModal}
-		role="dialog"
-		aria-modal="true"
-		aria-labelledby="salam-title"
+		onclick={handleBackdropClick}
+		onkeydown={(e) => { if (e.key === 'Escape') closeModal(); }}
+		bind:this={dialogEl}
 	>
 		<div 
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="salam-title"
+			tabindex="-1"
 			class="relative w-full max-w-md rounded-2xl border border-islamic-line bg-islamic-bg p-8 text-center shadow-2xl"
 			onclick={(e) => e.stopPropagation()}
 		>
@@ -46,7 +68,7 @@
 			</button>
 			
 			<!-- Content -->
-			<div class="mb-6 text-5xl">☪️</div>
+			<div class="mb-6 text-5xl" role="img" aria-label="Islamic symbol">☪️</div>
 			<h2 id="salam-title" class="mb-3 font-display text-2xl tracking-tight text-islamic-green">
 				Assalamualaikum
 			</h2>

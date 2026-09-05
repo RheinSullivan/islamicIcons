@@ -3,7 +3,6 @@
 		icons,
 		categories,
 		pretty,
-		pathFor,
 		sourceForItem,
 		chooseVariant,
 		sourceLabel,
@@ -11,6 +10,7 @@
 		MAX
 	} from '$lib/site';
 	import { localeStore } from '$lib/locale.svelte';
+	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 
 	const translation = $derived(localeStore.t);
 
@@ -209,7 +209,6 @@
 					{#each filtered as item (item.name)}
 						{@const itemSource = sourceForItem(item, source)}
 						{@const selectedVariant = chooseVariant(itemSource, variant)}
-						{@const iconPath = pathFor(item, selectedVariant, itemSource?.id)}
 						<button
 							type="button"
 							data-open={item.name}
@@ -223,12 +222,7 @@
 									class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur"
 									aria-hidden="true">{sourceLabel(itemSource?.id || '')}</span
 								>
-								<img
-									class="size-full object-contain p-10 transition duration-500 group-hover:scale-105"
-									src={iconPath}
-									alt={item.title}
-									loading="lazy"
-								/>
+								<DynamicIcon {item} variant={selectedVariant} class="size-full p-10 transition duration-500 group-hover:scale-105" />
 							</span>
 							<span class="mt-3 block">
 								<strong class="block text-[13px] font-semibold text-islamic-text"

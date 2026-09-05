@@ -22,7 +22,7 @@
 		'muslim-woman-fill': MuslimWoman
 	};
 
-	const donationPhotos = [
+	const donationPhotos = $derived([
 		{
 			title: locale === 'en' ? 'Palestine Relief' : 'Bantuan Palestina',
 			description: locale === 'en' ? 'Emergency humanitarian aid for families in Gaza' : 'Bantuan kemanusiaan darurat untuk keluarga di Gaza',
@@ -90,7 +90,7 @@
 			span: 'sm:col-span-1 sm:row-span-1',
 			fallbackIcon: 'muslim-woman-fill'
 		}
-	];
+	]);
 
 	let imageLoadStates = $state<Record<string, boolean>>({});
 
@@ -149,7 +149,7 @@
 						<div class="flex size-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-islamic-panel-2 to-islamic-panel p-6">
 							{#if iconComponents[photo.fallbackIcon]}
 								{@const IconComponent = iconComponents[photo.fallbackIcon]}
-								<IconComponent width={photo.featured ? 160 : 80} height={photo.featured ? 160 : 80} class="text-islamic-green opacity-50" />
+								<IconComponent size={photo.featured ? 160 : 80} class="text-islamic-green opacity-50" />
 							{/if}
 							<div class="text-center">
 								{#if photo.category}

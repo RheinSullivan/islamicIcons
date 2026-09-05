@@ -3,7 +3,6 @@
 	import {
 		icons,
 		pretty,
-		pathFor,
 		sourceForItem,
 		chooseVariant,
 		variantName,
@@ -12,6 +11,7 @@
 		MAX
 	} from '$lib/site';
 	import { localeStore } from '$lib/locale.svelte';
+	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 
 	const t = $derived(localeStore.t);
 
@@ -28,7 +28,6 @@
 	});
 
 	const variant = $derived(chooseVariant(source ?? undefined, activeVariant));
-	const path = $derived(item ? pathFor(item, variant, source?.id) : '');
 
 	const vars = $derived.by(() => {
 		if (!source) return [];
@@ -78,7 +77,9 @@
 				<div
 					class="relative grid aspect-square place-items-center overflow-hidden rounded-3xl border border-islamic-line bg-islamic-panel"
 				>
-					<img class="size-[65%] object-contain" src={path} alt={item.title} />
+					{#if item}
+						<DynamicIcon {item} {variant} size="65%" />
+					{/if}
 					<span
 						class="absolute bottom-4 left-4 rounded-full border border-islamic-line bg-islamic-bg px-2 py-1 text-[9px] text-islamic-dim"
 						>{sourceLabel(source?.id || '')} · {variantName(variant)}</span
@@ -237,12 +238,7 @@
 							<span
 								class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong"
 							>
-								<img
-									class="size-full object-contain p-8 transition duration-500 group-hover:scale-105"
-									src={pathFor(rel, 'fill')}
-									alt={rel.title}
-									loading="lazy"
-								/>
+								<DynamicIcon item={rel} variant="fill" class="size-full p-8 transition duration-500 group-hover:scale-105" />
 							</span>
 							<span class="mt-2 block text-[11px] font-medium text-islamic-muted group-hover:text-islamic-text"
 								>{rel.title}</span

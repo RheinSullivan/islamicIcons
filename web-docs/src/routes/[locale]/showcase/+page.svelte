@@ -86,7 +86,7 @@
 					<div class="transition duration-500 group-hover:scale-110">
 						{#if project.icon}
 							{@const IconComponent = project.icon}
-							<IconComponent width={160} height={160} class="text-islamic-green opacity-80" />
+							<IconComponent size={160} class="text-islamic-green opacity-80" />
 						{/if}
 					</div>
 				</div>

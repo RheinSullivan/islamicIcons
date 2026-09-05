@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { icons, pathFor, pretty, categories } from '$lib/site';
+	import { icons, pretty, categories } from '$lib/site';
 	import { docs, docsId, type DocEntry } from '$lib/docs-content';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
+	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 
 	let { onclose, onopenIcon }: { onclose: () => void; onopenIcon: (name: string) => void } = $props();
 
@@ -59,7 +60,7 @@
 			subtitle?: string;
 			path?: string;
 			iconName?: string;
-			iconPath?: string;
+			iconItem?: typeof icons[0];
 		}> = [];
 
 		// Search icons
@@ -73,7 +74,7 @@
 				title: icon.title,
 				subtitle: pretty(icon.category),
 				iconName: icon.name,
-				iconPath: pathFor(icon, 'fill')
+				iconItem: icon
 			}));
 
 		// Search docs
@@ -187,11 +188,11 @@
 						onclick={() => handleResultClick(result)}
 						class="flex w-full items-center gap-3 rounded-xl p-2 text-left transition hover:bg-white/5"
 					>
-						{#if result.type === 'icon' && 'iconPath' in result}
+						{#if result.type === 'icon' && 'iconItem' in result}
 							<span
-								class="grid size-10 shrink-0 place-items-center rounded-lg border border-islamic-line bg-islamic-panel"
+								class="grid size-10 shrink-0 place-items-center rounded-lg border border-islamic-line bg-islamic-panel p-1.5"
 							>
-								<img class="size-7 object-contain" src={result.iconPath} alt="" />
+								<DynamicIcon item={result.iconItem} variant="fill" class="size-full object-contain" />
 							</span>
 						{:else}
 							<span

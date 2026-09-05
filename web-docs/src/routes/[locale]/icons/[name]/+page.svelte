@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { icons, pretty, pathFor, sourceForItem, chooseVariant, variantName, sourceLabel, camel, MAX } from '$lib/site';
+	import { icons, pretty, sourceForItem, chooseVariant, variantName, sourceLabel, camel, MAX } from '$lib/site';
 	import { translations, type Locale } from '$lib/i18n';
+	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
@@ -19,7 +20,6 @@
 		return sourceForItem(item);
 	});
 	const variant = $derived(chooseVariant(source ?? undefined, activeVariant));
-	const path = $derived(item ? pathFor(item, variant, source?.id) : '');
 	const vars = $derived((source?.variants ?? []).filter(v => ['fill','outline','color','original','alternate'].includes(v)));
 	const imp = $derived(item ? `import { ${camel(item.name)} } from "atsarul-mujahidin/react/${item.name}-${variant}"` : '');
 
@@ -55,7 +55,9 @@
 		<!-- Preview column -->
 		<div>
 			<div class="relative grid aspect-square place-items-center overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel">
-				<img class="{variant === 'color' ? 'size-[72%] object-contain' : 'size-[72%] object-contain [filter:brightness(0)_invert(1)]'}" src={path} alt={item.title} />
+				<div class="{variant === 'color' ? 'size-[72%]' : 'size-[72%] [filter:brightness(0)_invert(1)]'}">
+					<DynamicIcon item={item} variant={variant} class="size-full object-contain" />
+				</div>
 				<span class="absolute bottom-3 left-3 rounded-full border border-islamic-line bg-islamic-bg px-2 py-1 text-[9px] text-islamic-dim">{sourceLabel(source?.id || '')} · {variantName(variant)}</span>
 			</div>
 			{#if vars.length > 1}
@@ -101,12 +103,12 @@
 				</div>
 			</div>
 
-			<!-- Asset path -->
+			<!-- Package name -->
 			<div class="mt-4">
-				<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">{translation.drawer.assetPath}</span>
+				<span class="mb-2 block text-[9px] uppercase tracking-[.15em] text-islamic-dim">Package</span>
 				<div class="flex items-center gap-2 overflow-hidden rounded-xl border border-islamic-line bg-black/20 p-2">
-					<code class="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap p-2 text-[11px] text-islamic-muted">{path}</code>
-					<button type="button" onclick={() => copyText(path)} class="cursor-pointer shrink-0 rounded-lg border border-islamic-line px-3 py-2 text-[10px] text-islamic-muted hover:border-islamic-line-strong hover:text-islamic-text">{translation.drawer.copy}</button>
+					<code class="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap p-2 text-[11px] text-islamic-muted">atsarul-mujahidin</code>
+					<button type="button" onclick={() => copyText('atsarul-mujahidin')} class="cursor-pointer shrink-0 rounded-lg border border-islamic-line px-3 py-2 text-[10px] text-islamic-muted hover:border-islamic-line-strong hover:text-islamic-text">{translation.drawer.copy}</button>
 				</div>
 			</div>
 
@@ -147,7 +149,9 @@
 					{#each related as rel (rel.name)}
 						<a href="/{locale}/icons/{rel.name}" class="gsap-on-scroll group text-center" aria-label="{rel.title} icon">
 							<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong">
-								<img class="size-full object-contain p-8 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]" src={pathFor(rel, 'fill')} alt={rel.title} loading="lazy" />
+								<div class="size-full p-8 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]">
+									<DynamicIcon item={rel} variant="fill" class="size-full object-contain" />
+								</div>
 							</span>
 							<span class="mt-2 block text-[11px] font-medium text-islamic-muted group-hover:text-islamic-text">{rel.title}</span>
 						</a>

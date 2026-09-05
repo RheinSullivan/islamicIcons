@@ -6,18 +6,18 @@
 		categories,
 		featured,
 		pretty,
-		pathFor,
 		icon,
 		MAX,
 		sourceForItem,
 		chooseVariant
 	} from '$lib/site';
 	import { localeStore } from '$lib/locale.svelte';
+	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 
 	const translation = $derived(localeStore.t);
 	const featuredIcons = $derived(featured);
-	const mosque = icon('mosque');
-	const lantern = icon('lantern');
+	const mosque = icon('mosque-simple');
+	const lantern = icon('lantern-outline');
 
 	onMount(() => {
 		// Redirect to locale-prefixed route
@@ -84,7 +84,7 @@
 						<span>Ramadan</span><span>02 / 03</span>
 					</div>
 					{#if lantern}
-						<img class="mt-10 size-[75%] w-full object-contain opacity-80" src={pathFor(lantern, 'color')} alt="Ramadan lantern" />
+						<DynamicIcon item={lantern} variant="outline" size="75%" class="mt-10 w-full opacity-80" />
 					{/if}
 				</div>
 				<div class="hero-art-front absolute bottom-4 left-0 h-[78%] w-[78%] -rotate-[5deg] rounded-[2rem] border border-islamic-line-strong bg-[#0a1a13] p-5 shadow-[0_40px_100px_rgba(0,0,0,.45)] sm:bottom-8">
@@ -92,7 +92,7 @@
 						<span>Atsarul Mujahidin</span><span>01 / 03</span>
 					</div>
 					{#if mosque}
-						<img class="mt-8 size-[65%] w-full object-contain" src={pathFor(mosque, 'original')} alt="Mosque icon" />
+						<DynamicIcon item={mosque} variant="fill" size="65%" class="mt-8 w-full" />
 					{/if}
 					<div class="absolute inset-x-5 bottom-5 border-t border-islamic-line pt-4">
 						<b class="block text-[11px]">{translation.home.builtFrom}</b>
@@ -136,11 +136,10 @@
 			{#each featuredIcons as item (item.name)}
 				{@const source = sourceForItem(item)}
 				{@const variant = chooseVariant(source, 'fill')}
-				{@const iconPath = pathFor(item, variant)}
 				<button type="button" data-open={item.name} class="gsap-on-scroll group w-full cursor-pointer text-left">
 					<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
 						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">Community</span>
-						<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105" src={iconPath} alt={item.title} loading="lazy" />
+						<DynamicIcon {item} {variant} class="size-full p-10 transition duration-500 group-hover:scale-105" />
 					</span>
 					<span class="mt-3 block">
 						<strong class="block text-[13px] font-semibold text-islamic-text">{item.title}</strong>

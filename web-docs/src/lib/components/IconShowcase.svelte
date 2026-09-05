@@ -42,7 +42,7 @@
 				<div class="flex h-16 w-16 items-center justify-center">
 					{#if icon.component}
 						{@const Component = icon.component}
-						<Component width={64} height={64} />
+						<Component size={64} />
 					{/if}
 				</div>
 				<span class="text-center text-xs font-medium text-gray-700">{icon.name}</span>

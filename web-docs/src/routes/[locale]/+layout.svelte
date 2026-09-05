@@ -5,7 +5,6 @@
 	import {
 		icons,
 		pretty,
-		pathFor,
 		icon,
 		sourceForItem,
 		chooseVariant,
@@ -18,6 +17,7 @@
 	import { translations, type Locale } from '$lib/i18n';
 	import SearchModal from '$lib/components/SearchModal.svelte';
 	import SalamModal from '$lib/components/SalamModal.svelte';
+	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 	import { onMount, tick } from 'svelte';
 
 	let { children, data } = $props();
@@ -69,7 +69,6 @@
 			['fill','outline','color','original','alternate'].includes(v)
 		);
 		const variant = chooseVariant(source, currentVariant);
-		const path = pathFor(item, variant, source?.id);
 		
 		// Get proper contributor name - check source metadata for actual contributor
 		let contributorName = 'Rhein Sullivan'; // Default
@@ -82,12 +81,26 @@
 		
 		const frameworkExamples = {
 			react: `import ${camel(item.name)} from 'atsarul-mujahidin/react/${item.name}-${variant}';\n\nexport function MyComponent() {\n  return <${camel(item.name)} size={32} />;\n}`,
-			vue: `<script setup>\nimport ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';\n<\/script>\n\n<template>\n  <${camel(item.name)} :size="32" />\n<\/template>`,
-			svelte: `<script>\n  import ${pretty(item.name).replace(/\s/g, '')} from 'atsarul-mujahidin/svelte/${variant}/${pretty(item.name).replace(/\s/g, '')}';\n<\/script>\n\n<${pretty(item.name).replace(/\s/g, '')} size={32} />`,
-			vanilla: `<script type="module">\n  import 'atsarul-mujahidin/vanilla/atsarul-mujahidin.js';\n<\/script>\n\n<atsarul-mujahidin-icon name="${item.name}" variant="${variant}" size="32"><\/atsarul-mujahidin-icon>`
+			vue: `<script setup>
+import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
+<\/script>
+
+<template>
+  <${camel(item.name)} :size="32" />
+<\/template>`,
+			svelte: `<script>
+  import ${pretty(item.name).replace(/\s/g, '')} from 'atsarul-mujahidin/svelte/${variant}/${pretty(item.name).replace(/\s/g, '')}';
+<\/script>
+
+<${pretty(item.name).replace(/\s/g, '')} size={32} />`,
+			vanilla: `<script type="module">
+  import 'atsarul-mujahidin/vanilla/atsarul-mujahidin.js';
+<\/script>
+
+<atsarul-mujahidin-icon name="${item.name}" variant="${variant}" size="32"><\/atsarul-mujahidin-icon>`
 		};
 		
-		return { item, source, variant, path, vars, contributorName, frameworkExamples };
+		return { item, source, variant, vars, contributorName, frameworkExamples };
 	});
 
 	function isActive(key: string) {
@@ -448,11 +461,9 @@
 				<div class="{drawerMaximized ? 'mx-auto max-w-4xl' : ''} p-5 sm:p-6">
 					<!-- Preview -->
 					<div class="relative grid {drawerMaximized ? 'aspect-[16/10]' : 'aspect-[4/3]'} place-items-center overflow-hidden rounded-xl border border-islamic-line bg-[radial-gradient(circle_at_50%_50%,rgba(115,224,174,.03),transparent_70%)]">
-						<img 
-							class="{drawerMaximized ? 'max-h-[50%] max-w-[40%]' : 'max-h-[35%] max-w-[35%]'} object-contain" 
-							src={drawerItem.path} 
-							alt={drawerItem.item.title}
-						/>
+						<div class="{drawerMaximized ? 'max-h-[50%] max-w-[40%]' : 'max-h-[35%] max-w-[35%]'} w-full h-full flex items-center justify-center">
+							<DynamicIcon item={drawerItem.item} variant={drawerItem.variant} class="w-full h-full object-contain" />
+						</div>
 					</div>
 
 					<!-- Variant Selection -->

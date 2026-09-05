@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { icons, categories, featured, pretty, pathFor, icon, MAX, sourceForItem, chooseVariant } from '$lib/site';
+	import { icons, categories, featured, pretty, icon, MAX } from '$lib/site';
 	import { translations, type Locale } from '$lib/i18n';
+	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
@@ -63,7 +64,9 @@
 					<span>Ramadan</span><span>02 / 03</span>
 				</div>
 				{#if lantern}
-					<img class="mt-10 size-[75%] w-full object-contain opacity-80" src={pathFor(lantern, 'color')} alt="Ramadan lantern" />
+					<div class="mt-10 flex size-[75%] w-full items-center justify-center">
+						<DynamicIcon item={lantern} variant="color" size={280} class="opacity-80" />
+					</div>
 				{/if}
 			</div>
 			<div class="hero-art-front absolute bottom-4 left-0 h-[78%] w-[78%] -rotate-[5deg] rounded-[2rem] border border-islamic-line-strong bg-[#0a1a13] p-5 shadow-[0_40px_100px_rgba(0,0,0,.45)] sm:bottom-8">
@@ -71,7 +74,9 @@
 					<span>Atsarul Mujahidin</span><span>01 / 03</span>
 				</div>
 				{#if mosque}
-					<img class="mt-8 size-[65%] w-full object-contain [filter:brightness(0)_invert(1)]" src={pathFor(mosque, 'original')} alt="Mosque icon" />
+					<div class="mt-8 flex size-[65%] w-full items-center justify-center">
+						<DynamicIcon item={mosque} variant="fill" size={240} colors="white" />
+					</div>
 				{/if}
 				<div class="absolute inset-x-5 bottom-5 border-t border-islamic-line pt-4">
 					<b class="block text-[11px]">{translation.home.builtFrom}</b>
@@ -119,13 +124,12 @@
 		<div class="icon-carousel flex gap-4">
 			<!-- First set of icons -->
 			{#each featuredIcons as item (item.name + '-1')}
-				{@const source = sourceForItem(item)}
-				{@const variant = chooseVariant(source, 'fill')}
-				{@const iconPath = pathFor(item, variant)}
 				<button type="button" data-open={item.name} class="group flex-shrink-0 w-[200px] cursor-pointer text-left">
 					<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
 						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">{pretty(item.category)}</span>
-						<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]" src={iconPath} alt={item.title} loading="lazy" />
+						<div class="flex size-full items-center justify-center p-10">
+							<DynamicIcon {item} variant="fill" size={120} colors="white" />
+						</div>
 					</span>
 					<span class="mt-3 block">
 						<strong class="block text-[13px] font-semibold text-islamic-text">{item.title}</strong>
@@ -135,13 +139,12 @@
 			{/each}
 			<!-- Duplicate set for seamless loop -->
 			{#each featuredIcons as item (item.name + '-2')}
-				{@const source = sourceForItem(item)}
-				{@const variant = chooseVariant(source, 'fill')}
-				{@const iconPath = pathFor(item, variant)}
 				<button type="button" data-open={item.name} class="group flex-shrink-0 w-[200px] cursor-pointer text-left">
 					<span class="relative block aspect-square overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel transition duration-300 group-hover:-translate-y-1 group-hover:border-islamic-line-strong group-hover:bg-islamic-panel-2 group-hover:shadow-[0_22px_55px_rgba(0,0,0,.22)]">
 						<span class="absolute left-3 top-3 z-10 rounded-full border border-islamic-line bg-islamic-bg/80 px-2 py-1 text-[8px] uppercase tracking-[.12em] text-islamic-dim backdrop-blur">{pretty(item.category)}</span>
-						<img class="size-full object-contain p-10 transition duration-500 group-hover:scale-105 [filter:brightness(0)_invert(1)]" src={iconPath} alt={item.title} loading="lazy" />
+						<div class="flex size-full items-center justify-center p-10">
+							<DynamicIcon {item} variant="fill" size={120} colors="white" />
+						</div>
 					</span>
 					<span class="mt-3 block">
 						<strong class="block text-[13px] font-semibold text-islamic-text">{item.title}</strong>
