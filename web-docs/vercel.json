@@ -1,0 +1,12 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "master": false
+    }
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": ".svelte-kit",
+  "framework": "sveltekit",
+  "installCommand": "npm install"
+}
