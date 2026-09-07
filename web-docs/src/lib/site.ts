@@ -1,0 +1,189 @@
+import { catalog, sources, metadata } from './catalog.generated';
+import type { CatalogItem, SourceItem, LibraryMetadata } from './types';
+
+export type { CatalogItem, SourceItem, LibraryMetadata };
+
+export const icons: CatalogItem[] = catalog as unknown as CatalogItem[];
+export { sources };
+export { metadata };
+
+export const categories = [...new Set(icons.map((iconItem) => iconItem.category))].sort();
+
+export const repoUrl = metadata.repository || 'https://github.com/RheinSullivan/islamicIcons';
+export const version = metadata.version;
+
+export const navItems = [
+	{ href: '/', label: 'Home', key: 'home' },
+	{ href: '/icons', label: 'Icons', key: 'icons' },
+	{ href: '/categories', label: 'Categories', key: 'categories' },
+	{ href: '/docs', label: 'Docs', key: 'docs' },
+	{ href: '/sources', label: 'Sources', key: 'sources' },
+	{ href: '/donations', label: 'Donations', key: 'donations' }
+];
+
+export const sideLinks: Array<[string, string]> = [
+	['Overview', '/docs'],
+	['Installation', '/docs/installation'],
+	['Usage', '/docs/usage'],
+	['Variants', '/docs/variants'],
+	['Frameworks', '/docs/frameworks'],
+	['Sources & attribution', '/docs/sources'],
+	['Donations', '/docs/donations'],
+	['Contributing', '/contributing']
+];
+
+export const featuredNames = [
+	'allah-caligraphy',
+	'muhammad-calligraphy',
+	'mosque-simple',
+	'quran-stand',
+	'wudhu-ablution',
+	'lantern-outline',
+	'qibla-direction',
+	'kaaba',
+	'prayer-beads-tasbih',
+	'prayer-mat',
+	'moon-start',
+	'crescent-star-frame',
+	'mosque-dome',
+	'dua-hands'
+];
+
+export const featured = featuredNames
+	.map((name) => icons.find((item) => item.name === name))
+	.filter((item): item is CatalogItem => Boolean(item));
+
+export const MAX = 'mx-auto w-full max-w-[1200px] px-5 sm:px-7 lg:px-8';
+export const ASSET_ROOT = '/assets';
+
+export function pretty(value: string): string {
+	const cleaned = String(value ?? '')
+		.replace(/-svgrepo-com/gi, '')
+		.replace(/_svgrepo_com/gi, '')
+		.replace(/svgrepo/gi, '');
+	return cleaned
+		.replace(/[-_]/g, ' ')
+		.replace(/([a-z])([A-Z])/g, '$1 $2')
+		.replace(/\s+/g, ' ')
+		.trim()
+		.replace(/\b\w/g, (matchedCharacter) => matchedCharacter.toUpperCase());
+}
+
+export function esc(value: string): string {
+	return String(value ?? '').replace(/[&<>"']/g, (matchedCharacter) => ({
+		'&': '&amp;',
+		'<': '&lt;',
+		'>': '&gt;',
+		'"': '&quot;',
+		"'": '&#39;'
+	}[matchedCharacter] || matchedCharacter));
+}
+
+export function camel(value: string): string {
+	return String(value).replace(/[-_]([a-z])/g, (_match, matchedLetter) => matchedLetter.toUpperCase());
+}
+
+export function icon(name: string) {
+	return icons.find((iconItem) => iconItem.name === name);
+}
+
+export function variantName(variant: string): string {
+	return variant === 'color' ? 'Colors' : pretty(variant);
+}
+
+export function sourceLabel(identifier: string): string {
+	return (
+		{
+			community: 'Community',
+			'svg-repo': 'SVG Repo',
+			'mary-akveo': 'Mary Akveo',
+			'google-material': 'Google Material Icons',
+			'community-upload': 'Community Upload'
+		}[identifier] || pretty(identifier)
+	);
+}
+
+export function sourceForItem(item: CatalogItem, sourceIdentifier: string = 'all') {
+	if (sourceIdentifier !== 'all') return item.sources.find((sourceItem) => sourceItem.id === sourceIdentifier) || item.sources[0];
+	return (
+		item.sources.find((sourceItem) => sourceItem.id === 'community') ||
+		item.sources.find((sourceItem) => sourceItem.id === 'community-upload') ||
+		item.sources[0]
+	);
+}
+
+export function variantsFor(source: { variants?: string[] } | undefined): string[] {
+	return source?.variants || [];
+}
+
+export function chooseVariant(
+	source: { variants?: string[] } | undefined,
+	requested: string = 'fill'
+): string {
+	const availableVariants = variantsFor(source);
+	if (availableVariants.includes(requested)) return requested;
+	if (availableVariants.includes('fill')) return 'fill';
+	if (availableVariants.includes('original')) return 'original';
+	return availableVariants[0] || 'original';
+}
+
+export function pathFor(item: CatalogItem, variant: string = 'fill', sourceId: string = 'auto'): string {
+	const source =
+		sourceId === 'auto'
+			? sourceForItem(item)
+			: item.sources.find((source) => source.id === sourceId) || sourceForItem(item);
+	if (!source) return '';
+	const selectedVariant = chooseVariant(source, variant);
+	if (source.id === 'community') {
+		return `${ASSET_ROOT}/${item.category}/${item.name}/${selectedVariant}.svg`;
+	}
+	return `${ASSET_ROOT}/${item.category}/${item.name}/sources/${source.id}/${selectedVariant}.svg`;
+}
+
+export function iconPath(item: CatalogItem, variant: string = 'fill'): string {
+	const source = sourceForItem(item);
+	if (!source) return '';
+	const selectedVariant = chooseVariant(source, variant);
+	const base = `${ASSET_ROOT}/${item.category}/${item.name}`;
+	if (source.id === 'community') return `${base}/${selectedVariant}.svg`;
+	return `${base}/sources/${source.id}/${selectedVariant}.svg`;
+}
+
+export function categoryDescription(category: string): string {
+	const descriptions: Record<string, string> = {
+		animal: 'Animals in Islamic context and halal dietary symbols.',
+		charity: 'Zakat, sadaqah and giving.',
+		flag: 'National and cause-related imagery.',
+		food: 'Halal food and dietary symbols.',
+		god: 'Allah, tawhid and Arabic religious marks.',
+		lifestyle: 'Hajj, travel and everyday Islamic life.',
+		mosque: 'Mosques, minarets and sacred locations.',
+		'muslim-brand': 'Muslim brand logos and identities.',
+		ornamen: 'Ornamental decorations and embellishments.',
+		patterns: 'Geometric and ornamental Islamic motifs.',
+		prayer: 'Salah, dua, wudhu, qibla and tasbih.',
+		prophet: 'Prophetic names and calligraphy.',
+		qalligraphy: 'Arabic calligraphy and religious scripts.',
+		quran: 'Quran, Kaaba and sacred reading symbols.',
+		ramadhan: 'Ramadan, crescent, lantern, iftar and Eid-adjacent imagery.'
+	};
+	return descriptions[category] || 'Islamic visual symbols and community contributions.';
+}
+
+export const categoryMeta: Record<string, string> = {
+	animal: 'Animals in Islamic context and halal dietary symbols.',
+	charity: 'Zakat, sadaqah and giving.',
+	flag: 'National and cause-related imagery.',
+	food: 'Halal food and dietary symbols.',
+	god: 'Allah, tawhid and Arabic religious marks.',
+	lifestyle: 'Hajj, travel and everyday Islamic life.',
+	mosque: 'Mosques, minarets and sacred locations.',
+	'muslim-brand': 'Muslim brand logos and identities.',
+	ornamen: 'Ornamental decorations and embellishments.',
+	patterns: 'Geometric and ornamental Islamic motifs.',
+	prayer: 'Salah, dua, wudhu, qibla and tasbih.',
+	prophet: 'Prophetic names and calligraphy.',
+	qalligraphy: 'Arabic calligraphy and religious scripts.',
+	quran: 'Quran, Kaaba and sacred reading symbols.',
+	ramadhan: 'Ramadan, crescent, lantern, iftar and Eid-adjacent imagery.'
+};
