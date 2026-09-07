@@ -24,7 +24,7 @@
 	let activeVariant = $state('fill');
 	let customColor = $state('#e8f0ed');
 	let customStrokeWidth = $state(1.5);
-	let customSize = $state(64);
+	let customSize = $state(180);
 	let absoluteStrokeWidth = $state(false);
 	let showGrid = $state(true);
 	let activeTab = $state<'vanilla' | 'react' | 'vue' | 'svelte' | 'angular' | 'astro'>('react');
@@ -128,7 +128,7 @@ import { ${pascalComponentName} } from 'atsarul-mujahidin/react/${iconKebabName}
 		activeVariant = availableVariantsList.includes('fill') ? 'fill' : availableVariantsList[0] || 'fill';
 		customColor = '#e8f0ed';
 		customStrokeWidth = 1.5;
-		customSize = 64;
+		customSize = 180;
 		absoluteStrokeWidth = false;
 		showGrid = true;
 		showToast(locale === 'id' ? 'Kustomisasi direset' : 'Customizer reset');
@@ -446,9 +446,9 @@ import { ${pascalComponentName} } from 'atsarul-mujahidin/react/${iconKebabName}
 							></div>
 						{/if}
 
-						<!-- Focal Icon Area: Approx 50% of container, perfectly centered -->
+						<!-- Focal Icon Area: Approx 70% of container height, perfectly centered -->
 						<div
-							class="main-preview-svg relative z-10 flex max-h-[70%] max-w-[50%] items-center justify-center transition-all duration-300"
+							class="main-preview-svg relative z-10 flex max-h-[75%] max-w-[70%] items-center justify-center transition-all duration-300"
 							style="color: {customColor};"
 						>
 							<DynamicIcon

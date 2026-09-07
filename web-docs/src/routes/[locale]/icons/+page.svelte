@@ -17,10 +17,13 @@
 			if (category !== 'all' && icon.category !== category) return false;
 			if (source !== 'all' && !icon.sources.some(iconSource => iconSource.id === source)) return false;
 			
-			// Filter by variant availability - icons MUST have the selected variant
-			const itemSource = sourceForItem(icon, source);
-			const availableVariants = itemSource?.variants || [];
-			if (!availableVariants.includes(variant)) return false;
+			// For "All icons" collection, show all icons regardless of variant
+			// For specific categories/sources, filter by variant availability
+			if (category !== 'all' || source !== 'all') {
+				const itemSource = sourceForItem(icon, source);
+				const availableVariants = itemSource?.variants || [];
+				if (!availableVariants.includes(variant)) return false;
+			}
 			
 			if (searchQuery) {
 				const queryLower = searchQuery.toLowerCase();
