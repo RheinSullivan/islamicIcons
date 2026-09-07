@@ -7,49 +7,105 @@
 
 	const PACKAGES = $derived([
 		{
-			name: 'React / Remix',
-			description: locale === 'en' ? 'A Atsarul Mujahidin package for React applications.' : 'Paket Atsarul Mujahidin untuk aplikasi React.',
+			name: 'Vanilla JS / TypeScript',
+			description: locale === 'en' ? 'Pure JavaScript/TypeScript package for any web project.' : 'Paket JavaScript/TypeScript murni untuk proyek web apapun.',
+			package: 'atsarul-mujahidin',
+			logo: '/framework-logos/js.svg',
+			docs: `/${locale}/docs/usage`,
+			install: 'bun add atsarul-mujahidin'
+		},
+		{
+			name: 'React.js',
+			description: locale === 'en' ? 'React components for Atsarul Mujahidin icons.' : 'Komponen React untuk ikon Atsarul Mujahidin.',
 			package: 'atsarul-mujahidin/react',
 			logo: '/framework-logos/react.svg',
 			docs: `/${locale}/docs/frameworks#react`,
 			install: 'bun add atsarul-mujahidin'
 		},
 		{
-			name: 'Vue / Nuxt',
-			description: locale === 'en' ? 'A Atsarul Mujahidin package for Vue applications.' : 'Paket Atsarul Mujahidin untuk aplikasi Vue.',
+			name: 'Next.js',
+			description: locale === 'en' ? 'Next.js compatible React components.' : 'Komponen React kompatibel dengan Next.js.',
+			package: 'atsarul-mujahidin/react',
+			logo: '/framework-logos/nextjs.svg',
+			docs: `/${locale}/docs/frameworks#nextjs`,
+			install: 'bun add atsarul-mujahidin'
+		},
+		{
+			name: 'Vue.js',
+			description: locale === 'en' ? 'Vue 3 components for Atsarul Mujahidin icons.' : 'Komponen Vue 3 untuk ikon Atsarul Mujahidin.',
 			package: 'atsarul-mujahidin/vue',
 			logo: '/framework-logos/vue.svg',
 			docs: `/${locale}/docs/frameworks#vue`,
 			install: 'bun add atsarul-mujahidin'
 		},
 		{
+			name: 'Nuxt.js',
+			description: locale === 'en' ? 'Nuxt 3 compatible Vue components.' : 'Komponen Vue kompatibel dengan Nuxt 3.',
+			package: 'atsarul-mujahidin/vue',
+			logo: '/framework-logos/nuxt.svg',
+			docs: `/${locale}/docs/frameworks#nuxt`,
+			install: 'bun add atsarul-mujahidin'
+		},
+		{
 			name: 'Svelte / SvelteKit',
-			description: locale === 'en' ? 'A Atsarul Mujahidin package for Svelte applications.' : 'Paket Atsarul Mujahidin untuk aplikasi Svelte.',
+			description: locale === 'en' ? 'Svelte components for Atsarul Mujahidin icons.' : 'Komponen Svelte untuk ikon Atsarul Mujahidin.',
 			package: 'atsarul-mujahidin/svelte',
 			logo: '/framework-logos/svelte.svg',
 			docs: `/${locale}/docs/frameworks#svelte`,
 			install: 'bun add atsarul-mujahidin'
 		},
 		{
+			name: 'Rakta.js',
+			description: locale === 'en' ? 'Rakta.js framework components (by Rhein Sullivan).' : 'Komponen framework Rakta.js (oleh Rhein Sullivan).',
+			package: 'atsarul-mujahidin',
+			logo: '/framework-logos/rakta.svg',
+			docs: 'https://github.com/RheinSullivan/raktajs',
+			install: 'bun add atsarul-mujahidin'
+		},
+		{
+			name: 'Solid.js',
+			description: locale === 'en' ? 'Solid.js compatible JSX components.' : 'Komponen JSX kompatibel dengan Solid.js.',
+			package: 'atsarul-mujahidin',
+			logo: '/framework-logos/solid.svg',
+			docs: `/${locale}/docs/frameworks#solid`,
+			install: 'bun add atsarul-mujahidin'
+		},
+		{
 			name: 'Angular',
-			description: locale === 'en' ? 'A Atsarul Mujahidin package for Angular applications.' : 'Paket Atsarul Mujahidin untuk aplikasi Angular.',
-			package: 'atsarul-mujahidin/angular',
+			description: locale === 'en' ? 'Angular components for Atsarul Mujahidin icons.' : 'Komponen Angular untuk ikon Atsarul Mujahidin.',
+			package: 'atsarul-mujahidin',
 			logo: '/framework-logos/angular.svg',
 			docs: `/${locale}/docs/frameworks#angular`,
 			install: 'bun add atsarul-mujahidin'
 		},
 		{
+			name: 'Preact',
+			description: locale === 'en' ? 'Preact-compatible lightweight components.' : 'Komponen ringan kompatibel dengan Preact.',
+			package: 'atsarul-mujahidin/react',
+			logo: '/framework-logos/preact.svg',
+			docs: `/${locale}/docs/frameworks#preact`,
+			install: 'bun add atsarul-mujahidin'
+		},
+		{
+			name: 'React Native',
+			description: locale === 'en' ? 'React Native mobile app components.' : 'Komponen aplikasi mobile React Native.',
+			package: 'atsarul-mujahidin',
+			logo: '/framework-logos/react.svg',
+			docs: `/${locale}/docs/frameworks#react-native`,
+			install: 'bun add atsarul-mujahidin'
+		},
+		{
 			name: 'Astro',
-			description: locale === 'en' ? 'A Atsarul Mujahidin package for Astro projects.' : 'Paket Atsarul Mujahidin untuk proyek Astro.',
-			package: 'atsarul-mujahidin/astro',
+			description: locale === 'en' ? 'Astro-compatible island components.' : 'Komponen island kompatibel dengan Astro.',
+			package: 'atsarul-mujahidin',
 			logo: '/framework-logos/astro.svg',
 			docs: `/${locale}/docs/frameworks#astro`,
 			install: 'bun add atsarul-mujahidin'
 		},
 		{
-			name: 'Plain HTML',
-			description: locale === 'en' ? 'A Atsarul Mujahidin package for static projects.' : 'Paket Atsarul Mujahidin untuk proyek statis.',
-			package: 'assets/icons/**',
+			name: 'Static HTML',
+			description: locale === 'en' ? 'Pure HTML with SVG icon assets.' : 'HTML murni dengan aset ikon SVG.',
+			package: 'atsarul-mujahidin/icons',
 			logo: '/framework-logos/html.svg',
 			docs: `/${locale}/docs/usage#html`,
 			install: 'bun add atsarul-mujahidin'
@@ -77,8 +133,8 @@
 		</h1>
 		<p class="mt-5 text-base leading-8 text-islamic-muted">
 			{locale === 'en'
-				? 'A Lucide icon library package for web and javascript applications.'
-				: 'Paket pustaka ikon Lucide untuk aplikasi web dan javascript.'}
+				? 'Framework-specific packages for Atsarul Mujahidin Islamic icons. Choose your framework and start building with 81+ Islamic icons including mosque, prayer, Quran, Palestine flag, and more.'
+				: 'Paket khusus framework untuk ikon Islam Atsarul Mujahidin. Pilih framework Anda dan mulai membangun dengan 81+ ikon Islam termasuk masjid, sholat, Quran, bendera Palestina, dan lainnya.'}
 		</p>
 	</div>
 

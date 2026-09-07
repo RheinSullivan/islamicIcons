@@ -97,20 +97,20 @@ console.log(mosqueColor);
 ### React.js
 
 ```jsx
-import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+import Mosque from 'atsarul-mujahidin/react/fill/Mosque';
 
-export function MosqueIcon() {
-	return <img src={mosque} alt="Mosque" width={24} height={24} />;
+export function App() {
+	return <Mosque size={24} />;
 }
 ```
 
 ### Next.js
 
 ```tsx
-import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+import Mosque from 'atsarul-mujahidin/react/fill/Mosque';
 
 export default function Page() {
-	return <img src={mosque} alt="Mosque" width={24} height={24} />;
+	return <Mosque size={24} />;
 }
 ```
 
@@ -118,11 +118,11 @@ export default function Page() {
 
 ```vue
 <script setup lang="ts">
-import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+import Mosque from 'atsarul-mujahidin/vue/fill/Mosque.vue';
 </script>
 
 <template>
-	<img :src="mosque" alt="Mosque" width="24" height="24" />
+	<Mosque :size="24" />
 </template>
 ```
 
@@ -130,11 +130,11 @@ import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
 
 ```vue
 <script setup lang="ts">
-import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+import Mosque from 'atsarul-mujahidin/vue/fill/Mosque.vue';
 </script>
 
 <template>
-	<img :src="mosque" alt="Mosque" width="24" height="24" />
+	<Mosque :size="24" />
 </template>
 ```
 
@@ -142,23 +142,23 @@ import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
 
 ```svelte
 <script lang="ts">
-	import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+	import Mosque from 'atsarul-mujahidin/svelte/fill/Mosque.svelte';
 </script>
 
-<img src={mosque} alt="Mosque" width="24" height="24" />
+<Mosque size={24} />
 ```
 
 ### Rakta.js
 
 ```jsx
-import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+import Mosque from 'atsarul-mujahidin/react/fill/Mosque';
 
-export function MosqueIcon() {
-	return <img src={mosque} alt="Mosque" width={24} height={24} />;
+export function App() {
+	return <Mosque size={24} />;
 }
 ```
 
-### Solid
+### Solid.js
 
 ```tsx
 import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
@@ -171,25 +171,26 @@ export function MosqueIcon() {
 ### Angular
 
 ```typescript
+// app.component.ts
 import { Component } from '@angular/core';
 import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
 
 @Component({
-	selector: 'app-mosque-icon',
-	template: `<img [src]="mosque" alt="Mosque" width="24" height="24" />`,
+	selector: 'app-root',
+	template: `<img [src]="mosqueIcon" alt="Mosque" width="24" height="24" />`,
 })
-export class MosqueIconComponent {
-	mosque = mosque;
+export class AppComponent {
+	mosqueIcon = mosque;
 }
 ```
 
 ### Preact
 
 ```jsx
-import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+import Mosque from 'atsarul-mujahidin/react/fill/Mosque';
 
-export function MosqueIcon() {
-	return <img src={mosque} alt="Mosque" width={24} height={24} />;
+export function App() {
+	return <Mosque size={24} />;
 }
 ```
 
@@ -202,6 +203,7 @@ import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
 export function MosqueIcon() {
 	return <Image source={{ uri: mosque }} style={{ width: 24, height: 24 }} />;
 }
+```
 ```
 
 ### Astro

@@ -267,21 +267,6 @@
 	</div>
 </section>
 
-<style>
-	@keyframes scroll-carousel {
-		from { transform: translateX(0); }
-		to { transform: translateX(-50%); }
-	}
-
-	.icon-carousel {
-		animation: scroll-carousel 40s linear infinite;
-	}
-
-	.icon-carousel:hover {
-		animation-play-state: paused;
-	}
-</style>
-
 <!-- Why section -->
 <section class="{MAX} py-16 sm:py-24">
 	<div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
