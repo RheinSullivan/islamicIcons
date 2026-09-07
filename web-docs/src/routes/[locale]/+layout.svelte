@@ -109,6 +109,11 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 		return currentPath.includes(`/${key}`);
 	}
 
+	// Check if current page is under Resources submenu
+	const isResourcesActive = $derived(
+		RESOURCES.some(resource => pathname.startsWith(resource.href))
+	);
+
 	const ALL_LOCALES: { code: Locale; label: string; flag: string }[] = [
 		{ code: 'en', label: 'English', flag: '🇬🇧' },
 		{ code: 'id', label: 'Indonesia', flag: '🇮🇩' },
@@ -267,12 +272,12 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 					<a
 						href={item.href}
 						aria-current={isActive(item.key) ? 'page' : undefined}
-						class="flex h-20 items-center border-b-2 px-3 text-[13px] font-medium transition {isActive(item.key) ? 'border-islamic-green text-islamic-green' : 'border-transparent text-islamic-muted hover:border-islamic-green hover:text-islamic-green'}"
+						class="flex h-20 items-center border-b-2 px-2 text-[13px] font-medium transition {isActive(item.key) ? 'border-islamic-green text-islamic-green' : 'border-transparent text-islamic-muted hover:border-islamic-green hover:text-islamic-green'}"
 					>{item.label}</a>
 				{/each}
 				<!-- Resources dropdown -->
 				<div class="group relative flex h-20 items-center">
-					<button type="button" class="flex h-20 cursor-pointer items-center gap-1 border-b-2 border-transparent px-3 text-[13px] font-medium text-islamic-muted transition hover:border-islamic-green hover:text-islamic-green">
+					<button type="button" class="flex h-20 cursor-pointer items-center gap-1 border-b-2 px-3 text-[13px] font-medium transition {isResourcesActive ? 'border-islamic-green text-islamic-green' : 'border-transparent text-islamic-muted hover:border-islamic-green hover:text-islamic-green'}">
 						Resources
 						<svg viewBox="0 0 24 24" aria-hidden="true" class="size-3 fill-none stroke-current stroke-[2] transition group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
 					</button>
@@ -303,7 +308,7 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 					target="_blank"
 					rel="noreferrer"
 					aria-label="GitHub repository"
-					class="hidden h-11 items-center gap-2 rounded-xl text-[12px] font-medium text-islamic-muted transition hover:bg-white/5 hover:text-islamic-text sm:flex"
+					class="hidden h-11 items-center gap-2 rounded-xl px-3 text-[12px] font-medium text-islamic-muted transition hover:bg-white/5 hover:text-islamic-text sm:flex"
 				>
 					<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-current"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.3 9.41 7.88 10.94.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
 					<span>GitHub</span>
@@ -332,7 +337,7 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 				{#each NAV as item (item.key)}
 					<a
 						href={item.href}
-						class="flex h-11 items-center border-b-2 text-[13px] font-medium transition {isActive(item.key) ? 'border-islamic-green text-islamic-green' : 'border-transparent text-islamic-muted hover:border-islamic-green hover:text-islamic-green'}"
+						class="flex h-11 items-center border-b-2 px-3 text-[13px] font-medium transition {isActive(item.key) ? 'border-islamic-green text-islamic-green' : 'border-transparent text-islamic-muted hover:border-islamic-green hover:text-islamic-green'}"
 					>{item.label}</a>
 				{/each}
 				<!-- Resources accordion for mobile -->
@@ -362,7 +367,7 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 					href={REPO_URL}
 					target="_blank"
 					rel="noreferrer"
-					class="flex h-11 items-center gap-2 rounded-xl text-[12px] font-medium text-islamic-muted"
+					class="flex h-11 items-center gap-2 rounded-xl px-3 text-[12px] font-medium text-islamic-muted"
 				>
 					<svg viewBox="0 0 24 24" aria-hidden="true" class="size-4 fill-current"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.3 9.41 7.88 10.94.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.07.78 2.16 0 1.56-.01 2.81-.01 3.19 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
 					GitHub

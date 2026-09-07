@@ -315,49 +315,49 @@
 	const donationPhotos = $derived.by(() => {
 		const base = [
 			{
-				image: 'https://help.unicef.org/mexico/sites/mexico/files/styles/facebook_share_image/public/2025-01/UNI495572.jpg?itok=q8E8Yyli',
-				source: 'UNICEF',
+				image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80',
+				source: 'Humanitarian Aid',
 				sourceUrl: 'https://www.unicef.org/appeals/state-of-palestine',
 				span: 'sm:col-span-2 sm:row-span-2',
 				featured: true,
 				fallbackIcon: 'palestine-flag-color'
 			},
 			{
-				image: 'https://www.unicef.org/sites/default/files/styles/hero_desktop/public/UN0784820.jpg.webp?itok=vOakVvzz',
-				source: 'UNICEF Sudan',
-				sourceUrl: 'https://www.unicef.org/sudan',
+				image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80',
+				source: 'Crisis Relief',
+				sourceUrl: 'https://www.unicef.org/emergencies',
 				span: 'sm:col-span-1 sm:row-span-1',
 				featured: false,
 				fallbackIcon: 'muslim-family-fill'
 			},
 			{
-				image: 'https://www.hopeandprosperity.org/wp-content/uploads/2020/06/5J2A7153.jpg',
-				source: 'Hope & Prosperity',
-				sourceUrl: 'https://www.hopeandprosperity.org/our-orphanage/',
+				image: 'https://images.unsplash.com/photo-1509099863731-ef4bff19e808?w=800&q=80',
+				source: 'Child Support',
+				sourceUrl: 'https://www.savethechildren.org',
 				span: 'sm:col-span-1 sm:row-span-1',
 				featured: false,
 				fallbackIcon: 'muslim-family-child-fill'
 			},
 			{
-				image: 'https://en.vcci.com.vn/hm_content/uploads/247-news/FLOODS.png',
-				source: 'VCCI',
-				sourceUrl: 'https://en.vcci.com.vn/disaster-relief-when-foreign-friends-show-kind-support-vietnam',
+				image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80',
+				source: 'Disaster Response',
+				sourceUrl: 'https://www.redcross.org',
 				span: 'sm:col-span-1 sm:row-span-2',
 				featured: false,
 				fallbackIcon: 'dua-hands-fill'
 			},
 			{
-				image: 'https://ik.imagekit.io/qkwbj7b7u/charity-meals/uploads/162/family-food-parcel2.png',
-				source: 'Charity Meals',
-				sourceUrl: 'https://charitymeals.org/projects',
+				image: 'https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=800&q=80',
+				source: 'Food Security',
+				sourceUrl: 'https://www.wfp.org',
 				span: 'sm:col-span-1 sm:row-span-1',
 				featured: false,
 				fallbackIcon: 'ketupat-fill'
 			},
 			{
-				image: 'https://www.thefinancialcoconut.com/hubfs/caregivers-png-1.png',
-				source: 'The Financial Coconut',
-				sourceUrl: 'https://www.thefinancialcoconut.com/blog/the-real-cost-of-caregiving-in-singapore',
+				image: 'https://images.unsplash.com/photo-1505851211198-77d23e87e18c?w=800&q=80',
+				source: 'Elderly Care',
+				sourceUrl: 'https://www.helpage.org',
 				span: 'sm:col-span-1 sm:row-span-1',
 				featured: false,
 				fallbackIcon: 'muslim-woman-fill'
