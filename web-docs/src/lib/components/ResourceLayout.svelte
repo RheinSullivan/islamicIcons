@@ -208,7 +208,7 @@
 	});
 </script>
 
-<div class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
+<div class="{MAX} pt-36 pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<div class="grid gap-10 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-14 xl:grid-cols-[200px_minmax(0,1fr)_200px]">
 		<!-- Left sidebar - Resource navigation -->
 		<aside class="hidden lg:block lg:sticky lg:top-28 lg:h-fit">

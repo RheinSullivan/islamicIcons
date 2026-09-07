@@ -154,45 +154,8 @@
 	});
 </script>
 
-{#if isLoading}
-	<!--
-		SSR / loading placeholder - a simple square that matches the icon size.
-		Avoids layout shift once the SVG loads.
-	-->
-	<svg
-		width={sizeValue}
-		height={sizeValue}
-		viewBox="0 0 24 24"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-		class={className}
-		aria-hidden="true"
-	>
-		<rect width="24" height="24" rx="4" fill="currentColor" fill-opacity="0.06" />
-	</svg>
-{:else if svgMarkup}
+{#if svgMarkup}
 	<!-- Inline SVG rendered directly - no <img>, no <object> -->
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	{@html svgMarkup}
-{:else}
-	<!-- Fallback when the SVG file could not be loaded -->
-	<svg
-		width={sizeValue}
-		height={sizeValue}
-		viewBox="0 0 24 24"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-		class={className}
-		role="img"
-		aria-label={item.title ?? item.name}
-	>
-		<rect width="24" height="24" rx="4" fill="currentColor" fill-opacity="0.08" />
-		<path
-			d="M12 8v4m0 4h.01"
-			stroke="currentColor"
-			stroke-width="1.5"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-		/>
-	</svg>
 {/if}

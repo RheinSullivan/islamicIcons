@@ -1,13 +1,56 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { sideLinks } from '$lib/site';
 	import { docs, richBody, type DocEntry } from '$lib/docs-content';
 	import { MAX } from '$lib/site';
+	import { createHighlighter } from 'shiki';
 
 	let { path = '/docs' }: { path?: string } = $props();
 
 	const entry: DocEntry = $derived(docs[path] ?? docs['/docs']);
 	const currentPath = $derived(page.url.pathname.replace(/\/$/, '') || '/');
+	
+	let processedBody = $derived(richBody(entry.body));
+
+	onMount(async () => {
+		try {
+			const highlighter = await createHighlighter({
+				themes: ['github-dark'],
+				langs: ['javascript', 'typescript', 'bash', 'shell', 'html', 'css', 'json', 'jsx', 'tsx', 'sh']
+			});
+
+			// Find all <pre><code> blocks and highlight them
+			const parser = new DOMParser();
+			const doc = parser.parseFromString(processedBody, 'text/html');
+			const codeBlocks = doc.querySelectorAll('pre code');
+
+			codeBlocks.forEach((codeBlock) => {
+				const code = codeBlock.textContent || '';
+				const lang = codeBlock.className.match(/language-(\w+)/)?.[1] || 'javascript';
+				
+				try {
+					const highlighted = highlighter.codeToHtml(code, {
+						lang: ['bash', 'sh', 'shell'].includes(lang) ? 'bash' : lang,
+						theme: 'github-dark'
+					});
+					
+					const tempDiv = parser.parseFromString(highlighted, 'text/html');
+					const newPre = tempDiv.querySelector('pre');
+					if (newPre && codeBlock.parentElement) {
+						newPre.classList.add('my-6', 'overflow-x-auto', 'rounded-2xl', 'border', 'border-islamic-line', 'p-4', 'text-[11px]', 'leading-7');
+						codeBlock.parentElement.replaceWith(newPre);
+					}
+				} catch (err) {
+					console.error('Failed to highlight code block:', err);
+				}
+			});
+
+			processedBody = doc.body.innerHTML;
+		} catch (err) {
+			console.error('Failed to load syntax highlighter:', err);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -15,7 +58,7 @@
 	<meta name="description" content={entry.lead} />
 </svelte:head>
 
-<main class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
+<main class="{MAX} pt-36 pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<div class="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14">
 		<aside class="hidden lg:block lg:sticky lg:top-28 lg:h-fit">
 			<div class="mb-5 text-[10px] font-semibold uppercase tracking-[.18em] text-islamic-dim">
@@ -53,7 +96,7 @@
 			<div
 				class="doc-body mt-12 text-[13px] leading-8 text-islamic-muted [&_a]:text-islamic-green [&_h2]:mt-12 [&_h2]:mb-3 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:tracking-[-.03em] [&_p]:mb-6 [&_strong]:text-islamic-text"
 			>
-				{@html richBody(entry.body)}
+				{@html processedBody}
 			</div>
 			<div
 				class="mt-14 flex flex-col justify-between gap-3 border-t border-islamic-line pt-5 text-[10px] text-islamic-dim sm:flex-row"

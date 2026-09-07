@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import {
 		icons,
@@ -12,6 +13,7 @@
 	} from '$lib/site';
 	import { translations, type Locale } from '$lib/i18n';
 	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
+	import { createHighlighter, type Highlighter } from 'shiki';
 
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
@@ -24,12 +26,13 @@
 	let activeVariant = $state('fill');
 	let customColor = $state('#e8f0ed');
 	let customStrokeWidth = $state(1.5);
-	let customSize = $state(180);
+	let customSize = $state(280);
 	let absoluteStrokeWidth = $state(false);
 	let showGrid = $state(true);
 	let activeTab = $state<'vanilla' | 'react' | 'vue' | 'svelte' | 'angular' | 'astro'>('react');
 	let toastMsg = $state<string | null>(null);
 	let toastTimer: ReturnType<typeof setTimeout> | null = null;
+	let highlighter = $state<Highlighter | null>(null);
 
 	const source = $derived.by(() => {
 		if (!item) return null;
@@ -128,7 +131,7 @@ import { ${pascalComponentName} } from 'atsarul-mujahidin/react/${iconKebabName}
 		activeVariant = availableVariantsList.includes('fill') ? 'fill' : availableVariantsList[0] || 'fill';
 		customColor = '#e8f0ed';
 		customStrokeWidth = 1.5;
-		customSize = 180;
+		customSize = 280;
 		absoluteStrokeWidth = false;
 		showGrid = true;
 		showToast(locale === 'id' ? 'Kustomisasi direset' : 'Customizer reset');
@@ -185,6 +188,40 @@ import { ${pascalComponentName} } from 'atsarul-mujahidin/react/${iconKebabName}
 	const relatedIcons = $derived(
 		item ? icons.filter((iconCandidate) => iconCandidate.category === item.category && iconCandidate.name !== item.name).slice(0, 8) : []
 	);
+
+	const highlightedSnippet = $derived.by(() => {
+		if (!highlighter || !frameworkSnippets) return frameworkSnippets[activeTab];
+		
+		try {
+			const langMap: Record<typeof activeTab, string> = {
+				react: 'tsx',
+				svelte: 'svelte',
+				vue: 'vue',
+				vanilla: 'html',
+				angular: 'typescript',
+				astro: 'astro'
+			};
+			
+			const lang = langMap[activeTab] || 'javascript';
+			return highlighter.codeToHtml(frameworkSnippets[activeTab], {
+				lang,
+				theme: 'github-dark'
+			});
+		} catch {
+			return frameworkSnippets[activeTab];
+		}
+	});
+
+	onMount(async () => {
+		try {
+			highlighter = await createHighlighter({
+				themes: ['github-dark'],
+				langs: ['typescript', 'javascript', 'html', 'svelte', 'vue', 'tsx', 'jsx', 'astro']
+			});
+		} catch (error) {
+			console.error('Failed to load syntax highlighter:', error);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -206,7 +243,7 @@ import { ${pascalComponentName} } from 'atsarul-mujahidin/react/${iconKebabName}
 </svelte:head>
 
 {#if item}
-	<div class="{MAX} pt-32 pb-16 sm:pt-36 sm:pb-24">
+	<div class="{MAX} pt-36 pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 		<!-- Breadcrumb -->
 		<nav class="mb-8 text-[11px] text-islamic-dim" aria-label="Breadcrumb">
 			<ol class="flex items-center gap-1.5 flex-wrap">
@@ -587,11 +624,17 @@ import { ${pascalComponentName} } from 'atsarul-mujahidin/react/${iconKebabName}
 						<button
 							type="button"
 							onclick={() => copyText(frameworkSnippets[activeTab], `${activeTab.toUpperCase()} Code`)}
-							class="absolute right-3 top-3 cursor-pointer rounded-lg border border-islamic-line bg-black/40 px-2.5 py-1.5 text-[10px] font-semibold text-islamic-muted transition hover:border-islamic-line-strong hover:text-islamic-text"
+							class="absolute right-3 top-3 z-10 cursor-pointer rounded-lg border border-islamic-line bg-black/40 px-2.5 py-1.5 text-[10px] font-semibold text-islamic-muted transition hover:border-islamic-line-strong hover:text-islamic-text"
 						>
 							Copy Code
 						</button>
-						<pre class="overflow-x-auto rounded-xl border border-islamic-line bg-black/40 p-5 font-mono text-[11px] leading-relaxed text-islamic-muted"><code>{frameworkSnippets[activeTab]}</code></pre>
+						{#if highlighter}
+							<div class="[&_pre]:p-5 [&_pre]:font-mono [&_pre]:text-[11px] [&_pre]:leading-relaxed [&_pre]:overflow-x-auto [&_pre]:rounded-xl [&_pre]:border [&_pre]:border-islamic-line [&_code]:text-[11px]">
+								{@html highlightedSnippet}
+							</div>
+						{:else}
+							<pre class="overflow-x-auto rounded-xl border border-islamic-line bg-black/40 p-5 font-mono text-[11px] leading-relaxed text-islamic-muted"><code>{frameworkSnippets[activeTab]}</code></pre>
+						{/if}
 					</div>
 				</section>
 

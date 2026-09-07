@@ -1,12 +1,42 @@
-# Atsarul Mujahidin - Documentation Web Application
+<p align="center">
+  <img src="atsarulmujahidin_benner.png" alt="Atsarul Mujahidin banner" width="100%" />
+</p>
 
-![Atsarul Mujahidin - Framework-agnostic Islamic SVG/WebP icons, organized for real projects](static/atsarulmujahidin_benner.png)
+<h1 align="center">Atsarul Mujahidin | Islamic Icon Library</h1>
 
 <p align="center">
-  <a href="https://github.com/RheinSullivan/islamic-icons/blob/main/LICENSE">[![license](https://img.shields.io/badge/license-MIT-green)](https://github.com/RheinSullivan/islamic-icons/blob/main/LICENSE)</a>
-  <a href="https://www.npmjs.com/package/atsarul-mujahidin">[![npm version](https://img.shields.io/npm/v/atsarul-mujahidin)](https://www.npmjs.com/package/atsarul-mujahidin)</a>
-  <a href="https://www.npmjs.com/package/atsarul-mujahidin">[![npm downloads](https://img.shields.io/npm/dm/atsarul-mujahidin)](https://www.npmjs.com/package/atsarul-mujahidin)</a>
-  <a href="https://github.com/RheinSullivan/islamic-icons/actions">[![build status](https://img.shields.io/github/actions/workflow/status/RheinSullivan/islamic-icons/ci.yml)](https://github.com/RheinSullivan/islamic-icons/actions)</a>
+  <strong>An open-source, framework-agnostic Islamic icon library for modern digital products.</strong>
+</p>
+
+<p align="center">
+  <em>Authentic symbols. Consistent geometry. Built for the web.</em>
+</p>
+
+<p align="center">
+  <a href="https://github.com/RheinSullivan/islamic-icons/stargazers">
+    <img src="https://img.shields.io/github/stars/RheinSullivan/islamic-icons?style=flat&logo=github&label=stars&color=eab308&labelColor=555" alt="GitHub stars" />
+  </a>
+  <a href="https://github.com/RheinSullivan/islamic-icons/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/RheinSullivan/islamic-icons?style=flat&logo=github&label=contributors&color=9333ea&labelColor=555" alt="GitHub contributors" />
+  </a>
+  <a href="https://github.com/RheinSullivan/islamic-icons/commits/main">
+    <img src="https://img.shields.io/github/commit-activity/m/RheinSullivan/islamic-icons?style=flat&logo=git&label=commit%20activity&color=F05032&labelColor=555" alt="Monthly commit activity" />
+  </a>
+  <a href="https://github.com/RheinSullivan/islamic-icons/commits/main">
+    <img src="https://img.shields.io/github/last-commit/RheinSullivan/islamic-icons?style=flat&logo=github&label=last%20commit&color=28A745&labelColor=555" alt="Last commit" />
+  </a>
+  <a href="https://www.npmjs.com/package/atsarul-mujahidin">
+    <img src="https://img.shields.io/npm/v/atsarul-mujahidin?style=flat&label=atsarul-mujahidin&color=C60005&labelColor=555" alt="atsarul-mujahidin npm version" />
+  </a>
+  <a href="https://www.npmjs.com/package/atsarul-mujahidin">
+    <img src="https://img.shields.io/npm/dm/atsarul-mujahidin?style=flat&label=downloads%2Fmonth&color=009688&labelColor=555" alt="atsarul-mujahidin monthly downloads" />
+  </a>
+  <a href="https://github.com/RheinSullivan/islamic-icons/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/RheinSullivan/islamic-icons/ci.yml?style=flat&logo=github-actions&label=build&color=28A745&labelColor=555" alt="Build status" />
+  </a>
+  <a href="https://github.com/RheinSullivan/islamic-icons/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/RheinSullivan/islamic-icons?style=flat&label=license&color=7CB342&labelColor=555" alt="MIT License" />
+  </a>
 </p>
 
 <p align="center">

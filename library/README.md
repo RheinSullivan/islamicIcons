@@ -76,13 +76,7 @@ deno add npm:atsarul-mujahidin
 
 ## Usage
 
-### Native HTML
-
-```html
-<img src="/assets/icons/mosque/mosque/fill.svg" alt="Mosque" width="24" height="24" />
-```
-
-### JavaScript / TypeScript
+### Vanilla JavaScript / TypeScript
 
 ```ts
 import { categories, catalog, metadata } from 'atsarul-mujahidin';
@@ -94,7 +88,13 @@ console.log(mosqueOutline);
 console.log(mosqueColor);
 ```
 
-### React / JSX
+### Static HTML
+
+```html
+<img src="/assets/icons/mosque/mosque/fill.svg" alt="Mosque" width="24" height="24" />
+```
+
+### React.js
 
 ```jsx
 import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
@@ -104,7 +104,29 @@ export function MosqueIcon() {
 }
 ```
 
-### Vue
+### Next.js
+
+```tsx
+import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+
+export default function Page() {
+	return <img src={mosque} alt="Mosque" width={24} height={24} />;
+}
+```
+
+### Vue.js
+
+```vue
+<script setup lang="ts">
+import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+</script>
+
+<template>
+	<img :src="mosque" alt="Mosque" width="24" height="24" />
+</template>
+```
+
+### Nuxt.js
 
 ```vue
 <script setup lang="ts">
@@ -124,6 +146,62 @@ import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
 </script>
 
 <img src={mosque} alt="Mosque" width="24" height="24" />
+```
+
+### Rakta.js
+
+```jsx
+import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+
+export function MosqueIcon() {
+	return <img src={mosque} alt="Mosque" width={24} height={24} />;
+}
+```
+
+### Solid
+
+```tsx
+import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+
+export function MosqueIcon() {
+	return <img src={mosque} alt="Mosque" width={24} height={24} />;
+}
+```
+
+### Angular
+
+```typescript
+import { Component } from '@angular/core';
+import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+
+@Component({
+	selector: 'app-mosque-icon',
+	template: `<img [src]="mosque" alt="Mosque" width="24" height="24" />`,
+})
+export class MosqueIconComponent {
+	mosque = mosque;
+}
+```
+
+### Preact
+
+```jsx
+import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+
+export function MosqueIcon() {
+	return <img src={mosque} alt="Mosque" width={24} height={24} />;
+}
+```
+
+### React Native
+
+```tsx
+import { Image } from 'react-native';
+import { mosque } from 'atsarul-mujahidin/icons/mosque.js';
+
+export function MosqueIcon() {
+	return <Image source={{ uri: mosque }} style={{ width: 24, height: 24 }} />;
+}
 ```
 
 ### Astro

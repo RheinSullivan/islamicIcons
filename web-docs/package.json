@@ -36,6 +36,8 @@
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.3.3",
+		"atsarul-mujahidin": "0.1.1",
+		"shiki": "^4.4.3",
 		"tailwindcss": "^4.3.3"
 	}
 }

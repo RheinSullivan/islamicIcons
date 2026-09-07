@@ -51,7 +51,7 @@
 	<meta name="twitter:description" content={locale === 'en' ? '81 Islamic icons for React, Vue, Svelte. Browse mosque, prayer, Quran, charity, and Palestine icons.' : '81 ikon Islam untuk React, Vue, Svelte.'} />
 </svelte:head>
 
-<div class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
+<div class="{MAX} pt-36 pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<div class="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)]">
 		<!-- Sidebar - exact from native -->
 		<aside class="lg:sticky lg:top-28 lg:h-fit">

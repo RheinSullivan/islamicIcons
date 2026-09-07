@@ -251,7 +251,7 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 	<header class="fixed inset-x-0 top-0 z-50 border-b border-islamic-line bg-[#08150f]/95 backdrop-blur-xl supports-[backdrop-filter]:bg-[#08150f]/88">
 		<div class="{MAX} relative flex h-20 items-center justify-between gap-4">
 			<!-- Logo -->
-			<a href="/{locale}" aria-label="Atsarul Mujahidin home" class="group flex shrink-0 items-center gap-1">
+			<a href="/{locale}" aria-label="Atsarul Mujahidin home" class="group flex shrink-0 items-center gap-3">
 				<span class="grid size-12 shrink-0 place-items-center overflow-hidden">
 					<img src={logo} alt="Atsarul Mujahidin logo" class="size-full object-contain" />
 				</span>

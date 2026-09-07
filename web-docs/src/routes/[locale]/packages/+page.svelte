@@ -70,7 +70,7 @@
 	<meta name="twitter:description" content={locale === 'en' ? 'React, Vue, Svelte, Angular, Astro packages for Islamic icons.' : 'Paket React, Vue, Svelte, Angular, Astro untuk ikon Islam.'} />
 </svelte:head>
 
-<div class="{MAX} pt-32 pb-14 sm:pt-36 sm:pb-20">
+<div class="{MAX} pt-36 pb-14 sm:pt-44 sm:pb-20 lg:pt-32">
 	<div class="gsap-container mb-16 max-w-2xl">
 		<h1 class="font-display text-5xl font-medium tracking-[-.055em] sm:text-6xl">
 			{locale === 'en' ? 'Packages' : 'Paket'}

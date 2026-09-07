@@ -13,6 +13,7 @@
 	import { translations, type Locale } from '$lib/i18n';
 	import DynamicIcon from '$lib/components/DynamicIcon.svelte';
 
+
 	let { data } = $props();
 	const locale = $derived(data.locale as Locale);
 	const translation = $derived(translations[locale]);
@@ -69,6 +70,7 @@
 				></span>
 				{translation.home.badge}
 			</div>
+
 			<h1
 				class="hero-title max-w-3xl font-display text-[clamp(54px,6.6vw,96px)] font-medium leading-[.9] tracking-[-.065em]"
 				aria-label="Atsarul Mujahidin for the modern web."
