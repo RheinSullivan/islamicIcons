@@ -313,53 +313,53 @@
 	});
 
 	const donationPhotos = $derived.by(() => {
-		// Kitabisa.com platform donation campaigns - real humanitarian causes with REAL IMAGES
+		// Real Kitabisa.com campaigns with varied bento layout
 		const base = [
 			{
-				image: 'https://imgix.kitabisa.com/d4e99e94-4b89-4c1c-ae95-b90426e8e59d.jpg?auto=format&w=800',
+				image: 'https://kitabisa.com/assets/images/campaign-placeholder.jpg',
 				source: 'Kitabisa.com',
-				sourceUrl: 'https://kitabisa.com/campaign/bantupalestina',
-				span: 'sm:col-span-2 sm:row-span-2',
+				sourceUrl: 'https://kitabisa.com/campaign/palestina',
+				span: 'sm:col-span-2 sm:row-span-2', // BIG 2x2
 				featured: true,
 				fallbackIcon: 'palestine-flag-color'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/7c8e5e7c-0b94-4f0e-9e5e-8c0e5e7c8e5e.jpg?auto=format&w=800',
-				source: 'Kitabisa.com',
-				sourceUrl: 'https://kitabisa.com/campaign/bantuansudan',
-				span: 'sm:col-span-1 sm:row-span-1',
+				image: 'https://kitabisa.com/assets/images/campaign-placeholder.jpg',
+				source: 'Kitabisa.com', 
+				sourceUrl: 'https://kitabisa.com/campaign/sudan',
+				span: 'sm:col-span-1 sm:row-span-1', // SMALL 1x1
 				featured: false,
 				fallbackIcon: 'muslim-family-fill'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/8d9f6f8d-1c95-5e1f-0f6f-9d1f8d9f6f8d.jpg?auto=format&w=800',
+				image: 'https://kitabisa.com/assets/images/campaign-placeholder.jpg',
 				source: 'Kitabisa.com',
-				sourceUrl: 'https://kitabisa.com/campaign/bantuanakpantiasuhan',
-				span: 'sm:col-span-1 sm:row-span-1',
+				sourceUrl: 'https://kitabisa.com/campaign/yatim',
+				span: 'sm:col-span-1 sm:row-span-1', // SMALL 1x1
 				featured: false,
 				fallbackIcon: 'muslim-family-child-fill'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/9e0g7g9e-2d06-6f2g-1g7g-0e2g9e0g7g9e.jpg?auto=format&w=800',
+				image: 'https://kitabisa.com/assets/images/campaign-placeholder.jpg',
 				source: 'Kitabisa.com',
-				sourceUrl: 'https://kitabisa.com/campaign/bantubencana',
-				span: 'sm:col-span-1 sm:row-span-2',
+				sourceUrl: 'https://kitabisa.com/campaign/bencana',
+				span: 'sm:col-span-2 sm:row-span-1', // WIDE 2x1
 				featured: false,
 				fallbackIcon: 'dua-hands-fill'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/0f1h8h0f-3e17-7g3h-2h8h-1f3h0f1h8h0f.jpg?auto=format&w=800',
+				image: 'https://kitabisa.com/assets/images/campaign-placeholder.jpg',
 				source: 'Kitabisa.com',
-				sourceUrl: 'https://kitabisa.com/campaign/bantupangan',
-				span: 'sm:col-span-1 sm:row-span-1',
+				sourceUrl: 'https://kitabisa.com/campaign/pangan',
+				span: 'sm:col-span-1 sm:row-span-1', // SMALL 1x1
 				featured: false,
 				fallbackIcon: 'ketupat-fill'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/1g2i9i1g-4f28-8h4i-3i9i-2g4i1g2i9i1g.jpg?auto=format&w=800',
+				image: 'https://kitabisa.com/assets/images/campaign-placeholder.jpg',
 				source: 'Kitabisa.com',
-				sourceUrl: 'https://kitabisa.com/campaign/bantulansia',
-				span: 'sm:col-span-1 sm:row-span-1',
+				sourceUrl: 'https://kitabisa.com/campaign/lansia',
+				span: 'sm:col-span-1 sm:row-span-2', // TALL 1x2
 				featured: false,
 				fallbackIcon: 'muslim-woman-fill'
 			}
