@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import CrescentStarFrame from 'atsarul-mujahidin/svelte/fill/CrescentStarFrame.svelte';
 	
 	let showModal = $state(false);
 	let dialogEl = $state<HTMLDivElement | null>(null);
@@ -73,15 +74,17 @@
 			</button>
 			
 			<!-- Content -->
-			<div class="mb-6 text-5xl" role="img" aria-label="Islamic symbol">☪️</div>
-			<h2 id="salam-title" class="mb-3 font-display text-2xl tracking-tight text-islamic-green">
-				Assalamualaikum
+			<div class="mb-6 flex justify-center text-islamic-green" role="img" aria-label="Islamic symbol">
+				<CrescentStarFrame class="size-16" />
+			</div>
+			<h2 id="salam-title" class="mb-1 font-display text-3xl tracking-tight text-islamic-green">
+				السَّلاَمُ عَلَيْكُمْ
 			</h2>
-			<p class="mb-2 text-base leading-7 text-islamic-text">
-				Peace be upon you
+			<p class="mb-2 text-lg font-medium leading-7 text-islamic-text">
+				Assalamualaikum Warahmatullahi Wabarakatuh
 			</p>
 			<p class="text-sm leading-6 text-islamic-muted">
-				Welcome to Atsarul Mujahidin. May your visit be blessed and beneficial.
+				Peace, mercy, and blessings of Allah be upon you. Welcome to Atsarul Mujahidin. May your visit be blessed and beneficial.
 			</p>
 			
 			<!-- Footer -->
@@ -91,10 +94,10 @@
 					onclick={closeModal}
 					class="inline-flex h-11 items-center justify-center rounded-xl bg-islamic-green px-5 text-sm font-semibold text-islamic-bg transition hover:-translate-y-0.5 hover:shadow-lg"
 				>
-					Wa'alaikumussalam
+					وَعَلَيْكُمُ السَّلاَمُ (Wa'alaikumussalam)
 				</button>
 				<p class="text-[10px] text-islamic-dim">
-					This message appears once per day
+					This message appears once per day • Publisher: <a href="https://vyagranexus.rheinsullivan.web.id/in" target="_blank" rel="noopener noreferrer" class="text-islamic-green hover:underline">Vyagra Nexus™</a>
 				</p>
 			</div>
 		</div>
