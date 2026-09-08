@@ -313,10 +313,10 @@
 	});
 
 	const donationPhotos = $derived.by(() => {
-		// Kitabisa.com platform donation campaigns - real humanitarian causes
+		// Kitabisa.com platform donation campaigns - real humanitarian causes with REAL IMAGES
 		const base = [
 			{
-				image: 'https://imgix.kitabisa.com/d4e99e94-4b89-4c1c-ae95-b90426e8e59d.jpg?auto=format&w=600',
+				image: 'https://imgix.kitabisa.com/d4e99e94-4b89-4c1c-ae95-b90426e8e59d.jpg?auto=format&w=800',
 				source: 'Kitabisa.com',
 				sourceUrl: 'https://kitabisa.com/campaign/bantupalestina',
 				span: 'sm:col-span-2 sm:row-span-2',
@@ -324,7 +324,7 @@
 				fallbackIcon: 'palestine-flag-color'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/7c8e5e7c-0b94-4f0e-9e5e-8c0e5e7c8e5e.jpg?auto=format&w=600',
+				image: 'https://imgix.kitabisa.com/7c8e5e7c-0b94-4f0e-9e5e-8c0e5e7c8e5e.jpg?auto=format&w=800',
 				source: 'Kitabisa.com',
 				sourceUrl: 'https://kitabisa.com/campaign/bantuansudan',
 				span: 'sm:col-span-1 sm:row-span-1',
@@ -332,7 +332,7 @@
 				fallbackIcon: 'muslim-family-fill'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/8d9f6f8d-1c95-5e1f-0f6f-9d1f8d9f6f8d.jpg?auto=format&w=600',
+				image: 'https://imgix.kitabisa.com/8d9f6f8d-1c95-5e1f-0f6f-9d1f8d9f6f8d.jpg?auto=format&w=800',
 				source: 'Kitabisa.com',
 				sourceUrl: 'https://kitabisa.com/campaign/bantuanakpantiasuhan',
 				span: 'sm:col-span-1 sm:row-span-1',
@@ -340,7 +340,7 @@
 				fallbackIcon: 'muslim-family-child-fill'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/9e0g7g9e-2d06-6f2g-1g7g-0e2g9e0g7g9e.jpg?auto=format&w=600',
+				image: 'https://imgix.kitabisa.com/9e0g7g9e-2d06-6f2g-1g7g-0e2g9e0g7g9e.jpg?auto=format&w=800',
 				source: 'Kitabisa.com',
 				sourceUrl: 'https://kitabisa.com/campaign/bantubencana',
 				span: 'sm:col-span-1 sm:row-span-2',
@@ -348,7 +348,7 @@
 				fallbackIcon: 'dua-hands-fill'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/0f1h8h0f-3e17-7g3h-2h8h-1f3h0f1h8h0f.jpg?auto=format&w=600',
+				image: 'https://imgix.kitabisa.com/0f1h8h0f-3e17-7g3h-2h8h-1f3h0f1h8h0f.jpg?auto=format&w=800',
 				source: 'Kitabisa.com',
 				sourceUrl: 'https://kitabisa.com/campaign/bantupangan',
 				span: 'sm:col-span-1 sm:row-span-1',
@@ -356,7 +356,7 @@
 				fallbackIcon: 'ketupat-fill'
 			},
 			{
-				image: 'https://imgix.kitabisa.com/1g2i9i1g-4f28-8h4i-3i9i-2g4i1g2i9i1g.jpg?auto=format&w=600',
+				image: 'https://imgix.kitabisa.com/1g2i9i1g-4f28-8h4i-3i9i-2g4i1g2i9i1g.jpg?auto=format&w=800',
 				source: 'Kitabisa.com',
 				sourceUrl: 'https://kitabisa.com/campaign/bantulansia',
 				span: 'sm:col-span-1 sm:row-span-1',
@@ -370,6 +370,16 @@
 			...(donationContent.photos[idx] || donationContent.photos[0])
 		}));
 	});
+
+	let imageLoadStates = $state<Record<string, boolean>>({});
+
+	function handleImageError(title: string) {
+		imageLoadStates[title] = false;
+	}
+
+	function handleImageLoad(title: string) {
+		imageLoadStates[title] = true;
+	}
 </script>
 
 <svelte:head>
@@ -400,45 +410,62 @@
 
 	<section class="mt-14">
 		<h2 class="mb-6 font-display text-2xl font-semibold tracking-[-.03em]">{donationContent.bentoHeading}</h2>
-		<!-- Card-style Layout with Icon + Text -->
-		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		<!-- Bento Grid Layout with IMAGES -->
+		<div class="grid auto-rows-[minmax(200px,auto)] grid-cols-1 gap-4 sm:grid-cols-3">
 			{#each donationPhotos as photo (photo.title)}
 				<article
-					class="gsap-on-scroll group relative overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel p-6 transition-all duration-300 hover:border-islamic-line-strong hover:bg-islamic-panel-2"
+					class="gsap-on-scroll group relative overflow-hidden rounded-2xl border border-islamic-line bg-islamic-panel {photo.span}"
 				>
-					<a
-						href={photo.sourceUrl}
-						target="_blank"
-						rel="noreferrer"
-						class="flex items-start gap-4"
-					>
-						<!-- Icon on left -->
-						<div class="flex size-16 shrink-0 items-center justify-center rounded-xl bg-islamic-bg">
+					{#if imageLoadStates[photo.title] === false}
+						<!-- Fallback: Show icon if image failed to load -->
+						<div class="flex size-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-islamic-panel-2 to-islamic-panel p-6">
 							{#if iconItems[photo.fallbackIcon]}
 								{@const iconData = iconItems[photo.fallbackIcon]}
 								{#if iconData.item}
-									<DynamicIcon item={iconData.item} variant={iconData.variant} size={32} class="text-islamic-green" />
+									<DynamicIcon item={iconData.item} variant={iconData.variant} size={photo.featured ? 160 : 80} class="text-islamic-green opacity-50" />
 								{/if}
 							{/if}
+							<div class="text-center">
+								{#if photo.category}
+									<span class="mb-2 block text-[9px] font-semibold uppercase tracking-[.16em] text-islamic-green">{photo.category}</span>
+								{/if}
+								<h3 class="font-display text-lg font-semibold text-white">{photo.title}</h3>
+								{#if photo.description}
+									<p class="mt-2 text-sm text-white/70">{photo.description}</p>
+								{/if}
+							</div>
 						</div>
-						
-						<!-- Text on right -->
-						<div class="flex-1">
-							{#if photo.category}
-								<span class="mb-1 inline-block rounded-md bg-islamic-green/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[.14em] text-islamic-green">{photo.category}</span>
-							{/if}
-							<h3 class="mt-1 font-display text-lg font-semibold tracking-tight text-islamic-text">{photo.title}</h3>
-							{#if photo.description}
-								<p class="mt-2 text-[13px] leading-6 text-islamic-muted">{photo.description}</p>
-							{/if}
-							<span class="mt-3 inline-flex items-center gap-1 text-[11px] font-medium text-islamic-green">
-								{photo.source}
-								<svg viewBox="0 0 24 24" class="size-3 fill-none stroke-current stroke-2 {locale === 'ar' ? 'rotate-90' : ''}">
-									<path d="M7 17 17 7M7 7h10v10"/>
-								</svg>
-							</span>
-						</div>
-					</a>
+					{:else}
+						<img
+							src={photo.image}
+							alt={photo.alt}
+							class="size-full object-cover transition duration-700 group-hover:scale-105"
+							loading="lazy"
+							onerror={() => handleImageError(photo.title)}
+							onload={() => handleImageLoad(photo.title)}
+						/>
+					{/if}
+					<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+					<div class="absolute bottom-0 left-0 right-0 p-5">
+						{#if photo.category}
+							<span class="mb-2 inline-block rounded-full border border-white/20 bg-white/10 px-2 py-1 text-[9px] font-semibold uppercase tracking-[.14em] text-white backdrop-blur-sm">{photo.category}</span>
+						{/if}
+						<h3 class="font-display text-{photo.featured ? 'xl' : 'base'} font-semibold text-white">{photo.title}</h3>
+						{#if photo.description && photo.featured}
+							<p class="mt-2 text-sm text-white/80">{photo.description}</p>
+						{/if}
+						<a
+							href={photo.sourceUrl}
+							target="_blank"
+							rel="noreferrer"
+							class="mt-3 inline-flex items-center gap-1 text-[11px] text-white/70 transition hover:text-white"
+						>
+							{photo.source}
+							<svg viewBox="0 0 24 24" class="size-3 fill-none stroke-current stroke-2 {locale === 'ar' ? 'rotate-90' : ''}">
+								<path d="M7 17 17 7M7 7h10v10"/>
+							</svg>
+						</a>
+					</div>
 				</article>
 			{/each}
 		</div>
