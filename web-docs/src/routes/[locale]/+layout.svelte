@@ -568,10 +568,10 @@ import ${camel(item.name)} from 'atsarul-mujahidin/vue/${item.name}-${variant}';
 					<!-- Additional Info -->
 					<div class="mt-6 flex flex-wrap gap-4 text-[11px]">
 						<a href="/{locale}/docs/usage" class="text-islamic-green transition hover:underline">
-							{translation.drawer.usageGuide} →
+							{translation.drawer.usageGuide}
 						</a>
 						<a href="/{locale}/sources" class="text-islamic-green transition hover:underline">
-							{translation.drawer.sourcePolicy} →
+							{translation.drawer.sourcePolicy}
 						</a>
 					</div>
 				</div>

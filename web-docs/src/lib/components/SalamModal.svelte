@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import CrescentStarFrame from 'atsarul-mujahidin/svelte/fill/CrescentStarFrame.svelte';
+	// import CrescentStarFrame from 'atsarul-mujahidin/svelte/fill/CrescentStarFrame.svelte';
 	
 	let showModal = $state(false);
 	let dialogEl = $state<HTMLDivElement | null>(null);
@@ -75,7 +75,10 @@
 			
 			<!-- Content -->
 			<div class="mb-6 flex justify-center text-islamic-green" role="img" aria-label="Islamic symbol">
-				<CrescentStarFrame class="size-16" />
+				<!-- Simple Crescent Star Icon -->
+				<svg viewBox="0 0 24 24" class="size-16 fill-current" xmlns="http://www.w3.org/2000/svg">
+					<path d="M21 12.7C21 17.5 17.1 21 12.3 21 7.8 21 4.1 17.9 3.2 13.7 5.7 15.5 8.8 16.5 12.2 16.5 18.2 16.5 23 11.7 23 5.7 23 4.6 22.8 3.6 22.5 2.6 22 3.4 21.6 4.2 21.3 5.1 21.7 7.3 21 9.5 21 12.7ZM8 6 9.5 7.5 11 6.5 10.5 8.5 12 10 10 9.5 9 11 9.5 9 7.5 8 9 7.5 8 6Z"/>
+				</svg>
 			</div>
 			<h2 id="salam-title" class="mb-1 font-display text-3xl tracking-tight text-islamic-green">
 				السَّلاَمُ عَلَيْكُمْ

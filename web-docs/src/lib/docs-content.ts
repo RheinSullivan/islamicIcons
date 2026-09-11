@@ -59,27 +59,61 @@ export const docs: Record<string, DocEntry> = {
 		lead: 'Import icons as framework components or use the vanilla JavaScript web component for universal compatibility.',
 		body: `<p>Atsarul Mujahidin provides framework-specific components and a vanilla JavaScript web component. Choose the approach that fits your project.</p>
 
-<h2>Framework Components (React, Vue, Svelte)</h2>
-<pre>// Import per-icon with variant suffix
-import { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';
-import { MosqueSimple } from 'atsarul-mujahidin/react/mosquesimple-fill';
+<h2>React / Next.js</h2>
+<pre>import MosqueSimple from 'atsarul-mujahidin/react/mosque-simple-fill';
+import QuranBook from 'atsarul-mujahidin/react/quran-book-fill';
 
-&lt;Kaaba size={32} colors="#10b981" className="icon" /&gt;
-&lt;MosqueSimple size={24} /&gt;</pre>
+export function MyComponent() {
+  return (
+    &lt;&gt;
+      &lt;MosqueSimple size={32} /&gt;
+      &lt;QuranBook size={28} /&gt;
+    &lt;/&gt;
+  );
+}</pre>
 
-<p>All framework components accept: <code>size</code>, <code>colors</code>, <code>strokeWidth</code>, and <code>class</code>/<code>className</code> props.</p>
+<h2>Vue / Nuxt</h2>
+<pre>&lt;script setup&gt;
+import Crescent from 'atsarul-mujahidin/vue/crescent-fill';
+import Kaaba from 'atsarul-mujahidin/vue/kaaba-fill';
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;Crescent :size="32" /&gt;
+    &lt;Kaaba :size="48" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</pre>
+
+<h2>Svelte / SvelteKit</h2>
+<pre>&lt;script&gt;
+  import WudhuAblution from 'atsarul-mujahidin/svelte/fill/WudhuAblution';
+  import TasbihBeads from 'atsarul-mujahidin/svelte/outline/TasbihBeadsOutline';
+&lt;/script&gt;
+
+&lt;WudhuAblution size={32} /&gt;
+&lt;TasbihBeads size={36} /&gt;</pre>
 
 <h2>Vanilla JavaScript (Web Component)</h2>
-<pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.1/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+<pre>&lt;script type="module"&gt;
+  import 'atsarul-mujahidin/vanilla/atsarul-mujahidin.js';
+&lt;/script&gt;
 
-&lt;atsarul-mujahidin variant="kaaba" size="32" colors="#10b981"&gt;Kaaba&lt;/atsarul-mujahidin&gt;
-&lt;atsarul-mujahidin variant="mosque" size="24"&gt;Mosque&lt;/atsarul-mujahidin&gt;</pre>
+&lt;atsarul-mujahidin-icon name="mosque-simple" variant="fill" size="32"&gt;&lt;/atsarul-mujahidin-icon&gt;
+&lt;atsarul-mujahidin-icon name="crescent" variant="fill" size="28"&gt;&lt;/atsarul-mujahidin-icon&gt;
+&lt;atsarul-mujahidin-icon name="quran-book" variant="outline" size="24"&gt;&lt;/atsarul-mujahidin-icon&gt;</pre>
+
+<h2>Via CDN</h2>
+<pre>&lt;script type="module" src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.3/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+
+&lt;atsarul-mujahidin-icon name="kaaba" variant="fill" size="48"&gt;&lt;/atsarul-mujahidin-icon&gt;
+&lt;atsarul-mujahidin-icon name="sajadah-prayer-mat" variant="fill" size="32"&gt;&lt;/atsarul-mujahidin-icon&gt;</pre>
 
 <h2>Metadata API</h2>
 <p>Access icon catalog programmatically:</p>
 <pre>import { catalog, categories, metadata } from 'atsarul-mujahidin';
 
-console.log(metadata.iconCount);  // 81
+console.log(metadata.iconCount);  // 81+
 console.log(categories);          // Array of categories
 console.log(catalog);             // Full icon metadata</pre>
 
@@ -318,27 +352,61 @@ export const docsId: Record<string, DocEntry> = {
 		lead: 'Impor ikon sebagai komponen framework atau gunakan komponen web vanilla JavaScript untuk kompatibilitas universal.',
 		body: `<p>Atsarul Mujahidin menyediakan komponen khusus framework dan komponen web vanilla JavaScript. Pilih pendekatan yang sesuai dengan proyek Anda.</p>
 
-<h2>Komponen Framework (React, Vue, Svelte)</h2>
-<pre>// Impor per-ikon dengan sufiks varian
-import { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';
-import { MosqueSimple } from 'atsarul-mujahidin/react/mosquesimple-fill';
+<h2>React / Next.js</h2>
+<pre>import MosqueSimple from 'atsarul-mujahidin/react/mosque-simple-fill';
+import QuranBook from 'atsarul-mujahidin/react/quran-book-fill';
 
-&lt;Kaaba size={32} colors="#10b981" className="icon" /&gt;
-&lt;MosqueSimple size={24} /&gt;</pre>
+export function MyComponent() {
+  return (
+    &lt;&gt;
+      &lt;MosqueSimple size={32} /&gt;
+      &lt;QuranBook size={28} /&gt;
+    &lt;/&gt;
+  );
+}</pre>
 
-<p>Semua komponen framework menerima props: <code>size</code>, <code>colors</code>, <code>strokeWidth</code>, dan <code>class</code>/<code>className</code>.</p>
+<h2>Vue / Nuxt</h2>
+<pre>&lt;script setup&gt;
+import Crescent from 'atsarul-mujahidin/vue/crescent-fill';
+import Kaaba from 'atsarul-mujahidin/vue/kaaba-fill';
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;Crescent :size="32" /&gt;
+    &lt;Kaaba :size="48" /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</pre>
+
+<h2>Svelte / SvelteKit</h2>
+<pre>&lt;script&gt;
+  import WudhuAblution from 'atsarul-mujahidin/svelte/fill/WudhuAblution';
+  import TasbihBeads from 'atsarul-mujahidin/svelte/outline/TasbihBeadsOutline';
+&lt;/script&gt;
+
+&lt;WudhuAblution size={32} /&gt;
+&lt;TasbihBeads size={36} /&gt;</pre>
 
 <h2>Vanilla JavaScript (Web Component)</h2>
-<pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.1/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+<pre>&lt;script type="module"&gt;
+  import 'atsarul-mujahidin/vanilla/atsarul-mujahidin.js';
+&lt;/script&gt;
 
-&lt;atsarul-mujahidin variant="kaaba" size="32" colors="#10b981"&gt;Kaaba&lt;/atsarul-mujahidin&gt;
-&lt;atsarul-mujahidin variant="mosque" size="24"&gt;Masjid&lt;/atsarul-mujahidin&gt;</pre>
+&lt;atsarul-mujahidin-icon name="mosque-simple" variant="fill" size="32"&gt;&lt;/atsarul-mujahidin-icon&gt;
+&lt;atsarul-mujahidin-icon name="crescent" variant="fill" size="28"&gt;&lt;/atsarul-mujahidin-icon&gt;
+&lt;atsarul-mujahidin-icon name="quran-book" variant="outline" size="24"&gt;&lt;/atsarul-mujahidin-icon&gt;</pre>
+
+<h2>Via CDN</h2>
+<pre>&lt;script type="module" src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.3/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+
+&lt;atsarul-mujahidin-icon name="kaaba" variant="fill" size="48"&gt;&lt;/atsarul-mujahidin-icon&gt;
+&lt;atsarul-mujahidin-icon name="sajadah-prayer-mat" variant="fill" size="32"&gt;&lt;/atsarul-mujahidin-icon&gt;</pre>
 
 <h2>API Metadata</h2>
 <p>Akses katalog ikon secara programatis:</p>
 <pre>import { catalog, categories, metadata } from 'atsarul-mujahidin';
 
-console.log(metadata.iconCount);  // 81
+console.log(metadata.iconCount);  // 81+
 console.log(categories);          // Array kategori
 console.log(catalog);             // Metadata ikon lengkap</pre>
 
@@ -576,27 +644,46 @@ export const docsAr: Record<string, DocEntry> = {
 		lead: 'استورد الأيقونات كمكونات لأطر العمل أو استخدم مكون الويب بلغة جافاسكريبت النقية للتوافق الشامل.',
 		body: `<p>توفر آثار المجاهدين مكونات مخصصة لأطر العمل ومكون ويب بلغة جافاسكريبت النقية. اختر الأسلوب المناسب لمشروعك.</p>
 
-<h2>مكونات أطر العمل (React, Vue, Svelte)</h2>
-<pre>// استيراد لكل أيقونة بنمط لاحقة المتغير
-import { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';
-import { MosqueSimple } from 'atsarul-mujahidin/react/mosquesimple-fill';
+<h2>React / Next.js</h2>
+<pre>import WudhuAblution from 'atsarul-mujahidin/react/wudhu-ablution-fill';
 
-&lt;Kaaba size={32} colors="#10b981" className="icon" /&gt;
-&lt;MosqueSimple size={24} /&gt;</pre>
+export function MyComponent() {
+  return &lt;WudhuAblution size={32} /&gt;;
+}</pre>
 
-<p>تقبل جميع مكونات أطر العمل الخصائص التالية: <code>size</code> و<code>colors</code> و<code>strokeWidth</code> و<code>class</code>/<code>className</code>.</p>
+<h2>Vue / Nuxt</h2>
+<pre>&lt;script setup&gt;
+import WudhuAblution from 'atsarul-mujahidin/vue/wudhu-ablution-fill';
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;WudhuAblution :size="32" /&gt;
+&lt;/template&gt;</pre>
+
+<h2>Svelte / SvelteKit</h2>
+<pre>&lt;script&gt;
+  import WudhuAblution from 'atsarul-mujahidin/svelte/fill/WudhuAblution';
+&lt;/script&gt;
+
+&lt;WudhuAblution size={32} /&gt;</pre>
 
 <h2>جافاسكريبت القياسية (Web Component)</h2>
-<pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.1/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+<pre>&lt;script type="module"&gt;
+  import 'atsarul-mujahidin/vanilla/atsarul-mujahidin.js';
+&lt;/script&gt;
 
-&lt;atsarul-mujahidin variant="kaaba" size="32" colors="#10b981"&gt;Kaaba&lt;/atsarul-mujahidin&gt;
-&lt;atsarul-mujahidin variant="mosque" size="24"&gt;Mosque&lt;/atsarul-mujahidin&gt;</pre>
+&lt;atsarul-mujahidin-icon name="wudhu-ablution" variant="fill" size="32"&gt;&lt;/atsarul-mujahidin-icon&gt;</pre>
+
+<h2>عبر CDN</h2>
+<pre>&lt;script type="module" src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.3/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+
+&lt;atsarul-mujahidin-icon name="kaaba" variant="fill" size="48"&gt;&lt;/atsarul-mujahidin-icon&gt;</pre>
 
 <h2>واجهة برمجة البيانات الوصفية (Metadata API)</h2>
 <p>الوصول إلى فهرس الأيقونات برمجياً:</p>
 <pre>import { catalog, categories, metadata } from 'atsarul-mujahidin';
 
-console.log(metadata.iconCount);  // 81
+console.log(metadata.iconCount);  // 81+
 console.log(categories);          // مصفوفة التصنيفات
 console.log(catalog);             // بيانات الأيقونات الكاملة</pre>
 
@@ -834,27 +921,46 @@ export const docsJa: Record<string, DocEntry> = {
 		lead: 'フレームワークコンポーネントとしてインポートするか、Vanilla JavaScript Web Componentを使用してユニバーサルな互換性を確保。',
 		body: `<p>Atsarul Mujahidinはフレームワーク固有のコンポーネントと、Vanilla JavaScript Web Componentを提供しています。プロジェクトに最適な手法を選択してください。</p>
 
-<h2>フレームワークコンポーネント (React, Vue, Svelte)</h2>
-<pre>// バリアントサフィックス付きでアイコンごとにインポート
-import { Kaaba } from 'atsarul-mujahidin/react/kaaba-fill';
-import { MosqueSimple } from 'atsarul-mujahidin/react/mosquesimple-fill';
+<h2>React / Next.js</h2>
+<pre>import WudhuAblution from 'atsarul-mujahidin/react/wudhu-ablution-fill';
 
-&lt;Kaaba size={32} colors="#10b981" className="icon" /&gt;
-&lt;MosqueSimple size={24} /&gt;</pre>
+export function MyComponent() {
+  return &lt;WudhuAblution size={32} /&gt;;
+}</pre>
 
-<p>すべてのフレームワークコンポーネントは以下のPropsを受け入れます: <code>size</code>、<code>colors</code>、<code>strokeWidth</code>、<code>class</code>/<code>className</code>。</p>
+<h2>Vue / Nuxt</h2>
+<pre>&lt;script setup&gt;
+import WudhuAblution from 'atsarul-mujahidin/vue/wudhu-ablution-fill';
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;WudhuAblution :size="32" /&gt;
+&lt;/template&gt;</pre>
+
+<h2>Svelte / SvelteKit</h2>
+<pre>&lt;script&gt;
+  import WudhuAblution from 'atsarul-mujahidin/svelte/fill/WudhuAblution';
+&lt;/script&gt;
+
+&lt;WudhuAblution size={32} /&gt;</pre>
 
 <h2>Vanilla JavaScript (Web Component)</h2>
-<pre>&lt;script src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.1/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+<pre>&lt;script type="module"&gt;
+  import 'atsarul-mujahidin/vanilla/atsarul-mujahidin.js';
+&lt;/script&gt;
 
-&lt;atsarul-mujahidin variant="kaaba" size="32" colors="#10b981"&gt;Kaaba&lt;/atsarul-mujahidin&gt;
-&lt;atsarul-mujahidin variant="mosque" size="24"&gt;Mosque&lt;/atsarul-mujahidin&gt;</pre>
+&lt;atsarul-mujahidin-icon name="wudhu-ablution" variant="fill" size="32"&gt;&lt;/atsarul-mujahidin-icon&gt;</pre>
+
+<h2>CDN経由</h2>
+<pre>&lt;script type="module" src="https://cdn.jsdelivr.net/npm/atsarul-mujahidin@0.1.3/vanilla/atsarul-mujahidin.js"&gt;&lt;/script&gt;
+
+&lt;atsarul-mujahidin-icon name="kaaba" variant="fill" size="48"&gt;&lt;/atsarul-mujahidin-icon&gt;</pre>
 
 <h2>メタデータAPI</h2>
 <p>プログラムからアイコンカタログにアクセス:</p>
 <pre>import { catalog, categories, metadata } from 'atsarul-mujahidin';
 
-console.log(metadata.iconCount);  // 81
+console.log(metadata.iconCount);  // 81+
 console.log(categories);          // カテゴリー配列
 console.log(catalog);             // 完全なアイコンメタデータ</pre>
 

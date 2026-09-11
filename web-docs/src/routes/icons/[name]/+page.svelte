@@ -221,8 +221,8 @@
 
 				<div class="mt-6 flex flex-wrap gap-4 text-[10px] text-islamic-green">
 					<a href="/icons">← {translation.nav.icons}</a>
-					<a href="/docs/usage">{translation.drawer.usageGuide} →</a>
-					<a href="/sources">{translation.drawer.sourcePolicy} →</a>
+					<a href="/docs/usage">{translation.drawer.usageGuide}</a>
+					<a href="/sources">{translation.drawer.sourcePolicy}</a>
 				</div>
 			</div>
 		</div>
